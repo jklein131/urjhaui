@@ -29,11 +29,11 @@ class Navigation extends Component {
       <Nav.Link href="#inspections">Daily Inspections</Nav.Link>
       <Nav.Link href="#incidents">Incident Reporting</Nav.Link>
       <Nav.Link href="#admin/jobs">Job Manager</Nav.Link>
-      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#form-builder">Form Builder</NavDropdown.Item>
-        <NavDropdown.Item href="#resources/learning">Learning Resources</NavDropdown.Item>
+      <NavDropdown title="Forms" id="basic-nav-dropdown">
+        
+        <NavDropdown.Item href="#resources/learning">Form Name</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#admin/jobs">Job Manager</NavDropdown.Item>
+        <NavDropdown.Item href="#form-builder">Form Builder</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     {/* <Form inline>

@@ -31,7 +31,7 @@ class Main extends Component {
                 <Route path="/admin/jobs/:id?" component={Jobs}/>
                 <Route path="/documents" component={Documents}/>
                 <Route path="/dashboard" component={Dashboard}/>
-                <Route path="/form-builder" component={FormBuilder}/> 
+                <Route path="/form-builder/:id?" component={FormBuilder}/> 
           </div>
         </div>
         </HashRouter>

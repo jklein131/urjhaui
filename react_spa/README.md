@@ -22,3 +22,15 @@ https://react.rocks/?q=icon
 
 ### react tree nodes ### 
 https://github.com/frontend-collective/react-sortable-tree 
+
+
+
+### PDF renderer 
+
+for tables: https://www.npmjs.com/package/jspdf-autotable 
+
+for general PDF: jsPDF client side rendering of PDF's: https://github.com/MrRio/jsPDF
+
+omg can I run the same renderer in react as i can in Node, so that I render forms in react and upload them to node.
+
+or? https://github.com/kevinchappell/formeo 
