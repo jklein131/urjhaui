@@ -1,0 +1,576 @@
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Box from '@material-ui/core/Box';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Button from '@material-ui/core/Button';
+import Badge from '@material-ui/core/Badge';
+
+import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {SortableContainer, SortableElement} from 'react-sortable-hoc';
+import arrayMove from 'array-move';
+
+import JhaJobSelect from './JhaJobSelect'
+
+import { Page, Text, View, Document, PDFViewer, StyleSheet } from '@react-pdf/renderer';
+
+/* pdf stuff */ 
+import styled from '@react-pdf/styled-components';
+
+const Heading = styled.Text`
+  margin: 10px;
+  font-size: 22px;
+  font-family: 'Helvetica';
+`;
+
+
+// Create styles
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+    border: '5px solid red',
+  }
+});
+
+// Create Document Component
+const MyDocument = () => (
+  <PDFViewer width="100%" height="1000px">
+  <Document>
+    
+    <Page size="A5" style={styles.page}>
+    <Heading>Installing overhead pipe</Heading>
+      <View style={styles.section}>
+        <Text>Madison is sexy</Text>
+      </View>
+      <View style={styles.section}>
+        <Text>oooooo yeah bb </Text>
+      </View>
+      <View style={styles.section}>
+        <Text>Madison is sexy</Text>
+      </View>
+      <View style={styles.section}>
+        <Text>oooooo yeah bb </Text>
+      </View>
+    </Page>
+  </Document>
+  </PDFViewer>
+);
+
+//styles
+const useStyles = makeStyles(theme => ({
+  navroot: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+  root: {
+    width: '100%',
+  },
+  tabroot: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    height: 360,
+  },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
+  padding: {
+    padding: theme.spacing(0, 2),
+  }, 
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
+}));
+
+
+//help tooltips 
+const LightTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: theme.palette.common.white,
+    color: 'rgba(0, 0, 0, 0.87)',
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}))(Tooltip);
+
+
+function HorizontalLinearStepper() {
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
+  const steps = getSteps();
+
+  const isStepOptional = step => {
+    return false
+    //return step === 1;
+  };
+
+  const isStepSkipped = step => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      // You probably want to guard against something like this,
+      // it should never occur unless someone's actively trying to break something.
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(prevSkipped => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Stepper activeStep={activeStep}>
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = <Typography variant="caption">Optional</Typography>;
+          }
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <LightTooltip title={getStepTooltip(index)}>
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+            </LightTooltip>
+          );
+        })}
+      </Stepper>
+      <div>
+        {activeStep === steps.length ? (
+          <div>
+            <Typography className={classes.instructions}>
+              All steps completed - you&apos;re finished
+            </Typography>
+            <Button onClick={handleReset} className={classes.button}>
+              Reset
+            </Button>
+          </div>
+        ) : (
+          <div>
+            
+            <Typography component={'span'} className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <div>
+              <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+                Back
+              </Button>
+              {isStepOptional(activeStep) && (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSkip}
+                  className={classes.button}
+                >
+                  Skip
+                </Button>
+              )}
+
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                className={classes.button}
+              >
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      <Box p={3}>{children}</Box>
+    </Typography>
+  );
+}
+function getSteps() {
+  return ['Job and Activity Description', 'Hazards and Controls', 'Render and Save']
+}
+
+function getStepTooltip(step) {
+  switch (step) {
+    case 0:
+      return 'Job Specific Details';
+    case 1:
+    
+        return "Select Hazards and controls for your activity";
+      
+    case 2:
+      return 'Save as a PDF, distribute to your team. ';
+    default:
+      return 'Unknown step';
+  }
+}
+
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <JhaJobSelect></JhaJobSelect>
+    case 1:
+      return (
+      <div>
+        <SimpleTabs></SimpleTabs>
+      <br></br>
+      <ControlledExpansionPanels></ControlledExpansionPanels>
+      <br></br>
+      </div>
+      )
+    case 2:
+      return (
+        <MyDocument />
+      );
+    default:
+      return 'Unknown step';
+  }
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+
+ function SimpleTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div>
+      <br></br>
+    <h4> 1. Select hazards</h4>
+    <div className={classes.navroot}>
+      
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+          <Tab label="Library" {...a11yProps(0)} />
+         
+          <Tab label={
+             <Badge  className={classes.padding} badgeContent={4} color="error">Recommended </Badge>
+          } {...a11yProps(1)} 
+          />
+          
+          <Tab label="Search" {...a11yProps(2)} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        {/* TODO veritcal tabs works for desktop, but not mobile. for mobile i'm thinking list with sticky headers */}
+      <VerticalTabs></VerticalTabs>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Recommended data
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Search
+      </TabPanel>
+    </div>
+    </div>
+  );
+}
+
+//sortable stuff 
+const SortableItem = SortableElement(({value}) => 
+<ExpansionPanel >
+<ExpansionPanelSummary
+  expandIcon={<ExpandMoreIcon />}
+  aria-controls="panel1bh-content"
+  id="panel1bh-header"
+>
+  <Typography className={useStyles().heading}>Slip And Falls</Typography>
+  <Typography className={useStyles().secondaryHeading}>I am an expansion panel</Typography>
+</ExpansionPanelSummary>
+<ExpansionPanelDetails>
+  <Typography>
+    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+    maximus est, id dignissim quam.
+  </Typography>
+</ExpansionPanelDetails>
+</ExpansionPanel>
+);
+
+const SortableList = SortableContainer(({items}) => {
+  return (
+    <div>
+      {items.map((value, index) => (
+        <SortableItem key={`item-${value}`} index={index} value={value} />
+      ))}
+    </div>
+  );
+});
+
+class SortableComponent extends Component {
+  state = {
+    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
+  };
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.setState(({items}) => ({
+      items: arrayMove(items, oldIndex, newIndex),
+    }));
+  };
+  render() {
+    return <SortableList hideSortableGhost={false} items={this.state.items} onSortEnd={this.onSortEnd} handleChange={this.props.handleChange} expanded={this.props.expanded} />;
+  }
+}
+
+
+//vertical tabs 
+function TabPanelVertical(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      <Box p={3}>{children}</Box>
+    </Typography>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
+}
+
+
+function VerticalTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.tabroot}>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={handleChange}
+        aria-label="Vertical tabs example"
+        className={classes.tabs}
+      >
+        <Tab label="Equipment" {...a11yProps(0)} />
+        <Tab label="Plumbing" {...a11yProps(1)} />
+        <Tab label="Crane Pick" {...a11yProps(2)} />
+        <Tab label="Ladders" {...a11yProps(3)} />
+        <Tab label="General" {...a11yProps(4)} />
+        <Tab label="Fuel/Waste" {...a11yProps(5)} />
+        <Tab label="Hand Tools" {...a11yProps(6)} />
+      </Tabs>
+      <TabPanelVertical value={value} index={0}>
+        Item One
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={1}>
+        Item Two
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={2}>
+        Item Three
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={3}>
+        Item Four
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={4}>
+        Item Five
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={5}>
+        Item Six
+      </TabPanelVertical>
+      <TabPanelVertical value={value} index={6}>
+        Item Seven
+      </TabPanelVertical>
+    </div>
+  );
+}
+//end vertical tabs
+
+
+function ControlledExpansionPanels() {
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  return (
+    <div className={classes.root}>
+      <h4>2. Customize Controls</h4>
+       <SortableComponent expanded={expanded}handleChange={handleChange}></SortableComponent> 
+      
+      <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography className={classes.heading}>Slip And Falls</Typography>
+          <Typography className={classes.secondaryHeading}>I am an expansion panel</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+            maximus est, id dignissim quam.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+
+      <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
+        >
+          <Typography className={classes.heading}>PPE</Typography>
+          <Typography className={classes.secondaryHeading}>
+            You are currently not an owner
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
+            diam eros in elit. Pellentesque convallis laoreet laoreet.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
+        >
+          <Typography className={classes.heading}>Falls</Typography>
+          <Typography className={classes.secondaryHeading}>
+            Filtering has been entirely disabled for whole web server
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
+            vitae egestas augue. Duis vel est augue.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel4bh-content"
+          id="panel4bh-header"
+        >
+          <Typography className={classes.heading}>Struct By</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
+            vitae egestas augue. Duis vel est augue.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </div>
+  );
+}
+
+class Jha extends Component {
+  render() {
+    return (
+
+      <div>
+        <MyDocument />
+        <HorizontalLinearStepper></HorizontalLinearStepper>
+        <br></br>
+      </div>
+    );
+  }
+}
+ 
+export default Jha;
