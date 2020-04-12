@@ -21,58 +21,12 @@ import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 
 import JhaJobSelect from './JhaJobSelect'
-
-import { Page, Text, View, Document, PDFViewer, StyleSheet } from '@react-pdf/renderer';
-
-/* pdf stuff */ 
-import styled from '@react-pdf/styled-components';
-
-const Heading = styled.Text`
-  margin: 10px;
-  font-size: 22px;
-  font-family: 'Helvetica';
-`;
+import MyDocument from './JhaDocument'
 
 
-// Create styles
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-    border: '5px solid red',
-  }
-});
 
-// Create Document Component
-const MyDocument = () => (
-  <PDFViewer width="100%" height="1000px">
-  <Document>
-    
-    <Page size="A5" style={styles.page}>
-    <Heading>Installing overhead pipe</Heading>
-      <View style={styles.section}>
-        <Text>Madison is sexy</Text>
-      </View>
-      <View style={styles.section}>
-        <Text>oooooo yeah bb </Text>
-      </View>
-      <View style={styles.section}>
-        <Text>Madison is sexy</Text>
-      </View>
-      <View style={styles.section}>
-        <Text>oooooo yeah bb </Text>
-      </View>
-    </Page>
-  </Document>
-  </PDFViewer>
-);
+import {  PDFViewer } from '@react-pdf/renderer';
+
 
 //styles
 const useStyles = makeStyles(theme => ({
@@ -565,7 +519,8 @@ class Jha extends Component {
     return (
 
       <div>
-        <MyDocument />
+        <PDFViewer width="100%" height="1000px"><MyDocument /></PDFViewer>
+        
         <HorizontalLinearStepper></HorizontalLinearStepper>
         <br></br>
       </div>
