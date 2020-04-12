@@ -11,6 +11,7 @@ const Heading = styled.Text`
 `;
 
 
+
 // Create styles
 const styles = StyleSheet.create({
   page: {

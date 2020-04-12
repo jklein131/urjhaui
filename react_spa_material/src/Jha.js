@@ -237,7 +237,7 @@ function getStepContent(step) {
       )
     case 2:
       return (
-        <MyDocument />
+        <PDFViewer width="100%" height="1000px"><MyDocument /></PDFViewer>
       );
     default:
       return 'Unknown step';
@@ -519,8 +519,6 @@ class Jha extends Component {
     return (
 
       <div>
-        <PDFViewer width="100%" height="1000px"><MyDocument /></PDFViewer>
-        
         <HorizontalLinearStepper></HorizontalLinearStepper>
         <br></br>
       </div>

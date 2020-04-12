@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Media from 'react-bootstrap/Media';
 import Initicon from 'react-initicon';
-import Multhiselect from "@khanacademy/react-multi-select"; //replace this it is outdated
+//import Multhiselect from "@khanacademy/react-multi-select"; //replace this it is outdated
 
 var seedrandom = require('seedrandom');
 
@@ -181,11 +181,11 @@ class Job extends Component {
   <Form.Group controlId="formGridAreas">
     <Form.Label>Areas</Form.Label>
 
-  <Multhiselect
+  {/* <Multhiselect
     options={optionsareas}
     selected={areas}
     onSelectedChanged={areas => this.setState({areas})}
-  />
+  /> */}
   </Form.Group>
 
    
@@ -204,11 +204,11 @@ class Job extends Component {
   <Form.Group controlId="formGridZip">
     <Form.Label>Scopes</Form.Label>
 
-  <Multhiselect
+  {/* <Multhiselect
     options={options}
     selected={scopes}
     onSelectedChanged={scopes => this.setState({scopes})}
-  />
+  /> */}
   </Form.Group>
 
 <Button type="submit" >
