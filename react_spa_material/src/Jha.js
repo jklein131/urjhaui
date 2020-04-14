@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -8,11 +8,16 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
+import Paper from '@material-ui/core/Paper';
 
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -23,6 +28,11 @@ import arrayMove from 'array-move';
 import JhaJobSelect from './JhaJobSelect'
 import MyDocument from './JhaDocument'
 
+import {Resizable} from "re-resizable"
+
+import myData from './assets/data/hazards.json';
+
+console.log(myData)
 
 
 import {  PDFViewer } from '@react-pdf/renderer';
@@ -31,17 +41,16 @@ import {  PDFViewer } from '@react-pdf/renderer';
 //styles
 const useStyles = makeStyles(theme => ({
   navroot: {
-    flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
+    flexGrow: 0,
   },
   root: {
     width: '100%',
   },
   tabroot: {
-    flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: 360,
+    height: 500,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -58,6 +67,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  one: {
+    display: 'flex',
+    height: '100%', 
+    flexGrow: 1,
+  }
 }));
 
 
@@ -284,16 +298,25 @@ function a11yProps(index) {
           <Tab label="Search" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
+
       <TabPanel value={value} index={0}>
         {/* TODO veritcal tabs works for desktop, but not mobile. for mobile i'm thinking list with sticky headers */}
-      <VerticalTabs></VerticalTabs>
+      <VerticalTabs>
+
+      </VerticalTabs>
       </TabPanel>
+      <Resizable width={200} height={200}>
       <TabPanel value={value} index={1}>
         Recommended data
       </TabPanel>
+      
+      </Resizable>
+      
+      <Resizable width={200} height={200}>
       <TabPanel value={value} index={2}>
         Search
       </TabPanel>
+    </Resizable>
     </div>
     </div>
   );
@@ -383,10 +406,21 @@ function VerticalTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  var sections = {}
+  //TODO get myData from an API 
+    myData.map((answer, i) => {
+         if (!(answer.Section in sections)) {
+          sections[answer.Section] = []
+         }  
+         sections[answer.Section].push(answer)             
+         // Return the element. Also pass key     
+         return answer
+      })
+      console.log(sections)
+    
   return (
     <div className={classes.tabroot}>
-      <Tabs
+       <Tabs
         orientation="vertical"
         variant="scrollable"
         value={value}
@@ -394,35 +428,47 @@ function VerticalTabs() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Equipment" {...a11yProps(0)} />
-        <Tab label="Plumbing" {...a11yProps(1)} />
+        
+       {Object.keys(sections).map((answer, i) => (
+        <Tab key={i} label={answer} {...a11yProps(i)} />
+        ))}
+      </Tabs>
+  
+{/* <Tab label="Plumbing" {...a11yProps(1)} />
         <Tab label="Crane Pick" {...a11yProps(2)} />
         <Tab label="Ladders" {...a11yProps(3)} />
         <Tab label="General" {...a11yProps(4)} />
         <Tab label="Fuel/Waste" {...a11yProps(5)} />
-        <Tab label="Hand Tools" {...a11yProps(6)} />
-      </Tabs>
-      <TabPanelVertical value={value} index={0}>
-        Item One
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={1}>
-        Item Two
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={2}>
-        Item Three
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={3}>
-        Item Four
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={4}>
-        Item Five
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={5}>
-        Item Six
-      </TabPanelVertical>
-      <TabPanelVertical value={value} index={6}>
-        Item Seven
-      </TabPanelVertical>
+        <Tab label="Hand Tools" {...a11yProps(6)} /> 
+        
+        expanded={expanded === comps.Task}
+        
+        */
+        }
+      {Object.keys(sections).map((answer, i) => (
+        <TabPanelVertical style={{overflowY : 'scroll'}} value={value} index={i}>
+          <div>
+          {sections[answer].map((comps, i) => (
+            <ExpansionPanel  > 
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel4bh-content"
+              id="panel4bh-header"
+            >
+              <Typography className={classes.heading}>{comps.Hazards}</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
+                {
+                  comps.Controls
+                }
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+          ))}
+          </div>
+        </TabPanelVertical>
+        ))}
     </div>
   );
 }

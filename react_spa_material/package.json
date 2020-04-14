@@ -1,5 +1,5 @@
 {
-  "name": "react_spa",
+  "name": "react_spa_material",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,11 +8,12 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.10",
     "@react-pdf/renderer": "^1.6.8",
-    "@react-pdf/styled-components": "^1.4.0",
+    "@react-pdf/styled-components": "v1.4.0",
     "array-move": "^2.2.0",
     "core-js": "^3.2.1",
     "formBuilder": "^3.2.5",
     "jquery": "^3.4.1",
+    "re-resizable": "6.3.2",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-bootstrap-table-next": "^3.1.9",
