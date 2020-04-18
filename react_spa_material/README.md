@@ -43,3 +43,7 @@ https://github.com/clauderic/react-sortable-hoc
 
 def needs to be this one tho: 
 https://github.com/atlassian/react-beautiful-dnd
+
+
+# yarn linking for custom package 
+https://medium.com/@chrisdmasters/how-to-fork-a-dependency-and-use-it-locally-in-a-project-707c80d3449c 

@@ -13,9 +13,11 @@ import Inspections from "./Inspections";
 import Jobs from "./Jobs";
 import Documents from "./Documents";
 import Dashboard from "./Dashboard";
-import FormBuilder from "./FormBuilder";
+import FormBuilderJquery from "./FormBuilder";
+import FormViewer from "./FormViewer";
+import FormDashboard from "./FormDashboard";
 import Login from "./Login";
- 
+
 class Main extends Component {
   render() {
     return (
@@ -33,7 +35,9 @@ class Main extends Component {
                 <Route path="/admin/jobs/:id?" component={Jobs}/>
                 <Route path="/documents" component={Documents}/>
                 <Route path="/dashboard" component={Dashboard}/>
-                <Route path="/form-builder/:id?" component={FormBuilder}/> 
+                <Route path="/form-builder/:id?" component={FormBuilderJquery}/> 
+                <Route path="/form-dashboard/:id?" component={FormDashboard}/> 
+                <Route path="/form/:id?" component={FormViewer}/> 
                 <Route path="/login" component={Login}/> 
           </div>
         </div>

@@ -556,6 +556,7 @@ function ControlledExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      
     </div>
   );
 }

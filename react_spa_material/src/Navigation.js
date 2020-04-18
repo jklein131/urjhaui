@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { environment } from "./enviroments/enviroment"; 
 // import {
 //     NavLink, 
 //   } from "react-router-dom";
@@ -17,7 +18,19 @@ import Button from 'react-bootstrap/Button';
 //         </ul>
 
 class Navigation extends Component {
+  state = {
+    forms: [],
+  }
+  componentDidMount() {
+    fetch( environment.apiUrl+'formtemplates')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ forms: data })
+    }).catch(console.log)
+  }
   render() {
+    
+
     return (
 <Navbar bg="dark" expand="lg" variant="dark">
   <Navbar.Brand href="#">YourJHA</Navbar.Brand>
@@ -30,8 +43,10 @@ class Navigation extends Component {
       <Nav.Link href="#incidents">Incident Reporting</Nav.Link>
       <Nav.Link href="#admin/jobs">Job Manager</Nav.Link>
       <NavDropdown title="Forms" id="basic-nav-dropdown">
-        
-        <NavDropdown.Item href="#resources/learning">Form Name</NavDropdown.Item>
+      {this.state.forms.map((form) => (
+        <NavDropdown.Item href={"#form-dashboard/"+form._id}>{form.name}</NavDropdown.Item>
+      ))}
+                     
         <NavDropdown.Divider />
         <NavDropdown.Item href="#form-builder">Form Builder</NavDropdown.Item>
       </NavDropdown>

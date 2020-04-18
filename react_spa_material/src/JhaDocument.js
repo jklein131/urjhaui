@@ -25,6 +25,7 @@ Font.register({ family: 'Roboto-Condensed-Light', src: roboto_condensed_Light })
 const docPadding = 35;
 // Create styles
 const styles = StyleSheet.create({
+  
   page: {
   //  
   fontFamily: 'Roboto-Light',
