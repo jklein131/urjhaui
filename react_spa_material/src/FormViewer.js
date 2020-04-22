@@ -1,12 +1,11 @@
 import $ from "jquery";
 import React, { Component, createRef} from "react";
+import { findDOMNode } from 'react-dom';
 import { environment } from "./enviroments/enviroment"; 
 import PropTypes from 'prop-types';
 
 //bootstrapTable
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import Form from 'react-bootstrap/Form';
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Link from '@material-ui/core/Link'
@@ -14,7 +13,6 @@ import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles';
 
 import Initicon from 'react-initicon';
-import FormBuilder from "./FormBuilder";
 //import ReactDOM from "react-dom";
 //import "./styles.css";
 
@@ -45,6 +43,7 @@ window.$ = $;
 
 require("jquery-ui-sortable");
 require("formBuilder");
+
 require('formBuilder/dist/form-render.min.js');
 require("./control_plugins/starRating")
 
@@ -54,15 +53,22 @@ class FormViewer extends Component {
     state = {
       jobs: {},
       form_id: "",
+      initial: undefined, 
     }
 
     getAndViewJobs(id) {
         fetch( environment.apiUrl+'formtemplates/'+id)
         .then(res => res.json())
         .then((data) => {
-          this.setState({ jobs: data })
-          this.setState({ form_id: id })
+          var initialValuesTmp = {} 
           console.log("jobs_data", data)
+          data.template.map((value, i) => {
+            initialValuesTmp[value.name] = ""
+          })
+          this.setState({ jobs: data })
+          this.setState({ initial: initialValuesTmp })
+          this.setState({ form_id: id })
+          
           
           $(this.fb.current).formRender({
             formData: data.template,
@@ -73,7 +79,7 @@ class FormViewer extends Component {
 
     fb = createRef();
     componentWillMount() {
-        if (this.props.match !== undefined && this.props.match.params["id"] !== undefined) {
+        if (this.props.match !== undefined && this.props.match.params["id"] !== undefined && this.state.form_id !== this.props.match.params["id"]) {
             const jobid = this.props.match.params["id"] 
             this.getAndViewJobs(jobid);
         }
@@ -83,10 +89,24 @@ class FormViewer extends Component {
         this.getAndViewJobs(this.props.match.params["id"])
       }
     }
+    
+
+
     render() {
       const { classes } = this.props;
+      const handleSubmit = (e) => {
+        console.log("SUMBITTED", e)
+        e.preventDefault();
+        const el = findDOMNode(this.refs.myForm);
+        console.log($(el).serializeArray());
+        //TODO submit this form to the formbucket endpoint with all the data 
+
+        //get files TODO 
+        console.log($(el).find( "input[type='file']"))
+      }
         return (
           <div>
+
             <Link 
   href={"#form-dashboard/"+this.state.form_id}>
 <Button
@@ -100,31 +120,45 @@ class FormViewer extends Component {
         </Link>
         <br></br>
         <br></br>
-          <Paper elevation={5} className={classes.root}>
-            <div>
-              <div style={{textAlign:"center"}}>
-            <Icon name={this.state.jobs.name} size={150}></Icon>
+         {this.state.initial !== undefined ? (
+           
+        
+             <Paper elevation={5} className={classes.root}>
+             <div>
+               <div style={{textAlign:"center"}}>
+             <Icon name={this.state.jobs.name} size={150}></Icon>
+             
+             <Typography variant="h3" component="h2">
+             {this.state.jobs.name}
+             </Typography>
+             <br></br>
+             </div>
+             <form ref="thisForm" onSubmit={handleSubmit} ref="myForm" >
+               <div id="fb-editor" ref={this.fb} /> {/* generated form goes here */}
+               <Button
+               variant="contained"
+               color="primary"
+               className={classes.button}
+               type="submit"
+             >
+                Submit
+             </Button>
+             </form>
+              
+               </div>
+               </Paper>
+         ) : <span>loading</span> }
             
-            <Typography variant="h3" component="h2">
-            {this.state.jobs.name}
-</Typography>
-<br></br>
-</div>
-            <Form>
-            <div id="fb-editor" ref={this.fb} /> {/* generated form goes here */}
+
+
+
+            
             <br></br>
-            
-            </Form>
-          </div>
-          </Paper>
+
+          
+          
           <br></br>
-          <Button
-          variant="contained"
-          color="primary"
-          className={classes.button}
-        >
-          Submit
-        </Button>
+          
         </div>
         )
       }

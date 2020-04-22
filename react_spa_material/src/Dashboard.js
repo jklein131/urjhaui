@@ -291,6 +291,13 @@ class Dashboard extends Component {
     return (
       <div>
         <h2>My Analytics</h2>
+        <Typography>This dashboard is a place to overview some statistics about stuff in
+           real time based on real data from both JHA's, and forms from the field. 
+           Yes. We Have forms here, analytics are very important. 
+        </Typography>
+        <br></br>
+        <br></br>
+
         <DashboardView></DashboardView>
        
 

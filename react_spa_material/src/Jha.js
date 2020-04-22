@@ -91,6 +91,7 @@ function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
+  const [JHA, setJHA] = React.useState({}); 
 
   const isStepOptional = step => {
     return false
@@ -102,6 +103,19 @@ function HorizontalLinearStepper() {
   };
 
   const handleNext = () => {
+    if (activeStep == 0) {
+      if (JHA.jobselect === "" || JHA.jobselect === undefined) {
+        setJHA(t => {
+          const newMessageObj = { ...t, "jobselecterror": "Required" };
+          console.log(newMessageObj)
+          return newMessageObj
+        })
+
+        console.log("lit", JHA)
+        return
+      }
+       
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -169,7 +183,7 @@ function HorizontalLinearStepper() {
         ) : (
           <div>
             
-            <Typography component={'span'} className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <Typography component={'span'} className={classes.instructions}>{getStepContent(activeStep, JHA, setJHA)}</Typography>
             <div>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Back
@@ -236,16 +250,18 @@ function getStepTooltip(step) {
   }
 }
 
-function getStepContent(step) {
+function getStepContent(step, JHA, setJHA) {
+  //JHA and setJHA are all the data collected all the way through the form to get stuff and provide validation 
   switch (step) {
     case 0:
-      return <JhaJobSelect></JhaJobSelect>
+      return <JhaJobSelect JHA={JHA} setJHA={setJHA}></JhaJobSelect>
     case 1:
+
       return (
       <div>
         <SimpleTabs></SimpleTabs>
       <br></br>
-      <ControlledExpansionPanels></ControlledExpansionPanels>
+      <ControlledExpansionPanels JHA={JHA} setJHA={setJHA} ></ControlledExpansionPanels>
       <br></br>
       </div>
       )

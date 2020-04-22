@@ -17,6 +17,7 @@ import FormBuilderJquery from "./FormBuilder";
 import FormViewer from "./FormViewer";
 import FormDashboard from "./FormDashboard";
 import Login from "./Login";
+import Timeline from './Timeline';
 
 class Main extends Component {
   render() {
@@ -39,6 +40,7 @@ class Main extends Component {
                 <Route path="/form-dashboard/:id?" component={FormDashboard}/> 
                 <Route path="/form/:id?" component={FormViewer}/> 
                 <Route path="/login" component={Login}/> 
+                <Route path="/timeline" component={Timeline}/> 
           </div>
         </div>
         </HashRouter>

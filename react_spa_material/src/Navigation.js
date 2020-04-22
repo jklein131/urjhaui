@@ -37,10 +37,11 @@ class Navigation extends Component {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto navbar-right">
-      <Nav.Link href="#jha">Jha Generator</Nav.Link>
-      <Nav.Link href="#dashboard">Analytics Dashboard</Nav.Link>
+      <Nav.Link href="#jha">JHA Generator</Nav.Link>
+      <Nav.Link href="#dashboard">Analytics</Nav.Link>
       <Nav.Link href="#inspections">Daily Inspections</Nav.Link>
       <Nav.Link href="#incidents">Incident Reporting</Nav.Link>
+      <Nav.Link href="#timeline">Social Feed</Nav.Link>
       <Nav.Link href="#admin/jobs">Job Manager</Nav.Link>
       <NavDropdown title="Forms" id="basic-nav-dropdown">
       {this.state.forms.map((form) => (
