@@ -19,8 +19,9 @@ import DoneIcon from '@material-ui/icons/Done';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { StickyContainer, Sticky } from 'react-sticky';
 
+const theme = createMuiTheme({ });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = {
     chips: {
       display: 'flex',
       justifyContent: 'center',
@@ -29,47 +30,73 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(0.5),
       },
     },
-  }));
+  };
 
 import $ from "jquery";
 window.jQuery = $;
 window.$ = $;
 
-
+class RowControl extends React.Component {
+    state = {
+        chip: this.props.chip,
+        data: this.props.data,
+        status : 0,  
+    }
+    render() {
+        //this is triggered on "add" to scroll to the next object.
+        const scrollToNext = (ref) => {
+            // reports id of self, 
+            return (ref1, ref2) => {
+                console.log("lit", $(ref.current).height())
+                // ref1=header ref2=controls body or something
+                scroll.scrollMore($(ref.current).next().height() - $(ref1.current).height() - $(ref2.current).height(), {
+                    duration: 200,
+                })
+            }
+        }
+        var ref = React.createRef();
+        return (
+            <div id={this.state.data.Id} ref={ref}>
+            <JhaRow key={this.state.data.Id} status={this.state.status } setStatus={(stats)=>{this.setState({status: stats}); this.props.updateStatus(stats)}}
+            chip={this.state.chip} data={this.state.data} scrollToNext={scrollToNext(ref)}>
+            </JhaRow>
+            </div>
+        )
+    }
+}
   
  class JhaControl extends React.Component {
     state = {
         sections: {},
         rows: undefined,
+        statuss: {},
     }
     componentWillMount() {
-        this.props.dataset.map((object, index) => {
+        const swag = this.props.dataset.map((object, index) => {
             if (!( object.Section in this.state.sections)) {
+                
                 this.setState(function(prevState, props){
                     return {sections: {...prevState.sections, [object.Section] :false}}
-                 });
+                 }); 
+                 
             }
+            return this.setState(function(prevState, props){
+                return {statuss: {...prevState.statuss, [object.Id] :0}}
+             });
         })
-        this.setState({rows: this.props.dataset.map((object, index) => {
-            
-            //this is triggered on "add" to scroll to the next object.
-            const scrollToNext = (ref) => {
-                // reports id of self, 
-                return (ref1, ref2) => {
-                    console.log("lit", $(ref.current).height())
-                    // ref1=header ref2=controls body or something
-                    scroll.scrollMore($(ref.current).next().height() - $(ref1.current).height() - $(ref2.current).height(), {
-                        duration: 200,
-                    })
-                }
-            }
-            var ref = React.createRef();
-            return (
-                <div id={object.Id} ref={ref}>
-                <JhaRow key={index} data={object} scrollToNext={scrollToNext(ref)}></JhaRow>
-                </div>
-            )
-        })})
+       
+            this.setState({rows: this.props.dataset.map((object, index) => {
+                
+                return <RowControl data={object} chip={object.Section} status={this.state.statuss} updateStatus={ (stat) => {
+                   
+                            this.setState(function(prevState, props){
+                                return {statuss: {...prevState.statuss, [object.Id] :stat}}
+                            })
+                            console.log(this.state.statuss)
+                    }
+                }></RowControl>
+            })})
+        
     }
     
     render() {
@@ -87,7 +114,7 @@ window.$ = $;
         return <Chip
                     key={chip}
         avatar={<Avatar>{chip[0].toUpperCase()+ chip[1].toUpperCase()}</Avatar>}
-        label={chip+ this.state.sections[chip]}
+        label={chip}
         onClick={() => {
             console.info(chip)
             var r = this.state.sections
@@ -97,17 +124,24 @@ window.$ = $;
              });
             console.log(this.state.sections)
         }}
+
         color="primary"
-        variant={ "outlined"}
+        variant={ this.state.sections[chip] ? "default":"outlined"}
     /> })
             }
-            {Object.keys(this.state.sections).map((key)=> (console.log(this.state.sections,this.state.sections[key])))}
-            </div>
+     </div>
     <br>
     </br>
     <br></br>
         {
-        this.state.rows
+        this.state.rows.map((row, index) => {
+            if (this.state.sections[row.props.chip] === true) {
+                return row
+            }
+            if (row.props.data.Id in this.state.statuss && (this.state.statuss[row.props.data.Id] === 1 || this.state.statuss[row.props.data.Id] === 3)) {
+                return row 
+            }
+        }) 
         }
         </div>
     )

@@ -131,9 +131,10 @@ twoThings : {
     }
   })(Tooltip);
 
-export default function JhaRow({data, scrollToNext}) {
+export default function JhaRow({data, scrollToNext,status,setStatus}) {
     const classes = useStyles()
-    const [open, opener] = React.useState(0)
+    const open = status
+    const opener = setStatus
 
     //State list 
     // 0 is no state 
@@ -148,6 +149,7 @@ export default function JhaRow({data, scrollToNext}) {
 
     console.log(open)
     return (
+      <div>
       <Card key={data.Id} className={
          (open === 0) ? classes.open : (open === 1) ?
              classes.done: (open === 2) ? classes.clear : (open === 3) ? classes.open : {}
@@ -227,6 +229,7 @@ export default function JhaRow({data, scrollToNext}) {
       
       
     </Card>
+    </div>
 
   //   <ExpansionPanel defaultExpanded> 
   //           <ExpansionPanelSummary
