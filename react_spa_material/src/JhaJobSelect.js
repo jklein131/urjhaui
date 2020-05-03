@@ -138,7 +138,7 @@ function ComboBox({label, JHA, setJHA}) {
     <div> <Autocomplete
       id="combo-box-demo"
       options={top100Films}
-      getOptionLabel={(option) => option.title}
+      getOptionLabel={(option) => option == "" ? "" : option.title}
       value={JHA.jobselect == undefined ? "" : JHA.jobselect}
       onChange={
         (event, newValue) => {
@@ -148,11 +148,12 @@ function ComboBox({label, JHA, setJHA}) {
           })
         }
       }
-      style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} error={false || (JHA !== undefined && JHA.jobselecterror != undefined)} label={label} variant="outlined" />}
+      style={{ width: 500 }}
+      renderInput={(params) => <TextField required {...params} error={false || (JHA !== undefined && (JHA.jobselect == "" || JHA.jobselect == undefined) && JHA.jobselecterror != undefined)} label={label} variant="outlined" />}
     />
     {JHA !== undefined && JHA.jobselecterror}
     </div>
+
   );
 }
 function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
@@ -187,9 +188,8 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
   return (
     <React.Fragment>
       <Autocomplete
-        value={value}
+        value={JHA.activity === undefined ? "" : JHA.activity}
         required
-        disableClearable
         onChange={(event, newValue) => {
           console.log(newValue)
           if (typeof newValue === 'string') {
@@ -214,8 +214,16 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
           }
 
           setValue(newValue);
-          setJHA({...JHA , "activity" : newValue })
-          setCValue(newValue.year)
+          setJHA(t => {
+            const newMessageObj = { ...t, "activity": newValue };
+            return newMessageObj
+          })
+          if (newValue.year) {
+            setJHA(t => {
+              const newMessageObj = { ...t, "activitydesc": newValue.year };
+              return newMessageObj
+            })
+          } 
         }}
         filterOptions={(options, params) => {
           const filtered = filter(options, params);
@@ -242,14 +250,27 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
           return option.title;
         }}
         renderOption={(option) => option.title}
-        style={{ width: 300 }}
+        style={{ width: 500 }}
         freeSolo
         renderInput={(params) => (
-          <TextField {...params} label={label} variant="outlined" />
+          
+          <div> 
+            <TextField required helperText={JHA.activityerror} {...params} error={false || (JHA !== undefined && (JHA.activity == "" || JHA.activity == undefined) && JHA.activityerror != undefined)} label={label} variant="outlined" />
+            
+          </div>
+
         )}
       />
-
-      
+      {JHA !== undefined && JHA.activityerror}
+      <br></br>
+      <br></br>
+            {/* <TextField variant="outlined" label="Activity Description" style={{ width: 500 }} value={JHA.activitydesc === undefined ? "" : JHA.activitydesc } onChange={(event, nv) => {
+             console.log(JHA, nv, event)
+             setJHA(t => {
+                const newMessageObj = { ...t, "activitydesc_override": nv };
+                return newMessageObj
+              })
+            }} multiline></TextField> */}
 
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form onSubmit={handleSubmit}>
@@ -309,7 +330,7 @@ export default function JhaJobSelect({JHA, setJHA}) {
             <br></br>
             <br></br>
 
-            <FreeSoloCreateOptionDialog label="Select Activity"></FreeSoloCreateOptionDialog>
+            <FreeSoloCreateOptionDialog JHA={JHA} setJHA={setJHA} label="Select Activity"></FreeSoloCreateOptionDialog>
 
           </Paper>
           <br></br>

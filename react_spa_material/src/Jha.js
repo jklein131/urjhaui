@@ -31,8 +31,17 @@ import MyDocument from './JhaDocument'
 import {Resizable} from "re-resizable"
 
 import myData from './assets/data/hazards.json';
+var sections = {}
+      myData.map((answer, i) => {
+         if (!(answer.Section in sections)) {
+          sections[answer.Section] = []
+         }  
+         sections[answer.Section].push(answer) 
 
-console.log(myData)
+         // Return the element. Also pass key     
+         return answer
+      })
+      console.log(sections)
 
 
 import {  PDFViewer } from '@react-pdf/renderer';
@@ -107,6 +116,16 @@ function HorizontalLinearStepper() {
       if (JHA.jobselect === "" || JHA.jobselect === undefined) {
         setJHA(t => {
           const newMessageObj = { ...t, "jobselecterror": "Required" };
+          console.log(newMessageObj)
+          return newMessageObj
+        })
+
+        console.log("lit", JHA)
+        return
+      }
+      if (JHA.activity === "" || JHA.activity === undefined) {
+        setJHA(t => {
+          const newMessageObj = { ...t, "activityerror": "Required" };
           console.log(newMessageObj)
           return newMessageObj
         })
@@ -299,7 +318,7 @@ function a11yProps(index) {
   return (
     <div>
       <br></br>
-    <h4> 1. Select hazards</h4>
+    <h4> 1. Select Hazards</h4>
     <div className={classes.navroot}>
       
       <AppBar position="static">
@@ -315,12 +334,14 @@ function a11yProps(index) {
         </Tabs>
       </AppBar>
 
-      <TabPanel value={value} index={0}>
-        {/* TODO veritcal tabs works for desktop, but not mobile. for mobile i'm thinking list with sticky headers */}
-      <VerticalTabs>
+      <Resizable width={200} height={200}>
+        <TabPanel value={value} index={0}>
+          {/* TODO veritcal tabs works for desktop, but not mobile. for mobile i'm thinking list with sticky headers */}
+          <VerticalTabs>
 
-      </VerticalTabs>
+          </VerticalTabs>
       </TabPanel>
+      </Resizable>
       <Resizable width={200} height={200}>
       <TabPanel value={value} index={1}>
         Recommended data
@@ -330,7 +351,7 @@ function a11yProps(index) {
       
       <Resizable width={200} height={200}>
       <TabPanel value={value} index={2}>
-        Search
+        <span>Search</span>
       </TabPanel>
     </Resizable>
     </div>
@@ -346,6 +367,7 @@ const SortableItem = SortableElement(({value}) =>
   aria-controls="panel1bh-content"
   id="panel1bh-header"
 >
+
   <Typography className={useStyles().heading}>Slip And Falls</Typography>
   <Typography className={useStyles().secondaryHeading}>I am an expansion panel</Typography>
 </ExpansionPanelSummary>
@@ -418,21 +440,12 @@ function a11yProps(index) {
 function VerticalTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  var sections = {}
-  //TODO get myData from an API 
-    myData.map((answer, i) => {
-         if (!(answer.Section in sections)) {
-          sections[answer.Section] = []
-         }  
-         sections[answer.Section].push(answer)             
-         // Return the element. Also pass key     
-         return answer
-      })
-      console.log(sections)
+  
     
   return (
     <div className={classes.tabroot}>
@@ -502,76 +515,8 @@ function ControlledExpansionPanels() {
   return (
     <div className={classes.root}>
       <h4>2. Customize Controls</h4>
-       <SortableComponent expanded={expanded}handleChange={handleChange}></SortableComponent> 
+       <SortableComponent expanded={expanded} handleChange={handleChange}></SortableComponent>
       
-      <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography className={classes.heading}>Slip And Falls</Typography>
-          <Typography className={classes.secondaryHeading}>I am an expansion panel</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-            maximus est, id dignissim quam.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-
-      <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography className={classes.heading}>PPE</Typography>
-          <Typography className={classes.secondaryHeading}>
-            You are currently not an owner
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-            diam eros in elit. Pellentesque convallis laoreet laoreet.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography className={classes.heading}>Falls</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Filtering has been entirely disabled for whole web server
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <Typography className={classes.heading}>Struct By</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
       
     </div>
   );

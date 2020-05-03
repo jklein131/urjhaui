@@ -18,11 +18,9 @@ import FormViewer from "./FormViewer";
 import FormDashboard from "./FormDashboard";
 import Login from "./Login";
 import Timeline from './Timeline';
-
 class Main extends Component {
   render() {
     return (
- 
         <HashRouter >
         <div >
             <Navigation ></Navigation>

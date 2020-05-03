@@ -12,6 +12,10 @@ import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles';
 
+import FormDocument from "./doc_classes/FormDocument"
+
+import {  PDFViewer } from '@react-pdf/renderer';
+
 import Initicon from 'react-initicon';
 //import ReactDOM from "react-dom";
 //import "./styles.css";
@@ -54,6 +58,8 @@ class FormViewer extends Component {
       jobs: {},
       form_id: "",
       initial: undefined, 
+      submitted: false, 
+      submitted_data: [], 
     }
 
     getAndViewJobs(id) {
@@ -95,14 +101,21 @@ class FormViewer extends Component {
     render() {
       const { classes } = this.props;
       const handleSubmit = (e) => {
-        console.log("SUMBITTED", e)
+        console.log("SUMBITTED", e, )
+
         e.preventDefault();
         const el = findDOMNode(this.refs.myForm);
-        console.log($(el).serializeArray());
+        console.log();
         //TODO submit this form to the formbucket endpoint with all the data 
-
+        this.setState({ submitted: true })
+        console.log("FORM DATA", $(el).serializeArray())
+        console.log("TEMPLATE", this.state.jobs.template)
+        this.setState({ submitted_data: $(el).serializeArray() })
         //get files TODO 
         console.log($(el).find( "input[type='file']"))
+      }
+      if (this.state.submitted == true && this.state.jobs.template != undefined) {
+        return <PDFViewer width="100%" height="1000px"><FormDocument values={this.state.submitted_data} formName={this.state.jobs.name} template={this.state.jobs.template}></FormDocument></PDFViewer>
       }
         return (
           <div>

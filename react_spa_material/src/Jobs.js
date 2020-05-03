@@ -251,7 +251,6 @@ class Jobs extends Component {
     }).catch(console.log)
   }
   updateJob(body) {
-
     console.log(body)
     if (!("_id" in body) || body._id === undefined) {
       // we want do do a create here. 
