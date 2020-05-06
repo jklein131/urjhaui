@@ -30,7 +30,11 @@ import MyDocument from './JhaDocument'
 
 import {Resizable} from "re-resizable"
 
+import JhaControl from './jha/JhaControl'
 import myData from './assets/data/hazards.json';
+
+import {  PDFViewer } from '@react-pdf/renderer';
+
 var sections = {}
       myData.map((answer, i) => {
          if (!(answer.Section in sections)) {
@@ -44,7 +48,7 @@ var sections = {}
       console.log(sections)
 
 
-import {  PDFViewer } from '@react-pdf/renderer';
+
 
 
 //styles
@@ -112,7 +116,7 @@ function HorizontalLinearStepper() {
   };
 
   const handleNext = () => {
-    if (activeStep == 0) {
+    if (activeStep === 0) {
       if (JHA.jobselect === "" || JHA.jobselect === undefined) {
         setJHA(t => {
           const newMessageObj = { ...t, "jobselecterror": "Required" };
@@ -189,7 +193,7 @@ function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      <div>
+      <div key={124124}>
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>
@@ -278,10 +282,10 @@ function getStepContent(step, JHA, setJHA) {
 
       return (
       <div>
-        <SimpleTabs></SimpleTabs>
-      <br></br>
-      <ControlledExpansionPanels JHA={JHA} setJHA={setJHA} ></ControlledExpansionPanels>
-      <br></br>
+        
+        <br></br>
+       <JhaControl dataset={myData}>
+      </JhaControl>
       </div>
       )
     case 2:
@@ -428,13 +432,6 @@ TabPanel.propTypes = {
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
 };
-
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
-}
 
 
 function VerticalTabs() {

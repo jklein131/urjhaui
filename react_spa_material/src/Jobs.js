@@ -102,7 +102,7 @@ class Job extends Component {
       
       console.log("new job 2", newjob.then((data)=> {console.log("data2", data);
        this.updateState(data);
-       history.replaceState({},"Your JHA | Job ", "#/admin/jobs/"+data._id)
+       window.history.replaceState({},"Your JHA | Job ", "#/admin/jobs/"+data._id)
       }))
       
       //TODO: change history if ID has changed

@@ -6,6 +6,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
+import { positions, zIndex} from '@material-ui/system';
 import Collapse from '@material-ui/core/Collapse';
 
 import { withStyles, makeStyles,createMuiTheme } from '@material-ui/core/styles';
@@ -16,25 +19,32 @@ import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 
+import Snackbar from '@material-ui/core/Snackbar';
+import CustomizedSnackbars from './JhaHelp';
+
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import { StickyContainer, Sticky } from 'react-sticky';
+import Sticky from 'react-stickynode';
+import $ from "jquery";
+window.jQuery = $;
+window.$ = $;
 
+//this stupid theme thing
 const theme = createMuiTheme({ });
-
+  
 const useStyles = {
     chips: {
       display: 'flex',
       justifyContent: 'center',
       flexWrap: 'wrap',
+      zIndex: 2000,
+      "z-index": 2000,
       '& > *': {
         margin: theme.spacing(0.5),
       },
+      padding: 15,
     },
   };
 
-import $ from "jquery";
-window.jQuery = $;
-window.$ = $;
 
 class RowControl extends React.Component {
     state = {
@@ -56,7 +66,7 @@ class RowControl extends React.Component {
         }
         var ref = React.createRef();
         return (
-            <div id={this.state.data.Id} ref={ref}>
+            <div key={this.state.data.Id} id={this.state.data.Id} ref={ref}>
             <JhaRow key={this.state.data.Id} status={this.state.status } setStatus={(stats)=>{this.setState({status: stats}); this.props.updateStatus(stats)}}
             chip={this.state.chip} data={this.state.data} scrollToNext={scrollToNext(ref)}>
             </JhaRow>
@@ -102,47 +112,62 @@ class RowControl extends React.Component {
     render() {
         const { classes } = this.props;
         // const [open, opener] = React.useState(0)
-
+        var states ={}
+        var length_of_rows = 0 
     return (
-        <div>
-
-            <div className={classes.chips}>
-                
-            {
-                Object.keys(this.state.sections).map((chip) => {
-                    console.log("h12",this.state.sections[chip])
-        return <Chip
-                    key={chip}
-        avatar={<Avatar>{chip[0].toUpperCase()+ chip[1].toUpperCase()}</Avatar>}
-        label={chip}
-        onClick={() => {
-            console.info(chip)
-            var r = this.state.sections
-            r[chip] = !r[chip]
-            this.setState(function(prevState, props){
-                return {sections: {...prevState.sections, [chip] :prevState.sections[chip]}}
-             });
-            console.log(this.state.sections)
-        }}
-
-        color="primary"
-        variant={ this.state.sections[chip] ? "default":"outlined"}
-    /> })
-            }
-     </div>
-    <br>
-    </br>
-    <br></br>
+        <div key={"main1"}>
+        {/*https://github.com/yahoo/react-stickynode */}
+        {/* <Sticky innerZ={2000}> */}
+           
         {
-        this.state.rows.map((row, index) => {
+        states = this.state.rows.map((row, index) => {
             if (this.state.sections[row.props.chip] === true) {
+                length_of_rows++
                 return row
             }
             if (row.props.data.Id in this.state.statuss && (this.state.statuss[row.props.data.Id] === 1 || this.state.statuss[row.props.data.Id] === 3)) {
+                length_of_rows++
                 return row 
             }
-        }) 
+            return null;
+        })
         }
+        {
+            length_of_rows > 0 ? "": <CustomizedSnackbars></CustomizedSnackbars>
+            
+              }
+              {length_of_rows = 0 ? "" : ""}
+              <br></br>
+
+        <div key={"main2"}></div> {/* this is required for the next scroller lol */}
+        <Box key={"main3"} zIndex="modal">
+             <Paper elevation={5} className={classes.chips}>
+                
+                {
+                    Object.keys(this.state.sections).map((chip) => {
+            return <Chip
+                        key={chip}
+            avatar={<Avatar>{chip[0].toUpperCase()+ chip[1].toUpperCase()}</Avatar>}
+            label={chip}
+            onClick={() => {
+                console.info(chip)
+                var r = this.state.sections
+                r[chip] = !r[chip]
+                this.setState(function(prevState, props){
+                    return {sections: {...prevState.sections, [chip] :prevState.sections[chip]}}
+                 });
+                console.log(this.state.sections)
+            }}
+    
+            color="primary"
+            variant={ this.state.sections[chip] ? "default":"outlined"}
+        /> })
+                }
+                
+         </Paper>
+         </Box>
+         <br key={12477}></br>
+         <br key={12478}></br>
         </div>
     )
     }

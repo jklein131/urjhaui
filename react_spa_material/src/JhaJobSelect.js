@@ -138,8 +138,8 @@ function ComboBox({label, JHA, setJHA}) {
     <div> <Autocomplete
       id="combo-box-demo"
       options={top100Films}
-      getOptionLabel={(option) => option == "" ? "" : option.title}
-      value={JHA.jobselect == undefined ? "" : JHA.jobselect}
+      getOptionLabel={(option) => option === "" ? "" : option.title}
+      value={JHA.jobselect === undefined ? "" : JHA.jobselect}
       onChange={
         (event, newValue) => {
           setJHA(t => {
@@ -149,7 +149,7 @@ function ComboBox({label, JHA, setJHA}) {
         }
       }
       style={{ width: 500 }}
-      renderInput={(params) => <TextField required {...params} error={false || (JHA !== undefined && (JHA.jobselect == "" || JHA.jobselect == undefined) && JHA.jobselecterror != undefined)} label={label} variant="outlined" />}
+      renderInput={(params) => <TextField required {...params} error={false || (JHA !== undefined && (JHA.jobselect == "" || JHA.jobselect === undefined) && JHA.jobselecterror !== undefined)} label={label} variant="outlined" />}
     />
     {JHA !== undefined && JHA.jobselecterror}
     </div>
@@ -186,7 +186,7 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <Autocomplete
         value={JHA.activity === undefined ? "" : JHA.activity}
         required
@@ -255,7 +255,7 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
         renderInput={(params) => (
           
           <div> 
-            <TextField required helperText={JHA.activityerror} {...params} error={false || (JHA !== undefined && (JHA.activity == "" || JHA.activity == undefined) && JHA.activityerror != undefined)} label={label} variant="outlined" />
+            <TextField required helperText={JHA.activityerror} {...params} error={false || (JHA !== undefined && (JHA.activity === "" || JHA.activity === undefined) && JHA.activityerror !== undefined)} label={label} variant="outlined" />
             
           </div>
 
@@ -309,7 +309,7 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
           </DialogActions>
         </form>
       </Dialog>
-    </React.Fragment>
+    </div>
   );
 }
 

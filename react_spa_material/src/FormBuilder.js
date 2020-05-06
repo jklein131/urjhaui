@@ -81,7 +81,7 @@ class FormBuilderView extends Component {
       }
      var updatePromise = this.state.updateJob(jobdata)
      console.log(updatePromise)
-     updatePromise.then((data)=> { console.log("dboy", data) ; history.replaceState({},"Your JHA | Job ", "#/form-templates/"+data._id)})
+     updatePromise.then((data)=> { console.log("dboy", data) ; window.history.replaceState({},"Your JHA | Job ", "#/form-templates/"+data._id)})
       }
     }>
           

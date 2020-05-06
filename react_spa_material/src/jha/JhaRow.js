@@ -155,7 +155,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
              classes.done: (open === 2) ? classes.clear : (open === 3) ? classes.open : {}
           }>
         
-      <CardContent>
+      <CardContent key={12412412415}>
       <Grid container spacing={3}>
       <Grid  item xs={12} sm={4} className={classes.titlegrid}>
         
@@ -176,7 +176,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
           <div className={classes.twoThings}>
           <FormControlLabel
             aria-label="Atmospheric Hazards"
-            control={ (open !== 2) ? <BlueOnGreenTooltip className={classes.info} title="Hazards are potential incidents that might occur on the jobsite. Click to learn more." placement="left-start"><div className={classes.iconSpacing}>
+            control={ (open !== 2) ? <BlueOnGreenTooltip className={classes.info} title="Hazards are potential incidents that might occur on the jobsite. " placement="top-start"><div className={classes.iconSpacing}>
               <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon></div></BlueOnGreenTooltip>:  <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon>}
@@ -204,11 +204,11 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
           </Grid><div ref={ref1}>
           <Collapse in={open === 0 || open ===3}>
         
-            <Typography component="p" className={classes.controls}>
+            <Typography component="span" className={classes.controls}>
               <b>Controls: </b>
             {
       data.Controls.split("\\n").map((obj,i)=> (
-          <Typography>{obj}</Typography>
+          <Typography key={obj}>{obj}</Typography>
       ))
                       }
 
