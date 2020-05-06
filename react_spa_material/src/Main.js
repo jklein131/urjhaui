@@ -45,6 +45,7 @@ const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
   facebookProvider: new firebase.auth.FacebookAuthProvider(), 
+  microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
 };
 
 // Configure FirebaseUI.
@@ -56,6 +57,8 @@ const uiConfig = {
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    "microsoft.com",
+ 
   ]
 }; 
 

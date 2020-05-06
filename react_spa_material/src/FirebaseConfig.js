@@ -1,6 +1,6 @@
 const firebaseConfig = {
     apiKey: "AIzaSyBbMPebF4rPXd17m_iG7otIxm1RH5SKQwI",
-    authDomain: "sound-helper-249805.firebaseapp.com",
+    authDomain: "app.yourjha.com",
     databaseURL: "https://sound-helper-249805.firebaseio.com",
     projectId: "sound-helper-249805",
     storageBucket: "sound-helper-249805.appspot.com",
