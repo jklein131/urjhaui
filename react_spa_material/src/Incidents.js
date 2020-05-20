@@ -10,6 +10,7 @@ import myData from './assets/data/hazards.json';
 
 class Incidents extends Component {
   
+  
   render() {
     const handleDelete = () => {
       console.info('You clicked the delete icon.');
@@ -30,8 +31,8 @@ class Incidents extends Component {
 
       <br></br>
       <br></br>
-      <JhaControl dataset={myData}>
-      </JhaControl>
+      {/* <JhaControl dataset={myData}>
+      </JhaControl> */}
       </div>
     );
   }

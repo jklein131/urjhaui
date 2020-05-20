@@ -22,7 +22,7 @@ import Timeline from './Timeline';
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import firebaseConfig from './FirebaseConfig';
+import firebaseApp from './FirebaseConfig';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import Paper from "@material-ui/core/Paper";
@@ -39,12 +39,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 import icon from './assets/images/logo-icon.png';
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
-  facebookProvider: new firebase.auth.FacebookAuthProvider(), 
+  //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
   microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
 };
 
@@ -56,9 +56,8 @@ const uiConfig = {
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     "microsoft.com",
- 
   ]
 }; 
 
@@ -105,13 +104,17 @@ class Main extends Component {
       ...other
     } = this.props;
     console.log("user",user)
+    if (user) {
+      {firebase.auth().currentUser.getIdToken(true).then((idToken) => {console.log(idToken)})
+              }
+    }
     /*https://github.com/firebase/firebaseui-web#demo 
         this be lit for login and stuff
         */
     return user 
           ? <ThemeProvider theme={theme}>
             <HashRouter >
-         
+              
               <Navigation {...other} theme={theme} signOut={signOut} user={user}  ></Navigation>
               <div className="container" >
                 <br></br>

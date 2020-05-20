@@ -12,6 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
+import { environment } from './enviroments/enviroment';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -134,11 +135,19 @@ const top100Films = [
 
 
 function ComboBox({label, JHA, setJHA}) {
+  var [options, setOptions] = React.useState([])
+  
+  React.useEffect(()=> {
+    environment.fetch('jobs').then(res => 
+    res.json()).then((jobs) => {
+    setOptions(jobs)
+  })
+},[])
   return (
     <div> <Autocomplete
       id="combo-box-demo"
-      options={top100Films}
-      getOptionLabel={(option) => option === "" ? "" : option.title}
+      options={options}
+      getOptionLabel={(option) => option === "" ? "" : option.name}
       value={JHA.jobselect === undefined ? "" : JHA.jobselect}
       onChange={
         (event, newValue) => {

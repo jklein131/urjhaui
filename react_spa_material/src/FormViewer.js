@@ -63,7 +63,7 @@ class FormViewer extends Component {
     }
 
     getAndViewJobs(id) {
-        fetch( environment.apiUrl+'formtemplates/'+id)
+      environment.fetch( 'formtemplates/'+id)
         .then(res => res.json())
         .then((data) => {
           var initialValuesTmp = {} 

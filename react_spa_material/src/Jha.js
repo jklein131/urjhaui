@@ -20,11 +20,12 @@ import Badge from '@material-ui/core/Badge';
 import Paper from '@material-ui/core/Paper';
 
 import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Tooltip from '@material-ui/core/Tooltip';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move';
-
+import * as m from 'moment'
 import JhaJobSelect from './JhaJobSelect'
 import MyDocument from './JhaDocument'
 
@@ -33,7 +34,12 @@ import {Resizable} from "re-resizable"
 import JhaControl from './jha/JhaControl'
 import myData from './assets/data/hazards.json';
 
-import {  PDFViewer } from '@react-pdf/renderer';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
+import 'firebase/auth';
+import firebaseApp from './FirebaseConfig';
+
+import {  PDFViewer, BlobProvider } from '@react-pdf/renderer';
 
 var sections = {}
       myData.map((answer, i) => {
@@ -139,6 +145,11 @@ function HorizontalLinearStepper() {
       }
        
     }
+    if (activeStep ==1) {
+      console.log("as",JHA)
+    }
+
+
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -196,9 +207,17 @@ function HorizontalLinearStepper() {
       <div key={124124}>
         {activeStep === steps.length ? (
           <div>
+            
             <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
+            <h4> JHA Completed! </h4>
+              <Button variant="contained"
+                  color="primary">Download PDF</Button>
+              <Button variant="contained"
+                  color="primary">Share with Jobsite</Button>
+                  The JHA has been distributed to the emails of your employees, if they open the link of the PDF, then the PDF will be marked as read. 
             </Typography>
+            
+
             <Button onClick={handleReset} className={classes.button}>
               Reset
             </Button>
@@ -279,18 +298,38 @@ function getStepContent(step, JHA, setJHA) {
     case 0:
       return <JhaJobSelect JHA={JHA} setJHA={setJHA}></JhaJobSelect>
     case 1:
-
+      console.log("JHA DATA", JHA)
       return (
       <div>
         
         <br></br>
-       <JhaControl dataset={myData}>
+       <JhaControl JHA={JHA} setJHA={setJHA} dataset={myData}>
       </JhaControl>
       </div>
       )
     case 2:
+      console.log("JHA DATA", JHA)
+      const doc = <MyDocument JHA={JHA}/>
+     
       return (
-        <PDFViewer width="100%" height="1000px"><MyDocument /></PDFViewer>
+        <div>
+        <BlobProvider document={doc}>
+      {({ blob, url, loading, error }) => {
+        // Do whatever you need with blob here
+        console.log("uploading",blob, url, loading, error, )
+       if ( !loading) {
+        firebase.storage().ref("user/" +firebase.auth().currentUser.uid).child("PDF-"+JHA.activity.title+"--"+ m().format()).put(blob).then((snapshot) => {
+          console.log(snapshot)
+          return 
+        })
+        return <PDFViewer width="100%" height="1000px" >{doc}</PDFViewer>
+      }
+      return <LinearProgress />
+      }}
+    </BlobProvider>
+    
+        
+        </div>
       );
     default:
       return 'Unknown step';

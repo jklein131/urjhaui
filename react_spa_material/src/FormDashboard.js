@@ -71,7 +71,7 @@ class FormDashboard extends Component {
     }
 
     getAndViewJobs(id) {
-        fetch( environment.apiUrl+'formtemplates/'+id)
+        environment.fetch( 'formtemplates/'+id)
         .then(res => res.json())
         .then((data) => {
           this.setState({ jobs: data })

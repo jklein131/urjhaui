@@ -17,7 +17,6 @@ class Inspections extends Component {
           <li>Eget erat</li>
           <li>Id porttitor</li> 
         </ol>
-        <PDFViewer width="100%" height="1000px"><MyDocument /></PDFViewer>
       </div>
       
     ); 

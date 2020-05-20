@@ -61,9 +61,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#0D3957",
     color: 'white',
   },
+  jhacellheader2 : {
+    flex : 2,
+    margin: '1px',
+    textAlign: 'center',
+    backgroundColor: "#0D3957",
+    color: 'white',
+  },
   jhacell: {
     flex : 1,
     flexGrow: 1,
+    //flexBasis: 0,
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "#ECEFF1",
+  },
+  jhacell2: {
+    flex : 2,
+    flexGrow: 2,
     //flexBasis: 0,
     margin: '1px',
     padding: '2px',
@@ -95,33 +111,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const JHAHeader = () => (
+const JHAHeader = ({rows}) => (
   <View style={styles.jhatable}>
-  <Text style={styles.jhacellheader}>Controls</Text>
-  <Text style={styles.jhacellheader}>Hazards</Text>
-  <Text style={styles.jhacellheader}>RAC</Text>
+    {rows.map((answer, i) => {                   
+           // Return the element. Also pass key     
+           return (<Text style={answer.pos === 1 ? styles.jhacellheader : styles.jhacellheader2 }>{answer.text} </Text>)
+        })}
   </View>
 );
 
 const JHARow = ({rows}) => (
   <View style={styles.jhatable} wrap={false}>
-    {rows.map((answer, i) => {     
-           console.log("Entered");                 
+    {rows.map((answer, i) => {                   
            // Return the element. Also pass key     
-           return (<Text style={styles.jhacell}>{answer} </Text>)
+           return (<Text style={answer.pos === 1 ? styles.jhacell : styles.jhacell2 }>{answer.text} </Text>)
         })}
   </View>
 );
 
 // Create Document Component
-export default function MyDocument ()  {
+export default function MyDocument ({JHA})  {
     return (
   <Document>
     
     <Page size="A4" style={styles.page} wrap >
      <View style={styles.jhatable}>
      <View >
-     <Text style={styles.root}>Installing Overhead Pipe</Text>
+     <Text style={styles.root}>{JHA.activity.title}</Text>
+     <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.title}</Text></Text>
      <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
      <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text>
      <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
@@ -143,30 +160,21 @@ export default function MyDocument ()  {
     </View>
     <View style={styles.section15}></View>
     <View>
-      <JHAHeader></JHAHeader>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself asfafasfasfasfasfasfasfasfasffsafa asf asf asf asf asf as as as as","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck"]}></JHARow>
-      <JHARow rows={["Lifting heavy boxes","Lift using your knees \n lift better \n don't hur yourself ","fuck1"]}></JHARow>
+      <JHAHeader rows={[
+        {text: "Task", pos :1},
+        {text: "Hazards", pos :1},
+        {text: "Controls", pos :2},
+      ]}></JHAHeader>
+      {JHA.selected.map( (selected_i, i) => {
+      return <JHARow rows={[
+        {text: selected_i.data.Task, pos :1},
+        {text: selected_i.data.Hazards, pos :1},
+        {text: selected_i.data.Controls, pos :2},
+      ]}></JHARow>
+      
+      })
+    }
+
       </View> 
 
       <View style={styles.pageNumber} render={({ pageNumber, totalPages }) => (

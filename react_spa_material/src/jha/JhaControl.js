@@ -31,7 +31,7 @@ window.$ = $;
 //this stupid theme thing
 const theme = createMuiTheme({ });
   
-const useStyles = {
+const useStyles = makeStyles({
     chips: {
       display: 'flex',
       justifyContent: 'center',
@@ -43,16 +43,12 @@ const useStyles = {
       },
       padding: 15,
     },
-  };
+  });
 
 
-class RowControl extends React.Component {
-    state = {
-        chip: this.props.chip,
-        data: this.props.data,
-        status : 0,  
-    }
-    render() {
+function RowControl({status, chip, data, updateStatus}) {
+
+    
         //this is triggered on "add" to scroll to the next object.
         const scrollToNext = (ref) => {
             // reports id of self, 
@@ -66,111 +62,146 @@ class RowControl extends React.Component {
         }
         var ref = React.createRef();
         return (
-            <div key={this.state.data.Id} id={this.state.data.Id} ref={ref}>
-            <JhaRow key={this.state.data.Id} status={this.state.status } setStatus={(stats)=>{this.setState({status: stats}); this.props.updateStatus(stats)}}
-            chip={this.state.chip} data={this.state.data} scrollToNext={scrollToNext(ref)}>
+            <div key={data.Id} id={data.Id} ref={ref}>
+            <JhaRow key={data.Id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
+            chip={chip} data={data} scrollToNext={scrollToNext(ref)}>
             </JhaRow>
             </div>
         )
-    }
+    
 }
   
- class JhaControl extends React.Component {
-    state = {
-        sections: {},
-        rows: undefined,
-        statuss: {},
-    }
-    componentWillMount() {
-        const swag = this.props.dataset.map((object, index) => {
-            if (!( object.Section in this.state.sections)) {
+function JhaControl({dataset, setJHA, JHA}) {
+   
+    const classes = useStyles();
+    const [sections, setSections] = React.useState({})
+    const [rows, setRows] = React.useState([])
+    const [statuss, setStatuss]= React.useState({})
+
+    const r = useEffect(()=> {
+        var rp = {}
+        if (JHA.selected !== undefined)
+            {
+                console.log("RP",JHA)
+                JHA.selected.map((v)=> (
+                rp[v.data.Id] = v
+                ));
+            console.log(rp)
+        }
+        setStatuss(
+            function(statuss, props){
+                var tmp = statuss
+                dataset.map((object, index) => {
+                    if (object.Id in rp) {
+                        tmp[object.Id] = rp[object.Id]
+                    } else {
+                        tmp[object.Id] = {status:0, data: object}
+                    }
+            })
+               return tmp
+             },
+             ()=> {
                 
-                this.setState(function(prevState, props){
-                    return {sections: {...prevState.sections, [object.Section] :false}}
+             })
+        //if this is first load, check for the selected data and select it
+
+        //end use effect
+    },[dataset])
+    useEffect(()=> {
+        setRows( dataset.map((object, index) => {
+            if (!( object.Section in sections)) {
+                
+                setSections(function(sections, props){
+                    return {...sections, [object.Section] :false}
                  }); 
-                 
             }
-            return this.setState(function(prevState, props){
-                return {statuss: {...prevState.statuss, [object.Id] :0}}
-             });
-        })
-       
-            this.setState({rows: this.props.dataset.map((object, index) => {
-                
-                return <RowControl data={object} chip={object.Section} status={this.state.statuss} updateStatus={ (stat) => {
-                   
-                            this.setState(function(prevState, props){
-                                return {statuss: {...prevState.statuss, [object.Id] :stat}}
+            
+                return <RowControl key={object.Id} data={object} chip={object.Section} status={statuss[object.Id]} updateStatus={ (stat) => {
+                    
+                    setStatuss(function(statuss, props){
+                                return  {...statuss, [object.Id] :{status:stat, data:object}}
                             })
-                            console.log(this.state.statuss)
                     }
                 }></RowControl>
-            })})
-        
-    }
-    
-    render() {
-        const { classes } = this.props;
-        // const [open, opener] = React.useState(0)
-        var states ={}
-        var length_of_rows = 0 
+            }))},[statuss]
+    )
+    //use effect only when the rows object changes
+    useEffect(()=> {
+ 
+        setJHA(t =>
+            {
+            const newMessageObj = { ...t, "selected": Object.keys(statuss).filter((ssf,index) => {
+                return statuss[ssf].status === 1 || statuss[ssf].status === 3
+            }).map((i)=> {
+                return statuss[i]
+            }) };
+            return newMessageObj 
+        })
+    }, [statuss])
+
+
+    var states ={}
+    var length_of_rows = 0 
     return (
         <div key={"main1"}>
         {/*https://github.com/yahoo/react-stickynode */}
         {/* <Sticky innerZ={2000}> */}
            
-        {
-        states = this.state.rows.map((row, index) => {
-            if (this.state.sections[row.props.chip] === true) {
-                length_of_rows++
-                return row
-            }
-            if (row.props.data.Id in this.state.statuss && (this.state.statuss[row.props.data.Id] === 1 || this.state.statuss[row.props.data.Id] === 3)) {
-                length_of_rows++
-                return row 
-            }
-            return null;
-        })
-        }
-        {
-            length_of_rows > 0 ? "": <CustomizedSnackbars></CustomizedSnackbars>
-            
-              }
-              {length_of_rows = 0 ? "" : ""}
-              <br></br>
-
-        <div key={"main2"}></div> {/* this is required for the next scroller lol */}
+       
         <Box key={"main3"} zIndex="modal">
              <Paper elevation={5} className={classes.chips}>
                 
                 {
-                    Object.keys(this.state.sections).map((chip) => {
+                    Object.keys(sections).map((chip) => {
             return <Chip
                         key={chip}
             avatar={<Avatar>{chip[0].toUpperCase()+ chip[1].toUpperCase()}</Avatar>}
             label={chip}
             onClick={() => {
                 console.info(chip)
-                var r = this.state.sections
+                var r = sections
                 r[chip] = !r[chip]
-                this.setState(function(prevState, props){
-                    return {sections: {...prevState.sections, [chip] :prevState.sections[chip]}}
+                setSections(function(ss, props){
+                    return  {...ss, [chip] :sections[chip]}
                  });
-                console.log(this.state.sections)
             }}
     
             color="primary"
-            variant={ this.state.sections[chip] ? "default":"outlined"}
+            variant={ sections[chip] ? "default":"outlined"}
         /> })
                 }
                 
          </Paper>
          </Box>
+         <br></br>
+         {
+        states = rows.map((row, index) => {
+            if (sections[row.props.chip] === true) {
+                length_of_rows++
+                return row
+            }
+            if (row.props.data.Id in statuss && (statuss[row.props.data.Id].status === 1 || statuss[row.props.data.Id].status === 3)) {
+                length_of_rows++
+                return row 
+            }
+            return null;
+        })
+        }
+        <div key={"main2"}></div> {/* this is required for the next scroller lol */}
+        
+        {
+            length_of_rows > 0 ? "": <CustomizedSnackbars key={1241241241555}></CustomizedSnackbars>
+            
+              }
+              {length_of_rows = 0 ? "" : ""}
+              <br></br>
+
+        
+
          <br key={12477}></br>
-         <br key={12478}></br>
+     
         </div>
     )
-    }
 }
 
-export default withStyles(useStyles) (JhaControl);
+export default (JhaControl);

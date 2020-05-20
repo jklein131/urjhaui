@@ -235,7 +235,7 @@ class Jobs extends Component {
   }
 
   getJobs() {
-    fetch( environment.apiUrl+'jobs')
+    environment.fetch('jobs')
     .then(res => res.json())
     .then((data) => {
       this.setState({ jobs: data })
@@ -243,7 +243,7 @@ class Jobs extends Component {
   }
 
   getJob() {
-    fetch( environment.apiUrl+'jobs')
+    environment.fetch('jobs')
     .then(res => res.json())
     .then((data) => {
       this.setState({ jobs: data })
@@ -254,7 +254,7 @@ class Jobs extends Component {
     console.log(body)
     if (!("_id" in body) || body._id === undefined) {
       // we want do do a create here. 
-        return fetch( environment.apiUrl+'jobs',
+        return environment.fetch('jobs',
         {
           method: 'POST',
           body: JSON.stringify(body),
@@ -274,7 +274,7 @@ class Jobs extends Component {
           return data
         });
     }
-    return fetch( environment.apiUrl+'jobs/'+body._id,
+    return environment.fetch('jobs/'+body._id,
     {
       method: 'PATCH',
       body: JSON.stringify(body),

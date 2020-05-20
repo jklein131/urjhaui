@@ -136,6 +136,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
     const open = status
     const opener = setStatus
 
+    
     //State list 
     // 0 is no state 
     // 1 is added 

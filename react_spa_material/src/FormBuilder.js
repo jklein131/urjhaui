@@ -121,7 +121,7 @@ class FormBuilder extends Component {
   }
  
   getJobs() {
-    fetch( environment.apiUrl+'formtemplates')
+    environment.fetch('formtemplates')
     .then(res => res.json())
     .then((data) => {
       this.setState({ jobs: data })
@@ -131,7 +131,7 @@ class FormBuilder extends Component {
     console.log(body)
     if (!("_id" in body) || body._id === undefined) {
       // we want do do a create here. 
-          return fetch( environment.apiUrl+'formtemplates',
+          return environment.fetch('formtemplates',
         {
           method: 'POST',
           body: JSON.stringify(body),
@@ -152,7 +152,7 @@ class FormBuilder extends Component {
       })
         });
     }
-    return fetch( environment.apiUrl+'formtemplates/'+body._id,
+    return environment.fetch('formtemplates/'+body._id,
     {
       method: 'PATCH',
       body: JSON.stringify(body),

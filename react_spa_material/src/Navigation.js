@@ -69,7 +69,7 @@ class Navigation extends Component {
     forms: [],
   }
   componentDidMount() {
-    fetch( environment.apiUrl+'formtemplates')
+    environment.fetch( 'formtemplates')
     .then(res => res.json())
     .then((data) => {
       this.setState({ forms: data })
@@ -92,8 +92,8 @@ class Navigation extends Component {
     <Nav className="mr-auto navbar-right">
       <Nav.Link href="#jha">New JHA</Nav.Link>
       <Nav.Link href="#dashboard">Analytics</Nav.Link>
-      <Nav.Link href="#inspections">Daily Inspections</Nav.Link>
-      <Nav.Link href="#incidents">Incident Reporting</Nav.Link>
+      {/* <Nav.Link href="#inspections">Daily Inspections</Nav.Link>
+      <Nav.Link href="#incidents">Incident Reporting</Nav.Link> */}
       {/* <Nav.Link href="#timeline">Social Feed</Nav.Link> */}
       <Nav.Link href="#admin/jobs">Job Manager</Nav.Link>
       <NavDropdown title="Forms" id="basic-nav-dropdown">

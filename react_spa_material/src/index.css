@@ -132,3 +132,13 @@ body {
 .sigCanvas {
   border: 1px solid #aaa;
 } */
+
+
+/* hide some things on the form builder */
+.fld-name {
+  display: none !IMPORTANT;
+}
+
+.option-value {
+  display: none !IMPORTANT;
+}

@@ -47,3 +47,17 @@ https://github.com/atlassian/react-beautiful-dnd
 
 # yarn linking for custom package 
 https://medium.com/@chrisdmasters/how-to-fork-a-dependency-and-use-it-locally-in-a-project-707c80d3449c 
+
+
+# helm stuff #
+https://docs.couchbase.com/operator/current/helm-managing-guide.html
+
+https://docs.couchbase.com/operator/current/helm-couchbase-config.html
+
+db username: Oyualidaderadoso
+db password: Siemercesomnios 
+
+
+### make form builder have only the good things ### 
+https://formbuilder.online/docs/formBuilder/options/typeUserAttrs/#example-checkbox
+
