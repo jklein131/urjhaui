@@ -16,8 +16,103 @@ import Jobs from "./Jobs";
 import Chart from "react-google-charts";
  
 //https://react-google-charts.com/
+import Dialog from '@material-ui/core/Dialog';
+import MuiAlert from '@material-ui/lab/Alert';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import { environment } from "./enviroments/enviroment";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
+import * as m from 'moment'
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+ function ResponsiveDialog() {
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (clickout) => {
+    return () => {
+      if  (clickout || window.confirm("would you like to close without saving?"))  {
+        setOpen(false);
+    }
+  }
+    //
+  };
+  const [state, setState] = React.useState({
+    checkedA: false,
+    checkedB: false,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  return (
+    <div>
+      {/* 
+      
+      DISABLED FOR NOW AS WE WILL HARDCODE ANALYTICS 
+
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        Add New Graph
+      </Button> */}
+      <br></br>
+
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose(false)}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">{"Create New Chart"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+          <FormGroup row>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={state.checkedB}
+            onChange={handleChange}
+            name="checkedB"
+            color="primary"
+          />
+        }
+        label="Use Custom Forms"
+      />
+    </FormGroup>
+     {
+       state.checkedB ? <p>Select from a custom Form</p> : <p> select from JHA graphs</p>
+     }
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose(true)} color="primary">
+            Discard
+          </Button>
+          <Button onClick={handleClose(true)} color="primary" autoFocus>
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +148,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SimpleCard({body, title}) {
+function SimpleCard({body, title, description}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -67,7 +162,7 @@ function SimpleCard({body, title}) {
 
 
   return (
-    <Grid item xs="6">
+    <Grid item xs="12" sm="6">
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -96,59 +191,104 @@ function SimpleCard({body, title}) {
           {title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          {description}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body2" component="div">
         {body}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleOpen}>View</Button>
-        <Button size="small">Edit</Button>
+        {/* <Button size="small" onClick={handleOpen}>View</Button>
+        <Button size="small">Edit</Button> */}
       </CardActions>
     </Card>
     </Grid>
   );
 }
 
-function DashboardView () {
-  const classes = useStyles();
-  return (
-    <div className={classes.gridstyle}>
-      <Grid container spacing={3}>
-      <SimpleCard title="JHA forms over time" body={<Chart
+function JhaOverTimeChart() {
+  const [data, setData] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  React.useEffect(()=> {
+    environment.fetch('jhacomplete/analytics/jha_over_time').then((res)=> res.json()).then((res2)=> {setData(res2); setIsLoading(false)})
+  }, [])
+return <SimpleCard title="JHA Forms by Date" description={"Number of JHA's created accross jobsites"} body={
+  (data.length === 0 || !isLoading) ? isLoading ? <LinearProgress></LinearProgress> : <Chart
     chartType="LineChart"
-    loader={<div>Loading Chart</div>}
-    data={[
-      [
-        { type: 'number', label: 'x' },
-        { type: 'number', label: 'values' },
-        { id: 'i0', type: 'number', role: 'interval' },
-        { id: 'i1', type: 'number', role: 'interval' },
-        { id: 'i2', type: 'number', role: 'interval' },
-        { id: 'i2', type: 'number', role: 'interval' },
-        { id: 'i2', type: 'number', role: 'interval' },
-        { id: 'i2', type: 'number', role: 'interval' },
-      ],
-      [1, 100, 90, 110, 85, 96, 104, 120],
-      [2, 120, 95, 130, 90, 113, 124, 140],
-      [3, 130, 105, 140, 100, 117, 133, 139],
-      [4, 90, 85, 95, 85, 88, 92, 95],
-      [5, 70, 74, 63, 67, 69, 70, 72],
-      [6, 30, 39, 22, 21, 28, 34, 40],
-      [7, 80, 77, 83, 70, 77, 85, 90],
-      [8, 100, 90, 110, 85, 95, 102, 110],
+    loader={<div></div>}
+    data={ [
+      ["Activity", "Count"],
+      ...data.map(current=>{
+      return [m.utc(current._id.year+'-'+current._id.month+'-'+current._id.day).local().format('MMMM Do'), current.count];
+    })
+    ]}
+    options={{
+      intervals: { style: 'sticks' },
+      legend: 'none',
+      curveType: 'function',
+    }}
+  /> : <Alert severity="info">Complete a JHA to start seeing data here!</Alert>
+} ></SimpleCard>
+}
+
+function ActivityOverCount() {
+  const [data, setData] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  React.useEffect(()=> {
+    environment.fetch('jhacomplete/analytics/activity_over_count').then((res)=> res.json()).then((res2)=> {setData(res2); setIsLoading(false)})
+  }, [])
+return <SimpleCard title="Activities by Popularity" description={"Most common activies completed"} body={
+  (data.length === 0 || !isLoading) ? isLoading ? <LinearProgress></LinearProgress> :  <Chart
+    chartType="PieChart"
+    loader={<div></div>}
+    data={ [
+      ["Activity", "Count"],
+      ...data.map(current=>{
+      return [current._id.name.length === 0 ? "N/A": current._id.name[0], current.count];
+    })
+    ]}
+    options={{
+      intervals: { style: 'sticks' },
+    }}
+  /> :<Alert severity="info">Complete a JHA to start seeing data here!</Alert>} ></SimpleCard>
+}
+function UsersOverCount() {
+  const [data, setData] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  React.useEffect(()=> {
+    environment.fetch('jhacomplete/analytics/users_over_count').then((res)=> res.json()).then((res2)=> {setData(res2) ; setIsLoading(false)})
+  }, [])
+  console.log("users over", data, isLoading)
+return <SimpleCard title="JHA Forms by User" description={"Top JHA power users"} isLoading={isLoading} body={
+  (data.length === 0 || !isLoading) ? isLoading ? <LinearProgress></LinearProgress> :<Chart
+    chartType="BarChart"
+    loader={<div></div>}
+    data={ [
+      ["Activity", "Count"],
+      ...data.map(current=>{
+      return [current._id.name.length === 0 ? "N/A": current._id.name[0], current.count];
+    })
     ]}
     options={{
       intervals: { style: 'sticks' },
       legend: 'none',
     }}
-  />} ></SimpleCard>
-      
-      <SimpleCard title="JHA forms over time" body={
+  /> :<Alert severity="info">Complete a JHA to start seeing data here!</Alert>
+} ></SimpleCard>
+}
+function DashboardView () {
+  const classes = useStyles();
+  return (
+    <div className={classes.gridstyle}>
+      <ResponsiveDialog></ResponsiveDialog>
+      <Grid container spacing={3}>
+      <JhaOverTimeChart></JhaOverTimeChart>
+      <ActivityOverCount></ActivityOverCount>
+      <UsersOverCount></UsersOverCount>
+      {/* <SimpleCard title="JHA forms over time" body={
         <Chart
         chartType="BubbleChart"
-        loader={<div>Loading Chart</div>}
+        loader={<div></div>}
         data={[
           ['ID', 'Life Expectancy', 'Fertility Rate', 'Region', 'Population'],
           ['CAN', 80.66, 1.67, 'North America', 33739900],
@@ -175,7 +315,7 @@ function DashboardView () {
       <SimpleCard title="Reported Accidents Over Time" body={
          <Chart
          chartType="AreaChart"
-         loader={<div>Loading Chart</div>}
+         loader={<div></div>}
          data={[
            ['Year', 'Sales', 'Expenses'],
            ['2013', 1000, 400],
@@ -196,7 +336,7 @@ function DashboardView () {
       }></SimpleCard><SimpleCard title="Reported Accidents Over Time" body={
         <Chart
         chartType="AreaChart"
-        loader={<div>Loading Chart</div>}
+        loader={<div></div>}
         data={[
           ['Year', 'Sales', 'Expenses'],
           ['2013', 1000, 400],
@@ -217,7 +357,7 @@ function DashboardView () {
      }></SimpleCard><SimpleCard title="Reported Accidents Over Time" body={
       <Chart
       chartType="AreaChart"
-      loader={<div>Loading Chart</div>}
+      loader={<div></div>}
       data={[
         ['Year', 'Sales', 'Expenses'],
         ['2013', 1000, 400],
@@ -238,7 +378,7 @@ function DashboardView () {
    }></SimpleCard><SimpleCard title="Reported Accidents Over Time" body={
     <Chart
     chartType="AreaChart"
-    loader={<div>Loading Chart</div>}
+    loader={<div></div>}
     data={[
       ['Year', 'Sales', 'Expenses'],
       ['2013', 1000, 400],
@@ -260,7 +400,7 @@ function DashboardView () {
       <SimpleCard title="Reported Accidents Over Time" body={
          <Chart
          chartType="AreaChart"
-         loader={<div>Loading Chart</div>}
+         loader={<div></div>}
          data={[
            ['Year', 'Sales', 'Expenses'],
            ['2013', 1000, 400],
@@ -278,7 +418,7 @@ function DashboardView () {
            // lineWidth: 25
          }}
        />
-      }></SimpleCard>
+      }></SimpleCard> */}
       </Grid>
       </div>
   )
@@ -291,13 +431,9 @@ class Dashboard extends Component {
     return (
       <div>
         <h2>My Analytics</h2>
-        <Typography>This dashboard is a place to overview some statistics about stuff in
-           real time based on real data from both JHA's, and forms from the field. 
-           Yes. We Have forms here, analytics are very important. 
+        <Typography>
+          View Visual Information about JHA's performance. 
         </Typography>
-        <br></br>
-        <br></br>
-
         <DashboardView></DashboardView>
        
 

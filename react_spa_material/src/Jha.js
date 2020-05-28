@@ -37,6 +37,7 @@ import myData from './assets/data/hazards.json';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/auth';
+import { environment } from "./enviroments/enviroment"; 
 import firebaseApp from './FirebaseConfig';
 
 import {  PDFViewer, BlobProvider } from '@react-pdf/renderer';
@@ -90,6 +91,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     height: '100%', 
     flexGrow: 1,
+  },
+  paper: {
+        
+    margin: theme.spacing(1),
+    padding: theme.spacing(2),
+  
   }
 }));
 
@@ -123,7 +130,7 @@ function HorizontalLinearStepper() {
 
   const handleNext = () => {
     if (activeStep === 0) {
-      if (JHA.jobselect === "" || JHA.jobselect === undefined) {
+      if (JHA.jobselect === "" || JHA.jobselect === undefined || JHA.jobselect === null) {
         setJHA(t => {
           const newMessageObj = { ...t, "jobselecterror": "Required" };
           console.log(newMessageObj)
@@ -133,7 +140,7 @@ function HorizontalLinearStepper() {
         console.log("lit", JHA)
         return
       }
-      if (JHA.activity === "" || JHA.activity === undefined) {
+      if (JHA.activity === "" || JHA.activity === undefined || JHA.activity === null) {
         setJHA(t => {
           const newMessageObj = { ...t, "activityerror": "Required" };
           console.log(newMessageObj)
@@ -143,10 +150,29 @@ function HorizontalLinearStepper() {
         console.log("lit", JHA)
         return
       }
-       
     }
-    if (activeStep ==1) {
+    if (activeStep === 1) {
       console.log("as",JHA)
+    }
+    if (activeStep === 2) {
+      //At this step, the JHA has been "finished"
+      //We will now maake the payload to upload the 
+      console.log("done", JHA)
+     var uploadPayload = {
+        pdfUrl: JHA.pdfUrl,
+        jobId: JHA.jobselect._id,
+        data: JHA.selected,
+        activityId: JHA.activity._id, 
+      }
+      environment.fetch('jhacomplete',
+        {
+          method: 'POST',
+          body: JSON.stringify(uploadPayload),
+          headers: {
+            'Accept': 'application/json',
+            "content-type": "application/json",
+          }
+        })
     }
 
 
@@ -207,16 +233,18 @@ function HorizontalLinearStepper() {
       <div key={124124}>
         {activeStep === steps.length ? (
           <div>
+            <Paper elevation={5} className={classes.paper} >
             
-            <Typography className={classes.instructions}>
             <h4> JHA Completed! </h4>
+            <Typography className={classes.instructions}>
+              Congratulations on completing a Job Hazard Analysis!
+            </Typography>
               <Button variant="contained"
                   color="primary">Download PDF</Button>
-              <Button variant="contained"
-                  color="primary">Share with Jobsite</Button>
-                  The JHA has been distributed to the emails of your employees, if they open the link of the PDF, then the PDF will be marked as read. 
-            </Typography>
-            
+                  <br></br>
+                  
+           
+            </Paper> 
 
             <Button onClick={handleReset} className={classes.button}>
               Reset
@@ -320,6 +348,14 @@ function getStepContent(step, JHA, setJHA) {
        if ( !loading) {
         firebase.storage().ref("user/" +firebase.auth().currentUser.uid).child("PDF-"+JHA.activity.title+"--"+ m().format()).put(blob).then((snapshot) => {
           console.log(snapshot)
+          if (JHA.pdfUrl === undefined) {
+            setJHA(t => {
+            const newMessageObj = { ...t, "pdfUrl": snapshot.metadata.fullPath };
+            console.log(newMessageObj)
+            return newMessageObj
+          })
+        }
+
           return 
         })
         return <PDFViewer width="100%" height="1000px" >{doc}</PDFViewer>

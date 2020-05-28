@@ -364,7 +364,7 @@ class Jobs extends Component {
   ];
     return (
       <div>
-        <h2>Jobs</h2>
+        <h2>My Jobs</h2>
         <Button href="#/admin/jobs/create">Add Job</Button>
         <br></br>
         <br></br>

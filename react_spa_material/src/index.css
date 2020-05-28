@@ -142,3 +142,8 @@ body {
 .option-value {
   display: none !IMPORTANT;
 }
+
+.MuiTableCell-root {
+     display: table-cell;
+      padding: 0px !IMPORTANT;
+}

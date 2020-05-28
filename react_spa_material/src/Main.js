@@ -18,6 +18,8 @@ import FormViewer from "./FormViewer";
 import FormDashboard from "./FormDashboard";
 import Login from "./Login";
 import Timeline from './Timeline';
+import JhaDashboard from './JhaDashboard'
+import FileViewer from './FileViewer'
 
 import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
@@ -36,8 +38,10 @@ import { withStyles,makeStyles, createMuiTheme, ThemeProvider, withTheme} from '
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import CardMedia from '@material-ui/core/CardMedia';
+import ResponsiveDialog from './Profile'
 
 import icon from './assets/images/logo-icon.png';
+import { environment } from "./enviroments/enviroment";
 
 
 const firebaseAppAuth = firebaseApp.auth();
@@ -81,20 +85,13 @@ const styles = {
   },
 }
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#0F3656',
-    },
-    secondary: {
-      main: '#FF7812',
-    },
-  },
-  
-});
+
 
 class Main extends Component {
-  
+  state = {
+    color: '#0F3656',
+    profile: false,
+  }
   render() {
     const {
       user,
@@ -108,19 +105,42 @@ class Main extends Component {
       {firebase.auth().currentUser.getIdToken(true).then((idToken) => {console.log(idToken)})
               }
     }
+
+    /* create theme on the fly */
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: this.state.color,
+        },
+        secondary: {
+          main: '#FF7812',
+        },
+      },
+      
+    });
+    const setColor = (c) => {
+      this.setState({color:c})
+    }
+    const setProfile = (c) => {
+      this.setState({profile:c})
+    }
+
+
     /*https://github.com/firebase/firebaseui-web#demo 
         this be lit for login and stuff
         */
-    return user 
+    return user
           ? <ThemeProvider theme={theme}>
-            <HashRouter >
+            {this.state.profile ?  <HashRouter >
               
-              <Navigation {...other} theme={theme} signOut={signOut} user={user}  ></Navigation>
+              <Navigation {...other} color={this.state.color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={user}  ></Navigation>
               <div className="container" >
                 <br></br>
                   <Route exact path="/" component={Home}/>
                   <Route path="/contact" component={Contact}/>
                   <Route path="/jha" component={Jha}/>
+                  <Route path="/jha-dashboard" component={JhaDashboard}/>
+                  
                   <Route path="/incidents" component={Incidents}/>
                   <Route path="/inspections" component={Inspections}/>
                   <Route path="/admin/jobs/:id?" component={Jobs}/>
@@ -130,14 +150,26 @@ class Main extends Component {
                   <Route path="/form-dashboard/:id?" component={FormDashboard}/> 
                   <Route path="/form/:id?" component={FormViewer}/> 
                   <Route path="/login" component={Login}/> 
+                  <Route path="/file/:id?" render={(matchProps) =>
+  <FileViewer
+    {...matchProps}
+    {...this.props}
+  />
+}/>
                   <Route path="/timeline" component={Timeline}/> 
             </div>
           
-            </HashRouter>
+</HashRouter>: <div><ResponsiveDialog 
+color={this.state.color} 
+forceOpen={true} 
+setColor={setColor}
+setProfile={setProfile}
+click={()=>{}}></ResponsiveDialog></div>  }
             </ThemeProvider>
           : <div className={classes.loginroot}><Card className={classes.logincard}>
             <a href="https://yourjha.com"><img src={icon} ></img></a>
             {/*  */}
+
             <br></br>
             <br></br>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebaseAppAuth}/>

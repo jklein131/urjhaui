@@ -81,7 +81,9 @@ class FormBuilderView extends Component {
       }
      var updatePromise = this.state.updateJob(jobdata)
      console.log(updatePromise)
-     updatePromise.then((data)=> { console.log("dboy", data) ; window.history.replaceState({},"Your JHA | Job ", "#/form-templates/"+data._id)})
+     updatePromise.then((data)=> { console.log("dboy", data) ; 
+     window.history.replaceState({},"Your JHA | Form ", "#/form-templates/"+data._id)
+    })
       }
     }>
           
@@ -142,15 +144,14 @@ class FormBuilder extends Component {
         })
         .then(res => 
           res.json())
-        .then((data) => {
-          let ids = [...this.state.jobs]
-      let index = ids.findIndex((i) => (i._id === body._id) ? true : false)
-      ids[index] = data
-      console.log("new jobs", ids)
-      this.setState({
-        jobs: ids,
-      })
-        });
+          .then((data) => {
+            var newjobs = this.state.jobs
+            newjobs.push(data)
+            this.setState({
+              jobs: newjobs,
+            })
+            return data
+          });
     }
     return environment.fetch('formtemplates/'+body._id,
     {

@@ -115,18 +115,38 @@ const JHAHeader = ({rows}) => (
   <View style={styles.jhatable}>
     {rows.map((answer, i) => {                   
            // Return the element. Also pass key     
-           return (<Text style={answer.pos === 1 ? styles.jhacellheader : styles.jhacellheader2 }>{answer.text} </Text>)
+           return (<Text key={answer.text} style={answer.pos === 1 ? styles.jhacellheader : styles.jhacellheader2 }>{answer.text} </Text>)
         })}
   </View>
 );
 
 const JHARow = ({rows}) => (
   <View style={styles.jhatable} wrap={false}>
-    {rows.map((answer, i) => {                   
-           // Return the element. Also pass key     
-           return (<Text style={answer.pos === 1 ? styles.jhacell : styles.jhacell2 }>{answer.text} </Text>)
-        })}
-  </View>
+    
+     {rows.map((answer, i) => {
+        console.log("yeet", answer.text.trim().split("\\n").filter((val) => val !== "") )
+        return <View style={answer.pos === 1 ? styles.jhacell : styles.jhacell2 }>
+          {
+            answer.text.trim().split("\\n").filter((val) => val !== "").map((val, i) => (
+              <Text>{val}</Text>
+            ))
+           }
+        </View>
+     })}
+     {/*
+           // Return the element. Also pass key
+           var data = answer.text.trim().split("\\n").map((val, i) => {
+             if (val === "") {
+             } else {
+            return <Text>{val}</Text>
+             }
+          }
+            )
+            console.log("dat", data)
+           return 
+           })
+        } */}
+        </View>
 );
 
 // Create Document Component
@@ -137,11 +157,13 @@ export default function MyDocument ({JHA})  {
     <Page size="A4" style={styles.page} wrap >
      <View style={styles.jhatable}>
      <View >
-     <Text style={styles.root}>{JHA.activity.title}</Text>
-     <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.title}</Text></Text>
-     <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
+     <Text style={styles.root}>{JHA.activity.name}</Text>
+     <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text>
+     <Text style={styles.textDetails}>Job Address: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
+     <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>
+     {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
      <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text>
-     <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
+     <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text> */}
      <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}>AS per rec of the thing and we have</Text></Text>
      </View>
      <View >
@@ -181,7 +203,7 @@ export default function MyDocument ({JHA})  {
         
         <View style={styles.jhatable}>
 <View>
-         <Text>Prepared by Pan-Pacific Mechanical at yourjha.com</Text>
+         <Text>Prepared at yourjha.com</Text>
        </View>
        <View>
          <Text render={({ pageNumber, totalPages }) => ( 
