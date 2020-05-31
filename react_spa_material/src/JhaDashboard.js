@@ -42,10 +42,8 @@ const columns = ["Name", "Company", "City", "State",{
           sort: false,
           empty: true,
           customBodyRender: (value, tableMeta, updateValue) => {
-            console.log("clicked", value, tableMeta, updateValue)
             return (
               <button onClick={() => firebase.storage().ref(value).getDownloadURL().then((snapshot) => {
-                console.log(snapshot)
                 window.open(snapshot)
                 return 
               })}>

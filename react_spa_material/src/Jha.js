@@ -239,8 +239,16 @@ function HorizontalLinearStepper() {
             <Typography className={classes.instructions}>
               Congratulations on completing a Job Hazard Analysis!
             </Typography>
-              <Button variant="contained"
-                  color="primary">Download PDF</Button>
+
+            
+
+                    <a href={JHA.pdfDownload} target="_blank" rel="noopener noreferrer" download>
+                    <Button variant="contained" color="primary" >
+                        {/* <i className="fas fa-download"/> */}
+                        Download PDF
+                    </Button>
+                  </a>
+            
                   <br></br>
                   
            
@@ -346,14 +354,16 @@ function getStepContent(step, JHA, setJHA) {
         // Do whatever you need with blob here
         console.log("uploading",blob, url, loading, error, )
        if ( !loading) {
-        firebase.storage().ref("user/" +firebase.auth().currentUser.uid).child("PDF-"+JHA.activity.title+"--"+ m().format()).put(blob).then((snapshot) => {
+        firebase.storage().ref("user/" +firebase.auth().currentUser.uid).child("PDF-"+JHA.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+JHA.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()).put(blob).then((snapshot) => {
           console.log(snapshot)
           if (JHA.pdfUrl === undefined) {
-            setJHA(t => {
-            const newMessageObj = { ...t, "pdfUrl": snapshot.metadata.fullPath };
-            console.log(newMessageObj)
-            return newMessageObj
-          })
+            firebase.storage().ref(snapshot.ref.fullPath).getDownloadURL(). then((url) => {
+              setJHA(t => {
+                const newMessageObj = { ...t, "pdfUrl": snapshot.metadata.fullPath, "pdfDownload": url };
+                console.log(newMessageObj)
+                return newMessageObj
+              })
+            })
         }
 
           return 

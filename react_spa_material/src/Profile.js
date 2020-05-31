@@ -38,6 +38,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
     const [displayName, setDisplayName] = React.useState(firebase.auth().currentUser.displayName);
     const [focus, setFocus] = React.useState(false);
     const [profile, setLocalProfile] = React.useState(undefined);
+    const [localColor, setLocalColor] = React.useState(color)
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   
@@ -51,6 +52,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 setColor(data.customerId.color)
                 setProfile(data)
                 setIsLoading(false)
+                setLocalColor(data.customerId.color)
                 
             } else {
                 setLocalProfile(data)
@@ -94,8 +96,8 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
             }
         } else {
             setOpen(false)
+            setColor(localColor)
         }
-      
     }
     };
   

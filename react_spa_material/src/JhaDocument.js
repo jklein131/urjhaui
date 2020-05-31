@@ -164,7 +164,7 @@ export default function MyDocument ({JHA})  {
      {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
      <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text>
      <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text> */}
-     <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}>AS per rec of the thing and we have</Text></Text>
+     <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}></Text></Text>
      </View>
      <View >
      <Image 
