@@ -2,32 +2,45 @@
 import React , { Component} from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font} from '@react-pdf/renderer';
 
-import icon from './assets/images/logo-icon.png';
+import icon from './assets/images/va.png';
+import hazardicon from './assets/images/hazard.PNG';
 
 import { makeStyles} from '@material-ui/core/styles';
+
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
+import 'firebase/auth';
+import * as m from 'moment'
 
 import roboto_italic from './assets/fonts/roboto/Roboto-ThinItalic.ttf'
 import roboto_thin from './assets/fonts/roboto/Roboto-Thin.ttf'
 import roboto_reg from './assets/fonts/roboto/Roboto-Regular.ttf'
 import roboto_light from './assets/fonts/roboto/Roboto-Light.ttf'
+import roboto_bold from './assets/fonts/roboto/Roboto-Bold.ttf'
 import roboto_condensed from './assets/fonts/roboto/RobotoCondensed-Regular.ttf'
 import roboto_condensed_Light from './assets/fonts/roboto/RobotoCondensed-Light.ttf'
 
-Font.register({ family: 'Roboto-Regular', src: roboto_reg }); //eh
-Font.register({ family: 'Roboto-Italic', src: roboto_italic });
-Font.register({ family: 'Roboto-Light', src: roboto_light });
-Font.register({ family: 'Roboto-Thin', src: roboto_thin }); //not terible
+// Font.register({
+//   family: "Montserrat",
+//   src:
+//   "http://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYC3USBnSvpkopQaUR-2r7iU.ttf",
+//   });
+  Font.register({ family: 'Roboto-Regular', src: roboto_reg }) //eh
+Font.register({ family: 'Roboto-Italic', src: roboto_italic })
+Font.register({ family: 'Roboto-Light', src: roboto_light })
+Font.register({ family: 'Roboto-Thin', src: roboto_thin }) //not terible
+Font.register({ family: 'Roboto-Bold', src: roboto_bold }) //not terible
+Font.registerHyphenationCallback(word => [word]);
 
-Font.register({ family: 'Roboto-Condensed', src: roboto_condensed });
-Font.register({ family: 'Roboto-Condensed-Light', src: roboto_condensed_Light });
-
+// Font.register({ family: 'Roboto-Condensed', src: roboto_condensed });
+// Font.register({ family: 'Roboto-Condensed-Light', src: roboto_condensed_Light });
 
 const docPadding = 35;
 // Create styles
 const styles = StyleSheet.create({
   
   page: {
-  //  
+   
   fontFamily: 'Roboto-Light',
     backgroundColor: '#FFFFFF',
     paddingTop: docPadding,
@@ -54,6 +67,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  totalractitle: {
+    textAlign: 'center',
+    backgroundColor: "#0D3957",
+    color: 'white',
+  },
   jhacellheader : {
     flex : 1,
     margin: '1px',
@@ -76,6 +94,120 @@ const styles = StyleSheet.create({
     padding: '2px',
     fontSize: '3.5mm',
     backgroundColor: "#ECEFF1",
+  },
+  ractitle :{
+    fontSize: '4mm',
+    textDecoration: 'underline',
+    margin: '1px',
+    padding: '2px',
+  },
+  hazrdcell1: {
+    flex : 10,
+    // flexGrow: 1,
+    //flexBasis: 0,
+    margin: '1px',
+    padding: '2px',
+    fontSize: '5mm',
+    // backgroundColor: "#ECEFF1",
+  },
+  hazrdcellicon: {
+    flex : 1,
+    flexGrow: 1,
+    flexBasis: 0,
+    margin: '1px',
+    marginLeft: '2mm',
+    padding: '2px',
+    fontSize: '3.5mm',
+    // backgroundColor: "#ECEFF1",
+  },
+  hazrdcell2: {
+    flex : 10,
+    // flexGrow: 1,
+    //flexBasis: 0,
+    margin: '1px',
+    marginTop: '2mm',
+    marginLeft: '0mm',
+    padding: '2px',
+    fontSize: '3.5mm',
+    // backgroundColor: "#ECEFF1",
+  },
+  hazrdcell3: {
+    paddingLeft: '25px',
+    marginLeft: '5mm',
+    padding: '2px',
+    fontSize: '3.4mm',
+  },
+  raccell: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "#ECEFF1",
+  },
+  raccellheader: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    textAlign: 'center',
+    backgroundColor: "#0D3957",
+    color: 'white',
+  },
+  raccellred: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "red",
+  },
+  raccellorange: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "orange",
+  },
+  raccellyellow: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "yellow",
+  },
+  raccellgreen: {
+    flex : 1,
+    flexGrow: 1,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    color: 'white',
+    backgroundColor: "green",
+  },
+  bold: {
+    color:"green", 
+    textDecoration:'underline',
+    fontFamily: 'Roboto-Bold',
+  },
+  bold1: {
+    color:"green", 
+    textDecoration:'underline',
+    fontFamily: 'Roboto-Bold',
+    fontSize: '3.9mm',
   },
   jhacell2: {
     flex : 2,
@@ -117,58 +249,217 @@ const JHAHeader = ({rows}) => (
            // Return the element. Also pass key     
            return (<Text key={answer.text} style={answer.pos === 1 ? styles.jhacellheader : styles.jhacellheader2 }>{answer.text} </Text>)
         })}
+         <View style={styles.raccellheader}>
+              <Text>RAC</Text>
+        </View>
   </View>
 );
+const JHAHazardRow = ({task, hazard, control}) => (
+  <View>
+  <View style={styles.jhatable}>
+  <Text style={styles.hazrdcell1} >{task}</Text>
+  <Text style={styles.hazrdcellicon} > 
+ <Image 
+  style={{width: '.75cm',
+  height:'.75cm'}}
+  
+      src={hazardicon}
+    ></Image>
+    </Text>
+  <Text style={styles.hazrdcell2} >{hazard.split("\n").filter((val) => val !== "").join(', ')}</Text>
+      </View>
+      <Text style={styles.hazrdcell3} >Risk Assessment: <Text style={styles.bold1}>Low</Text></Text>
+  <Text style={styles.hazrdcell3}>{control}</Text>
+  <View style={styles.section15}></View>
+  </View>
+)
 
-const JHARow = ({rows}) => (
-  <View style={styles.jhatable} wrap={false}>
+//hazard color: #FF7812;
+// const JHARow = ({rows}) => (
+//   <View style={styles.jhatable} wrap={false}>
     
-     {rows.map((answer, i) => {
-        console.log("yeet", answer.text.trim().split("\\n").filter((val) => val !== "") )
-        return <View style={answer.pos === 1 ? styles.jhacell : styles.jhacell2 }>
-          {
-            answer.text.trim().split("\\n").filter((val) => val !== "").map((val, i) => (
-              <Text>{val}</Text>
-            ))
-           }
+//      {rows.map((answer, i) => {
+//         console.log("yeet", answer.text.trim().split("\\n").filter((val) => val !== "") )
+//         return <View style={answer.pos === 1 ? styles.jhacell : styles.jhacell2 }>
+//           {
+//             answer.text.trim().split("\\n").filter((val) => val !== "").map((val, i) => (
+//               <Text>{val}</Text>
+//             ))
+//            }
+         
+//         </View>
+//      })}
+//          <View style={styles.raccellgreen}>
+//               <Text>Low</Text>
+//         </View>
+//         </View>
+// );
+
+const RACTable = () => (
+  <View>
+    <Text style={styles.ractitle}>Overall Risk Assessment: LOW </Text>
+    <Text style={{fontSize: '3.5mm',}}> “Probability” is the likelihood to cause an incident, near miss, or accident and identified as: Frequent, Likely, Occasional, Seldom or Unlikely. 
+
+“Severity” is the outcome/degree if an incident, near miss, or accident did occur and identified as: Catastrophic, Critical, Marginal, or Negligible</Text>
+  <View style={styles.jhatable} wrap={false}>
+    {/* <View style={styles.raccell}>
+              <Text>Severity</Text>
         </View>
-     })}
-     {/*
-           // Return the element. Also pass key
-           var data = answer.text.trim().split("\\n").map((val, i) => {
-             if (val === "") {
-             } else {
-            return <Text>{val}</Text>
-             }
-          }
-            )
-            console.log("dat", data)
-           return 
-           })
-        } */}
+        <View style={styles.raccell}>
+             <Text>Probability</Text>
+        </View> */}
+    </View>
+    {/* row 2  */}
+      <View style={styles.jhatable} wrap={false}>
+      <View style={styles.raccell}>
+<Text></Text>
+</View>
+        <View style={styles.raccell}>
+              <Text>Frequent</Text>
         </View>
-);
+        <View style={styles.raccell}>
+
+      <Text>Likely</Text>
+      </View>
+      <View style={styles.raccell}>
+      <Text>Occational</Text>
+      </View>
+      <View style={styles.raccell}>
+      <Text>Seldom</Text>
+      </View>
+      <View style={styles.raccell}>
+      <Text>Unlikely</Text>
+</View>
+
+      </View>
+      {/* row 3 */}
+      <View style={styles.jhatable} wrap={false}>
+      <View style={styles.raccell}>
+<Text>Catastrophic</Text>
+</View>
+        <View style={styles.raccellred}>
+              <Text>Extreme</Text>
+        </View>
+        <View style={styles.raccellred}>
+
+      <Text>Extreme</Text>
+      </View>
+      <View style={styles.raccellorange}>
+      <Text>High</Text>
+      </View>
+      <View style={styles.raccellorange}>
+      <Text>High</Text>
+      </View>
+      <View style={styles.raccellyellow}>
+      <Text>Medium</Text>
+</View>
+
+      </View>
+{/* row 4  */}
+<View style={styles.jhatable} wrap={false}>
+      <View style={styles.raccell}>
+<Text>Critical</Text>
+</View>
+        <View style={styles.raccellred}>
+              <Text>Extreme</Text>
+        </View>
+        <View style={styles.raccellorange}>
+
+      <Text>High</Text>
+      </View>
+      <View style={styles.raccellorange}>
+      <Text>High</Text>
+      </View>
+      <View style={styles.raccellyellow}>
+      <Text>Medium</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+</View>
+
+      </View>
+      {/* row 5  */}
+<View style={styles.jhatable} wrap={false}>
+      <View style={styles.raccell}>
+<Text>Marginal</Text>
+</View>
+        <View style={styles.raccellorange}>
+              <Text>High</Text>
+        </View>
+        <View style={styles.raccellyellow}>
+      <Text>Medium</Text>
+      </View>
+      <View style={styles.raccellyellow}>
+      <Text>Medium</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+</View>
+
+      </View>
+          {/* row 6 */}
+<View style={styles.jhatable} wrap={false}>
+      <View style={styles.raccell}>
+<Text>Negligible </Text>
+</View>
+        <View style={styles.raccellyellow}>
+              <Text>Medium</Text>
+        </View>
+        <View style={styles.raccellgreen}>
+
+      <Text>Low</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+      </View>
+      <View style={styles.raccellgreen}>
+      <Text>Low</Text>
+</View>
+
+      </View>
+      {/* end */}
+      </View>
+)
+
+  
 
 // Create Document Component
 export default function MyDocument ({JHA})  {
-    return (
-  <Document>
+
+    return ( <Document>
     
-    <Page size="A4" style={styles.page} wrap >
+    <Page size="A4" style={styles.page} wrap  >
      <View style={styles.jhatable}>
      <View >
-     <Text style={styles.root}>{JHA.activity.name}</Text>
+     <Text style={styles.root}>{JHA.activity.name}  (Total Risk: <Text style={styles.bold}>Low</Text>)</Text>
      <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text>
      <Text style={styles.textDetails}>Job Address: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
      <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>
-     {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>
-     <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text>
-     <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text> */}
+     <Text style={styles.textDetails}>Created by: <Text style={styles.italilit}>{firebase.auth().currentUser.displayName}</Text></Text>
+     <Text style={styles.textDetails}>Created At: <Text style={styles.italilit}>{m().format('MMMM Do YYYY, h:mm a')}</Text></Text>
+     {/* <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text> */}
+     {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>  */}
      <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}></Text></Text>
      </View>
+     
+     {/* <View style={styles.textDetails}>
+      
+       <Text style={styles.totalractitle}>
+       Highest RAC </Text>
+       
+       <Text>
+       LOW </Text>
+       
+     </View> */}
      <View >
      <Image 
-    style={{width: '3cm'}}
+    style={{width: '3.5cm'}}
         src={icon}
       ></Image>
      </View>
@@ -178,32 +469,36 @@ export default function MyDocument ({JHA})  {
       
     
     <View style={styles.section}>
+      </View>
+      <View style={styles.section15}></View>
+ 
+      <RACTable></RACTable>
     
-    </View>
+   
     <View style={styles.section15}></View>
     <View>
-      <JHAHeader rows={[
+      {/* <JHAHeader rows={[
         {text: "Task", pos :1},
         {text: "Hazards", pos :1},
         {text: "Controls", pos :2},
-      ]}></JHAHeader>
+      ]}></JHAHeader> */}
       {JHA.selected.map( (selected_i, i) => {
-      return <JHARow rows={[
-        {text: selected_i.data.Task, pos :1},
-        {text: selected_i.data.Hazards, pos :1},
-        {text: selected_i.data.Controls, pos :2},
-      ]}></JHARow>
+      // return <JHARow key={i} rows={[
+      //   {text: selected_i.data.Task, pos :1},
+      //   {text: selected_i.data.Hazards, pos :1},
+      //   {text: selected_i.data.Controls, pos :2},
+      // ]}></JHARow>
+      return <JHAHazardRow task={selected_i.data.Task} hazard={selected_i.data.Hazards} control={selected_i.data.Controls}></JHAHazardRow>
       
       })
     }
-
       </View> 
 
       <View style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
         
         <View style={styles.jhatable}>
 <View>
-         <Text>Prepared at yourjha.com</Text>
+         {/* <Text>prepared at yourjha.com</Text> */}
        </View>
        <View>
          <Text render={({ pageNumber, totalPages }) => ( 

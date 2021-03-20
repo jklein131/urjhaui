@@ -62,6 +62,106 @@ function ComboBox({label, JHA, setJHA}) {
 
   );
 }
+
+function FreeSoloCreateOption({label, JHA, setJHA}) {
+  const [activity, setActivity] = React.useState([]);
+  React.useEffect(()=> {
+    environment.fetch('activity').then(res => 
+      res.json()).then((activitiesC) => {
+        setActivity(activitiesC)
+      })
+  },[])
+
+  var updateV = (val) => {setJHA(t => {
+    const newMessageObj = { ...t, "activity": val };
+    return newMessageObj
+  });
+  }
+
+  return (
+    <div>
+      <div>
+      {JHA.activity == undefined ? "" : JHA.activity.name}
+    </div>
+    <Autocomplete
+      value={JHA.activity == undefined ? "" : JHA.activity}
+      onChange={(event, newValue) => {
+        if (typeof newValue === 'string') {
+          console.log("option 1")
+          updateV(newValue);
+        } else if (newValue && newValue.inputValue) {
+          // Create a new value from the user input
+          // we also need to create this new value on the server. 
+          console.log("option 2")
+          var uploadPayload = {
+            name: newValue.inputValue,
+            description: "",
+          }
+
+      environment.fetch('activity',
+    {
+      method: 'POST',
+      body: JSON.stringify(uploadPayload),
+      headers: {
+        'Accept': 'application/json',
+        "content-type": "application/json",
+      }
+    }).then(res => 
+      res.json()).then((activitiesC) => {
+        setActivity([...activity, activitiesC])
+        updateV( activitiesC);
+      })
+        } else {
+          console.log("option 3")
+          updateV(newValue);
+        }
+      }}
+      filterOptions={(options, params) => {
+        const filtered = filter(options, params);
+
+        // Suggest the creation of a new value
+        if (params.inputValue !== '') {
+          filtered.push({
+            inputValue: params.inputValue,
+            name: `Add "${params.inputValue}"`,
+          });
+        }
+
+        return filtered;
+      }}
+      selectOnFocus
+      clearOnBlur
+      handleHomeEndKeys
+      id="free-solo-with-text-demo"
+      options={activity}
+      getOptionLabel={(option) => {
+        // Value selected with enter, right from the input
+        if (typeof option === 'string') {
+          return option;
+        }
+        // Add "xxx" option created dynamically
+        if (option.inputValue) {
+          return option.inputValue;
+        }
+        // Regular option
+        return option.name;
+      }}
+      renderOption={(option) => option.name}
+      style={{ width: 'auto' }}
+      freeSolo
+      renderInput={(params) => (
+          
+        <div> 
+          <TextField required helperText={JHA.activityerror} {...params} error={false || (JHA !== undefined && (JHA.activity === "" || JHA.activity === undefined) && JHA.activityerror !== undefined)} label={label} variant="outlined" />
+          
+        </div>
+
+      )}
+    />
+    </div>
+  );
+}
+
 function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
   const [value, setValue] = React.useState(null);
   const [customvalue, setCValue] = React.useState(null);
@@ -109,6 +209,10 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
     }).then(res => 
       res.json()).then((activitiesC) => {
         setActivity([...activity, activitiesC])
+        setJHA(t => {
+          const newMessageObj = { ...t, "activity": activitiesC };
+          return newMessageObj
+        })
       })
 
     handleClose();
@@ -128,6 +232,10 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
               setDialogValue({
                 name: newValue,
               });
+              setJHA(t => {
+                const newMessageObj = { ...t, "activity": newValue };
+                return newMessageObj
+              })
             });
             return;
           }
@@ -137,6 +245,10 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
             setDialogValue({
               name: newValue.inputValue,
             });
+            setJHA(t => {
+              const newMessageObj = { ...t, "activity": newValue.inputValue };
+              return newMessageObj
+            })
             return;
           }
 
@@ -251,8 +363,16 @@ export default function JhaJobSelect({JHA, setJHA}) {
             <br></br>
             <br></br>
 
-            <FreeSoloCreateOptionDialog JHA={JHA} setJHA={setJHA} label="Select Activity"></FreeSoloCreateOptionDialog>
-
+            <FreeSoloCreateOption JHA={JHA} setJHA={setJHA} label="Select Activity"></FreeSoloCreateOption>
+            <br></br>
+            {/* <Button
+                  variant="contained"
+                  color="secondary"
+                  // onClick={}
+                  className={classes.button}
+                >
+                  Learn More about the JHA
+                  </Button> */}
           </Paper>
           <br></br>
         </Grid>

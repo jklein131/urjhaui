@@ -128,6 +128,7 @@ class FormBuilder extends Component {
     .then((data) => {
       this.setState({ jobs: data })
     }).catch(console.log)
+    
   }
   updateJob(body) {
     console.log(body)

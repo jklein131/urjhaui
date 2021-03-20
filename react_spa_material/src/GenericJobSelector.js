@@ -41,7 +41,7 @@ export default function GenericJobSelector  ({setvalue, value, error}) {
   },[])
 
   return <Autocomplete
-      id="combo-box-demo"
+      id="jobselect-box-demo"
       options={options}
       getOptionLabel={(option) => option === "" ? "" : option.name}
       value={value === undefined ? "" : value}

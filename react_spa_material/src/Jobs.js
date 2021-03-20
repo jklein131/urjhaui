@@ -55,6 +55,7 @@ class Job extends Component {
     jobzip: undefined !== this.props.job ? this.props.job["zip"] : undefined,
     joblevels: undefined !== this.props.job ? this.props.job["levels"] : undefined,
     icontext: undefined !== this.props.job ? this.props.job["name"] : undefined,
+  //  client: undefined !== this.props.job ? this.props.job["client"] ? this.props.job["client"] : undefined: undefined,
     updateJob: this.props.updateJob,
   }
   updateState(job) {
@@ -69,6 +70,7 @@ class Job extends Component {
     this.setState({joblevels: job["levels"]})
     this.setState({jobzip: job["zip"]})
     this.setState({icontext: job["name"]})
+    this.setState({client: job["client"]})
   }
   
   render() {
@@ -97,6 +99,7 @@ class Job extends Component {
         zip: this.state.jobzip,
         type: this.state.jobtype,
         scopes: this.state.scopes,
+        client: this.state.client,
       }
       var newjob = this.state.updateJob(jobdata)
       
@@ -167,7 +170,7 @@ class Job extends Component {
 
   <Form.Group controlId="formGridZip">
     <Form.Label>Zip</Form.Label>
-    <Form.Control defaultValue={this.state.jobzip} name="jobzip" onChange={(e) => {
+    <Form.Control placeholder="Zipcode"  defaultValue={this.state.jobzip} name="jobzip" onChange={(e) => {
     this.setState({jobzip : e.target.value})}
     }/>
   </Form.Group>
@@ -177,7 +180,12 @@ class Job extends Component {
     this.setState({joblevels : e.target.value})}
     }/>
   </Form.Group>
-
+  <Form.Group controlId="formGridLevel">
+    <Form.Label>Customer</Form.Label>
+    <Form.Control placeholder="Name of company doing work" defaultValue={this.state.client} name="client" onChange={(e) => {
+    this.setState({client : e.target.value})}
+    }/>
+  </Form.Group>
   <Form.Group controlId="formGridAreas">
     <Form.Label>Areas</Form.Label>
 

@@ -170,22 +170,23 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
           /> */}
           {(open === 1 || open === 3) ? <CheckCircleIcon
           className={classes.checkMarkIcon}></CheckCircleIcon> : ""}
-          <Typography variant="h5" component="h4"> {data.Category}</Typography>
+          <Typography variant="h5" component="h4"> {data.Task}</Typography>
           </Grid>
         
           <Grid item xs={12} sm={8} >
           <div className={classes.twoThings}>
           <FormControlLabel
-            aria-label="Atmospheric Hazards"
+            aria-label={data.Hazards.trim().split("\n").join(", ")}
             control={ (open !== 2) ? <BlueOnGreenTooltip className={classes.info} title="Hazards are potential incidents that might occur on the jobsite. " placement="top-start"><div className={classes.iconSpacing}>
               <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon></div></BlueOnGreenTooltip>:  <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon>}
-            label={data.Hazards.trim().split("\\n").join(", ")}
+            label={data.Hazards.trim().split("\n").join(", ")}
             className={classes.tablabel}
           />
           <div>
           <div className={classes.twoThings}>
+          <IconButton aria-label="delete" style={{ color: 'green' }} onClick={()=> {console.log("hi")}}>Low</IconButton>
           <Zoom in={open===1 || open===3}>
             {(open === 1) ? 
  <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(3)}}><KeyboardArrowDownIcon ></KeyboardArrowDownIcon></IconButton>

@@ -7,8 +7,8 @@ export const environment = {
     production: false,
     apiUrl: baseUrl,
     fetch: (url, settings) => {
-      if (firebase.auth().currentUser) {
-        return firebase.auth().currentUser.getIdToken(true)
+      
+        return firebase.auth().currentUser.getIdToken(false)
         .then((idToken) => {
           return  fetch(baseUrl+url, {
             ...settings,
@@ -20,10 +20,7 @@ export const environment = {
               {
                 "Authorization":"bearer "+idToken,
               }
-              
-            
           })
-        })
-    }
+        }).catch()
   },
   };

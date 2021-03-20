@@ -17,6 +17,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
 
 import Typography from '@material-ui/core/Typography';
@@ -41,6 +42,8 @@ import { environment } from "./enviroments/enviroment";
 import firebaseApp from './FirebaseConfig';
 
 import {  PDFViewer, BlobProvider } from '@react-pdf/renderer';
+
+import { Prompt } from 'react-router'
 
 var sections = {}
       myData.map((answer, i) => {
@@ -118,6 +121,7 @@ function HorizontalLinearStepper() {
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
   const [JHA, setJHA] = React.useState({}); 
+  const [done, setDone] = React.useState(false); 
 
   const isStepOptional = step => {
     return false
@@ -173,6 +177,7 @@ function HorizontalLinearStepper() {
             "content-type": "application/json",
           }
         })
+      setDone(true)
     }
 
 
@@ -206,11 +211,19 @@ function HorizontalLinearStepper() {
   };
 
   const handleReset = () => {
+    //https://medium.com/@michaelchan_13570/using-react-router-v4-prompt-with-custom-modal-component-ca839f5faf39
+    setDone(false)
+    setJHA({})
     setActiveStep(0);
   };
 
   return (
+    
     <div className={classes.root}>
+      <Prompt
+      when={!done && JHA.jobselect !== undefined }
+      message='You have unsaved changes, are you sure you want to leave?'
+    />
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -285,6 +298,8 @@ function HorizontalLinearStepper() {
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
+              
+              
             </div>
           </div>
         )}

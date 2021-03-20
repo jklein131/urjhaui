@@ -32,10 +32,15 @@ import { BlockPicker, CirclePicker } from 'react-color';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
 export default function ResponsiveDialog({click, color, setColor, forceOpen, setProfile}) {
     const [open, setOpen] = React.useState(open);
     const [isLoading, setIsLoading] = React.useState(true);
-    const [displayName, setDisplayName] = React.useState(firebase.auth().currentUser.displayName);
+    const dname = firebase.auth().currentUser.displayName;
+    const [displayName, setDisplayName] = React.useState(dname);
     const [focus, setFocus] = React.useState(false);
     const [profile, setLocalProfile] = React.useState(undefined);
     const [localColor, setLocalColor] = React.useState(color)
@@ -49,15 +54,16 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
     React.useEffect(() => {
         environment.fetch('profile').then((res)=>(res.json())).then((data)=> {
             if ('_id' in data) {
+              setProfile(data)
                 setColor(data.customerId.color)
-                setProfile(data)
                 setIsLoading(false)
                 setLocalColor(data.customerId.color)
-                
             } else {
                 setLocalProfile(data)
                 setIsLoading(false)
             }
+        }).catch((err)=> {
+          console.log(err)
         })
     },[])
   
@@ -68,7 +74,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 var body = {
                     _id : profile._id,
                     displayName: displayName, 
-                    companyColor: color, 
+                    companyColor: color,
                 }
                 environment.fetch('profile', {
                     method: 'PATCH',
@@ -108,7 +114,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
     return (
         isLoading ? <div></div>:
       <div>
-     {forceOpen ? "" :
+     {forceOpen ? <div></div> :
         <MenuItem key={"profileg"} onClick={() => {click(); handleClickOpen()} }>Profile</MenuItem>
         }
         <Dialog
@@ -120,6 +126,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
           <DialogTitle id="responsive-dialog-title">{"Edit Your Profile"}</DialogTitle>
           <DialogContent>
             <DialogContentText>
+            </DialogContentText>
             <TextField id="outlined-basic" label="Display Name" variant="outlined" value={displayName} onChange={(val) => setDisplayName(val)}/>
             <br></br>
             <br></br>
@@ -131,7 +138,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
             onChangeComplete={ handleChangeComplete }
             ></BlockPicker >
             {/* <TextField id="outlined-basic" label="Company Color" variant="outlined" /> */}
-            </DialogContentText>
+            
           </DialogContent>
           <DialogActions>
             {forceOpen ? <div></div>:<Button onClick={handleClose(false)} color="primary">

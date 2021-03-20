@@ -8,7 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.50",
     "@material-ui/styles": "^4.9.10",
-    "@react-pdf/renderer": "^1.6.8",
+    "@react-pdf/renderer": "^1.6.13",
     "@react-pdf/styled-components": "v1.4.0",
     "array-move": "^2.2.0",
     "core-js": "^3.2.1",
@@ -45,9 +45,11 @@
     "redux": "^4.0.4",
     "seedrandom": "^3.0.3",
     "semantic-ui-react": "^0.88.2",
+    "source-map-explorer": "^2.4.2",
     "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "PORT=6969 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -10,6 +10,15 @@ import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/auth';
 import * as m from 'moment'
+async function inner(data) {
+  await Promise.all( data.map((person, index) => {
+    return firebase.storage().ref(person.data[4]).getDownloadURL().then((snapshot) => {
+        person.data[4] = snapshot
+      }
+    )
+  }))
+  return data
+}
 
 class JhaDashboardTable extends React.Component {
 
@@ -50,8 +59,12 @@ class JhaDashboardTable extends React.Component {
 //     });
 //   };
 
-  render() {
+csvDownload(buildHead,buildBody,columns,data) {
+  // data = inner(data)
+  return buildHead(columns) + buildBody(data) 
+}
 
+  render() {
     const columns = [
         {
          name: "jobId.name",
@@ -114,6 +127,7 @@ class JhaDashboardTable extends React.Component {
       filterType: 'dropdown',
       responsive: 'stacked',
       print: false, 
+      onDownload: this.csvDownload,
     //   serverSide: true,
     //   count: count,
     //   page: page,

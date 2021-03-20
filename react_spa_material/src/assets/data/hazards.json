@@ -1,1604 +1,1587 @@
-[
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 40,
-    "Task": "Atmospheric Testing",
-    "Hazards": " Atmospheric hazards",
-    "Controls": " Oxygen content shall be tested. The acceptable range is 19.5 to 23.5 percent.\\nTest for combustible gas and vapors. Ensure that you are within the Explosion Limits. Record readings on the Entry Permit.\\nSafe operating levels can be determined from the Permissible Exposure Level (PEL) as listed in OSHA 29 CFR 1910.1000.handle",
-    "RAC": " L"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 540,
-    "Task": "josh test 2",
-    "Hazards": " swag",
-    "Controls": " yolo",
-    "RAC": " L"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 37,
-    "Task": "Initial evaluation of confined space",
-    "Hazards": " Hazardous atmospheres\\nEngulfment\\nAccess",
-    "Controls": " Complete the Non-Permit Required Confined Space Entry Form.\\n\\nIf the work site contains permit-required confined spaces",
-    "RAC": "danger signs stating \"\"DANGER - CONFINED SPACE - ENTER BY PERMIT ONLY\"\" shall be posted to inform employees of the existence and location of the spaces. Bilingual signs shall be posted as necessary.\\n\\nPan-Pacific Employees do not enter or conduct work in Permit Required Confined Space. If our Competent Person determines that the area is Permit Required"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 62,
-    "Task": "LOTO/COHE",
-    "Hazards": " Engulfment\\n",
-    "Controls": " Determine if any penetrations into the space are active or have the potential for activity. \\nAll penetrations into the space will be LOTO to prevent engulfment.\\nRefer to the LOTO/COHE program under separate cover. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 38,
-    "Task": "Reclassification of permit-required confined space",
-    "Hazards": " Hazardous atmospheres\\nEngulfment\\nAccess",
-    "Controls": " Permit Required Confined Spaces may be reclassified as non-permit spaces under the following circumstances:\\n\\nThe space has no actual or potential atmospheric hazards OR all hazards within the space are eliminated without entry into the space.\\nEmployees shall wear a personal monitor at all time. \\nThe COHE Program shall be followed for engulfment \\nIf a hazard returns",
-    "RAC": "employees shall evacuate the space and the space shall be reevaluated. "
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 494,
-    "Task": "Pretask confined space",
-    "Hazards": " Atmospheric Hazards\\nSlips",
-    "Controls": "Trips &amp; Falls",
-    "RAC": " Set up CAZ. \\nPost signs stating \"\"DANGER - CONFINED SPACE\"\" to inform others of the existence and location of the confined spaces.\\nAs a team"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 50,
-    "Task": "Ventilate the space (if required)",
-    "Hazards": " Atmospheric Hazards: Improper Ventilation",
-    "Controls": " Using a blower",
-    "RAC": "introduce comfort air if necessary.\\nRetest the air and document the new readings."
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 43,
-    "Task": "Entering the space",
-    "Hazards": " Engulfment\\nFire/Electrical hazards\\nAtmospheric hazards\\nEntry and Exit obstructions\\n",
-    "Controls": " The attendant shall remain at the entry point while personnel are inside any confined space unless relived by a trained and authorized individual. \\nThe attendant shall ensure that only authorized personnel enter the confined space and the CAZ.\\nAttendants shall not perform any other work activities except that they may also serve as the attending supervisor.\\nEstablish communication method between entrant and attendant.\\nIf an emergency or other unplanned event takes place during the course of work",
-    "RAC": "the Confined Space Work Permit is void.\\nThe attendant and entry supervisor have the authority to discontinue work activities at any time. \\n100% fall protection must be maintained inside the CAZ or until hazard is eliminated "
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 66,
-    "Task": "Lighting in the confined space",
-    "Hazards": " Working in the dark\\nUnable to see or recognize hazards",
-    "Controls": " Pan-Pacific is responsible for task lighting of at least (5) foot candles of light in the area where the task is being performed.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 44,
-    "Task": "Completion of Work",
-    "Hazards": " Engulfment\\nFire/Electrical hazards\\nAtmospheric hazards",
-    "Controls": " 100% fall protection must be maintained inside the CAZ or until hazard is eliminated \\nThe area surrounding the confined space shall be clean of materials",
-    "RAC": "equipment"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 493,
-    "Task": "Inspect Gas Monitors",
-    "Hazards": " Failure of the monitor\\nInaccurate readings\\nPotential Exposures",
-    "Controls": " Before testing the air in a confined space",
-    "RAC": "you must perform a bump test on the gas monitor. \\nExpose the monitor to a known concentration of test gas and wait for the alarm to activate. \\nIf the instrument's response is within an acceptable tolerance range of the actual concentration"
-  },
-  {
-    "Section": "Confined Space",
-    "Category": "Confined Space Entry",
-    "Id": 59,
-    "Task": "Rescue",
-    "Hazards": " Engulfment\\nAtmospheric hazards\\nFire/Electrical hazards\\n",
-    "Controls": " NEVER ATTEMPT A RESCUE BY GOING INTO THE CONFINED SPACE UNLESS TRAINED IN RESCUE PROCEDURES.\\nTo facilitate non-entry rescue",
-    "RAC": "retrieval systems or methods shall be used. \\nInspect retrieval equipment prior to potential use. \\nEach authorized entrant shall use a full body harness with a retrieval lifeline attached. \\nDevelop a rescue plan specific to the space prior to entry.\\nArrange for entry rescue services to be on-call and familiar with the task. \\nAll workers will be trained on the rescue plan prior to the start of work. \\n"
-  },
-  {
-    "Section": "Crane/Rigging",
-    "Category": "Crane work -- preperation",
-    "Id": 538,
-    "Task": "Identify and escort crane to lifting locations\\n\\n\\n",
-    "Hazards": " Struck by\\nPinch points\\nOverhead power lines\\nSlips",
-    "Controls": "trip and falls",
-    "RAC": " Inspect path of travel to be used by crane and identify any overhead hazards and hazards in path and remove or direct crane around them. \\nConduct a safety briefing with workers who will be involved in guiding crane into position and identify hazards found in pre-inspection of path of travel. \\nControl pedestrian traffic while crane is being moved into position. \\nDo not place yourself between fixed objects and crane while crane is being moved into position. \\nOnce the crane is in place 3 trucks at a time will enter for unloading. While they are being unloaded the area will be flagged off so as to keep unauthorized personnel out of the swing zone and out from under the suspended load. The area will be posted with warning signs."
-  },
-  {
-    "Section": "Crane/Rigging",
-    "Category": "Rigging",
-    "Id": 127,
-    "Task": "Land Equipment or Materials",
-    "Hazards": " Rigging failure\\nCaught between/struck by\\nInsufficient Support and/or Space f+or Load",
-    "Controls": " Keep all persons clear of areas under the loads while landing associated equipment or materials. \\nEnsure landing areas are clear of debris and built according to design/specifications sufficient for specific equipment load weights.\\nControl rotation of load with multiple tag lines.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Crane/Rigging",
-    "Category": "Rigging",
-    "Id": 336,
-    "Task": "Using chain falls",
-    "Hazards": " Equipment failure\\nShifting load\\nPinch points",
-    "Controls": " Inspect all chain falls and slings prior to use. Tag and remove defective equipment.\\nEnsure rated tag is attached to any rigging including chains. \\nIdentify load weight. Chose the right equipment for the job.\\nVerify all components capacities are properly marked. \\nAdequate hand protection should be worn when operating the chain fall. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Crane/Rigging",
-    "Category": "Rigging",
-    "Id": 129,
-    "Task": "Disconnect Rigging and Tag Lines",
-    "Hazards": " Rigging failure\\nCaught between/struck by",
-    "Controls": " Signal Person must ensure that all personnel are clear and have removed all rigging from equipment prior to signaling to operator to move rigging equipment. ONE SIGNALPERSON TO CALL CRANE AT A TIME.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Decking and Layout",
-    "Category": "Coring",
-    "Id": 407,
-    "Task": "Protection of holes ",
-    "Hazards": " Slips",
-    "Controls": "trips and falls\\nFalling objects\\n",
-    "RAC": " All holes must be covered before leaving the area. \\nUse the appropriate hole cover to protect the area below. \\nCovers should be labeled. \\nCovers should be checked and replaced as needed. "
-  },
-  {
-    "Section": "Decking and Layout",
-    "Category": "Coring",
-    "Id": 266,
-    "Task": "Coring general",
-    "Hazards": " Falling objects/Struck by\\nElectrical hazards\\nPinch points\\nLacerations\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " Before coring"
-  },
-  {
-    "Section": "Decking and Layout",
-    "Category": "Coring",
-    "Id": 119,
-    "Task": "Spotter responsibilities during coring",
-    "Hazards": " Falling objects/Struck by\\nSlips",
-    "Controls": "trips and falls\\nPinch points",
-    "RAC": " The spotter shall never leave the corer unattended.\\nThe spotter must be in control of the CAZ.\\nThe spotter shall stay in constant communication with the corer. \\nThe spotter will be responsible to clean up excess water and debris during and after the core is drilled. \\nThe spotter will be responsible for moving the receptacle as needed to collect additional cores.\\nThe spotter will remove the red tape after completion of the task. "
-  },
-  {
-    "Section": "Decking and Layout",
-    "Category": "Decking and Layout",
-    "Id": 155,
-    "Task": "Trimble Use",
-    "Hazards": " Injury to Self: Eyes",
-    "Controls": " \"\"Laser in Use\"\" signs shall be posted within 50' of where Trimble or lasers are being used for layout. \\nOnly trained user can operate the trimble. \\nFollow manufacture's safety recommendations for operating the Trimble.\\nDo not wear reflective vests when the Trimble laser is in use. \\nSigns shall be removed when the operations are completed. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Decking and Layout",
-    "Category": "Decking and Layout",
-    "Id": 272,
-    "Task": "Inspect deck of work area ",
-    "Hazards": " Dropped or Falling Objects \\nSlips",
-    "Controls": "trips and falls\\n",
-    "RAC": " Evaluate floor completion -- cover any existing holes"
-  },
-  {
-    "Section": "Electrical",
-    "Category": "Conducting ARC Flash Electrical Work",
-    "Id": 433,
-    "Task": "PreTask Electrical Work",
-    "Hazards": " Electric Shock/Burns",
-    "Controls": " Schedule and conduct meeting with all affected parties.\\nCreate CAZ with barriers and signage.\\nNFPA 70E trained",
-    "RAC": "qualified workers shall wear ARC FLASH suits. Workers are responsible for inspecting suit for defects"
-  },
-  {
-    "Section": "Electrical",
-    "Category": "Conducting ARC Flash Electrical Work",
-    "Id": 434,
-    "Task": "Approaching electrical panel and opening",
-    "Hazards": " Contact with",
-    "Controls": "becoming energized",
-    "RAC": " Worker will turn the switch of the disconnect into an off position"
-  },
-  {
-    "Section": "Electrical",
-    "Category": "Conducting ARC Flash Electrical Work",
-    "Id": 435,
-    "Task": "PostTask Cleanup",
-    "Hazards": " Exposing others to hazard",
-    "Controls": " Remove suit and place it in the storage bag for next use. \\nRemove signage and barriers so others working in the area know that they can enter.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Fall Protection",
-    "Category": "Fall Protection",
-    "Id": 503,
-    "Task": "Remove Guardrail",
-    "Hazards": " Falls",
-    "Controls": " Before removing any guardrail or barricade",
-    "RAC": "prior written permission from [Customer] must be obtained. \\n"
-  },
-  {
-    "Section": "Fall Protection",
-    "Category": "Fall Protection",
-    "Id": 240,
-    "Task": "Fall Protection",
-    "Hazards": " Falls\\nMultiple injuries\\nDeath",
-    "Controls": " The following actions will need to be completed before any work can be performed where fall protect will be required:\\n[Customer] Safety Manager will review the area where work is to take place and determine if a work plan and permit will be required. \\nAll workers will be trained in fall protection.\\nFall protective equipment will be inspected before each use.\\nThe tie off points will be to a column",
-    "RAC": "a beam or an approved anchor point that can withstand a minimum 5"
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 309,
-    "Task": "Fuel Oil Barrels moved onsite",
-    "Hazards": " Leaks",
-    "Controls": "Misuse",
-    "RAC": "Leaks"
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 310,
-    "Task": "Confirm Fuel Valves are Closed",
-    "Hazards": " Loss of Fuel into Rooms",
-    "Controls": " Pan-Pacific to check valve rotation to fully closed.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 311,
-    "Task": "Pressurize Piping with Air and Purge each outlet",
-    "Hazards": " Flying Debris: when pipe open",
-    "Controls": " Confirm path of blow out is clear. Verify doors are closed. Communicate with each worker that valve is being opened.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 312,
-    "Task": "Reconnect Piping",
-    "Hazards": " Leaks",
-    "Controls": " PPM to check valve rotation to fully open. After system is energized",
-    "RAC": "visual inspection to verify no leaks. "
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 313,
-    "Task": "Pressurize piping with jet fuel and purge each outlet",
-    "Hazards": " Leaks",
-    "Controls": "Splashing",
-    "RAC": " Employees working with jet fuel will wear additional PPE including rubber gloves. The hose used for purging shall be properly placed inside barrel so as not to come loose and should be monitored. "
-  },
-  {
-    "Section": "Fuel Oil/Gas",
-    "Category": "Jet Fuel Flush Out",
-    "Id": 314,
-    "Task": "Dispose of used Jet Fuel",
-    "Hazards": " Improper Storage/ Disposal",
-    "Controls": "Leaks",
-    "RAC": "Reuse"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 256,
-    "Task": "PPE",
-    "Hazards": " Injury",
-    "Controls": " PPE REQUIRED: hardhats",
-    "RAC": "ANSI-Z87 safety glasses"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 257,
-    "Task": "Stretch and flex",
-    "Hazards": " Sprains &amp; strains",
-    "Controls": " Perform stretch and flex exercises before starting any strenuous activity. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 498,
-    "Task": "Pretask Review",
-    "Hazards": " Injury",
-    "Controls": " Review personnel-specific and task-specific hazards with crew.\\nDocument worker acknowledgment of understanding of task and hazards.",
-    "RAC": " L"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 258,
-    "Task": "Transport tools",
-    "Hazards": "materials",
-    "Controls": "&amp; equipment to the work area",
-    "RAC": " Dropped or falling objects\\nSprains &amp; strains\\nCuts or lacerations"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 259,
-    "Task": "Excessive Sun/Heat Exposure ",
-    "Hazards": " Heat Illness",
-    "Controls": " Employees should drink four 8-ounce glasses of water",
-    "RAC": "or a total of one quart per hour to stay hydrated throughout the day. \\nEmployees should be trained on Heat Illness signs and symptoms and should report any concerns immediately. \\nEmployees should be trained on Pan-Pacific's HIPP."
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 539,
-    "Task": "Being Josh",
-    "Hazards": " To smart too function may damage my own brain ",
-    "Controls": " work less and eat all the food at the office. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "General",
-    "Id": 210,
-    "Task": "Working around traffic",
-    "Hazards": " Struck by ",
-    "Controls": " Traffic control is to be provided by Certified Flaggers when exposed to public traffic.",
-    "RAC": " L"
-  },
-  {
-    "Section": "General Safety",
-    "Category": "Housekeeping",
-    "Id": 271,
-    "Task": "Housekeeping",
-    "Hazards": " Cuts or Lacerations\\nSprains &amp; Strains\\nSlips",
-    "Controls": "Trips and Falls\\nExposure to dust\\n",
-    "RAC": " Use gloves to avoid cuts"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 410,
-    "Task": "Fire Watch",
-    "Hazards": " Fires",
-    "Controls": " Have a fire watch during any cutting or welding of decks and it shall be maintained for at least a half hour after completion of welding or cutting operations to detect and extinguish possible smoldering fires. \\nThis employee will safe off the area",
-    "RAC": "remove or cover any flammable materials and carry a fire extinguisher while cutting or sparks are being generated. "
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 264,
-    "Task": "Hot Work Pretask",
-    "Hazards": " Burns \\nFires \\n",
-    "Controls": " A hot work permit must be submitted to [Customer] and posted after approval and during the work.\\nUse the appropriate shaded eye protection for the task. Use heat resistant gloves and any additional PPE as needed. \\nHave an appropriate fire extinguisher readily available. Have water spray bottles and fire blankets ready prior to the hot work. \\nInspect fire extinguishers prior to use and ensure tags are current. Tag and remove any defective equipment.\\nInspect all equipment before each use. Tag and remove any defective equipment.\\nIdentify and protect all material from damage. \\nReport any fires to [Customer] immediately. \\nDuring hot work",
-    "RAC": "a fire watch must be set up and maintained for at least 30 minutes after the work is completed. \\n"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 263,
-    "Task": "Set up of welding gasses",
-    "Hazards": " Tipping over\\nExplosions\\nFires\\n",
-    "Controls": " Secure bottle(s) in place on cart\\nSecure cart from shifting",
-    "RAC": "tipping over\\n"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 488,
-    "Task": "Welding of galvanized or stainless material",
-    "Hazards": " Burns\\nEye Injury\\nArc-flash\\nElectrical Shock\\nFires",
-    "Controls": " Create CAZ and post Hot Work Permit.\\nUse appropriate welding PPE. Maintain appropriate head protection. \\nUse weld screens when working around other workers. \\nInspect your equipment before each use. Tag and remove any defected equipment from service. \\nA flint striker shall be used be used to light torch. \\nWear a respirator (refer to our respirator program under separate cover)\\nAt breaks",
-    "RAC": "lunch and at end of day turn off gauges and protect the hoses. \\nEnsure adequate ventilation where needed. \\n"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 490,
-    "Task": "Welding\\nSoldering\\nBrazing\\nHeat gun\\nCutting torch\\nPlasma Cutter\\n",
-    "Hazards": " Fire\\nBurns \\nFumes \\nInjury to Self: Hand or Eye\\nInjury to others",
-    "Controls": " Create CAZ and post Hot Work Permit.\\nEnsure the employee performing the hot work is trained in the specific type of hot work. \\nUse appropriate PPE. Maintain appropriate head protection. \\nUse weld screens when working around other workers. \\nA flint striker shall be used be used to light torch. \\nAt breaks",
-    "RAC": "lunch and at end of day turn off gauges and protect the hoses. \\nEnsure adequate ventilation where needed. "
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 489,
-    "Task": "Grinders",
-    "Hazards": " Eye Injury\\nFlying debris\\nHot sparks/Fires\\nCuts/Punctures\\nLoss of control of grinder\\n",
-    "Controls": " Follow manufactures' recommendation for PPE. \\nUse face shield and glasses. \\nHave a fire extinguisher readily available. Have fire blankets and spray bottles readily available. \\nProvide a fire watch or similar protection to adjacent people and materials. \\nInspect your grinder before each use. Tag and remove any defected equipment from service. \\nEnsure the grinder has both handles and that you are using them. \\nUse the appropriate guard for the appropriate task. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 515,
-    "Task": "Storage of welding tanks",
-    "Hazards": " Fire\\nTipping over\\nBreaking of gauges\\nRelease of pressurized gasses",
-    "Controls": " For short-term storage (during a shift):\\nTurn off gauges\\nSecure the hoses from any damage\\n\\nFor long-term storage (at end of shift or when welding tanks shall not be used in 24 hours):\\nRemove gauges\\nSecure safety caps\\nIf bottles are stored on cart",
-    "RAC": "cart must have 30 minute fire barrier"
-  },
-  {
-    "Section": "Hot Work",
-    "Category": "Hot Work",
-    "Id": 90,
-    "Task": "Fueling welding machines",
-    "Hazards": " Flying debris and particles\\nFire \\nFumes",
-    "Controls": "Vapors",
-    "RAC": " Wear the appropriate PPE for the task.\\nAll welding machines need to be turned off and cooled before fueling can begin. \\nMake sure there is proper ventilation. \\nTry to stand up wind when refueling. \\nFire extinguished needs to be readily available during fueling."
-  },
-  {
-    "Section": "Investigation/Demo",
-    "Category": "Demo Piping",
-    "Id": 514,
-    "Task": "Pretask demo piping",
-    "Hazards": " Exposure to hazardous material",
-    "Controls": " Contact [Customer] to access and review job hazard material survey\\nIn the case of asbestos: recognize",
-    "RAC": "report and retreat. We do not work with asbestos material. \\nTake precautions for any other material according to the job hazard material survey\\nReview necessary SDSs with the crew\\nWear proper PPE\\nProvide training for specific hazards"
-  },
-  {
-    "Section": "Investigation/Demo",
-    "Category": "Demo Piping",
-    "Id": 505,
-    "Task": "Identify the system to demo",
-    "Hazards": " Cut into wrong/live system\\n\\n",
-    "Controls": " Prepare for hazards for specific system\\nImplement the COHE where necessary. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Investigation/Demo",
-    "Category": "Demo Piping",
-    "Id": 159,
-    "Task": "Isolation of Existing Systems: Gas",
-    "Hazards": " Inhalation of fumes\\nFire/Explosion",
-    "Controls": " Coordinator with [Customer].\\nLOTO in place. Secure all pipe termination against displacement.\\nAtmospheric monitoring.\\nProper ventilation.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Investigation/Demo",
-    "Category": "Demo Piping",
-    "Id": 161,
-    "Task": "Isolation of Existing Systems: Waste",
-    "Hazards": " Spills",
-    "Controls": " Shut off fixtures upstream or install plug.\\nProper PPE for any possible exposure. Immunizations up to date. \\nLOTO in place. Secure all pipe termination against displacement.\\nHave spill bucket in place. Clean any spills immediately. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Investigation/Demo",
-    "Category": "Demo Piping",
-    "Id": 160,
-    "Task": "Isolation of Existing Systems: Water",
-    "Hazards": " Water Spills\\nSlips",
-    "Controls": "Trips and Falls\\nWater burns",
-    "RAC": " Isolate and confirm valves.\\nLOTO in place. Secure all pipe termination against displacement.\\nHave spill bucket in place. Clean any spills immediately. "
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading & Unloading Material",
-    "Id": 321,
-    "Task": "Stocking &amp; staging of material",
-    "Hazards": " Caught Between\\nStruck By\\nDropped or Falling Objects",
-    "Controls": " While stocking or moving pallets make sure that you know your surroundings and you don't put yourself in a pinch point. \\nTry to push rather than pull.\\nMake sure that wheels are chalked or locked when done.\\nDo not be behind a load -- maintain eye contact with operator. \\nEnsure all pallets are rated for the intended load and are not over loaded. \\nAlways follow manufacture's stocking requirements.\\nDo not stock more than 5 pallets high or exceed overall height of 20 feet. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading & Unloading Material",
-    "Id": 323,
-    "Task": "Unloading Trucks",
-    "Hazards": " Struck By\\nCaught between/Pinch\\nSprains &amp; Strains",
-    "Controls": " Watch your hands",
-    "RAC": "legs"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading & Unloading Material",
-    "Id": 324,
-    "Task": "Proper Lifting Technique/Lifting Policy",
-    "Hazards": " Sprains &amp; Strains",
-    "Controls": " All crew members will participate in a daily stretch and flex. \\nPlan ahead before lifting. Know where you are going with your load. Don't make awkward movements. Clear a path",
-    "RAC": "and if lifting something with another person"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading Bay",
-    "Id": 315,
-    "Task": "Ensure safety of workers",
-    "Hazards": " Struck By",
-    "Controls": " Create controlled access zone using danger tape and/or signs.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading Bay",
-    "Id": 317,
-    "Task": "Drop cables/Remove hard barrier",
-    "Hazards": " Falls",
-    "Controls": " Two crew members shall remove the barrier to gain access. \\nWorkers shall ensure fall protection system is in place and worn properly. \\nWorkers shall use the buddy system when removing the barrier. Crew members shall keep each other aware of how close they are to the edge. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading Bay",
-    "Id": 318,
-    "Task": "Receive material and hand off to other crew members outside of CAZ",
-    "Hazards": " Caught Between \\nStruck By \\nCuts and lacerations\\nPinch points",
-    "Controls": " Each member shall have good communication where the load will be placed and then moved out of the loading bay. \\nStay back away from the load while pushing it off the bay.\\nEnsure proper PPE including gloves and body positioning. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Material Handling",
-    "Category": "Loading Bay",
-    "Id": 319,
-    "Task": "Install barrier back in place",
-    "Hazards": " Falls",
-    "Controls": " Two crew members shall replace the barrier. \\nWorkers shall ensure fall protection system is in place and worn properly. \\nWorkers shall use the buddy system when replacing the barrier. Crew members shall keep each other aware of how close they are to the edge. \\nIn the case of cable barrier",
-    "RAC": "ensure maximum deflection of 6 inches. \\nOnly when barrier is properly restored"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Adding Chemicals to Holding Tanks",
-    "Id": 1,
-    "Task": "Adding chemical pretask",
-    "Hazards": " Contact with (eyes",
-    "Controls": "skin",
-    "RAC": "inhalation"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Adding Chemicals to Holding Tanks",
-    "Id": 2,
-    "Task": "Adding Chemicals to Pot Feeders",
-    "Hazards": " Contact with (eyes",
-    "Controls": "skin",
-    "RAC": "inhalation"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 466,
-    "Task": "Compact tank pad to sub grade",
-    "Hazards": " Crushing\\nRepetitive Motion/Strains",
-    "Controls": " Wear proper over-shoe guards\\nMonitor and manage repetitive motion activities\\nWear leather gloves to protect hands\\nCommunicate with other workers in the area",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 243,
-    "Task": "Inspection and entering of excavation",
-    "Hazards": " Slips",
-    "Controls": "trips and falls \\nCave-ins and water accumulation\\nLadder Collapse/fall\\nFalling objects\\nStruck by",
-    "RAC": " Competent person performs daily inspection. \\nShore any excavation 5' feet or deeper or as conditions require\\nIn trenches more than 4' deep"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 467,
-    "Task": "Layout for placement of dead man and set dead man",
-    "Hazards": " Caught Between\\nStruck By\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " Proper rigging by a certified rigger and signal man. \\nUse tag lines to control the load as it comes off the trailer. \\nAfter setting the dead man"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 463,
-    "Task": "Lifting tanks from trucks",
-    "Hazards": " Falling or Shifting loads\\nUncontroled load\\nTipping Over\\nRigging failure\\nStruck by\\nCrushing/Pinch Points",
-    "Controls": " Tank lift plan approved by Pan-Pacific and [Customer].\\nInspect all rigging equipment before use. \\nUse tag line. \\nOnly trained and experience riggers will rig up loads.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 472,
-    "Task": "Disconnect Rigging",
-    "Hazards": "Tag line",
-    "Controls": " Stuck by\\nFalling \\nPinch points",
-    "RAC": " Use fall protection when a fall of 6' or greater is possible\\nWatch crane hook\\nKeep hands out of pinch points\\nWear appropriate hand protection\\nCommunication and spotting as needed for disconnection of straps\\n"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 473,
-    "Task": "Perform testing procedures for tank quality -- release air pressure.",
-    "Hazards": " Struck by \\nFugitive dust\\n",
-    "Controls": " Follow the COHE program when appropriate.\\nVerify that all valves and bolts are tight. \\nSpray with a soap and water mixture to see if there are any leeks. \\nSet a CAZ prior to pressure testing. Communicate with necessary personnel prior to pressure testing. \\nWear the appropriate eye protection. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 476,
-    "Task": "Securing tanks ",
-    "Hazards": " Lacerations to hands\\nCaught between\\nPinch Points\\nEye injury",
-    "Controls": " Proper use of ladder",
-    "RAC": "3-point contact while climbing\\nUse fall protection when fall of 6' or greater is possible. \\nWear appropriate hand protection.\\nWear appropriate eye protection.\\nKeep your hands out of pinch points."
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 478,
-    "Task": "Backfill around the base and any void areas underneath",
-    "Hazards": " Struck by\\nCaught between /Pinch Points\\nRepetitive motion\\nFugitive dust\\n",
-    "Controls": " Use the appropriate foot",
-    "RAC": "hand and eye protection.\\nUse leather gloves if running the compactor. \\nUse administrative controls for repetitive motion. "
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 482,
-    "Task": "Isolate and drain fuel line that will be welded on",
-    "Hazards": " Slips and falls\\nFumes and vapors\\nContact with and spills",
-    "Controls": " The lines will be shut down at both ends and isolated. \\nThe line will then be cracked and drained of fuel oil. \\nExcess fuel will be removed from the area and drips and puddles will be wiped up. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 483,
-    "Task": "Hook up nitrogen purge to the line that will be welded on",
-    "Hazards": " Caught Between\\nSprains &amp; Strains\\nFrostbite",
-    "Controls": " Check nitrogen regulator before operating nitrogen. \\nPurge ports will be hooked up to both ends. \\nAllowing a constant purge while welding. \\nWear appropriate PPE for the task. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tanks",
-    "Category": "Storage Tanks",
-    "Id": 484,
-    "Task": "Weld fittings and bypass to fuel line",
-    "Hazards": " Arc \\nBright Light\\nExplosions\\nFlash Burns\\nInjury to Self\\nChemical Exposure\\nFumes",
-    "Controls": " Set up weld screens to shield passers-by from weld glare\\nWear properly tinted welding lenses.\\nBe sure to have your HOT WORK PERMIT in place prior to starting work. Follow hot work procedures. \\nAssess work area to make sure that there are no flammable materials stored. Have a fire extinguisher close by. \\nWear the proper welding PPE. Set up barrier tape around weld area to prevent accidental contact with hot pipe welds. \\nWelders to maintain their distance from welding fumes. Set up ventilation fans or smoke hogs to remove/control welding fumes.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Air Handler Startup",
-    "Id": 7,
-    "Task": "Adjusting and ramping up air speeds for testing",
-    "Hazards": " Fugitive dust\\nCaught by/Pinch points\\nStruck by ",
-    "Controls": " Equipment will be running during this process. Speeds will be ramped up all the way to ensure that everything is working correctly. \\nWatch for excessive vibration",
-    "RAC": "noise or impropper movement before ramping up. \\nEnsure that all moving parts are protected such as pulleys"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Air Handler Startup",
-    "Id": 8,
-    "Task": "Opening door to increase air flow",
-    "Hazards": " Struck by\\nCaught between\\nFugitive dust\\nSucked inside ",
-    "Controls": " This task may need to happen to get max air flow through the system. \\nCAZ will be created to ensure no one gets hurt or injured during this operation. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Air Handler Startup",
-    "Id": 9,
-    "Task": "Verify components are secure and in place",
-    "Hazards": " Contact with\\nFugitive dust ",
-    "Controls": " Workers will enter the units to make sure all of the internal components are properly fastened and secured. \\nThis task shall be done before unit is started and after it has been shut down to make sure nothing has come loose and is still secure.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Energizing Steam Systems",
-    "Id": 193,
-    "Task": "Energizing pretask",
-    "Hazards": " Equipment failure\\nBurn",
-    "Controls": " Confirm insulation",
-    "RAC": "labeling"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Energizing Steam Systems",
-    "Id": 194,
-    "Task": "Remove Lock-out/Tag-out from main valve in Central Utility Plant",
-    "Hazards": " Burns\\nDropped or Falling Objects\\nSprains &amp; Strains",
-    "Controls": " Set up ladder to access main steam valve",
-    "RAC": "remove LOTO and slowly crack valve to introduce steam to building. "
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Energizing Steam Systems",
-    "Id": 195,
-    "Task": "Open branch line valves to allow steam through other controlled areas of hospital. ",
-    "Hazards": " Burns\\nLeaks",
-    "Controls": " Slowly crack valves to introduce steam &amp; Monitor steam as it enters the piping system by walking and visually inspecting all piping. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Energizing Steam Systems",
-    "Id": 196,
-    "Task": "Identify and repair any leaks",
-    "Hazards": " Leaks\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " Identify all leaks with flags"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 192,
-    "Task": "Energizing of the Gas System",
-    "Hazards": " Chemical inhalation\\nFire/Explosion\\n",
-    "Controls": " A job walk will be preformed verifying every gas valve in all buildings are closed and all POC's are capped or connected. \\nAll gas lines will be visually inspected verifying they are complete and no disruption or damage has occurred. \\nLines will be soaped to verify no leaks.\\nLOTO all effected gas valves.\\nAll effected exterior main shutoff valves will be visually inspected to verify they are closed prior to inducing gas to the main line. \\nPrior to gas introducing into each building",
-    "RAC": "a secondary verification walk will be done to verify nothing has compromised the system. During that walk we will verify all other trades are out of area. \\nWe will verify no \"\"HOT WORK\"\" or sparks of any kind are in the area.\\nPurge the system in a vented area. \\nSigns will be placed where necessary reading \"\"DO NOT OPEN--GAS PURGING\"\" and red tape will be used to barricade the effected area. Pan-Pacific to verify with the electrician that equipment is de-energized."
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 251,
-    "Task": "Area set up confirm fire extinguishers are working and up to date",
-    "Hazards": " Other trades",
-    "Controls": " Post warning signage and caution tape. Review procedure and area borers with GC for coordinating with other trades post monitor with extinguisher. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 252,
-    "Task": "Confirm gas clock valves are closed",
-    "Hazards": " Loss of Natural Gas into rooms: Cafe Kitchen",
-    "Controls": "Boiler Room",
-    "RAC": "etc."
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 254,
-    "Task": "Evacuate air and replace with natural gas",
-    "Hazards": " Explosion",
-    "Controls": " Confirm Multi-Gas sensor is fully charged. Confirm cafe",
-    "RAC": "kitchen and energy center air supply and exhaust are operational. Post monitor to watch for other trades entering or creating sparks. The use of fans may be necessary. "
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 255,
-    "Task": "After gas is on",
-    "Hazards": "recheck all gas valves and outlets",
-    "Controls": " Loss of Natural Gas into rooms: Cafe Kitchen",
-    "RAC": "Boiler Room"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 328,
-    "Task": "Isolate Gas Lines",
-    "Hazards": " Gas Leaks",
-    "Controls": " After blind flange is installed",
-    "RAC": "soap all areas to assure that there are no leaks"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 331,
-    "Task": "Connect gas piping to building supply",
-    "Hazards": " Gas Leaks",
-    "Controls": " Assure that all connections are tight before gas is turned on",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 332,
-    "Task": "Remove Lock Out of Gas Sub Meter",
-    "Hazards": "Open Gas Valves",
-    "Controls": " Gas Leaks",
-    "RAC": " Soap all connections"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 333,
-    "Task": "Set up fans to ventilate area ",
-    "Hazards": " Equipment Handling Injuries",
-    "Controls": "Fire",
-    "RAC": " Establish Good ventilation in effected area."
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Gas Purging",
-    "Id": 334,
-    "Task": "Purge air from the gas line with natural gas. At first sign of odor shut off valve and secure appliance. Test connection.",
-    "Hazards": " Fire",
-    "Controls": "Fumes",
-    "RAC": " Fire extinguisher on site. Warn other trades in area. Remove any ignition sources. Establish good ventilation in the area. Soap all connections to detect leaks."
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 99,
-    "Task": "Nitrogen purging of lines",
-    "Hazards": " Oxygen deficient atmosphere: Asphyxiation\\nFrostbite",
-    "Controls": " All workers will be certified and have the proper training to be purging and brazing on med gas lines. \\nA fan will be set up to have a continuous draft of fresh air. \\nMonitoring equipment will be available while purging is done. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 100,
-    "Task": "Isolate piping section for testing.\\nInstall hydro and/or test equipment",
-    "Hazards": " Leaks &amp; Joint Failures\\nDamage to Piping\\nLaceration\\nStruck by\\nContusions",
-    "Controls": " Verify all joints are tightened. \\nVerify all fittings and pipe sections are welded. \\nCover sensitive equipment at high risk points. \\nIsolate test section with locks and tags. \\nDo not use LOTO hardware for testing purposes.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 102,
-    "Task": "Fill and vent system",
-    "Hazards": " Joint Failures\\nRelease of Air",
-    "Controls": "Nitrogen or water\\nLeaks &amp; Spills",
-    "RAC": " Verify all joints are tightened. \\nInstall relief valves after hydro test is complete.\\nOpen fittings slowly to vent pressure. \\nUse hoses to direct vent discharges to nearest drain. \\nConduct a second check of all vents closed prior to pressurization."
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 105,
-    "Task": "Conduct pressure test",
-    "Hazards": " Pressure release\\nProperty damage\\nLacerations\\nBurns\\nStruck by",
-    "Controls": " Slowly pressurize system in steps and inspect system each step. \\nHave enough manpower along piping to quickly identify problems. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 106,
-    "Task": "Depressurize system",
-    "Hazards": " Leaks &amp; Spills",
-    "Controls": " Use hoses to direct vent discharges to nearest drain. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 107,
-    "Task": "Drain system",
-    "Hazards": "if applicable",
-    "Controls": " Leaving pressurized sections of pipe\\nLeaks &amp; Spills",
-    "RAC": " Open each vent or drain valve to depressurize complete system. \\nUse hoses to direct vent discharges to nearest drain. Cover sensitive equipment at high risk points. "
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 109,
-    "Task": "Restore system configuration",
-    "Hazards": " Leaks &amp; Spills",
-    "Controls": " Check vents/drains closed before releasing system to [Customer]. \\nAll vent/drain valves are plugged before passification",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 262,
-    "Task": "Shutdowns",
-    "Hazards": " Interruptions of Services",
-    "Controls": " Schedule off hours.\\nGive notification.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 457,
-    "Task": "Using air compressor to pressurize waste and vent systems",
-    "Hazards": " Noise \\nElectrical \\nAccidental cap release",
-    "Controls": " Wear the appropriate PPE for the task.\\nOnly testing to 5 PSI\\nUse a GFCI to plug into walls\\nTesting equipment (air compressors/hydrostatic pump) should be checked daily to ensure good working order. \\nLook for leaks and loose fittings.\\nCompressors and pump will be used to fill up the piping systems. \\nBe sure that hose connections are fully locked and whip checks are in place to ensure a good fit and avoid any accidental blow offs and spillage. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Testing/Start Up",
-    "Category": "Pressure testing of pipe",
-    "Id": 442,
-    "Task": "Testing",
-    "Hazards": " Struck by\\nLacerations\\nBurns\\n",
-    "Controls": " Check the Testing Matrix for the proper test pressure for the system.\\nPlace signage in area which states Pan-Pacific is testing at a certain pressure with a contact phone number on it.\\nDo not stand in front of the end of any pipe while testing.\\nWhen testing with Air - Pressurize the system to 40 psi. Check gauge for drop in pressure then walk system to check for leaks.\\nAfter thorough walk",
-    "RAC": "pressurize system up to 100 PSI with air. Then walk the system again and check for leaks.\\nWhen testing with Water - Pressurize system up to the test pressure on the Pressure Matrix for that specific system with water. Then walk the system again and check for leaks.\\nKeep an emergency spill kit nearby to ensure a quick clean up process in the event of a water spill. \\nOur spill kits include a spill buggy"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Ladders",
-    "Id": 453,
-    "Task": "Extension Ladder",
-    "Hazards": " Falls\\nMultiple Injuries\\n",
-    "Controls": " Verify the [Customer] policy on ladders.\\nChoose the right ladder for the job. Do not overreach on any ladder. \\nInspect ladder for any defects or problems. Verify the stickers are legible. Verify the monthly inspection sticker is current.\\nMake sure that ladder is properly secured at top and bottom and extends at least 3 feet above the landing.\\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact. \\nUtilize fall protection when working within 6 feet of any opening or the edge of the building. \\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge.  \\n ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Ladders",
-    "Id": 454,
-    "Task": "Platform Ladders/Warehouse Ladders",
-    "Hazards": " Falls\\nMultiple Injuries\\n",
-    "Controls": " Verify the [Customer] policy on ladders.\\nChoose the right ladder for the job. Do not overreach on any ladder. \\nInspect all ladders for any defects or damage. Verify the stickers are legible. Verify the monthly inspection sticker is current.\\nEnsure ladder is properly secured from displacement.\\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact. \\nUtilize fall protection when working within 6 feet of any opening or the edge of the building. \\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Ladders",
-    "Id": 455,
-    "Task": "A-Frame Ladders/A-Frame Platform Ladders",
-    "Hazards": " Falls\\nMultiple Injuries\\n",
-    "Controls": " Verify the [Customer] policy on ladders.\\nChoose the right ladder for the job. Do not overreach on any ladder. Do not walk a ladder while working from it. \\nInspect all ladders for any defects or damage. Verify the stickers are legible. Verify the monthly inspection sticker is current.\\nEnsure ladder is properly secured from displacement. Ladder must be fully opened and locked. \\nDo not straddle an A-Frame ladder. Do not use the top two steps. \\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact. \\nUtilize fall protection when working within 6 feet of any opening or the edge of the building. \\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 520,
-    "Task": "Tools and equipment pretask",
-    "Hazards": " Equipment failure",
-    "Controls": " Perform and document equipment inspection prior to each use. All manufacturer's safety labels must be legible. Red tag and remove defective equipment.\\nAll operators shall be trained and authorized. \\nOperate equipment per manufacturer's suggested safety requirements.\\nEnsure operating paths are clear and unobstructed.\\nMake visual contact with operator before approaching the equipment or crossing its path.\\n\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 142,
-    "Task": "Contact with underground/overhead utility lines",
-    "Hazards": " Electrocution or Shock \\nExplosion",
-    "Controls": " Ensure proper agency has located and marked all utility lines before work begins.\\nAttempt to have utility lines shut-off or de-energized by appropriate agencies",
-    "RAC": "if possible.\\nKeep equipment and personnel away from utility lines"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 449,
-    "Task": "Hand-held portable power tools ",
-    "Hazards": " Bodily Damage",
-    "Controls": " All power tools will have manufacturers' safety guards properly in place. \\nProper PPE will be worn at all time including goggles and face shield if required. \\nTools will be inspected daily for damage before use. Tag and remove defective equipment from use. \\nWhile cutting",
-    "RAC": "make sure all body parts are away from the cutting surface. Always cut away from the body."
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 446,
-    "Task": "Check electrical cords/equipment",
-    "Hazards": " Electrocution\\nFire",
-    "Controls": " Do not use electrical cords with cuts",
-    "RAC": "worn insulation"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 218,
-    "Task": "Fueling",
-    "Hazards": " Contamination\\nFire &amp; Spills",
-    "Controls": " Shut off machine\\nEquipment shall be cold before refueling\\nFuel in spill area \\nAll equipment to have fire suppression.\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 31,
-    "Task": "Chop Saw use ",
-    "Hazards": " Electrocution or Shock\\nBack strain\\nInjury to Self: Eye",
-    "Controls": "Face\\nDisfigurement and lacerations\\nSlips",
-    "RAC": "Trips"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 10,
-    "Task": "Backhoe Excavator Pretask",
-    "Hazards": " Struck by\\nElectrical hazards \\nRoll over \\nEjection\\nDrowning \\nCaught between \\n",
-    "Controls": " Operator must be authorized by Pan-Pacific Mechanical.\\nInspect and document the equipment prior to each use. \\nThe safety zone is 15 feet from the extended boom.\\nAuthorized personnel may enter the safety zone as long as they remain in the peripheral view of the operator and do not turn their back on the boom. \\nDo not allow bystanders or spotters to get between stationary object and the equipment. \\nDo not operate within 20 ft of energized",
-    "RAC": "overhead electrical lines. \\nDo not operate on slopes greater than the equipment specifications allow.\\nSeat belts must be worn at all times when operating the equipment. If working around water"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 216,
-    "Task": "Forklift Pretask",
-    "Hazards": " Struck by\\nElectrical hazards \\nRoll over \\nEjection\\nDrowning \\nCaught between ",
-    "Controls": " Operator must have a certification within 3 years of training and be authorized by Pan-Pacific Mechanical.\\nInspect and document the equipment prior to each use. \\nUse a CAZ for loading and unloading of material. \\nUse a spotter where necessary.\\nDo not allow bystanders or spotters to get between stationary object and the equipment. \\nDo not operate within 20 ft of energized",
-    "RAC": "overhead electrical lines. \\nDo not operate on slopes greater than the equipment specifications allow.\\nSeat belts must be worn at all times when operating the equipment. If working around water"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 383,
-    "Task": "Scissor lift Pretask",
-    "Hazards": " Tip overs\\nFalls\\nElectrocution\\nPinch points\\n",
-    "Controls": " Employee needs to be trained and have a current certificate to operate the lift.\\nInspect and document equipment prior to each use. \\nScissor lift will be used per manufactures recommendations.\\nDo not operate the lift without the owner's manual present and legible.\\nEnter and exit the lift properly using the steps on the lift.\\nWatch for pinch points when operating the lift.\\nDo not run over electrical cords.\\nDo not exceed the capacity rating of the scissor lift. \\nDo not use the scissor lift as a material hoist. \\nKeep the floor clean at all times.\\nUse a spotter when necessary.\\nBe aware of your surroundings and overhead electrical hazards. \\nDo not move lift while in elevated position.\\n\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 384,
-    "Task": "Gaining elevation from a scissor lift at heights using platform",
-    "Hazards": " Falls",
-    "Controls": " PERMISSION REQUIRED.\\nIf you must gain height from the scissor lift",
-    "RAC": "contact [Customer] and/or Pan's safety department in order to develop a proper written plan.\\nWhen gaining elevation"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 522,
-    "Task": "Exiting scissor lift while elevated",
-    "Hazards": " Falls",
-    "Controls": " PERMISSION REQUIRED.\\nIf you must exit a scissor lift while elevated to reach a working platform",
-    "RAC": "you must contact [Customer] and/or Pan's safety department to develop a proper written plan. \\n100% tie off required when exiting the scissor lift at height. "
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 3,
-    "Task": "Aerial Lift Pretask",
-    "Hazards": " Crushing\\nElectrocution\\nDropped or Falling Objects\\nTip Overs",
-    "Controls": " Employee needs to be trained and have a current certificate to operate the lift.\\nInspect and document equipment prior to each use. \\nAerial lift will be used per manufactures' recommendations.\\nDo not operate the lift without the owner's manual present and legible.\\nEnter and exit the lift properly using the steps on the lift.\\nWatch for pinch points when operating the lift.\\nDo not run over electrical cords.\\nDo not exceed the capacity rating of the aerial lift. \\nDo not use the aerial lift as a material hoist. \\nKeep the floor clean at all times.\\nUse a spotter when necessary.\\nBe aware of your surroundings and overhead electrical hazards. \\nDo not move lift while in elevated position.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 24,
-    "Task": "Aerial Lift: Hoisting &amp; Moving Personnel ",
-    "Hazards": " Obstructed view\\nCaught in between\\nCrushed By\\nFalling\\nMachine rollover\\nElectrocution",
-    "Controls": " Ensure that the operator's view is unobstructed when in raised or lowered positions and when moving in any direction.\\nEmployees do not place body parts outside of the basket or near pinch points on the machine. \\nDo not allow workers to stand or walk under the elevated portion of the machine.\\nAll workers in the basket must be 100% tied off and attached to the designated anchorage point. \\nEnsure the use of outriggers if machine is equipped. \\nEnsure the deadman on the floor of the boom lift is unobstructed. \\nBe aware of your surroundings and overhead electrical hazards.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 523,
-    "Task": "Gaining elevation from an aerial lift at heights using platform",
-    "Hazards": " Falls",
-    "Controls": " PERMISSION REQUIRED.\\nIf you must gain height from the scissor lift",
-    "RAC": "contact [Customer] and/or Pan's safety department in order to develop a proper written plan.\\nWhen gaining elevation"
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 346,
-    "Task": "Impact Wrench",
-    "Hazards": " Injury to Self: Hands",
-    "Controls": " Keep hands away from socket while using the impact wrench.\\nWear gloves at all time on site. \\nCheck impact wrench for any defects (cords",
-    "RAC": "cracks)."
-  },
-  {
-    "Section": "Tools and Equipment",
-    "Category": "Tools & Equipment",
-    "Id": 547,
-    "Task": "Grooving pipe with Rigid 300",
-    "Hazards": " electric shock\\npinch points\\nDismemberment\\nlacerations\\nCrush\\nslip",
-    "Controls": "trip and fall\\nWalking on Walking surfaces\\nInjuring others",
-    "RAC": " Inspect all tools and equipment before each use For:\\n1. Bad electrical cords and plugs\\n2. Ensure all guards are in place and working\\n3. Look for any missing or damaged parts\\nEstablish a controlled access zone\\nWear manufacture required PPE\\nKeep material and tools organized \\nHousekeeping - keep area clean and keep clean as you go\\n\\n"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 204,
-    "Task": "Preparing to excavate\\n\\n",
-    "Hazards": " IH Hazards\\nUtility Strike",
-    "Controls": " Request the IH report/environmental inspection from Owner regarding the soil and possible contaminates. Follow recommendations of either report.\\nCall Dig Alert or 811 for public utility location.\\nMeet with [Customer] or Owner to identify existing utilities on private property.\\nWhen relying on an as-built",
-    "RAC": "dig with great caution and expect changes from the as-built. "
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 369,
-    "Task": "Rigging Pretask",
-    "Hazards": " Rigging failure\\nCaught between/struck by\\n",
-    "Controls": " Only trained and authorized workers are allowed to rig and load. \\nOnly trained and authorized workers are allowed to signal during the lift. \\nCreate a CAZ.\\nInspect all rigging equipment prior to each use. Tag and remove any defective equipment.\\nEnsure tag lines are connected to the load\\nStand clear at all times from a suspended load or swing radius of counterweights. \\nControl rotation of load with multiple tag lines.\\n\\n ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 518,
-    "Task": "Rigging off equipment",
-    "Hazards": " Rigging failure\\nCaught between/struck by",
-    "Controls": " When rigging off a forklift",
-    "RAC": "secure the load to the back rest"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 200,
-    "Task": "Inspect soil to determine classification",
-    "Hazards": " Changes in conditions",
-    "Controls": " Competent person must check soil conditions and take necessary precautions when circumstances present potential hazards. \\nTest the soil to determine if it is class A",
-    "RAC": "B or C.\\n A trench/excavation inspection report will be filled out prior to any shift and/or after any change in conditions. "
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 205,
-    "Task": "Exposing existing utilities",
-    "Hazards": " Utility Strike",
-    "Controls": " Mark or stake location at least 2 feet to each side of located utility without damaging utility.\\nHand dig to the side of the located utility until the approximate depth has been reached. \\nDig towards the utility without damaging the utility's protective casing (conduit",
-    "RAC": "insulation or concrete cover).\\nDig along the path of the direction of the utility and clean spoils out without disturbing utility until it is completely exposed and visually recognizable.\\nContinue this process until you have uncovered at a minimum 2 feet from where any damage from hand tools or mechanical equipment being used can harm utility. "
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 231,
-    "Task": "Excavation adjacent to structures",
-    "Hazards": " Cave in\\nProperty damage\\n",
-    "Controls": " Excavation plan shall be approved by a registered engineer.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 198,
-    "Task": "Excavation of trenches with equipment",
-    "Hazards": " Utility Strike\\nStruck by \\nCave in\\n",
-    "Controls": " Fill out and complete dig permit prior to any excavation including locating underground utilities.\\nSet up a CAZ and remove any non-essential personnel.\\nA competent person shall be present while excavation taking place.\\nUtilize spotter when digging in an uncontrolled area. Utilize hand signals/radios to communicate between operator and surrounding crew. \\nOnly authorized operators can operate equipment. \\nPay attention to surroundings and any obstructions that may be present.\\nInspect and document all equipment prior to use.\\nSet back spoils at least 2 feet from trench. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 199,
-    "Task": "Hand excavation",
-    "Hazards": " Sprains &amp; Strains\\nCave in\\nEngulfment",
-    "Controls": " Rotate workers on repetitive motion tasks. \\nStretch and flex before and during repetitive motion tasks. \\nTask specific training for tasks/use the right tool for the job.\\nDo not enter a trench that is not properly protected.\\nEnsure adequate access/egress is provided. \\nEnsure proper PPE for the task.\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 236,
-    "Task": "Protective systems for trenching\\nBenching or sloping",
-    "Hazards": " Cave-in \\nCrushed by\\nEngulfment",
-    "Controls": " C Class soils shall not be benched. \\nWhen sloping or benching is used as a protective system",
-    "RAC": "the sloping or benching will be in accordance with Cal/OSHA requirements.\\nSlope in accordance with the appropriate soil classification.\\nIf there is more than one bench"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 202,
-    "Task": "Protective systems for trenching and shoring",
-    "Hazards": " Cave-in \\nCrushed by\\nEngulfment",
-    "Controls": " Install shoring when trench is five feet deep or as conditions require.\\nInstall the shoring system and components in accordance with the manufacturer's recommendation and tabulated data. \\nDo not enter an unprotected excavation to install shoring. \\nMake sure the excavation is no deeper than 18 inches below the base of the shoring system. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 506,
-    "Task": "Rigging shoring",
-    "Hazards": " Crushed by\\nStruck by\\nCaught between/Pinch\\nRigging failure\\nFall\\n",
-    "Controls": " Choose the appropriate rigging for the job\\nInspect rigging before each use.\\nQualified person shall rig the material\\nNo workers shall enter the trench without shoring properly in place. Do not be under a suspended load. \\nOnly authorized operators shall operate equipment. \\nWorkers/Spotters shall maintain fall protection if falls of greater than 6 feet are possible. \\nWorkers/Spotters must maintain line-of-sight communication with operators. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 201,
-    "Task": "Inspection of excavation",
-    "Hazards": " Slips",
-    "Controls": "Trips &amp; Falls\\nCave-ins\\nEngulfment \\n",
-    "RAC": " Inspect the excavation"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 203,
-    "Task": "Entering the excavation",
-    "Hazards": " Falls\\nCaught between",
-    "Controls": " In trenches more than 4 feet deep",
-    "RAC": "set up ladders within 25 feet of each work area. \\nTie-off the top of the ladder and extend the side rails 36 inches above the landing. \\nSet up two ladders for every 25 feet for access/egress. \\nInspect ladders daily. "
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 209,
-    "Task": "Working around or in excavation or trenching",
-    "Hazards": " Falls\\nWorkers exposed to heavy equipment\\nCave ins\\nEngulfment\\n",
-    "Controls": " Guard-rails or PFAS to be provided on any fall exposure of 6 feet or more. \\nBack-up alarms or spotter to be used at all times.\\nAlways be in the line of sight of the operator and 15 feet back from moving parts.\\nLimit amount of workers where equipment working. \\nEstablish safe zone approximately 1:1 from bottom of trench. No vehicles or equipment shall be in this area. \\nEliminate any surcharge to the adjacent area of the trench or excavation\\n \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 224,
-    "Task": "Housekeeping near a trench or excavation",
-    "Hazards": " Falling objects\\nCave ins\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " Establish safe zone approximately 1:1 from bottom of trench. No vehicles or equipment shall be in this area. \\nEliminate any surcharge to the adjacent area of the trench or excavation.\\nMaterial shall be maintained to avoid unexpected movement.\\n\\n"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 207,
-    "Task": "Protection of Trench or Excavation",
-    "Hazards": " Falls\\nUnauthorized entry \\nVisibility ",
-    "Controls": " Provide warning signage and barricades when public is exposed to open excavation or trench.\\nAll trenches or excavation need to be backfilled (if possible) or barricaded when unattended. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 230,
-    "Task": "Slurry",
-    "Hazards": " Falls\\nConcrete splash\\nTrench failure",
-    "Controls": " If a fall of 6 feet or greater is possible",
-    "RAC": "utilize fall protection.\\nUtilize proper PPE for concrete work including rubber gloves and eye protection. \\nSelect a clear"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Excavation",
-    "Id": 232,
-    "Task": "Backfill",
-    "Hazards": " Falls\\nSprains and strains\\nCave in\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " If a fall of 6 feet or greater is possible"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 275,
-    "Task": "Excavate for new interceptor\\n\\n\\n\\n",
-    "Hazards": " Heavy equipment crush\\nStruck by\\nUtility strike\\nCaught between\\n\\n",
-    "Controls": " Refer to excavation JHA",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 276,
-    "Task": "Compact trench bottom and base with sand",
-    "Hazards": " Cave-ins \\nOpen trench\\nFalls\\nSprains and strains\\n",
-    "Controls": " Safe off work area with delineators or barricades. \\nRotate workers on repetitive motion tasks. \\nStretch and flex before and during repetitive motion tasks. \\nUse the appropriate PPE for a mechanical compactor -- foot protection and gloves when using shovel/compactor.\\nRemove trench shield in the same manner that it was installed. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 509,
-    "Task": "Installing 4-sided trench shield",
-    "Hazards": " Struck by\\nCaught in between\\nFalls\\nTrench failure due to equipment weight\\n\\n",
-    "Controls": " Only trained personnel in the CAZ during setting of the shield.\\nWorkers shall be tied off is exposed to a fall of 6 feet or more.\\nOnly authorized operators to operate equipment.\\nEquipment should maintain a 10 foot distance from the excavation.\\n\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 277,
-    "Task": "Install the interceptor",
-    "Hazards": " Struck by\\nCaught in between\\nPinch points\\nFalls",
-    "Controls": " Set interceptor in the excavation with rated pick plan. Refer to pick plan. \\nCreate CAZ and remove unnecessary personnel. \\nWorkers exposed to a fall of 6 feet or more shall use fall protection. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 278,
-    "Task": "Backfill with slurry",
-    "Hazards": " Trench failure\\nFalls\\n",
-    "Controls": " Keep all equipment at least 10 feet from the excavation.\\nWorkers exposed to a fall of 6 feet or more shall use fall protection.\\nPour the slurry off a concrete truck up to four feet from the top of the excavation.\\nLet the slurry set up.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Install Grease and Sand Interceptors",
-    "Id": 281,
-    "Task": "Backfill with soil",
-    "Hazards": " Falls\\nSprains and strains\\nCave in\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " If a fall of 6 feet or greater is possible"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Sewer Re-Route",
-    "Id": 385,
-    "Task": "Excavate adjacent to existing sewer and at Points of Connection",
-    "Hazards": " Heavy equipment crush\\nStruck by\\nUtility strike\\nCaught between",
-    "Controls": " Refer to excavation JHA\\nInstall protective trench system if depth requires it. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Sewer Re-Route",
-    "Id": 387,
-    "Task": "Compact trench bottom and base with sand",
-    "Hazards": " Cave-ins \\nOpen trench\\nFalls\\nSprains and strains\\n",
-    "Controls": " Safe off work area with delineators or barricades. \\nRotate workers on repetitive motion tasks. \\nStretch and flex before and during repetitive motion tasks. \\nUse the appropriate PPE for a mechanical compactor -- foot protection and gloves when using shovel/compactor.\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Sewer Re-Route",
-    "Id": 389,
-    "Task": "Make tie-ins from new sewer to existing",
-    "Hazards": " Injury to Self: Eyes",
-    "Controls": "Hands\\nBiohazards",
-    "RAC": " Wear proper PPE for the task.\\nUse a face shield when running cut-off saw."
-  },
-  {
-    "Section": "Underground/Excavation",
-    "Category": "Sewer Re-Route",
-    "Id": 390,
-    "Task": "Backfill excavation area ",
-    "Hazards": " Falls\\nSprains and strains\\nCave in\\nSlips",
-    "Controls": "trips and falls",
-    "RAC": " Be aware of surroundings"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Mat Slab Piping",
-    "Id": 325,
-    "Task": "Installing supports in mat slab ",
-    "Hazards": " Conflicts with other trades\\nSlips",
-    "Controls": "trips and falls\\nLacerations",
-    "RAC": " Wear appropriate PPE for the task including cut-resistant gloves\\nIt is recommended that workers wear long sleeve shirts to avoid cuts from tie-wire.\\nCoordinate activities with other trades. \\nWatch your step -- step on the rebar crosses\\nComplete work before lower mat of rebar is installed.\\nInstall supports only as high as the lower mat until pipe is installed.\\nWatch for overhead loads."
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 344,
-    "Task": "Setting up Fusin Machine for PE Piping",
-    "Hazards": " Burns\\nCords\\nElectrical shocks",
-    "Controls": " Know that heating plates are HOT and will burn if touched.\\nKeep cords out of wet areas",
-    "RAC": "puddles and sharp edges. Raise cords up in high traffic areas. \\nWear gloves to protect your hands.\\nCheck cords for any damage such as breaks"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 298,
-    "Task": "Installation of Piping",
-    "Hazards": " Sprains and Strains\\nLacerations\\nDropped or Falling Objects\\nCrushed Body Parts\\nSlips",
-    "Controls": "Trips",
-    "RAC": "&amp; Falls\\nElectrocution and/or Shocks\\nStruck by\\nCaught between"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 68,
-    "Task": "Cut pipe and tubing to length",
-    "Hazards": " Cuts or Lacerations\\nFalling objects",
-    "Controls": " Inspect all tools before each use.\\nUnplug tool when not in use and before replacing blades. \\nWear appropriate hand protection according to manufacture's recommendations for the cutting tool being used. \\nDeburr edges after cuts. \\nWhen cutting in the air",
-    "RAC": "a CAZ should be created.\\nWhen cutting pipe on the ground"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 84,
-    "Task": "Threading with a pipe threading machine",
-    "Hazards": " Equipment Binding",
-    "Controls": "Pinch Points\\nFlying Debris\\nCuts or Lacerations\\nSlips",
-    "RAC": "trips and falls"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 86,
-    "Task": "Glueing Joints",
-    "Hazards": " Fumes &amp; Vapors\\nSplatter\\nChemical irritations\\n\\n",
-    "Controls": " Warn other trades in area. \\nIdentify and isolate any possible ignition sources in the area. \\nEstablish good ventilation. \\nProtect floors and walls from droppings. \\nStore Glue/Primer cans in flammable cabinet when not in use. \\nEmployees shall be trained in the products they will be using. Review SDS before use.\\nWear appropriate PPE as specified in the SDS. \\nDispose empty cans as described by the SDS. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 353,
-    "Task": "Installation No Hub Cast Iron Pipe",
-    "Hazards": " Falling objects\\nPinch points\\nSprains and strains\\nLacerations\\n",
-    "Controls": " Cast iron pipe will be safely lifted and put into hangers using proper lifting procedures. \\nA CAZ should be created below pipe being lifted. \\nWhen installing heavy pipe",
-    "RAC": "use assistance or mechanical means to lift.\\nWhen using a scissor lift to lift heavy pipe"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 354,
-    "Task": "Installation of Copper Pipe",
-    "Hazards": " Falling objects\\nPinch points\\nSprains and strains\\nLacerations\\nBurns\\nEye Hazards\\nFires",
-    "Controls": " Copper pipe will be safely lifted and put into hangers using proper lifting procedures. \\nA CAZ should be created below pipe being lifted. \\nWhen installing heavy pipe",
-    "RAC": "use assistance or mechanical means to lift.\\nWhen using a scissor lift to lift pipe"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 355,
-    "Task": "Installation Natural Gas Piping",
-    "Hazards": " Falling objects\\nPinch points\\nSprains and strains\\nLacerations\\nBurns/Fires\\nAccidental gas release\\nEye hazards",
-    "Controls": " Schedule 40 pipe will be safely lifted and put into hangers using proper lifting procedures. \\nA CAZ should be created below pipe being lifted. \\nWhen installing heavy pipe",
-    "RAC": "use assistance or mechanical means to lift.\\nWhen using a scissor lift to lift pipe"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 356,
-    "Task": "Installation Of Gutter Drain Piping",
-    "Hazards": " Falling objects\\nPinch points\\nSprains and strains\\nLacerations",
-    "Controls": " Gutter drain piping will be installed using a boom lift\\nBoom lift will be inspected before each use.\\nFollow manufacture's operating instructions. \\nThe boom lift operator will be trained and authorized to operate the boom lift.\\nEnsure the pipe is secured from falling at all times. \\nKeep body parts out of potential pinch points. \\nA CAZ will be created before the lift is extended.\\nAppropriate fall protection will be used.\\n\\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 349,
-    "Task": "Storing pipe materials \\n",
-    "Hazards": " Slips",
-    "Controls": "trips and falls \\nFalling material \\nPinch points\\n",
-    "RAC": " Materials to be stored in an area not to interfere with our work or others'. \\nPipe will be stored on dunnage with chocks or stored on pipe racks. \\nKeep material organized when not in use. \\nClean as you go. \\nKeep body parts out of potential pinch points.\\n\\n"
-  },
-  {
-    "Section": "Install Pipe",
-    "Category": "Piping",
-    "Id": 460,
-    "Task": "Installation of in-wall cans and sleeves",
-    "Hazards": " Slips",
-    "Controls": "trips and falls\\nPinch points\\nLacerations",
-    "RAC": " 100% fall protection is required when a fall of 6' or greater is possible. \\nA positioning device cannot be used for climbing. "
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 169,
-    "Task": "Punch and dimple decking for strapping",
-    "Hazards": " Lacerations\\nProtruding objects\\nFlying particles &amp; debris",
-    "Controls": " Wear cut-resistant gloves when working with hanger materials. \\nUse vise to hold materials during cutting. \\nFile sharp edges of strut.\\nPaint to identify ends of straps. \\nUse proper eye protection while punching metal decking. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 171,
-    "Task": "Using Sky Jack",
-    "Hazards": " Pinch points\\nFalling objects\\nMechanical failure \\nSprains &amp; strains",
-    "Controls": " Keep hands out of mechanical gears and moving parts. \\nLock wheels to avoid machine from moving while in use. \\nOnce material is on surface secure it by means and methods (clamps or straps).\\nInspect hoisting cable for bird caging",
-    "RAC": "damaged wires"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 175,
-    "Task": "Install ceiling wires using powder actuated tools",
-    "Hazards": " Flying particles or debris\\nCharged strips: spent shot strips\\nNoise\\nMisfired rounds",
-    "Controls": " Use proper hearing protection for the task. \\nSafety glasses and face shield shall be worn while operating tool. \\nOnly a licensed operator shall operate a Powder Actuated tool.\\nAll tools shall be inspected prior to use.\\nShot strips shall be removed after the last shot has been fired.\\nPowder Actuated tools shall never be left unattended and stored in a controlled environment.\\nMisfired rounds will be stored on site in a fire rated box and taken to the company office to be disposed of. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 186,
-    "Task": "Lift duct into place using mechanical means",
-    "Hazards": " Working out of scissor lift /Mobil Electric Work Platform\\nPinch points\\nLacerations\\nStrains",
-    "Controls": " Keep entire body inside basket area when moving/raising lift.\\nEnsure lower controls remain unobstructed. \\nSpotter knows how to operate emergency controls from the ground. \\nComplete daily checklist before use. \\nIdentify pinch points. \\nKeep body out of area until material is where it needs to be to limit contact. \\nWear cut-resistant gloves or cut resent liners.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 183,
-    "Task": "Install duct work",
-    "Hazards": " Duct sealing\\nFlying particles or debris\\nSprains &amp; strains\\nPinch points\\nLacerations\\nNoise",
-    "Controls": " Use proper hearing protection for the task. \\nWork in proper ventilated area. Have SDS available in work area.\\nWear safety goggles to protect against chips and ejected debris. Face shield wile drilling holes over head. \\nProper lifting and material handling may include the use of carts",
-    "RAC": "hand trucks and/or the buddy system. \\nIdentify pinch points. \\nStay out from under a suspended load until it is in place. \\nWear cut-resistant gloves.\\n"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 191,
-    "Task": "Accessing top of duct work ",
-    "Hazards": " Caught between \\nContact with \\nFalls \\nStruck by\\nLacerations\\nForeign debris in eye",
-    "Controls": " Before accessing the top of the duct work",
-    "RAC": "it shall be supported with 4X4's and high jacks at the joints to support the additional load. \\nSet and secure ladder in place. \\nThe worker shall climb the ladder to the top of the duct work. \\nEstablish fall protection before getting on shaft.\\nInstall plywood on top of the duct work to protect it from damage. \\nThe worker shall crawl or slide themselves on top of the plywood to install fastening clips and sealant to the joints. "
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 397,
-    "Task": "Put shaft duct together",
-    "Hazards": " Lacerations\\nCaught Between \\nPinch Points \\nSprains &amp; Strains\\nStruck By",
-    "Controls": " Put shaft duct together and line up bolt hole",
-    "RAC": "insert bolt and tighten up. \\nThen seal section together. \\nUse the proper PPE for the task."
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 398,
-    "Task": "Install I-Beam on floor above to hook chain fall to",
-    "Hazards": " Falls\\nPinch points\\nSprains &amp; strains",
-    "Controls": " Use appropriate fall protection equipment and tie off point. \\nPosition I-Beam in center of hole and secure. \\nAttach chain fall to beam. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 399,
-    "Task": "Pulling duct into place with chain fall",
-    "Hazards": " Overhead loads\\nContact with\\nPoor communication\\nFaulty rigging",
-    "Controls": " Inspect all rigging components prior to hoisting duct",
-    "RAC": "\\nDo not stand under a suspended load. Create a CAZ if necessary.\\nGood clear communication.\\nUse proper fall protection for task at hand. "
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 400,
-    "Task": "Create and work on scaffold planking",
-    "Hazards": " Struck by\\nCaught between\\nLacerations\\nPinch points\\nSprains &amp; strains\\nFalls",
-    "Controls": " Place rated scaffold planks across duct to avoid falling into duct.\\nCreate a working surface of at least 18 inches or two planks wide.\\nSecure the planks from displacement \\nUse proper fall protection to avoid falls in gaps between duct and slab. \\nAll openings shall be fully covered with planking and no opening\\'s larger than 1 inch of a gap between planking. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Install Duct",
-    "Category": "Duct Work",
-    "Id": 402,
-    "Task": "Seal duct in shaft",
-    "Hazards": " Falls\\nOthers working overhead\\nStruck By",
-    "Controls": " Use paint brush to install duct sealant on splices. \\nBe aware of the overhead surroundings. \\nUse proper fall protection methods and proper tie off. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Scaffolding",
-    "Category": "Scaffolding",
-    "Id": 379,
-    "Task": "Rolling Scaffolds",
-    "Hazards": " Falls\\nMultiple Injuries\\nPinch Points\\nStruck By\\nShifting of the platform\\nDropped or Falling Objects",
-    "Controls": " Employees shall not ride rolling scaffolds. \\nCaster brakes shall be applied at all times while worker is on the platform. \\nThe height of a rolling scaffold must not exceed three times the least base dimension. \\nScaffold must be inspected by competent person before each use. \\nWorkers must receive scaffold-use training prior to use. \\nOnly materials being used for work in progress shall be used on the scaffold. Do not overload the scaffold. ",
-    "RAC": " L"
-  },
-  {
-    "Section": "Scaffolding",
-    "Category": "Scaffolding",
-    "Id": 380,
-    "Task": "Fixed Scaffold",
-    "Hazards": " Falls\\nMultiple Injuries\\nPinch Points\\nStruck By\\nFailure of scaffold\\nDropped or Falling Objects",
-    "Controls": " Scaffold must be inspected by competent person before each use. \\nEnsure the green tag is current and document our inspection. \\nWorkers must receive scaffold-use training prior to use. \\nScaffold shall be designed to withstand four times the intended load. \\nAt no times should scaffold loads exceed the manufacturer's recommendations. \\nDo not modify the scaffold -- let the [Customer] know if there are any problems or concerns. \\nOnly materials being used for work in progress shall be used on the scaffold. Do not overload the scaffold. \\n",
-    "RAC": " L"
-  },
-  {
-    "Section": "Insulation/Firestop/Caulking",
-    "Category": "Insulation",
-    "Id": 285,
-    "Task": "Installation of Insulation",
-    "Hazards": "sound caulking",
-    "Controls": "fire stopping",
-    "RAC": " Lacerations\\nSkin irritation\\nForeign debris in eye\\nSlips"
-  },
-  {
-    "Section": "Hangers/Supports/Seismic",
-    "Category": "Hangers/Supports/Seismic",
-    "Id": 343,
-    "Task": "Drill and set concrete anchor (if required)",
-    "Hazards": " Exposure to silica dust\\nFlying Particles &amp; Debris\\nPinch Points\\nTool bit binding up/Release of stored energy",
-    "Controls": " Push anchor in as far as possible before hammering into place. \\nKeep free hand clear of anchor when hammering.\\nUse HEPA vacuum at point of drilling to remove silica dust. \\nUse a safety goggles and a face shield when drilling into concrete. \\nUse the tool in accordance with the operator's manual. \\nPosition your body and hold the tool so binding will pull the tool away from the operator.",
-    "RAC": " L"
-  },
-  {
-    "Section": "Hangers/Supports/Seismic",
-    "Category": "Hangers/Supports/Seismic",
-    "Id": 269,
-    "Task": "Cut strut and all-thread rod to size",
-    "Hazards": " Cuts or Lacerations\\nProtruding sharp objects",
-    "Controls": " If the hanger was prefabbed and a modification is needed",
-    "RAC": "remove the hanger from the bracket before cutting.\\nWear cut-resistant gloves when working with hanger materials. \\nUse vise to hold materials during cutting. \\nFile sharp edges of rod and strut. \\nPlace end caps on hanger pieces before installation. \\nCut all-thread rod to minimum length to prevent protruding ends. "
-  },
-  {
-    "Section": "Hangers/Supports/Seismic",
-    "Category": "Hangers/Supports/Seismic",
-    "Id": 548,
-    "Task": "Installation of Duct Supports and Hangers",
-    "Hazards": " Dropped or Falling Objects\\nPinch Points\\nSlips",
-    "Controls": "Trips and Falls\\nLacerations",
-    "RAC": " Create a CAZ when material or tools have a potential of falling on others in the area. \\nUse the proper PPE for the hazards exposed by the task.\\nUse fall protection whenever you are within 6\\' of a 6\\' or greater fall.\\nProtect other trades\\' products from trade damage. \\nClean as you go."
-  },
-  {
-    "Section": "Hangers/Supports/Seismic",
-    "Category": "Hangers/Supports/Seismic",
-    "Id": 287,
-    "Task": "Installation of Pipe Supports &amp; Hangers",
-    "Hazards": " Dropped or Falling Objects\\nPinch points\\nSlips",
-    "Controls": "Trips &amp; Falls\\nLacerations",
-    "RAC": " Create a CAZ when material or tools have a potential of falling on others in the area. \\nUse the proper PPE for the hazards exposed by the task.\\nUse fall protection whenever you are within 6' of a 6' or greater fall.\\nProtect other trades' products from trade damage. \\nClean as you go. "
-  },
-  {
-    "Section": "Hangers/Supports/Seismic",
-    "Category": "Hangers/Supports/Seismic",
-    "Id": 529,
-    "Task": "Installation of seismic bracing",
-    "Hazards": " Dropped or Falling Objects\\nPinch points\\nSlips",
-    "Controls": "Trips &amp; Falls\\nLacerations",
-    "RAC": " Create a CAZ when material or tools have a potential of falling on others in the area. \\nUse the proper PPE for the hazards exposed by the task.\\nUse fall protection whenever you are within 6' of a 6' or greater fall.\\nProtect other trades' products from trade damage. \\nClean as you go."
-  }
-]
+
+  [
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "40",
+      "Task": "Atmospheric Testing",
+      "Hazards": "Atmospheric hazards",
+      "Controls": "Oxygen content shall be tested. The acceptable range is 19.5 to 23.5 percent.\nTest for combustible gas and vapors. Ensure that you are within the Explosion Limits. Record readings on the Entry Permit.\nSafe operating levels can be determined from the Permissible Exposure Level (PEL) as listed in OSHA 29 CFR 1910.1000.handle",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "37",
+      "Task": "Initial evaluation of confined space",
+      "Hazards": "Hazardous atmospheres\nEngulfment\nAccess",
+      "Controls": "Complete the Non-Permit Required Confined Space Entry Form.\n\nIf the work site contains permit-required confined spaces, danger signs stating \"DANGER - CONFINED SPACE - ENTER BY PERMIT ONLY\" shall be posted to inform employees of the existence and location of the spaces. Bilingual signs shall be posted as necessary.\n\n[internalCustomer] Employees do not enter or conduct work in Permit Required Confined Space. If our Competent Person determines that the area is Permit Required, we will sub the work out.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "62",
+      "Task": "LOTO/COHE",
+      "Hazards": "Engulfment\n",
+      "Controls": "Determine if any penetrations into the space are active or have the potential for activity.\nAll penetrations into the space will be LOTO to prevent engulfment.\nRefer to the LOTO/COHE program under separate cover.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "38",
+      "Task": "Reclassification of permit-required confined space",
+      "Hazards": "Hazardous atmospheres\nEngulfment\nAccess",
+      "Controls": "Permit Required Confined Spaces may be reclassified as non-permit spaces under the following circumstances:\n\nThe space has no actual or potential atmospheric hazards OR all hazards within the space are eliminated without entry into the space.\nEmployees shall wear a personal monitor at all time.\nThe COHE Program shall be followed for engulfment\nIf a hazard returns, employees shall evacuate the space and the space shall be reevaluated.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "494",
+      "Task": "Pretask confined space",
+      "Hazards": "Atmospheric Hazards\nSlips, Trips & Falls",
+      "Controls": "Set up CAZ.\nPost signs stating \"DANGER - CONFINED SPACE\" to inform others of the existence and location of the confined spaces.\nAs a team, identify and mitigate potential hazards\nDefine roles and verify competency.\nSet up rescue equipment\nIdentify fall protection tie off spot",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "50",
+      "Task": "Ventilate the space (if required)",
+      "Hazards": "Atmospheric Hazards: Improper Ventilation",
+      "Controls": "Using a blower, introduce comfort air if necessary.\nRetest the air and document the new readings.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "43",
+      "Task": "Entering the space",
+      "Hazards": "Engulfment\nFire/Electrical hazards\nAtmospheric hazards\nEntry and Exit obstructions\n",
+      "Controls": "The attendant shall remain at the entry point while personnel are inside any confined space unless relived by a trained and authorized individual.\nThe attendant shall ensure that only authorized personnel enter the confined space and the CAZ.\nAttendants shall not perform any other work activities except that they may also serve as the attending supervisor.\nEstablish communication method between entrant and attendant.\nIf an emergency or other unplanned event takes place during the course of work, the Confined Space Work Permit is void.\nThe attendant and entry supervisor have the authority to discontinue work activities at any time.\n100% fall protection must be maintained inside the CAZ or until hazard is eliminated",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "66",
+      "Task": "Lighting in the confined space",
+      "Hazards": "Working in the dark\nUnable to see or recognize hazards",
+      "Controls": "[internalCustomer] is responsible for task lighting of at least (5) foot candles of light in the area where the task is being performed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "44",
+      "Task": "Completion of Work",
+      "Hazards": "Engulfment\nFire/Electrical hazards\nAtmospheric hazards",
+      "Controls": "100% fall protection must be maintained inside the CAZ or until hazard is eliminated\nThe area surrounding the confined space shall be clean of materials, equipment, scraps, and debris.\nThe supervisor responsible for the confined space work shall inspect the work location to ensure cleanup of materials, tools, and other items is complete.\nLOTO is removed only when work is completed.\nThe confined space permit is closed and signed off by supervisor.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "493",
+      "Task": "Inspect Gas Monitors",
+      "Hazards": "Failure of the monitor\nInaccurate readings\nPotential Exposures",
+      "Controls": "Before testing the air in a confined space, you must perform a bump test on the gas monitor.\nExpose the monitor to a known concentration of test gas and wait for the alarm to activate.\nIf the instrument's response is within an acceptable tolerance range of the actual concentration, then its calibration is verified.\nIf it does not respond as expected, it will need to be fully calibrated before it can be used.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Confined Space",
+      "Category": "Confined Space Entry",
+      "Id": "59",
+      "Task": "Rescue",
+      "Hazards": "Engulfment\nAtmospheric hazards\nFire/Electrical hazards\n",
+      "Controls": "NEVER ATTEMPT A RESCUE BY GOING INTO THE CONFINED SPACE UNLESS TRAINED IN RESCUE PROCEDURES.\nTo facilitate non-entry rescue, retrieval systems or methods shall be used.\nInspect retrieval equipment prior to potential use.\nEach authorized entrant shall use a full body harness with a retrieval lifeline attached.\nDevelop a rescue plan specific to the space prior to entry.\nArrange for entry rescue services to be on-call and familiar with the task.\nAll workers will be trained on the rescue plan prior to the start of work.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Crane/Rigging",
+      "Category": "Crane work -- preperation",
+      "Id": "538",
+      "Task": "Identify and escort crane to lifting locations\n\n\n",
+      "Hazards": "Struck by\nPinch points\nOverhead power lines\nSlips, trip and falls",
+      "Controls": "Inspect path of travel to be used by crane and identify any overhead hazards and hazards in path and remove or direct crane around them.\nConduct a safety briefing with workers who will be involved in guiding crane into position and identify hazards found in pre-inspection of path of travel.\nControl pedestrian traffic while crane is being moved into position.\nDo not place yourself between fixed objects and crane while crane is being moved into position.\nOnce the crane is in place 3 trucks at a time will enter for unloading. While they are being unloaded the area will be flagged off so as to keep unauthorized personnel out of the swing zone and out from under the suspended load. The area will be posted with warning signs.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Crane/Rigging",
+      "Category": "Rigging",
+      "Id": "127",
+      "Task": "Land Equipment or Materials",
+      "Hazards": "Rigging failure\nCaught between/struck by\nInsufficient Support and/or Space f+or Load",
+      "Controls": "Keep all persons clear of areas under the loads while landing associated equipment or materials.\nEnsure landing areas are clear of debris and built according to design/specifications sufficient for specific equipment load weights.\nControl rotation of load with multiple tag lines.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Crane/Rigging",
+      "Category": "Rigging",
+      "Id": "336",
+      "Task": "Using chain falls",
+      "Hazards": "Equipment failure\nShifting load\nPinch points",
+      "Controls": "Inspect all chain falls and slings prior to use. Tag and remove defective equipment.\nEnsure rated tag is attached to any rigging including chains.\nIdentify load weight. Chose the right equipment for the job.\nVerify all components capacities are properly marked.\nAdequate hand protection should be worn when operating the chain fall.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Crane/Rigging",
+      "Category": "Rigging",
+      "Id": "129",
+      "Task": "Disconnect Rigging and Tag Lines",
+      "Hazards": "Rigging failure\nCaught between/struck by",
+      "Controls": "Signal Person must ensure that all personnel are clear and have removed all rigging from equipment prior to signaling to operator to move rigging equipment. ONE SIGNALPERSON TO CALL CRANE AT A TIME.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Decking and Layout",
+      "Category": "Coring",
+      "Id": "407",
+      "Task": "Protection of holes",
+      "Hazards": "Slips, trips and falls\nFalling objects\n",
+      "Controls": "All holes must be covered before leaving the area.\nUse the appropriate hole cover to protect the area below.\nCovers should be labeled.\nCovers should be checked and replaced as needed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Decking and Layout",
+      "Category": "Coring",
+      "Id": "266",
+      "Task": "Coring general",
+      "Hazards": "Falling objects/Struck by\nElectrical hazards\nPinch points\nLacerations\nSlips, trips and falls",
+      "Controls": "Before coring, sonar shall identify potential rebar, conduits, wires, etc. Look for and avoid additional finishes.\nThe coring machine will be inspected by its operator prior to each use. Only an authorized operator is to use the machine.\nThe coring machine is anchored to the deck to ensure that it does not move out of place.\nThe spotter and corer shall wear manufacturer-recommended PPE including ear plugs and goggles and full face shield.\nA CAZ will be created under cores. A receptacle will be placed directly under the core to control any falling material.\nThere will be a spotter below the core to control the falling core. See Spotter's Responsibilities.\nA wetvac will be used to remove spoils.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Decking and Layout",
+      "Category": "Coring",
+      "Id": "119",
+      "Task": "Spotter responsibilities during coring",
+      "Hazards": "Falling objects/Struck by\nSlips, trips and falls\nPinch points",
+      "Controls": "The spotter shall never leave the corer unattended.\nThe spotter must be in control of the CAZ.\nThe spotter shall stay in constant communication with the corer.\nThe spotter will be responsible to clean up excess water and debris during and after the core is drilled.\nThe spotter will be responsible for moving the receptacle as needed to collect additional cores.\nThe spotter will remove the red tape after completion of the task.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Decking and Layout",
+      "Category": "Decking and Layout",
+      "Id": "155",
+      "Task": "Trimble Use",
+      "Hazards": "Injury to Self: Eyes",
+      "Controls": "\"Laser in Use\" signs shall be posted within 50' of where Trimble or lasers are being used for layout.\nOnly trained user can operate the trimble.\nFollow manufacture's safety recommendations for operating the Trimble.\nDo not wear reflective vests when the Trimble laser is in use.\nSigns shall be removed when the operations are completed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Decking and Layout",
+      "Category": "Decking and Layout",
+      "Id": "272",
+      "Task": "Inspect deck of work area",
+      "Hazards": "Dropped or Falling Objects\nSlips, trips and falls\n",
+      "Controls": "Evaluate floor completion -- cover any existing holes, or report holes to the [Customer]\nEnsure there is proper access and egress to the deck.\nVerify guardrail systems are complete including toe boards\nWork area is clear of debris\nBe cautious of other trades' inbeds\nMake sure [Customer] has signed off deck before we access deck.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Electrical",
+      "Category": "Conducting ARC Flash Electrical Work",
+      "Id": "433",
+      "Task": "PreTask Electrical Work",
+      "Hazards": "Electric Shock/Burns",
+      "Controls": "Schedule and conduct meeting with all affected parties.\nCreate CAZ with barriers and signage.\nNFPA 70E trained, qualified workers shall wear ARC FLASH suits. Workers are responsible for inspecting suit for defects, burn marks, tearing and normal wear and tear. Workers shall have on nothing that is conductive.\nWorkers will use insulated gloves and tools while working near electrical panels.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Electrical",
+      "Category": "Conducting ARC Flash Electrical Work",
+      "Id": "434",
+      "Task": "Approaching electrical panel and opening",
+      "Hazards": "Contact with, becoming energized",
+      "Controls": "Worker will turn the switch of the disconnect into an off position, LOTO the disconnect, loosen screws and pull the cover off.\nThe switch will be turned back on to test with a meter.\nA meter will be installed to check the voltage output. The meter reading will then be documented.\nThe switch will then be turned off, cover put back on and secured into place. Document closure and securing of the panel.\nRe-energize the panel.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Electrical",
+      "Category": "Conducting ARC Flash Electrical Work",
+      "Id": "435",
+      "Task": "PostTask Cleanup",
+      "Hazards": "Exposing others to hazard",
+      "Controls": "Remove suit and place it in the storage bag for next use.\nRemove signage and barriers so others working in the area know that they can enter.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fall Protection",
+      "Category": "Fall Protection",
+      "Id": "503",
+      "Task": "Remove Guardrail",
+      "Hazards": "Falls",
+      "Controls": "Before removing any guardrail or barricade, prior written permission from [Customer] must be obtained.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fall Protection",
+      "Category": "Fall Protection",
+      "Id": "240",
+      "Task": "Fall Protection",
+      "Hazards": "Falls\nMultiple injuries\nDeath",
+      "Controls": "The following actions will need to be completed before any work can be performed where fall protect will be required:\n[Customer] Safety Manager will review the area where work is to take place and determine if a work plan and permit will be required.\nAll workers will be trained in fall protection.\nFall protective equipment will be inspected before each use.\nThe tie off points will be to a column, a beam or an approved anchor point that can withstand a minimum 5,000 lbs.\nNOTE: Safety cables are not made to be a tie off point so DO NOT USE them as one.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "309",
+      "Task": "Fuel Oil Barrels moved onsite",
+      "Hazards": "Leaks, Misuse, Leaks, Sprains & Strains",
+      "Controls": "Verify that barrels are tight and safe to move. Verify labeling on barrel to reflect product and SDS. Discuss hazards of working around fuel oil with affected employees. Have spill kit ready for any potential spills. Barrel cart will be used to move barrels.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "310",
+      "Task": "Confirm Fuel Valves are Closed",
+      "Hazards": "Loss of Fuel into Rooms",
+      "Controls": "[internalCustomer] to check valve rotation to fully closed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "311",
+      "Task": "Pressurize Piping with Air and Purge each outlet",
+      "Hazards": "Flying Debris: when pipe open",
+      "Controls": "Confirm path of blow out is clear. Verify doors are closed. Communicate with each worker that valve is being opened.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "312",
+      "Task": "Reconnect Piping",
+      "Hazards": "Leaks",
+      "Controls": "PPM to check valve rotation to fully open. After system is energized, visual inspection to verify no leaks.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "313",
+      "Task": "Pressurize piping with jet fuel and purge each outlet",
+      "Hazards": "Leaks, Splashing",
+      "Controls": "Employees working with jet fuel will wear additional PPE including rubber gloves. The hose used for purging shall be properly placed inside barrel so as not to come loose and should be monitored.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Fuel Oil/Gas",
+      "Category": "Jet Fuel Flush Out",
+      "Id": "314",
+      "Task": "Dispose of used Jet Fuel",
+      "Hazards": "Improper Storage/ Disposal, Leaks, Reuse",
+      "Controls": "Calling environmental waste disposal company.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "256",
+      "Task": "PPE",
+      "Hazards": "Injury",
+      "Controls": "PPE REQUIRED: hardhats, ANSI-Z87 safety glasses, work boots, sleeved shirt, long pants, safety vest and task-specific gloves.\nAppropriate PPE to protect worker from additional hazard exposure.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "257",
+      "Task": "Stretch and flex",
+      "Hazards": "Sprains & strains",
+      "Controls": "Perform stretch and flex exercises before starting any strenuous activity.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "498",
+      "Task": "Pretask Review",
+      "Hazards": "Injury",
+      "Controls": "Review personnel-specific and task-specific hazards with crew.\nDocument worker acknowledgment of understanding of task and hazards.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "258",
+      "Task": "Transport tools, materials, & equipment to the work area",
+      "Hazards": "Dropped or falling objects\nSprains & strains\nCuts or lacerations",
+      "Controls": "Do not overload materials.\nVerify clear path to work area. Watch footing.\nAsk for help when lifting heavy or awkward material.\nUse proper lifting techniques and/or use mechanical means when available.\nWear gloves to protect from cuts or pinches.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "259",
+      "Task": "Excessive Sun/Heat Exposure",
+      "Hazards": "Heat Illness",
+      "Controls": "Employees should drink four 8-ounce glasses of water, or a total of one quart per hour to stay hydrated throughout the day.\nEmployees should be trained on Heat Illness signs and symptoms and should report any concerns immediately.\nEmployees should be trained on [internalCustomer]'s HIPP.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "General",
+      "Id": "210",
+      "Task": "Working around traffic",
+      "Hazards": "Struck by",
+      "Controls": "Traffic control is to be provided by Certified Flaggers when exposed to public traffic.",
+      "RAC": "L"
+    },
+    {
+      "Section": "General Safety",
+      "Category": "Housekeeping",
+      "Id": "271",
+      "Task": "Housekeeping",
+      "Hazards": "Cuts or Lacerations\nSprains & Strains\nSlips, Trips and Falls\nExposure to dust\n",
+      "Controls": "Use gloves to avoid cuts, punctures and lacerations.\nUse proper lifting procedures when lifting heavy material.\nClean as you go.\nBe aware of [internalCustomer]'s voluntary respiratory program.\nUse Absorb Sweep when needed/allowed.\nKeep material organized and stacked properly.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "410",
+      "Task": "Fire Watch",
+      "Hazards": "Fires",
+      "Controls": "Have a fire watch during any cutting or welding of decks and it shall be maintained for at least a half hour after completion of welding or cutting operations to detect and extinguish possible smoldering fires.\nThis employee will safe off the area, remove or cover any flammable materials and carry a fire extinguisher while cutting or sparks are being generated.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "264",
+      "Task": "Hot Work Pretask",
+      "Hazards": "Burns\nFires\n",
+      "Controls": "A hot work permit must be submitted to [Customer] and posted after approval and during the work.\nUse the appropriate shaded eye protection for the task. Use heat resistant gloves and any additional PPE as needed.\nHave an appropriate fire extinguisher readily available. Have water spray bottles and fire blankets ready prior to the hot work.\nInspect fire extinguishers prior to use and ensure tags are current. Tag and remove any defective equipment.\nInspect all equipment before each use. Tag and remove any defective equipment.\nIdentify and protect all material from damage.\nReport any fires to [Customer] immediately.\nDuring hot work, a fire watch must be set up and maintained for at least 30 minutes after the work is completed.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "263",
+      "Task": "Set up of welding gasses",
+      "Hazards": "Tipping over\nExplosions\nFires\n",
+      "Controls": "Secure bottle(s) in place on cart\nSecure cart from shifting, tipping over\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "488",
+      "Task": "Welding of galvanized or stainless material",
+      "Hazards": "Burns\nEye Injury\nArc-flash\nElectrical Shock\nFires",
+      "Controls": "Create CAZ and post Hot Work Permit.\nUse appropriate welding PPE. Maintain appropriate head protection.\nUse weld screens when working around other workers.\nInspect your equipment before each use. Tag and remove any defected equipment from service.\nA flint striker shall be used be used to light torch.\nWear a respirator (refer to our respirator program under separate cover)\nAt breaks, lunch and at end of day turn off gauges and protect the hoses.\nEnsure adequate ventilation where needed.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "490",
+      "Task": "Welding\nSoldering\nBrazing\nHeat gun\nCutting torch\nPlasma Cutter\n",
+      "Hazards": "Fire\nBurns\nFumes\nInjury to Self: Hand or Eye\nInjury to others",
+      "Controls": "Create CAZ and post Hot Work Permit.\nEnsure the employee performing the hot work is trained in the specific type of hot work.\nUse appropriate PPE. Maintain appropriate head protection.\nUse weld screens when working around other workers.\nA flint striker shall be used be used to light torch.\nAt breaks, lunch and at end of day turn off gauges and protect the hoses.\nEnsure adequate ventilation where needed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "489",
+      "Task": "Grinders",
+      "Hazards": "Eye Injury\nFlying debris\nHot sparks/Fires\nCuts/Punctures\nLoss of control of grinder\n",
+      "Controls": "Follow manufactures' recommendation for PPE.\nUse face shield and glasses.\nHave a fire extinguisher readily available. Have fire blankets and spray bottles readily available.\nProvide a fire watch or similar protection to adjacent people and materials.\nInspect your grinder before each use. Tag and remove any defected equipment from service.\nEnsure the grinder has both handles and that you are using them.\nUse the appropriate guard for the appropriate task.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "515",
+      "Task": "Storage of welding tanks",
+      "Hazards": "Fire\nTipping over\nBreaking of gauges\nRelease of pressurized gasses",
+      "Controls": "For short-term storage (during a shift):\nTurn off gauges\nSecure the hoses from any damage\n\nFor long-term storage (at end of shift or when welding tanks shall not be used in 24 hours):\nRemove gauges\nSecure safety caps\nIf bottles are stored on cart, cart must have 30 minute fire barrier, or bottles must be separated by at least 20 feet and secured.\nStorage should be in an area not exposed to any impact hazards.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hot Work",
+      "Category": "Hot Work",
+      "Id": "90",
+      "Task": "Fueling welding machines",
+      "Hazards": "Flying debris and particles\nFire\nFumes, Vapors",
+      "Controls": "Wear the appropriate PPE for the task.\nAll welding machines need to be turned off and cooled before fueling can begin.\nMake sure there is proper ventilation.\nTry to stand up wind when refueling.\nFire extinguished needs to be readily available during fueling.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Investigation/Demo",
+      "Category": "Demo Piping",
+      "Id": "514",
+      "Task": "Pretask demo piping",
+      "Hazards": "Exposure to hazardous material",
+      "Controls": "Contact [Customer] to access and review job hazard material survey\nIn the case of asbestos: recognize, report and retreat. We do not work with asbestos material.\nTake precautions for any other material according to the job hazard material survey\nReview necessary SDSs with the crew\nWear proper PPE\nProvide training for specific hazards",
+      "RAC": "L"
+    },
+    {
+      "Section": "Investigation/Demo",
+      "Category": "Demo Piping",
+      "Id": "505",
+      "Task": "Identify the system to demo",
+      "Hazards": "Cut into wrong/live system\n\n",
+      "Controls": "Prepare for hazards for specific system\nImplement the COHE where necessary.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Investigation/Demo",
+      "Category": "Demo Piping",
+      "Id": "159",
+      "Task": "Isolation of Existing Systems: Gas",
+      "Hazards": "Inhalation of fumes\nFire/Explosion",
+      "Controls": "Coordinator with [Customer].\nLOTO in place. Secure all pipe termination against displacement.\nAtmospheric monitoring.\nProper ventilation.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Investigation/Demo",
+      "Category": "Demo Piping",
+      "Id": "161",
+      "Task": "Isolation of Existing Systems: Waste",
+      "Hazards": "Spills",
+      "Controls": "Shut off fixtures upstream or install plug.\nProper PPE for any possible exposure. Immunizations up to date.\nLOTO in place. Secure all pipe termination against displacement.\nHave spill bucket in place. Clean any spills immediately.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Investigation/Demo",
+      "Category": "Demo Piping",
+      "Id": "160",
+      "Task": "Isolation of Existing Systems: Water",
+      "Hazards": "Water Spills\nSlips, Trips and Falls\nWater burns",
+      "Controls": "Isolate and confirm valves.\nLOTO in place. Secure all pipe termination against displacement.\nHave spill bucket in place. Clean any spills immediately.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading & Unloading Material",
+      "Id": "321",
+      "Task": "Stocking & staging of material",
+      "Hazards": "Caught Between\nStruck By\nDropped or Falling Objects",
+      "Controls": "While stocking or moving pallets make sure that you know your surroundings and you don't put yourself in a pinch point.\nTry to push rather than pull.\nMake sure that wheels are chalked or locked when done.\nDo not be behind a load -- maintain eye contact with operator.\nEnsure all pallets are rated for the intended load and are not over loaded.\nAlways follow manufacture's stocking requirements.\nDo not stock more than 5 pallets high or exceed overall height of 20 feet.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading & Unloading Material",
+      "Id": "323",
+      "Task": "Unloading Trucks",
+      "Hazards": "Struck By\nCaught between/Pinch\nSprains & Strains",
+      "Controls": "Watch your hands, legs, arms and feet while loading and unloading material.\nWhen offloading material, workers will ensure that they use proper lifting techniques which include asking for help or using mechanical means to lift heavy material.\nIf a worker is required to climb on top of the load which exposes him to a potential fall of greater than 6 feet, then full fall protections procedures will be followed.\nEmployee shall try to utilize tools available to them to transport material. If possible, use a dolly, cart, wagon or a pallet using a forklift. Avoid moving material by hand if possible.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading & Unloading Material",
+      "Id": "324",
+      "Task": "Proper Lifting Technique/Lifting Policy",
+      "Hazards": "Sprains & Strains",
+      "Controls": "All crew members will participate in a daily stretch and flex.\nPlan ahead before lifting. Know where you are going with your load. Don't make awkward movements. Clear a path, and if lifting something with another person, make sure both of you agree on the plan.\nLift close to your body. Make sure you have a firm hold on the object you are lifting, and keep it balanced close to your body.\nFeet shoulder width apart. Keep both feet about shoulder width apart and take short steps.\nBend your knees and keep your back straight. Focus on keeping you spine straight. Raise and lower to the ground by bending your knees.\nTighten your stomach muscles. Tightening your abdominal muscles will hold your back in a good lifting position and will help prevent excessive force on the spine.\nLift with your legs. Your legs are many times stronger than your back muscles-let your strength work in your favor. Again, lower to the ground by bending your knees, not your back.\nIf you're straining, get help. If an object is too heavy, or awkward in shape, get someone to help you lift it.\nNever bend your back to pick something up. Hold the object close to your body. Don't twist or bend. Face in the direction you are walking. If you need to turn, stop, turn in small steps, and then continue walking. Keep your eyes up which will help you maintain a better position of the spine.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading Bay",
+      "Id": "315",
+      "Task": "Ensure safety of workers",
+      "Hazards": "Struck By",
+      "Controls": "Create controlled access zone using danger tape and/or signs.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading Bay",
+      "Id": "317",
+      "Task": "Drop cables/Remove hard barrier",
+      "Hazards": "Falls",
+      "Controls": "Two crew members shall remove the barrier to gain access.\nWorkers shall ensure fall protection system is in place and worn properly.\nWorkers shall use the buddy system when removing the barrier. Crew members shall keep each other aware of how close they are to the edge.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading Bay",
+      "Id": "318",
+      "Task": "Receive material and hand off to other crew members outside of CAZ",
+      "Hazards": "Caught Between\nStruck By\nCuts and lacerations\nPinch points",
+      "Controls": "Each member shall have good communication where the load will be placed and then moved out of the loading bay.\nStay back away from the load while pushing it off the bay.\nEnsure proper PPE including gloves and body positioning.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Material Handling",
+      "Category": "Loading Bay",
+      "Id": "319",
+      "Task": "Install barrier back in place",
+      "Hazards": "Falls",
+      "Controls": "Two crew members shall replace the barrier.\nWorkers shall ensure fall protection system is in place and worn properly.\nWorkers shall use the buddy system when replacing the barrier. Crew members shall keep each other aware of how close they are to the edge.\nIn the case of cable barrier, ensure maximum deflection of 6 inches.\nOnly when barrier is properly restored, workers can disconnect from anchor point and remove controlled access zone",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Adding Chemicals to Holding Tanks",
+      "Id": "1",
+      "Task": "Adding chemical pretask",
+      "Hazards": "Contact with (eyes, skin, inhalation, splash, accidental release)\nBurns\nSprains & strain",
+      "Controls": "Decontamination set up and equipment shall be available in the case of an emergency.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Adding Chemicals to Holding Tanks",
+      "Id": "2",
+      "Task": "Adding Chemicals to Pot Feeders",
+      "Hazards": "Contact with (eyes, skin, inhalation, splash, accidental release)\nBurns\nSprains & strain\n",
+      "Controls": "Chemical will be added one gallon at a time.\nWorkers shall take their time to avoid spills and contact with chemicals.\nWear appropriate PPE for the task.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "466",
+      "Task": "Compact tank pad to sub grade",
+      "Hazards": "Crushing\nRepetitive Motion/Strains",
+      "Controls": "Wear proper over-shoe guards\nMonitor and manage repetitive motion activities\nWear leather gloves to protect hands\nCommunicate with other workers in the area",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "243",
+      "Task": "Inspection and entering of excavation",
+      "Hazards": "Slips, trips and falls\nCave-ins and water accumulation\nLadder Collapse/fall\nFalling objects\nStruck by",
+      "Controls": "Competent person performs daily inspection.\nShore any excavation 5' feet or deeper or as conditions require\nIn trenches more than 4' deep, set up and secure a ladder within 25 ft of each worker in the excavation.\nFall protection required when falls of 6' or greater is possible.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "467",
+      "Task": "Layout for placement of dead man and set dead man",
+      "Hazards": "Caught Between\nStruck By\nSlips, trips and falls",
+      "Controls": "Proper rigging by a certified rigger and signal man.\nUse tag lines to control the load as it comes off the trailer.\nAfter setting the dead man, chalk to prevent roll over.\nDo not get under a suspended load",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "463",
+      "Task": "Lifting tanks from trucks",
+      "Hazards": "Falling or Shifting loads\nUncontroled load\nTipping Over\nRigging failure\nStruck by\nCrushing/Pinch Points",
+      "Controls": "Tank lift plan approved by [internalCustomer] and [Customer].\nInspect all rigging equipment before use.\nUse tag line.\nOnly trained and experience riggers will rig up loads.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "472",
+      "Task": "Disconnect Rigging, Tag line",
+      "Hazards": "Stuck by\nFalling\nPinch points",
+      "Controls": "Use fall protection when a fall of 6' or greater is possible\nWatch crane hook\nKeep hands out of pinch points\nWear appropriate hand protection\nCommunication and spotting as needed for disconnection of straps\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "473",
+      "Task": "Perform testing procedures for tank quality -- release air pressure.",
+      "Hazards": "Struck by\nFugitive dust\n",
+      "Controls": "Follow the COHE program when appropriate.\nVerify that all valves and bolts are tight.\nSpray with a soap and water mixture to see if there are any leeks.\nSet a CAZ prior to pressure testing. Communicate with necessary personnel prior to pressure testing.\nWear the appropriate eye protection.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "476",
+      "Task": "Securing tanks",
+      "Hazards": "Lacerations to hands\nCaught between\nPinch Points\nEye injury",
+      "Controls": "Proper use of ladder, 3-point contact while climbing\nUse fall protection when fall of 6' or greater is possible.\nWear appropriate hand protection.\nWear appropriate eye protection.\nKeep your hands out of pinch points.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "478",
+      "Task": "Backfill around the base and any void areas underneath",
+      "Hazards": "Struck by\nCaught between /Pinch Points\nRepetitive motion\nFugitive dust\n",
+      "Controls": "Use the appropriate foot, hand and eye protection.\nUse leather gloves if running the compactor.\nUse administrative controls for repetitive motion.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "482",
+      "Task": "Isolate and drain fuel line that will be welded on",
+      "Hazards": "Slips and falls\nFumes and vapors\nContact with and spills",
+      "Controls": "The lines will be shut down at both ends and isolated.\nThe line will then be cracked and drained of fuel oil.\nExcess fuel will be removed from the area and drips and puddles will be wiped up.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "483",
+      "Task": "Hook up nitrogen purge to the line that will be welded on",
+      "Hazards": "Caught Between\nSprains & Strains\nFrostbite",
+      "Controls": "Check nitrogen regulator before operating nitrogen.\nPurge ports will be hooked up to both ends.\nAllowing a constant purge while welding.\nWear appropriate PPE for the task.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tanks",
+      "Category": "Storage Tanks",
+      "Id": "484",
+      "Task": "Weld fittings and bypass to fuel line",
+      "Hazards": "Arc\nBright Light\nExplosions\nFlash Burns\nInjury to Self\nChemical Exposure\nFumes",
+      "Controls": "Set up weld screens to shield passers-by from weld glare\nWear properly tinted welding lenses.\nBe sure to have your HOT WORK PERMIT in place prior to starting work. Follow hot work procedures.\nAssess work area to make sure that there are no flammable materials stored. Have a fire extinguisher close by.\nWear the proper welding PPE. Set up barrier tape around weld area to prevent accidental contact with hot pipe welds.\nWelders to maintain their distance from welding fumes. Set up ventilation fans or smoke hogs to remove/control welding fumes.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Air Handler Startup",
+      "Id": "7",
+      "Task": "Adjusting and ramping up air speeds for testing",
+      "Hazards": "Fugitive dust\nCaught by/Pinch points\nStruck by",
+      "Controls": "Equipment will be running during this process. Speeds will be ramped up all the way to ensure that everything is working correctly.\nWatch for excessive vibration, noise or impropper movement before ramping up.\nEnsure that all moving parts are protected such as pulleys, belts, fan blades",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Air Handler Startup",
+      "Id": "8",
+      "Task": "Opening door to increase air flow",
+      "Hazards": "Struck by\nCaught between\nFugitive dust\nSucked inside",
+      "Controls": "This task may need to happen to get max air flow through the system.\nCAZ will be created to ensure no one gets hurt or injured during this operation.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Air Handler Startup",
+      "Id": "9",
+      "Task": "Verify components are secure and in place",
+      "Hazards": "Contact with\nFugitive dust",
+      "Controls": "Workers will enter the units to make sure all of the internal components are properly fastened and secured.\nThis task shall be done before unit is started and after it has been shut down to make sure nothing has come loose and is still secure.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Energizing Steam Systems",
+      "Id": "193",
+      "Task": "Energizing pretask",
+      "Hazards": "Equipment failure\nBurn",
+      "Controls": "Confirm insulation, labeling, gauges, thermometers, TE Wells, and valves are complete.\nVerify no heat sensitive materials are touching bare pipe or components.\nPressure reliefs are installed and piped to approved location.\nClose and tag out all steam isolation valves to keep steam in the energized section that will be monitored during energization.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Energizing Steam Systems",
+      "Id": "194",
+      "Task": "Remove Lock-out/Tag-out from main valve in Central Utility Plant",
+      "Hazards": "Burns\nDropped or Falling Objects\nSprains & Strains",
+      "Controls": "Set up ladder to access main steam valve, remove LOTO and slowly crack valve to introduce steam to building.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Energizing Steam Systems",
+      "Id": "195",
+      "Task": "Open branch line valves to allow steam through other controlled areas of hospital.",
+      "Hazards": "Burns\nLeaks",
+      "Controls": "Slowly crack valves to introduce steam & Monitor steam as it enters the piping system by walking and visually inspecting all piping.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Energizing Steam Systems",
+      "Id": "196",
+      "Task": "Identify and repair any leaks",
+      "Hazards": "Leaks\nSlips, trips and falls",
+      "Controls": "Identify all leaks with flags, if necessary barricade the area below the leak to prevent anyone from walking under the leak.\nIf possible isolate the leak or de-energize the system, relieve any residual pressure before repairing leaks.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "192",
+      "Task": "Energizing of the Gas System",
+      "Hazards": "Chemical inhalation\nFire/Explosion\n",
+      "Controls": "A job walk will be preformed verifying every gas valve in all buildings are closed and all POC's are capped or connected.\nAll gas lines will be visually inspected verifying they are complete and no disruption or damage has occurred.\nLines will be soaped to verify no leaks.\nLOTO all effected gas valves.\nAll effected exterior main shutoff valves will be visually inspected to verify they are closed prior to inducing gas to the main line.\nPrior to gas introducing into each building, a secondary verification walk will be done to verify nothing has compromised the system. During that walk we will verify all other trades are out of area.\nWe will verify no \"HOT WORK\" or sparks of any kind are in the area.\nPurge the system in a vented area.\nSigns will be placed where necessary reading \"DO NOT OPEN--GAS PURGING\" and red tape will be used to barricade the effected area. [internalCustomer] to verify with the electrician that equipment is de-energized.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "251",
+      "Task": "Area set up confirm fire extinguishers are working and up to date",
+      "Hazards": "Other trades",
+      "Controls": "Post warning signage and caution tape. Review procedure and area borers with GC for coordinating with other trades post monitor with extinguisher.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "252",
+      "Task": "Confirm gas clock valves are closed",
+      "Hazards": "Loss of Natural Gas into rooms: Cafe Kitchen, Boiler Room, etc.",
+      "Controls": "[internalCustomer] to check valve rotation to fully closed.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "254",
+      "Task": "Evacuate air and replace with natural gas",
+      "Hazards": "Explosion",
+      "Controls": "Confirm Multi-Gas sensor is fully charged. Confirm cafe, kitchen and energy center air supply and exhaust are operational. Post monitor to watch for other trades entering or creating sparks. The use of fans may be necessary.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "255",
+      "Task": "After gas is on, recheck all gas valves and outlets",
+      "Hazards": "Loss of Natural Gas into rooms: Cafe Kitchen, Boiler Room, etc.",
+      "Controls": "Walk all gas valves to insure that gas is off/or pilot is lit.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "328",
+      "Task": "Isolate Gas Lines",
+      "Hazards": "Gas Leaks",
+      "Controls": "After blind flange is installed, soap all areas to assure that there are no leaks",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "331",
+      "Task": "Connect gas piping to building supply",
+      "Hazards": "Gas Leaks",
+      "Controls": "Assure that all connections are tight before gas is turned on",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "332",
+      "Task": "Remove Lock Out of Gas Sub Meter, Open Gas Valves",
+      "Hazards": "Gas Leaks",
+      "Controls": "Soap all connections",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "333",
+      "Task": "Set up fans to ventilate area",
+      "Hazards": "Equipment Handling Injuries, Fire",
+      "Controls": "Establish Good ventilation in effected area.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Gas Purging",
+      "Id": "334",
+      "Task": "Purge air from the gas line with natural gas. At first sign of odor shut off valve and secure appliance. Test connection.",
+      "Hazards": "Fire, Fumes",
+      "Controls": "Fire extinguisher on site. Warn other trades in area. Remove any ignition sources. Establish good ventilation in the area. Soap all connections to detect leaks.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "99",
+      "Task": "Nitrogen purging of lines",
+      "Hazards": "Oxygen deficient atmosphere: Asphyxiation\nFrostbite",
+      "Controls": "All workers will be certified and have the proper training to be purging and brazing on med gas lines.\nA fan will be set up to have a continuous draft of fresh air.\nMonitoring equipment will be available while purging is done.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "100",
+      "Task": "Isolate piping section for testing.\nInstall hydro and/or test equipment",
+      "Hazards": "Leaks & Joint Failures\nDamage to Piping\nLaceration\nStruck by\nContusions",
+      "Controls": "Verify all joints are tightened.\nVerify all fittings and pipe sections are welded.\nCover sensitive equipment at high risk points.\nIsolate test section with locks and tags.\nDo not use LOTO hardware for testing purposes.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "102",
+      "Task": "Fill and vent system",
+      "Hazards": "Joint Failures\nRelease of Air, Nitrogen or water\nLeaks & Spills",
+      "Controls": "Verify all joints are tightened.\nInstall relief valves after hydro test is complete.\nOpen fittings slowly to vent pressure.\nUse hoses to direct vent discharges to nearest drain.\nConduct a second check of all vents closed prior to pressurization.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "105",
+      "Task": "Conduct pressure test",
+      "Hazards": "Pressure release\nProperty damage\nLacerations\nBurns\nStruck by",
+      "Controls": "Slowly pressurize system in steps and inspect system each step.\nHave enough manpower along piping to quickly identify problems.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "106",
+      "Task": "Depressurize system",
+      "Hazards": "Leaks & Spills",
+      "Controls": "Use hoses to direct vent discharges to nearest drain.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "107",
+      "Task": "Drain system, if applicable",
+      "Hazards": "Leaving pressurized sections of pipe\nLeaks & Spills",
+      "Controls": "Open each vent or drain valve to depressurize complete system.\nUse hoses to direct vent discharges to nearest drain. Cover sensitive equipment at high risk points.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "109",
+      "Task": "Restore system configuration",
+      "Hazards": "Leaks & Spills",
+      "Controls": "Check vents/drains closed before releasing system to [Customer].\nAll vent/drain valves are plugged before passification",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "262",
+      "Task": "Shutdowns",
+      "Hazards": "Interruptions of Services",
+      "Controls": "Schedule off hours.\nGive notification.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "457",
+      "Task": "Using air compressor to pressurize waste and vent systems",
+      "Hazards": "Noise\nElectrical\nAccidental cap release",
+      "Controls": "Wear the appropriate PPE for the task.\nOnly testing to 5 PSI\nUse a GFCI to plug into walls\nTesting equipment (air compressors/hydrostatic pump) should be checked daily to ensure good working order.\nLook for leaks and loose fittings.\nCompressors and pump will be used to fill up the piping systems.\nBe sure that hose connections are fully locked and whip checks are in place to ensure a good fit and avoid any accidental blow offs and spillage.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Testing/Start Up",
+      "Category": "Pressure testing of pipe",
+      "Id": "442",
+      "Task": "Testing",
+      "Hazards": "Struck by\nLacerations\nBurns\n",
+      "Controls": "Check the Testing Matrix for the proper test pressure for the system.\nPlace signage in area which states [internalCustomer] is testing at a certain pressure with a contact phone number on it.\nDo not stand in front of the end of any pipe while testing.\nWhen testing with Air - Pressurize the system to 40 psi. Check gauge for drop in pressure then walk system to check for leaks.\nAfter thorough walk, pressurize system up to 100 PSI with air. Then walk the system again and check for leaks.\nWhen testing with Water - Pressurize system up to the test pressure on the Pressure Matrix for that specific system with water. Then walk the system again and check for leaks.\nKeep an emergency spill kit nearby to ensure a quick clean up process in the event of a water spill.\nOur spill kits include a spill buggy, shop vac, cotton rags, absorbent materials and push broom.\nDEPRESSURIZE THE SYSTEM prior to making ANY repairs.\nDEPRESSURIZE THE SYSTEM when complete with test.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Ladders",
+      "Id": "453",
+      "Task": "Extension Ladder",
+      "Hazards": "Falls\nMultiple Injuries\n",
+      "Controls": "Verify the [Customer] policy on ladders.\nChoose the right ladder for the job. Do not overreach on any ladder.\nInspect ladder for any defects or problems. Verify the stickers are legible. Verify the monthly inspection sticker is current.\nMake sure that ladder is properly secured at top and bottom and extends at least 3 feet above the landing.\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact.\nUtilize fall protection when working within 6 feet of any opening or the edge of the building.\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge. \n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Ladders",
+      "Id": "454",
+      "Task": "Platform Ladders/Warehouse Ladders",
+      "Hazards": "Falls\nMultiple Injuries\n",
+      "Controls": "Verify the [Customer] policy on ladders.\nChoose the right ladder for the job. Do not overreach on any ladder.\nInspect all ladders for any defects or damage. Verify the stickers are legible. Verify the monthly inspection sticker is current.\nEnsure ladder is properly secured from displacement.\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact.\nUtilize fall protection when working within 6 feet of any opening or the edge of the building.\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Ladders",
+      "Id": "455",
+      "Task": "A-Frame Ladders/A-Frame Platform Ladders",
+      "Hazards": "Falls\nMultiple Injuries\n",
+      "Controls": "Verify the [Customer] policy on ladders.\nChoose the right ladder for the job. Do not overreach on any ladder. Do not walk a ladder while working from it.\nInspect all ladders for any defects or damage. Verify the stickers are legible. Verify the monthly inspection sticker is current.\nEnsure ladder is properly secured from displacement. Ladder must be fully opened and locked.\nDo not straddle an A-Frame ladder. Do not use the top two steps.\nMaintain proper footing when descending and ascending ladder using Belt-Buckle Rule (stay in the center of the ladder) and 3 points of contact.\nUtilize fall protection when working within 6 feet of any opening or the edge of the building.\nThe height you are working at on the ladder needs to be taken into consideration when calculating the distance from the leading edge.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "520",
+      "Task": "Tools and equipment pretask",
+      "Hazards": "Equipment failure",
+      "Controls": "Perform and document equipment inspection prior to each use. All manufacturer's safety labels must be legible. Red tag and remove defective equipment.\nAll operators shall be trained and authorized.\nOperate equipment per manufacturer's suggested safety requirements.\nEnsure operating paths are clear and unobstructed.\nMake visual contact with operator before approaching the equipment or crossing its path.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "142",
+      "Task": "Contact with underground/overhead utility lines",
+      "Hazards": "Electrocution or Shock\nExplosion",
+      "Controls": "Ensure proper agency has located and marked all utility lines before work begins.\nAttempt to have utility lines shut-off or de-energized by appropriate agencies, if possible.\nKeep equipment and personnel away from utility lines, when possible.\nKeep at least 20 feet from overhead power lines.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "449",
+      "Task": "Hand-held portable power tools",
+      "Hazards": "Bodily Damage",
+      "Controls": "All power tools will have manufacturers' safety guards properly in place.\nProper PPE will be worn at all time including goggles and face shield if required.\nTools will be inspected daily for damage before use. Tag and remove defective equipment from use.\nWhile cutting, make sure all body parts are away from the cutting surface. Always cut away from the body.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "446",
+      "Task": "Check electrical cords/equipment",
+      "Hazards": "Electrocution\nFire",
+      "Controls": "Do not use electrical cords with cuts, worn insulation, or visible conductors or field repairs (electrical tape).\nUse cords rated for hard or extra-hard usage. Use factory-assembled cord sets. Do not use rubber molded (flat) cords.\nExtension cord repairs will be performed by a qualified electrician.\nField repairs (electrical tape) fixes are prohibited.\nExtension cords will be inspected daily; extension cords will be rolled up at the end of the shift.\nAll circuits shall be GFCI protected.\nTwo electrical cords cannot be used together unless approved by the manufacturer. Do not connect multiple devices in a linear fashion (daisy chain).\nElectrical cords must be protected from traffic, sharp edges and/or pinch points.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "218",
+      "Task": "Fueling",
+      "Hazards": "Contamination\nFire & Spills",
+      "Controls": "Shut off machine\nEquipment shall be cold before refueling\nFuel in spill area\nAll equipment to have fire suppression.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "31",
+      "Task": "Chop Saw use",
+      "Hazards": "Electrocution or Shock\nBack strain\nInjury to Self: Eye, Face\nDisfigurement and lacerations\nSlips, Trips, & Falls",
+      "Controls": "Use proper lifting techniques.\nFace shield over safety glasses required when operating the chop saw.\nWear appropriate hand protection according manufacturer's requirements.\nDo not reach over or around the saw during cutting.\nHearing protection required for over 85 dB.\nMaintain a clean work area. Place scrap pieces in trash or bucket.\nEnsure the blade is the proper size and RPM for the saw.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "10",
+      "Task": "Backhoe Excavator Pretask",
+      "Hazards": "Struck by\nElectrical hazards\nRoll over\nEjection\nDrowning\nCaught between\n",
+      "Controls": "Operator must be authorized by [internalCustomer] Mechanical.\nInspect and document the equipment prior to each use.\nThe safety zone is 15 feet from the extended boom.\nAuthorized personnel may enter the safety zone as long as they remain in the peripheral view of the operator and do not turn their back on the boom.\nDo not allow bystanders or spotters to get between stationary object and the equipment.\nDo not operate within 20 ft of energized, overhead electrical lines.\nDo not operate on slopes greater than the equipment specifications allow.\nSeat belts must be worn at all times when operating the equipment. If working around water, seat belt is not required, but a PFD is.\nRiders are not allowed in buckets or on side steps.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "216",
+      "Task": "Forklift Pretask",
+      "Hazards": "Struck by\nElectrical hazards\nRoll over\nEjection\nDrowning\nCaught between",
+      "Controls": "Operator must have a certification within 3 years of training and be authorized by [internalCustomer] Mechanical.\nInspect and document the equipment prior to each use.\nUse a CAZ for loading and unloading of material.\nUse a spotter where necessary.\nDo not allow bystanders or spotters to get between stationary object and the equipment.\nDo not operate within 20 ft of energized, overhead electrical lines.\nDo not operate on slopes greater than the equipment specifications allow.\nSeat belts must be worn at all times when operating the equipment. If working around water, seat belt is not required, but a PFD is.\nRiders are not allowed unless there is a seat and seat belt.\nHonk your horn at blind corners.\nAlways maintain your load up hill.\nSecure load when necessary.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "383",
+      "Task": "Scissor lift Pretask",
+      "Hazards": "Tip overs\nFalls\nElectrocution\nPinch points\n",
+      "Controls": "Employee needs to be trained and have a current certificate to operate the lift.\nInspect and document equipment prior to each use.\nScissor lift will be used per manufactures recommendations.\nDo not operate the lift without the owner's manual present and legible.\nEnter and exit the lift properly using the steps on the lift.\nWatch for pinch points when operating the lift.\nDo not run over electrical cords.\nDo not exceed the capacity rating of the scissor lift.\nDo not use the scissor lift as a material hoist.\nKeep the floor clean at all times.\nUse a spotter when necessary.\nBe aware of your surroundings and overhead electrical hazards.\nDo not move lift while in elevated position.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "384",
+      "Task": "Gaining elevation from a scissor lift at heights using platform",
+      "Hazards": "Falls",
+      "Controls": "PERMISSION REQUIRED.\nIf you must gain height from the scissor lift, contact [Customer] and/or the safety department in order to develop a proper written plan.\nWhen gaining elevation, 100% tie off is required.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "522",
+      "Task": "Exiting scissor lift while elevated",
+      "Hazards": "Falls",
+      "Controls": "PERMISSION REQUIRED.\nIf you must exit a scissor lift while elevated to reach a working platform, you must contact [Customer] and/or the safety department to develop a proper written plan.\n100% tie off required when exiting the scissor lift at height.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "3",
+      "Task": "Aerial Lift Pretask",
+      "Hazards": "Crushing\nElectrocution\nDropped or Falling Objects\nTip Overs",
+      "Controls": "Employee needs to be trained and have a current certificate to operate the lift.\nInspect and document equipment prior to each use.\nAerial lift will be used per manufactures' recommendations.\nDo not operate the lift without the owner's manual present and legible.\nEnter and exit the lift properly using the steps on the lift.\nWatch for pinch points when operating the lift.\nDo not run over electrical cords.\nDo not exceed the capacity rating of the aerial lift.\nDo not use the aerial lift as a material hoist.\nKeep the floor clean at all times.\nUse a spotter when necessary.\nBe aware of your surroundings and overhead electrical hazards.\nDo not move lift while in elevated position.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "24",
+      "Task": "Aerial Lift: Hoisting & Moving Personnel",
+      "Hazards": "Obstructed view\nCaught in between\nCrushed By\nFalling\nMachine rollover\nElectrocution",
+      "Controls": "Ensure that the operator's view is unobstructed when in raised or lowered positions and when moving in any direction.\nEmployees do not place body parts outside of the basket or near pinch points on the machine.\nDo not allow workers to stand or walk under the elevated portion of the machine.\nAll workers in the basket must be 100% tied off and attached to the designated anchorage point.\nEnsure the use of outriggers if machine is equipped.\nEnsure the deadman on the floor of the boom lift is unobstructed.\nBe aware of your surroundings and overhead electrical hazards.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "523",
+      "Task": "Gaining elevation from an aerial lift at heights using platform",
+      "Hazards": "Falls",
+      "Controls": "PERMISSION REQUIRED.\nIf you must gain height from the scissor lift, contact [Customer] and/or the safety department in order to develop a proper written plan.\nWhen gaining elevation, 100% tie off is required.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "346",
+      "Task": "Impact Wrench",
+      "Hazards": "Injury to Self: Hands",
+      "Controls": "Keep hands away from socket while using the impact wrench.\nWear gloves at all time on site.\nCheck impact wrench for any defects (cords, cracks).",
+      "RAC": "L"
+    },
+    {
+      "Section": "Tools and Equipment",
+      "Category": "Tools & Equipment",
+      "Id": "547",
+      "Task": "Grooving pipe with Rigid 300",
+      "Hazards": "electric shock\npinch points\nDismemberment\nlacerations\nCrush\nslip, trip and fall\nWalking on Walking surfaces\nInjuring others",
+      "Controls": "Inspect all tools and equipment before each use For:\n1. Bad electrical cords and plugs\n2. Ensure all guards are in place and working\n3. Look for any missing or damaged parts\nEstablish a controlled access zone\nWear manufacture required PPE\nKeep material and tools organized\nHousekeeping - keep area clean and keep clean as you go\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "204",
+      "Task": "Preparing to excavate\n\n",
+      "Hazards": "IH Hazards\nUtility Strike",
+      "Controls": "Request the IH report/environmental inspection from Owner regarding the soil and possible contaminates. Follow recommendations of either report.\nCall Dig Alert or 811 for public utility location.\nMeet with [Customer] or Owner to identify existing utilities on private property.\nWhen relying on an as-built, dig with great caution and expect changes from the as-built.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "369",
+      "Task": "Rigging Pretask",
+      "Hazards": "Rigging failure\nCaught between/struck by\n",
+      "Controls": "Only trained and authorized workers are allowed to rig and load.\nOnly trained and authorized workers are allowed to signal during the lift.\nCreate a CAZ.\nInspect all rigging equipment prior to each use. Tag and remove any defective equipment.\nEnsure tag lines are connected to the load\nStand clear at all times from a suspended load or swing radius of counterweights.\nControl rotation of load with multiple tag lines.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "518",
+      "Task": "Rigging off equipment",
+      "Hazards": "Rigging failure\nCaught between/struck by",
+      "Controls": "When rigging off a forklift, secure the load to the back rest, not the forks.\nWhen rigging off an excavator, secure the load to the rigging eye.\nMake sure the load capacity of the equipment is sufficient for the load.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "200",
+      "Task": "Inspect soil to determine classification",
+      "Hazards": "Changes in conditions",
+      "Controls": "Competent person must check soil conditions and take necessary precautions when circumstances present potential hazards.\nTest the soil to determine if it is class A, B or C.\n A trench/excavation inspection report will be filled out prior to any shift and/or after any change in conditions.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "205",
+      "Task": "Exposing existing utilities",
+      "Hazards": "Utility Strike",
+      "Controls": "Mark or stake location at least 2 feet to each side of located utility without damaging utility.\nHand dig to the side of the located utility until the approximate depth has been reached.\nDig towards the utility without damaging the utility's protective casing (conduit, insulation or concrete cover).\nDig along the path of the direction of the utility and clean spoils out without disturbing utility until it is completely exposed and visually recognizable.\nContinue this process until you have uncovered at a minimum 2 feet from where any damage from hand tools or mechanical equipment being used can harm utility.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "231",
+      "Task": "Excavation adjacent to structures",
+      "Hazards": "Cave in\nProperty damage\n",
+      "Controls": "Excavation plan shall be approved by a registered engineer.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "198",
+      "Task": "Excavation of trenches with equipment",
+      "Hazards": "Utility Strike\nStruck by\nCave in\n",
+      "Controls": "Fill out and complete dig permit prior to any excavation including locating underground utilities.\nSet up a CAZ and remove any non-essential personnel.\nA competent person shall be present while excavation taking place.\nUtilize spotter when digging in an uncontrolled area. Utilize hand signals/radios to communicate between operator and surrounding crew.\nOnly authorized operators can operate equipment.\nPay attention to surroundings and any obstructions that may be present.\nInspect and document all equipment prior to use.\nSet back spoils at least 2 feet from trench.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "199",
+      "Task": "Hand excavation",
+      "Hazards": "Sprains & Strains\nCave in\nEngulfment",
+      "Controls": "Rotate workers on repetitive motion tasks.\nStretch and flex before and during repetitive motion tasks.\nTask specific training for tasks/use the right tool for the job.\nDo not enter a trench that is not properly protected.\nEnsure adequate access/egress is provided.\nEnsure proper PPE for the task.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "236",
+      "Task": "Protective systems for trenching\nBenching or sloping",
+      "Hazards": "Cave-in\nCrushed by\nEngulfment",
+      "Controls": "C Class soils shall not be benched.\nWhen sloping or benching is used as a protective system, the sloping or benching will be in accordance with Cal/OSHA requirements.\nSlope in accordance with the appropriate soil classification.\nIf there is more than one bench, the bottom bench must be at least 8 feet wide.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "202",
+      "Task": "Protective systems for trenching and shoring",
+      "Hazards": "Cave-in\nCrushed by\nEngulfment",
+      "Controls": "Install shoring when trench is five feet deep or as conditions require.\nInstall the shoring system and components in accordance with the manufacturer's recommendation and tabulated data.\nDo not enter an unprotected excavation to install shoring.\nMake sure the excavation is no deeper than 18 inches below the base of the shoring system.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "506",
+      "Task": "Rigging shoring",
+      "Hazards": "Crushed by\nStruck by\nCaught between/Pinch\nRigging failure\nFall\n",
+      "Controls": "Choose the appropriate rigging for the job\nInspect rigging before each use.\nQualified person shall rig the material\nNo workers shall enter the trench without shoring properly in place. Do not be under a suspended load.\nOnly authorized operators shall operate equipment.\nWorkers/Spotters shall maintain fall protection if falls of greater than 6 feet are possible.\nWorkers/Spotters must maintain line-of-sight communication with operators.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "201",
+      "Task": "Inspection of excavation",
+      "Hazards": "Slips, Trips & Falls\nCave-ins\nEngulfment\n",
+      "Controls": "Inspect the excavation, adjacent areas, and all protective systems before each shift and after conditions change.\nCorrect any unsafe conditions prior to workers entering the trench.\nCheck to see if ground water has accumulated.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "203",
+      "Task": "Entering the excavation",
+      "Hazards": "Falls\nCaught between",
+      "Controls": "In trenches more than 4 feet deep, set up ladders within 25 feet of each work area.\nTie-off the top of the ladder and extend the side rails 36 inches above the landing.\nSet up two ladders for every 25 feet for access/egress.\nInspect ladders daily.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "209",
+      "Task": "Working around or in excavation or trenching",
+      "Hazards": "Falls\nWorkers exposed to heavy equipment\nCave ins\nEngulfment\n",
+      "Controls": "Guard-rails or PFAS to be provided on any fall exposure of 6 feet or more.\nBack-up alarms or spotter to be used at all times.\nAlways be in the line of sight of the operator and 15 feet back from moving parts.\nLimit amount of workers where equipment working.\nEstablish safe zone approximately 1:1 from bottom of trench. No vehicles or equipment shall be in this area.\nEliminate any surcharge to the adjacent area of the trench or excavation\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "224",
+      "Task": "Housekeeping near a trench or excavation",
+      "Hazards": "Falling objects\nCave ins\nSlips, trips and falls",
+      "Controls": "Establish safe zone approximately 1:1 from bottom of trench. No vehicles or equipment shall be in this area.\nEliminate any surcharge to the adjacent area of the trench or excavation.\nMaterial shall be maintained to avoid unexpected movement.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "207",
+      "Task": "Protection of Trench or Excavation",
+      "Hazards": "Falls\nUnauthorized entry\nVisibility",
+      "Controls": "Provide warning signage and barricades when public is exposed to open excavation or trench.\nAll trenches or excavation need to be backfilled (if possible) or barricaded when unattended.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "230",
+      "Task": "Slurry",
+      "Hazards": "Falls\nConcrete splash\nTrench failure",
+      "Controls": "If a fall of 6 feet or greater is possible, utilize fall protection.\nUtilize proper PPE for concrete work including rubber gloves and eye protection.\nSelect a clear, open space that allows for adequate equipment operation.\nDo not park truck too close to any open excavation.\nUtilize a spotter during truck placement to recognize any obstructions.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Excavation",
+      "Id": "232",
+      "Task": "Backfill",
+      "Hazards": "Falls\nSprains and strains\nCave in\nSlips, trips and falls",
+      "Controls": "If a fall of 6 feet or greater is possible, utilize fall protection.\nNo workers allowed in the trench during backfill operations.\nRotate workers on repetitive motion tasks.\nStretch and flex before and during repetitive motion tasks.\nOnly authorized operators may operate equipment.\nWear gloves when using shovel.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "275",
+      "Task": "Excavate for new interceptor\n\n\n\n",
+      "Hazards": "Heavy equipment crush\nStruck by\nUtility strike\nCaught between\n\n",
+      "Controls": "Refer to excavation JHA",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "276",
+      "Task": "Compact trench bottom and base with sand",
+      "Hazards": "Cave-ins\nOpen trench\nFalls\nSprains and strains\n",
+      "Controls": "Safe off work area with delineators or barricades.\nRotate workers on repetitive motion tasks.\nStretch and flex before and during repetitive motion tasks.\nUse the appropriate PPE for a mechanical compactor -- foot protection and gloves when using shovel/compactor.\nRemove trench shield in the same manner that it was installed.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "509",
+      "Task": "Installing 4-sided trench shield",
+      "Hazards": "Struck by\nCaught in between\nFalls\nTrench failure due to equipment weight\n\n",
+      "Controls": "Only trained personnel in the CAZ during setting of the shield.\nWorkers shall be tied off is exposed to a fall of 6 feet or more.\nOnly authorized operators to operate equipment.\nEquipment should maintain a 10 foot distance from the excavation.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "277",
+      "Task": "Install the interceptor",
+      "Hazards": "Struck by\nCaught in between\nPinch points\nFalls",
+      "Controls": "Set interceptor in the excavation with rated pick plan. Refer to pick plan.\nCreate CAZ and remove unnecessary personnel.\nWorkers exposed to a fall of 6 feet or more shall use fall protection.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "278",
+      "Task": "Backfill with slurry",
+      "Hazards": "Trench failure\nFalls\n",
+      "Controls": "Keep all equipment at least 10 feet from the excavation.\nWorkers exposed to a fall of 6 feet or more shall use fall protection.\nPour the slurry off a concrete truck up to four feet from the top of the excavation.\nLet the slurry set up.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Install Grease and Sand Interceptors",
+      "Id": "281",
+      "Task": "Backfill with soil",
+      "Hazards": "Falls\nSprains and strains\nCave in\nSlips, trips and falls",
+      "Controls": "If a fall of 6 feet or greater is possible, utilize fall protection.\nNo workers allowed in the trench during backfill operations.\nRotate workers on repetitive motion tasks.\nStretch and flex before and during repetitive motion tasks.\nOnly authorized operators may operate equipment.\nWear gloves when using shovel.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Sewer Re-Route",
+      "Id": "385",
+      "Task": "Excavate adjacent to existing sewer and at Points of Connection",
+      "Hazards": "Heavy equipment crush\nStruck by\nUtility strike\nCaught between",
+      "Controls": "Refer to excavation JHA\nInstall protective trench system if depth requires it.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Sewer Re-Route",
+      "Id": "387",
+      "Task": "Compact trench bottom and base with sand",
+      "Hazards": "Cave-ins\nOpen trench\nFalls\nSprains and strains\n",
+      "Controls": "Safe off work area with delineators or barricades.\nRotate workers on repetitive motion tasks.\nStretch and flex before and during repetitive motion tasks.\nUse the appropriate PPE for a mechanical compactor -- foot protection and gloves when using shovel/compactor.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Sewer Re-Route",
+      "Id": "389",
+      "Task": "Make tie-ins from new sewer to existing",
+      "Hazards": "Injury to Self: Eyes, Hands\nBiohazards",
+      "Controls": "Wear proper PPE for the task.\nUse a face shield when running cut-off saw.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Underground/Excavation",
+      "Category": "Sewer Re-Route",
+      "Id": "390",
+      "Task": "Backfill excavation area",
+      "Hazards": "Falls\nSprains and strains\nCave in\nSlips, trips and falls",
+      "Controls": "Be aware of surroundings,\nMaintain eye contact with operator,\nWear appropriate PPE for the task. .",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Mat Slab Piping",
+      "Id": "325",
+      "Task": "Installing supports in mat slab",
+      "Hazards": "Conflicts with other trades\nSlips, trips and falls\nLacerations",
+      "Controls": "Wear appropriate PPE for the task including cut-resistant gloves\nIt is recommended that workers wear long sleeve shirts to avoid cuts from tie-wire.\nCoordinate activities with other trades.\nWatch your step -- step on the rebar crosses\nComplete work before lower mat of rebar is installed.\nInstall supports only as high as the lower mat until pipe is installed.\nWatch for overhead loads.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "344",
+      "Task": "Setting up Fusin Machine for PE Piping",
+      "Hazards": "Burns\nCords\nElectrical shocks",
+      "Controls": "Know that heating plates are HOT and will burn if touched.\nKeep cords out of wet areas, puddles and sharp edges. Raise cords up in high traffic areas.\nWear gloves to protect your hands.\nCheck cords for any damage such as breaks, cuts broken ends and ground prong.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "298",
+      "Task": "Installation of Piping",
+      "Hazards": "Sprains and Strains\nLacerations\nDropped or Falling Objects\nCrushed Body Parts\nSlips, Trips, & Falls\nElectrocution and/or Shocks\nStruck by\nCaught between",
+      "Controls": "Use proper lifting technique. Don't lift more than 50 lbs. If material is more than 50 lbs. or awkward, get help or use mechanical means.\nCreate a CAZ if material or tools have a potential of falling on others in the area.\nTether tools that have a potential to fall.\nFor overhead piping, ensure the pipe is secured to the scissor lift.\nFor in-wall piping, ensure the pipe is properly strapped, riser clams tight.\nProper PPE should be worn to protect you from hazards associated with the task.\nMaintain material storage 6' from edge of an opening or the edge of the building.\nProtect other trades' products from trade damage.\nClean as you go.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "68",
+      "Task": "Cut pipe and tubing to length",
+      "Hazards": "Cuts or Lacerations\nFalling objects",
+      "Controls": "Inspect all tools before each use.\nUnplug tool when not in use and before replacing blades.\nWear appropriate hand protection according to manufacture's recommendations for the cutting tool being used.\nDeburr edges after cuts.\nWhen cutting in the air, a CAZ should be created.\nWhen cutting pipe on the ground, it should be secured in a vise.\nClean as you go.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "84",
+      "Task": "Threading with a pipe threading machine",
+      "Hazards": "Equipment Binding, Pinch Points\nFlying Debris\nCuts or Lacerations\nSlips, trips and falls",
+      "Controls": "Inspect threading equipment before each use.\nKeep fingers clear of pipe jaws when securing work piece.\nUse cutting oil for all threading operations.\nOperators stand to one side of cutting and threading head in case head spins or binds.\nAlways use foot pedal to operate threading equipment.\nSafety goggles and face shield required when using threading machine.\nMake sure there is NO loose clothing or cuffs on long sleeves shirts to get caught in moving parts.\nFollow manufacture's recommendations for hand protection.\nClean up oil with rags and petroleum absorbents such as Oil-Dry.\nProtect ground from oil splatter to protect from slips, trips and falls.\nArea should be cleared of non-essential personnel.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "86",
+      "Task": "Glueing Joints",
+      "Hazards": "Fumes & Vapors\nSplatter\nChemical irritations\n\n",
+      "Controls": "Warn other trades in area.\nIdentify and isolate any possible ignition sources in the area.\nEstablish good ventilation.\nProtect floors and walls from droppings.\nStore Glue/Primer cans in flammable cabinet when not in use.\nEmployees shall be trained in the products they will be using. Review SDS before use.\nWear appropriate PPE as specified in the SDS.\nDispose empty cans as described by the SDS.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "353",
+      "Task": "Installation No Hub Cast Iron Pipe",
+      "Hazards": "Falling objects\nPinch points\nSprains and strains\nLacerations\n",
+      "Controls": "Cast iron pipe will be safely lifted and put into hangers using proper lifting procedures.\nA CAZ should be created below pipe being lifted.\nWhen installing heavy pipe, use assistance or mechanical means to lift.\nWhen using a scissor lift to lift heavy pipe, use pipe stands that continue to the floor of the scissor lift.\nWhen using a chain fall to lift heavy pipe, you must have a rated anchor point and a rated connection between chain fall and anchor point. The chain fall must have the lifting capacity for the material being lifted.\nWhen using snap cutters, always cut away from any opening and secure smaller pieces.\nKeep body parts out of potential pinch points.\nNo Hub Couplings will be installed on the ends of each pipe by securely seating both ends of the pipe in the coupling.\nDo not tighten any bands by holding them in your hand without any pipe of fittings.\nAll the bands of the coupling are individually tightened and torqued to 60-80 Ft. Lbs. to ensure the joint will hold.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "354",
+      "Task": "Installation of Copper Pipe",
+      "Hazards": "Falling objects\nPinch points\nSprains and strains\nLacerations\nBurns\nEye Hazards\nFires",
+      "Controls": "Copper pipe will be safely lifted and put into hangers using proper lifting procedures.\nA CAZ should be created below pipe being lifted.\nWhen installing heavy pipe, use assistance or mechanical means to lift.\nWhen using a scissor lift to lift pipe, use brackets appropriate for the pipe being lifted.\nUse a pipe stand if necessary for weight of load.\nWhen using a chain fall to lift pipe, you must have a rated anchor point and a rated connection between chain fall and anchor point. The chain fall must have the lifting capacity for the material being lifted.\nKeep body parts out of potential pinch points.\nA Hot Work Permit will be requested and posted prior to soldering or brazing.\nAfter pipe is secured in hangers, press, solder or braze pipe into its final position.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "355",
+      "Task": "Installation Natural Gas Piping",
+      "Hazards": "Falling objects\nPinch points\nSprains and strains\nLacerations\nBurns/Fires\nAccidental gas release\nEye hazards",
+      "Controls": "Schedule 40 pipe will be safely lifted and put into hangers using proper lifting procedures.\nA CAZ should be created below pipe being lifted.\nWhen installing heavy pipe, use assistance or mechanical means to lift.\nWhen using a scissor lift to lift pipe, use brackets appropriate for the pipe being lifted.\nUse a pipe stand if necessary for weight of load.\nWhen using a chain fall to lift pipe, you must have a rated anchor point and a rated connection between chain fall and anchor point. The chain fall must have the lifting capacity for the material being lifted.\nKeep body parts out of potential pinch points\nAfter the pipe is secured in hanger, the pipe and fitting will be secured to together in its final position.\nA Hot Work Permit will be requested and posted prior to welding.\nThe pipe will be welded together using approved procedures by approved welders.\nOnce the system is completely installed, the system will be tested.\nLock Out/Tag Out will be preformed at the gas meter once turned on by the gas company to ensure the system is not energized.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "356",
+      "Task": "Installation Of Gutter Drain Piping",
+      "Hazards": "Falling objects\nPinch points\nSprains and strains\nLacerations",
+      "Controls": "Gutter drain piping will be installed using a boom lift\nBoom lift will be inspected before each use.\nFollow manufacture's operating instructions.\nThe boom lift operator will be trained and authorized to operate the boom lift.\nEnsure the pipe is secured from falling at all times.\nKeep body parts out of potential pinch points.\nA CAZ will be created before the lift is extended.\nAppropriate fall protection will be used.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "349",
+      "Task": "Storing pipe materials\n",
+      "Hazards": "Slips, trips and falls\nFalling material\nPinch points\n",
+      "Controls": "Materials to be stored in an area not to interfere with our work or others'.\nPipe will be stored on dunnage with chocks or stored on pipe racks.\nKeep material organized when not in use.\nClean as you go.\nKeep body parts out of potential pinch points.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Pipe",
+      "Category": "Piping",
+      "Id": "460",
+      "Task": "Installation of in-wall cans and sleeves",
+      "Hazards": "Slips, trips and falls\nPinch points\nLacerations",
+      "Controls": "100% fall protection is required when a fall of 6' or greater is possible.\nA positioning device cannot be used for climbing.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "169",
+      "Task": "Punch and dimple decking for strapping",
+      "Hazards": "Lacerations\nProtruding objects\nFlying particles & debris",
+      "Controls": "Wear cut-resistant gloves when working with hanger materials.\nUse vise to hold materials during cutting.\nFile sharp edges of strut.\nPaint to identify ends of straps.\nUse proper eye protection while punching metal decking.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "171",
+      "Task": "Using Sky Jack",
+      "Hazards": "Pinch points\nFalling objects\nMechanical failure\nSprains & strains",
+      "Controls": "Keep hands out of mechanical gears and moving parts.\nLock wheels to avoid machine from moving while in use.\nOnce material is on surface secure it by means and methods (clamps or straps).\nInspect hoisting cable for bird caging, damaged wires, cracks in structure and welds.\nUse of team work while moving, unloading, setting up or making adjustments.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "175",
+      "Task": "Install ceiling wires using powder actuated tools",
+      "Hazards": "Flying particles or debris\nCharged strips: spent shot strips\nNoise\nMisfired rounds",
+      "Controls": "Use proper hearing protection for the task.\nSafety glasses and face shield shall be worn while operating tool.\nOnly a licensed operator shall operate a Powder Actuated tool.\nAll tools shall be inspected prior to use.\nShot strips shall be removed after the last shot has been fired.\nPowder Actuated tools shall never be left unattended and stored in a controlled environment.\nMisfired rounds will be stored on site in a fire rated box and taken to the company office to be disposed of.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "186",
+      "Task": "Lift duct into place using mechanical means",
+      "Hazards": "Working out of scissor lift /Mobil Electric Work Platform\nPinch points\nLacerations\nStrains",
+      "Controls": "Keep entire body inside basket area when moving/raising lift.\nEnsure lower controls remain unobstructed.\nSpotter knows how to operate emergency controls from the ground.\nComplete daily checklist before use.\nIdentify pinch points.\nKeep body out of area until material is where it needs to be to limit contact.\nWear cut-resistant gloves or cut resent liners.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "183",
+      "Task": "Install duct work",
+      "Hazards": "Duct sealing\nFlying particles or debris\nSprains & strains\nPinch points\nLacerations\nNoise",
+      "Controls": "Use proper hearing protection for the task.\nWork in proper ventilated area. Have SDS available in work area.\nWear safety goggles to protect against chips and ejected debris. Face shield wile drilling holes over head.\nProper lifting and material handling may include the use of carts, hand trucks and/or the buddy system.\nIdentify pinch points.\nStay out from under a suspended load until it is in place.\nWear cut-resistant gloves.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "191",
+      "Task": "Accessing top of duct work",
+      "Hazards": "Caught between\nContact with\nFalls\nStruck by\nLacerations\nForeign debris in eye",
+      "Controls": "Before accessing the top of the duct work, it shall be supported with 4X4's and high jacks at the joints to support the additional load.\nSet and secure ladder in place.\nThe worker shall climb the ladder to the top of the duct work.\nEstablish fall protection before getting on shaft.\nInstall plywood on top of the duct work to protect it from damage.\nThe worker shall crawl or slide themselves on top of the plywood to install fastening clips and sealant to the joints.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "397",
+      "Task": "Put shaft duct together",
+      "Hazards": "Lacerations\nCaught Between\nPinch Points\nSprains & Strains\nStruck By",
+      "Controls": "Put shaft duct together and line up bolt hole, insert bolt and tighten up.\nThen seal section together.\nUse the proper PPE for the task.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "398",
+      "Task": "Install I-Beam on floor above to hook chain fall to",
+      "Hazards": "Falls\nPinch points\nSprains & strains",
+      "Controls": "Use appropriate fall protection equipment and tie off point.\nPosition I-Beam in center of hole and secure.\nAttach chain fall to beam.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "399",
+      "Task": "Pulling duct into place with chain fall",
+      "Hazards": "Overhead loads\nContact with\nPoor communication\nFaulty rigging",
+      "Controls": "Inspect all rigging components prior to hoisting duct,\nDo not stand under a suspended load. Create a CAZ if necessary.\nGood clear communication.\nUse proper fall protection for task at hand.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "400",
+      "Task": "Create and work on scaffold planking",
+      "Hazards": "Struck by\nCaught between\nLacerations\nPinch points\nSprains & strains\nFalls",
+      "Controls": "Place rated scaffold planks across duct to avoid falling into duct.\nCreate a working surface of at least 18 inches or two planks wide.\nSecure the planks from displacement\nUse proper fall protection to avoid falls in gaps between duct and slab.\nAll openings shall be fully covered with planking and no opening's larger than 1 inch of a gap between planking.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Install Duct",
+      "Category": "Duct Work",
+      "Id": "402",
+      "Task": "Seal duct in shaft",
+      "Hazards": "Falls\nOthers working overhead\nStruck By",
+      "Controls": "Use paint brush to install duct sealant on splices.\nBe aware of the overhead surroundings.\nUse proper fall protection methods and proper tie off.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Scaffolding",
+      "Category": "Scaffolding",
+      "Id": "379",
+      "Task": "Rolling Scaffolds",
+      "Hazards": "Falls\nMultiple Injuries\nPinch Points\nStruck By\nShifting of the platform\nDropped or Falling Objects",
+      "Controls": "Employees shall not ride rolling scaffolds.\nCaster brakes shall be applied at all times while worker is on the platform.\nThe height of a rolling scaffold must not exceed three times the least base dimension.\nScaffold must be inspected by competent person before each use.\nWorkers must receive scaffold-use training prior to use.\nOnly materials being used for work in progress shall be used on the scaffold. Do not overload the scaffold.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Scaffolding",
+      "Category": "Scaffolding",
+      "Id": "380",
+      "Task": "Fixed Scaffold",
+      "Hazards": "Falls\nMultiple Injuries\nPinch Points\nStruck By\nFailure of scaffold\nDropped or Falling Objects",
+      "Controls": "Scaffold must be inspected by competent person before each use.\nEnsure the green tag is current and document our inspection.\nWorkers must receive scaffold-use training prior to use.\nScaffold shall be designed to withstand four times the intended load.\nAt no times should scaffold loads exceed the manufacturer's recommendations.\nDo not modify the scaffold -- let the [Customer] know if there are any problems or concerns.\nOnly materials being used for work in progress shall be used on the scaffold. Do not overload the scaffold.\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Insulation/Firestop/Caulking",
+      "Category": "Insulation",
+      "Id": "285",
+      "Task": "Installation of Insulation, sound caulking, fire stopping",
+      "Hazards": "Lacerations\nSkin irritation\nForeign debris in eye\nSlips, trips and falls",
+      "Controls": "Wear the appropriate PPE for the task including a long sleeve shirt.\nWear a voluntary-use dust mask if desired (refer to Respirator Program for more information)\nPipe insulation will be cut to length using a contractors knife on the ground or on a cutting table.\nWhen cutting insulation always cut away from the body.\n\n",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hangers/Supports/Seismic",
+      "Category": "Hangers/Supports/Seismic",
+      "Id": "343",
+      "Task": "Drill and set concrete anchor (if required)",
+      "Hazards": "Exposure to silica dust\nFlying Particles & Debris\nPinch Points\nTool bit binding up/Release of stored energy",
+      "Controls": "Push anchor in as far as possible before hammering into place.\nKeep free hand clear of anchor when hammering.\nUse HEPA vacuum at point of drilling to remove silica dust.\nUse a safety goggles and a face shield when drilling into concrete.\nUse the tool in accordance with the operator's manual.\nPosition your body and hold the tool so binding will pull the tool away from the operator.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hangers/Supports/Seismic",
+      "Category": "Hangers/Supports/Seismic",
+      "Id": "269",
+      "Task": "Cut strut and all-thread rod to size",
+      "Hazards": "Cuts or Lacerations\nProtruding sharp objects",
+      "Controls": "If the hanger was prefabbed and a modification is needed, remove the hanger from the bracket before cutting.\nWear cut-resistant gloves when working with hanger materials.\nUse vise to hold materials during cutting.\nFile sharp edges of rod and strut.\nPlace end caps on hanger pieces before installation.\nCut all-thread rod to minimum length to prevent protruding ends.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hangers/Supports/Seismic",
+      "Category": "Hangers/Supports/Seismic",
+      "Id": "548",
+      "Task": "Installation of Duct Supports and Hangers",
+      "Hazards": "Dropped or Falling Objects\nPinch Points\nSlips, Trips and Falls\nLacerations",
+      "Controls": "Create a CAZ when material or tools have a potential of falling on others in the area.\nUse the proper PPE for the hazards exposed by the task.\nUse fall protection whenever you are within 6' of a 6' or greater fall.\nProtect other trades' products from trade damage.\nClean as you go.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hangers/Supports/Seismic",
+      "Category": "Hangers/Supports/Seismic",
+      "Id": "287",
+      "Task": "Installation of Pipe Supports & Hangers",
+      "Hazards": "Dropped or Falling Objects\nPinch points\nSlips, Trips & Falls\nLacerations",
+      "Controls": "Create a CAZ when material or tools have a potential of falling on others in the area.\nUse the proper PPE for the hazards exposed by the task.\nUse fall protection whenever you are within 6' of a 6' or greater fall.\nProtect other trades' products from trade damage.\nClean as you go.",
+      "RAC": "L"
+    },
+    {
+      "Section": "Hangers/Supports/Seismic",
+      "Category": "Hangers/Supports/Seismic",
+      "Id": "529",
+      "Task": "Installation of seismic bracing",
+      "Hazards": "Dropped or Falling Objects\nPinch points\nSlips, Trips & Falls\nLacerations",
+      "Controls": "Create a CAZ when material or tools have a potential of falling on others in the area.\nUse the proper PPE for the hazards exposed by the task.\nUse fall protection whenever you are within 6' of a 6' or greater fall.\nProtect other trades' products from trade damage.\nClean as you go.",
+      "RAC": "L"
+    }
+  ]

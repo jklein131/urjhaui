@@ -219,7 +219,7 @@ return <SimpleCard title="JHA Forms by Date" description={"Number of JHA's creat
     data={ [
       ["Activity", "Count"],
       ...data.map(current=>{
-      return [m.utc(current._id.year+'-'+current._id.month+'-'+current._id.day).local().format('MMMM Do'), current.count];
+      return [m.utc(current._id.year+'-'+current._id.month+'-'+current._id.day).format('MMMM Do'), current.count];
     })
     ]}
     options={{
@@ -276,6 +276,31 @@ return <SimpleCard title="JHA Forms by User" description={"Top JHA power users"}
   /> :<Alert severity="info">Complete a JHA to start seeing data here!</Alert>
 } ></SimpleCard>
 }
+
+function JobOverCounts() {
+  const [data, setData] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  React.useEffect(()=> {
+    environment.fetch('jhacomplete/analytics/jobs_over_count').then((res)=> res.json()).then((res2)=> {setData(res2) ; setIsLoading(false)})
+  }, [])
+  console.log("jobs over", data, isLoading)
+return <SimpleCard title="JHA Forms by Job" description={"Top Jobsite JHA users"} isLoading={isLoading} body={
+  (data.length === 0 || !isLoading) ? isLoading ? <LinearProgress></LinearProgress> :<Chart
+    chartType="BarChart"
+    loader={<div></div>}
+    data={ [
+      ["Activity", "Count"],
+      ...data.map(current=>{
+      return [current._id.name.length === 0 ? "N/A": current._id.name[0], current.count];
+    })
+    ]}
+    options={{
+      intervals: { style: 'sticks' },
+      legend: 'none',
+    }}
+  /> :<Alert severity="info">Complete a JHA to start seeing data here!</Alert>
+} ></SimpleCard>
+}
 function DashboardView () {
   const classes = useStyles();
   return (
@@ -285,6 +310,7 @@ function DashboardView () {
       <JhaOverTimeChart></JhaOverTimeChart>
       <ActivityOverCount></ActivityOverCount>
       <UsersOverCount></UsersOverCount>
+      <JobOverCounts></JobOverCounts>
       {/* <SimpleCard title="JHA forms over time" body={
         <Chart
         chartType="BubbleChart"

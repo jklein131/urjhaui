@@ -85,7 +85,7 @@ class Navigation extends Component {
     .then(res => res.json())
     .then((data) => {
       this.setState({ forms: data })
-    }).catch(console.log)
+    }).catch((err) => (console.log("error",err)))
   }
   render() {
     const {
