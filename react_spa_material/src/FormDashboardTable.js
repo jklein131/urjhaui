@@ -45,7 +45,7 @@ export default function FormDashboardTable({template}) {
           label: "Created By",
       },
         {
-            name: "pdfUrl",
+            name: "pdfUrl", 
             label: "PDF",
             options: {
               filter: false,
@@ -92,7 +92,7 @@ export default function FormDashboardTable({template}) {
         // }
       }
     };
-    return (
+    return ( 
       <div>
         <MUIDataTable title={<Typography variant="title">
           Previous {template.name}'s

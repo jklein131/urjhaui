@@ -310,7 +310,6 @@ React.useEffect(()=> {
 
 
 class FormViewer extends Component {
-  
     state = {
       jobs: {},
       form_id: "",
@@ -365,14 +364,11 @@ class FormViewer extends Component {
                </Paper>
           
             <br></br>
-
-          
-          
           <br></br>
           
         </div>
         )
-      }
+      } 
   }
   
   FormViewer.propTypes = {

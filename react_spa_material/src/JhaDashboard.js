@@ -21,7 +21,7 @@ import Link from '@material-ui/core/Link';
 
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+ 
 import JhaDashboardTable from './JhaDashboardTable'
 
 import Initicon from 'react-initicon';
@@ -129,7 +129,7 @@ class JhaDashboard extends Component {
           <JhaDashboardTable  ></JhaDashboardTable>
           </div>
         </div>
-        
+         
         )
       }
   }

@@ -174,7 +174,7 @@ class FormBuilder extends Component {
       console.log("new jobs", ids)
       this.setState({
         jobs: ids,
-      })
+      }) 
 
     }).catch(console.log);
   }

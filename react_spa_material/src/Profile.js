@@ -47,7 +47,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   
-    const handleClickOpen = () => {
+    const handleClickOpen = () => { 
       setOpen(true);
     };
 
