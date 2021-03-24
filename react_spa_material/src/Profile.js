@@ -60,7 +60,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 setLocalColor(data.customerId.color)
             } else {
                 setLocalProfile(data)
-                setIsLoading(false)
+                setIsLoading(false) 
             }
         }).catch((err)=> {
           console.log(err)
@@ -127,7 +127,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
           <DialogContent>
             <DialogContentText>
             </DialogContentText>
-            <TextField id="outlined-basic" label="Display Name" variant="outlined" value={displayName} onChange={(val) => setDisplayName(val)}/>
+            <TextField id="outlined-basic" label="Display Name" variant="outlined" disabled={true} value={displayName} onChange={(val) => setDisplayName(val)}/>
             <br></br>
             <br></br>
 

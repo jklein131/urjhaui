@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form';
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles';
-import FormDashboardTable from './FormDashboardTable'
+import JobDashboardTable from './JobDashboardTable'
 //maeruialk ui 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -54,7 +54,7 @@ const styles = theme => ({
     
   },
 });
-class FormDashboard extends Component {
+class JobDashboard extends Component {
   
     state = {
       jobs: {},
@@ -62,7 +62,7 @@ class FormDashboard extends Component {
     }
 
     getAndViewJobs(id) {
-        environment.fetch( 'formtemplates/'+id)
+        environment.fetch( 'jobs/')
         .then(res => res.json())
         .then((data) => {
           this.setState({ jobs: data })
@@ -96,10 +96,10 @@ class FormDashboard extends Component {
             <div>
 
               <div style={{textAlign:"center"}}>
-            <Icon name={this.state.jobs.name} size={150}></Icon>
+            <Icon name={ "Job Manager"} size={150}></Icon>
             
             <Typography variant="h3" component="h2">
-            {this.state.jobs.name}
+            {"Job Manager"}
 </Typography>
 <Typography>{this.state.jobs.description}</Typography>
 <br></br>
@@ -113,7 +113,7 @@ class FormDashboard extends Component {
           color="primary"
           className={classes.button}
         >
-          Create New {this.state.jobs.name}
+          Create New Job
         </Button>
         </Link>
   
@@ -126,15 +126,14 @@ class FormDashboard extends Component {
 
           </div>
           </Paper>
-          {this.state.jobs.name !== undefined ? <FormDashboardTable template={this.state.jobs} templateId={this.props.match.params["id"]}></FormDashboardTable> : <LinearProgress></LinearProgress>
-           }
+          <JobDashboardTable></JobDashboardTable>
         </div>
         )
       }
   }
   
-  FormDashboard.propTypes = {
+  JobDashboard.propTypes = {
     classes: PropTypes.object.isRequired,
   };
    
-  export default withStyles(styles)(FormDashboard);
+  export default withStyles(styles)(JobDashboard);

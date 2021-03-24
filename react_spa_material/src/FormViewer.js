@@ -358,9 +358,6 @@ class FormViewer extends Component {
                
              
              <HorizontalLabelPositionBelowStepper setTemplate={this.setRender} id={this.props.match.params["id"]} ></HorizontalLabelPositionBelowStepper>
-            
-              
-    
                </Paper>
           
             <br></br>

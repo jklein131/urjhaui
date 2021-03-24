@@ -1,11 +1,11 @@
 run: 
-	REACT_APP_NOT_SECRET_CODE=https://api.yourjha.com/ npm start 
+	REACT_APP_NOT_SECRET_CODE=https://api.yourjha.com/ REACT_APP_JOBS_ENABLED=true yarn start 
 run.local: 
-	REACT_APP_NOT_SECRET_CODE=http://localhost:3000/ npm start 
+	REACT_APP_NOT_SECRET_CODE=http://localhost:3000/ REACT_APP_JOBS_ENABLED=true yarn start 
 clean: 
 	rm -rf node_modules/
-	npm cache clean 
-	npm install 
+	yarn cache clean 
+	yarn install 
 deploy: 
-	REACT_APP_NOT_SECRET_CODE=https://api.yourjha.com/ npm build 
+	REACT_APP_NOT_SECRET_CODE=https://api.yourjha.com/ yarn build 
 	firebase deploy

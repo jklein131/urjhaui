@@ -107,7 +107,11 @@ class Navigation extends Component {
       {/* <Nav.Link href="#inspections">Daily Inspections</Nav.Link>
       <Nav.Link href="#incidents">Incident Reporting</Nav.Link> */}
       {/* <Nav.Link href="#timeline">Social Feed</Nav.Link> */}
+      
+      
       <Nav.Link href="#admin/jobs">Job Manager</Nav.Link>
+      {environment.jobsEnabled() ? 
+      <React.Fragment>
       <NavDropdown title="Forms" id="basic-nav-dropdown">
       {(this.state.forms.length === 0 ) ? <NavDropdown.Item key={"create new"} href={"#form-builder/create"}>Create new...</NavDropdown.Item>: this.state.forms.map((form) => (
         <NavDropdown.Item key={"jasfkljasf"+form._id} href={"#form-dashboard/"+form._id}>{form.name}</NavDropdown.Item>
@@ -115,7 +119,8 @@ class Navigation extends Component {
                      
         <NavDropdown.Divider />
         <NavDropdown.Item key={"formbuilder"} href="#form-builder">Form Builder</NavDropdown.Item>
-      </NavDropdown>
+      </NavDropdown></React.Fragment> : <React.Fragment></React.Fragment>
+  }
     </Nav>
     {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />

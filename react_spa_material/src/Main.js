@@ -16,6 +16,8 @@ import Dashboard from "./Dashboard";
 import FormBuilderJquery from "./FormBuilder";
 import FormViewer from "./FormViewer";
 import FormDashboard from "./FormDashboard";
+import JobDashboard from "./JobDashboard";
+
 import Login from "./Login";
 import Timeline from './Timeline';
 import JhaDashboard from './JhaDashboard'
@@ -41,19 +43,34 @@ import CardMedia from '@material-ui/core/CardMedia';
 import ResponsiveDialog from './Profile'
 
 import icon from './assets/images/logo-icon.png';
+import iconva from './assets/images/va-256x256.png';
 import { environment } from "./enviroments/enviroment";
 
 
 const firebaseAppAuth = firebaseApp.auth();
-const providers = {
+var providers = environment.isVa() ? {
+  // googleProvider: new firebase.auth.GoogleAuthProvider(),
+  // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
+  //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
+  microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
+} :{
   googleProvider: new firebase.auth.GoogleAuthProvider(),
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
   //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
   microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
 };
-
 // Configure FirebaseUI.
-const uiConfig = {
+var uiConfig = environment.isVa() ?  {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: 'popup',
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [
+    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    "microsoft.com",
+  ]
+}: {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
@@ -63,7 +80,7 @@ const uiConfig = {
     //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     "microsoft.com",
   ]
-}; 
+};
 
 const styles = {
   logincard: {
@@ -143,7 +160,7 @@ class Main extends Component {
                   
                   <Route path="/incidents" component={Incidents}/>
                   <Route path="/inspections" component={Inspections}/>
-                  <Route path="/admin/jobs/:id?" component={Jobs}/>
+                  <Route path="/admin/jobs/:id?" component={JobDashboard}/>
                   <Route path="/documents" component={Documents}/>
                   <Route path="/dashboard" component={Dashboard}/>
                   <Route path="/form-builder/:id?" component={FormBuilderJquery}/> 
@@ -167,13 +184,17 @@ setProfile={setProfile}
 click={()=>{}}></ResponsiveDialog></div>  }
             </ThemeProvider>
           : <div className={classes.loginroot}><Card className={classes.logincard}>
-            <a href="https://yourjha.com"><img src={icon} ></img></a>
+            {environment.isVa() ? <img src={iconva} ></img>: <a href="https://yourjha.com"><img src={icon} ></img></a>}
+            
             {/*  */}
 
             <br></br>
             <br></br>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebaseAppAuth}/>
+          Powered By: <a href="https://yourjha.com">yourjha.com</a>
+       
         </Card>
+        <br></br>
          </div>
   
   }

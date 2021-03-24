@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
+import { environment } from "./enviroments/enviroment"; 
 
 import skyline from './assets/images/skyline.jpg'
 import berlin_lady from './assets/images/berlin_construction_lady.jpg'
@@ -51,8 +51,8 @@ export default function  Home() {
           </Paper>
         </Grid>
 
-
-       
+      {environment.jobsEnabled() ? 
+       <React.Fragment>
         <Grid item xs={12} sm={6}>
         <img src={skyline} alt={"Skyline "} className={classes.image}/>
         </Grid>
@@ -73,6 +73,7 @@ export default function  Home() {
           
           </Paper>
         </Grid>
+        </React.Fragment> : <React.Fragment></React.Fragment> }
 
         <Grid item xs={12} sm={6}>
         <img src={berlin_lady} alt={"Planning "} className={classes.image}/>

@@ -25,7 +25,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
-
+import JhaRacSelect from './JhaRacSelect';
 //styles
 const useStyles = makeStyles(theme => ({
     navroot: {
@@ -131,6 +131,7 @@ twoThings : {
     }
   })(Tooltip);
 
+  
 export default function JhaRow({data, scrollToNext,status,setStatus}) {
     const classes = useStyles()
     const open = status
@@ -186,7 +187,8 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
           />
           <div>
           <div className={classes.twoThings}>
-          <IconButton aria-label="delete" style={{ color: 'green' }} onClick={()=> {console.log("hi")}}>Low</IconButton>
+          <JhaRacSelect></JhaRacSelect>
+          
           <Zoom in={open===1 || open===3}>
             {(open === 1) ? 
  <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(3)}}><KeyboardArrowDownIcon ></KeyboardArrowDownIcon></IconButton>

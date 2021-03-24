@@ -23,4 +23,10 @@ export const environment = {
           })
         }).catch()
   },
+  jobsEnabled: () => {
+    return process.env.REACT_APP_JOBS_ENABLED ?  true: false
+  },
+  isVa: () => (
+    location.origin.includes("va.") || process.env.REACT_APP_VA_ENABLED
+  )
   };
