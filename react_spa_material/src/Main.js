@@ -150,12 +150,18 @@ class Main extends Component {
           ? <ThemeProvider theme={theme}>
             {this.state.profile ?  <HashRouter >
               
-              <Navigation {...other} color={this.state.color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={user}  ></Navigation>
+              <Navigation {...other} color={this.state.color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={this.state.profile}  ></Navigation>
               <div className="container" >
+              
                 <br></br>
+                { user.email.includes('@yourjha.com') ? 
+              <React.Fragment>
                   <Route exact path="/" component={Home}/>
                   <Route path="/contact" component={Contact}/>
-                  <Route path="/jha" component={Jha}/>
+                
+                  <Route path="/jha/:id?" render={(props) => (
+    <Jha profile={this.state.profile} />
+  )}/> 
                   <Route path="/jha-dashboard" component={JhaDashboard}/>
                   
                   <Route path="/incidents" component={Incidents}/>
@@ -174,6 +180,8 @@ class Main extends Component {
   />
 }/>
                   <Route path="/timeline" component={Timeline}/> 
+                  </React.Fragment> : <div>You have successfully logged in</div> }
+                  
             </div>
           
 </HashRouter>: <div><ResponsiveDialog 

@@ -58,6 +58,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 setColor(data.customerId.color)
                 setIsLoading(false)
                 setLocalColor(data.customerId.color)
+                setDisplayName(data.displayName)
             } else {
                 setLocalProfile(data)
                 setIsLoading(false) 
@@ -127,7 +128,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
           <DialogContent>
             <DialogContentText>
             </DialogContentText>
-            <TextField id="outlined-basic" label="Display Name" variant="outlined" disabled={true} value={displayName} onChange={(val) => setDisplayName(val)}/>
+            <TextField id="outlined-basic" label="Display Name" variant="outlined"  value={displayName} onChange={(event) => setDisplayName(event.target.value)}/>
             <br></br>
             <br></br>
 

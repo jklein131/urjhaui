@@ -54,6 +54,7 @@ const styles = makeStyles((theme) => ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+  console.log(user)
   return (
     <div>
       <Button color={"default"} variant="contained"  aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
