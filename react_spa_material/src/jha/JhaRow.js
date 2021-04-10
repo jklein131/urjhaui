@@ -26,6 +26,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 import JhaRacSelect from './JhaRacSelect';
+import { environment } from "../enviroments/enviroment";
 //styles
 const useStyles = makeStyles(theme => ({
     navroot: {
@@ -132,7 +133,7 @@ twoThings : {
   })(Tooltip);
 
   
-export default function JhaRow({data, scrollToNext,status,setStatus}) {
+export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA, myData, setMyData}) {
     const classes = useStyles()
     const open = status
     const opener = setStatus
@@ -149,7 +150,6 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
     const ref1 = useRef(null)
     const ref2 = useRef(null)
 
-    console.log(open)
     return (
       <div>
       <Card key={data.Id} className={
@@ -171,23 +171,52 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
           /> */}
           {(open === 1 || open === 3) ? <CheckCircleIcon
           className={classes.checkMarkIcon}></CheckCircleIcon> : ""}
-          <Typography variant="h5" component="h4"> {data.Task}</Typography>
+          <Typography variant="h5" component="h4"> {data.task}</Typography>
           </Grid>
         
           <Grid item xs={12} sm={8} >
           <div className={classes.twoThings}>
           <FormControlLabel
-            aria-label={data.Hazards.trim().split("\n").join(", ")}
+            aria-label={data.hazards.trim().split("\n").join(", ")}
             control={ (open !== 2) ? <BlueOnGreenTooltip className={classes.info} title="Hazards are potential incidents that might occur on the jobsite. " placement="top-start"><div className={classes.iconSpacing}>
               <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon></div></BlueOnGreenTooltip>:  <ReportProblemOutlinedIcon color="secondary">
               </ReportProblemOutlinedIcon>}
-            label={data.Hazards.trim().split("\n").join(", ")}
+            label={data.hazards.trim().split("\n").join(", ")}
             className={classes.tablabel}
           />
           <div>
           <div className={classes.twoThings}>
-          <JhaRacSelect></JhaRacSelect>
+          <JhaRacSelect RAC={data.rac} setRAC={(value)=>{
+              /* since we have an effect on the dataset variable, we only need 
+              to set the new dataset with the correct values, and everything else should 
+              update 
+              */
+             console.log("RAC CHANGED", data._id, value)
+             var uploadPayload = {rac: value, _id: data._id} 
+             environment.fetch('hazards/'+data._id,
+             {
+               method: 'PATCH',
+               body: JSON.stringify(uploadPayload),
+               headers: {
+                 'Accept': 'application/json',
+                 "content-type": "application/json",
+               }
+             }).then(res => 
+               res.json()).then((activitiesC) => {
+                setMyData(
+                  myData.map((v, index)=> {
+                       if (v._id === data._id) {
+                           var k = v 
+                           k.rac = value
+                         return k
+                       }
+                       return v
+                  })
+                )
+               })
+             
+          }}></JhaRacSelect>
           
           <Zoom in={open===1 || open===3}>
             {(open === 1) ? 
@@ -211,7 +240,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
             <Typography component="span" className={classes.controls}>
               <b>Controls: </b>
             {
-      data.Controls.split("\\n").map((obj,i)=> (
+      data.controls.split("\\n").map((obj,i)=> (
           <Typography key={obj}>{obj}</Typography>
       ))
                       }
@@ -223,8 +252,8 @@ export default function JhaRow({data, scrollToNext,status,setStatus}) {
       <Collapse in={open === 0}>
       <CardActions disableSpacing ref={ref2}>
           {/* this is tricky to scroll, we need to report our height so that we can get the height of the next JHA object to scroll to it's button.*/}
-        <Button size="small" onClick={()=> {console.log("hi"); opener(1); scrollToNext(ref1, ref2)}} color="primary" variant="contained">Add</Button>
-        <Button size="small" onClick={()=> {console.log("hi"); opener(2); scrollToNext(ref1, ref2)}}>Hide</Button>
+        <Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(1);}} color="primary" variant="contained">Add</Button>
+        <Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(2);}}>Hide</Button>
         <InfoOutlinedIcon className={classes.aireason}></InfoOutlinedIcon>
         <Typography color="textSecondary">Recomended on similar activities</Typography>
         

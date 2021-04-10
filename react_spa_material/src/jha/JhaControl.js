@@ -46,7 +46,7 @@ const useStyles = makeStyles({
   });
 
 
-function RowControl({status, chip, data, updateStatus}) {
+function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA, JHA}) {
 
     
         //this is triggered on "add" to scroll to the next object.
@@ -64,22 +64,26 @@ function RowControl({status, chip, data, updateStatus}) {
         return (
             <div key={data.Id} id={data.Id} ref={ref}>
             <JhaRow key={data.Id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
-            chip={chip} data={data} scrollToNext={scrollToNext(ref)}>
+            chip={chip} data={data} scrollToNext={scrollToNext(ref)} myData={myData} 
+            setMyData={setMyData} setJHA={setJHA} JHA={JHA}>
             </JhaRow>
             </div>
         )
     
 }
   
-function JhaControl({dataset, setJHA, JHA}) {
+function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
    
     const classes = useStyles();
     const [sections, setSections] = React.useState({})
     const [rows, setRows] = React.useState([])
     const [statuss, setStatuss]= React.useState({})
 
-    const r = useEffect(()=> {
+    useEffect(()=> {
         var rp = {}
+        if (myData === false) {
+            return
+        }
         if (JHA.selected !== undefined)
             {
                 console.log("RP",JHA)
@@ -91,43 +95,40 @@ function JhaControl({dataset, setJHA, JHA}) {
         setStatuss(
             function(statuss, props){
                 var tmp = statuss
-                dataset.map((object, index) => {
+                myData.map((object, index) => {
                     if (object.Id in rp) {
-                        tmp[object.Id] = rp[object.Id]
+                        tmp[object.Id] = {status:rp[object.Id].status, data: object}
                     } else {
                         tmp[object.Id] = {status:0, data: object}
                     }
             })
                return tmp
-             },
-             ()=> {
-                
              })
         //if this is first load, check for the selected data and select it
-
         //end use effect
-    },[dataset])
+
+        
+    },[myData ])
     useEffect(()=> {
-        setRows( dataset.map((object, index) => {
-            if (!( object.Section in sections)) {
+        if (myData  !== false) {
+        setRows( myData.map((object, index) => {
+            if (!( object.section in sections)) {
                 
                 setSections(function(sections, props){
-                    return {...sections, [object.Section] :false}
+                    return {...sections, [object.section] :false}
                  }); 
             }
             
-                return <RowControl key={object.Id} data={object} chip={object.Section} status={statuss[object.Id]} updateStatus={ (stat) => {
-                    
+                return <RowControl key={object.Id} data={object} chip={object.section} status={statuss[object.Id]} updateStatus={ (stat) => {
                     setStatuss(function(statuss, props){
                                 return  {...statuss, [object.Id] :{status:stat, data:object}}
                             })
                     }
-                }></RowControl>
-            }))},[statuss]
+                } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA}></RowControl>
+            }))}},[statuss,myData]
     )
     //use effect only when the rows object changes
     useEffect(()=> {
- 
         setJHA(t =>
             {
             const newMessageObj = { ...t, "selected": Object.keys(statuss).filter((ssf,index) => {
@@ -188,18 +189,13 @@ function JhaControl({dataset, setJHA, JHA}) {
         })
         }
         <div key={"main2"}></div> {/* this is required for the next scroller lol */}
-        
         {
             length_of_rows > 0 ? "": <CustomizedSnackbars key={1241241241555}></CustomizedSnackbars>
             
               }
               {length_of_rows = 0 ? "" : ""}
               <br></br>
-
-        
-
          <br key={12477}></br>
-     
         </div>
     )
 }
