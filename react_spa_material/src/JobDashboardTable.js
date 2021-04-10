@@ -7,6 +7,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import JobEditModal from './JobEditModal'
+import Icon from './Icon'
 
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
@@ -14,41 +15,26 @@ import 'firebase/auth';
 
 
 
-export default function JobDashboardTable({}) {
+export default function JobDashboardTable({jobs, setJob}) {
 
-  var [data, setData] = React.useState([["Loading..."]])
-  var [isLoading, setLoading] = React.useState(true)
-
-  React.useEffect(()=>{
-    environment.fetch( 'jobs')
-    .then(res => res.json())
-    .then((data) => {
-      setLoading(false);
-      setData( data)
-      console.log(data)
-    }).catch(console.log)
-    return 
-  },[])
   // populate columns based on the template
   // TODO: set special flags in the form builder that allows fields to be filterable. 
     const columns = [
         {
          name: "name",
          label: "Job Name",
+        //  options :{
+        //   customBodyRender: (value, tableMeta, updateValue) => {
+        //     return value !== undefined ? (
+        //       <span><Icon  name={value} size={25}></Icon>{value}</span>
+        //     ) : "";
+        //   }
+        // }
         },
         {
           name: "street",
-          label: "Job Street",
+          label: "Job Location",
          },
-         {
-          name: "city",
-          label: "Job Street",
-         },
-        {
-
-            name: "updatedAt",
-            label: "Created At",
-        },
         {
           name: "jhacount",
           label: "Total JHA's",
@@ -65,10 +51,10 @@ export default function JobDashboardTable({}) {
               sort: false,
               empty: true,
               customBodyRender: (value, tableMeta, updateValue) => {
-
-                return value !== undefined ? (
-                  <JobEditModal></JobEditModal>
-                ) : "";
+                console.log(tableMeta)
+                return (
+                  <JobEditModal job={tableMeta.tableData[tableMeta.rowIndex]} setJob={setJob}></JobEditModal>
+                )
               }
             }
           }
@@ -101,11 +87,11 @@ export default function JobDashboardTable({}) {
     };
     return ( 
       <div>
-        <MUIDataTable title={<Typography variant="title">
+        <MUIDataTable title={<Typography variant="h6">
           All Jobs
-          {isLoading && <CircularProgress size={24} style={{marginLeft: 15, position: 'relative', top: 4}} />}
+          {/* {isLoading && <CircularProgress size={24} style={{marginLeft: 15, position: 'relative', top: 4}} />} */}
           </Typography>
-          } data={data} columns={columns} options={options} />
+          } data={jobs} columns={columns} options={options} />
       </div>
     );
 }

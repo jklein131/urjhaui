@@ -5,7 +5,7 @@ import MUIDataTable from "mui-datatables";
 import { environment } from "./enviroments/enviroment"; 
 import IconButton from '@material-ui/core/IconButton';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-
+import LaunchIcon from '@material-ui/icons/Launch';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/auth';
@@ -86,7 +86,7 @@ csvDownload(buildHead,buildBody,columns,data) {
                 sort: false,
                 empty: true,
                 customBodyRender: (value, tableMeta, updateValue) => {
-                  console.log("clicked", value, tableMeta, updateValue, m().utc(value).local())
+                  // console.log("clicked", value, tableMeta, updateValue, m().utc(value).local())
                   return value !== undefined ? (
                       <span>{m.utc(value).local().format('MMMM Do YYYY, h:mm a')}</span>
                   ) : "";
@@ -102,8 +102,9 @@ csvDownload(buildHead,buildBody,columns,data) {
               sort: false,
               empty: true,
               customBodyRender: (value, tableMeta, updateValue) => {
-                console.log("clicked", value, tableMeta, updateValue)
+                // console.log("clicked", value, tableMeta, updateValue)
                 return value !== undefined ? (
+                  <React.Fragment>
                     <IconButton onClick={() => firebase.storage().ref(value).getDownloadURL().then((snapshot) => {
                         console.log(snapshot)
                         window.open(snapshot)
@@ -111,6 +112,26 @@ csvDownload(buildHead,buildBody,columns,data) {
                       })}>
                         <PictureAsPdfIcon></PictureAsPdfIcon>
                     </IconButton>
+                    </React.Fragment>
+                ) : "";
+              }
+            }
+          },
+          {
+            name: "_id",
+            label: "Template",
+            options: {
+              filter: false,
+              sort: false,
+              empty: true,
+              customBodyRender: (value, tableMeta, updateValue) => {
+                // console.log("clicked", value, tableMeta, updateValue) 
+                return value !== undefined ? (
+                  <React.Fragment>
+                    <IconButton href={"#/jha/"+ value}>
+                        <LaunchIcon></LaunchIcon>
+                    </IconButton>
+                    </React.Fragment>
                 ) : "";
               }
             }
@@ -125,11 +146,12 @@ csvDownload(buildHead,buildBody,columns,data) {
     const options = {
       filter: true,
       filterType: 'dropdown',
-      responsive: 'stacked',
+      responsive: 'standard', //standard | vertical | simple
       print: false, 
       onDownload: this.csvDownload,
     //   serverSide: true,
     //   count: count,
+    enableNestedDataAccess: '.',
     //   page: page,
       onTableChange: (action, tableState) => {
 

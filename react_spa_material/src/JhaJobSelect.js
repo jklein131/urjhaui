@@ -81,7 +81,7 @@ function FreeSoloCreateOption({label, JHA, setJHA}) {
   return (
     <div>
       <div>
-      {JHA.activity == undefined ? "" : JHA.activity.name}
+      {/* {JHA.activity == undefined ? "" : JHA.activity.name} */}
     </div>
     <Autocomplete
       value={JHA.activity == undefined ? "" : JHA.activity}
@@ -131,7 +131,7 @@ function FreeSoloCreateOption({label, JHA, setJHA}) {
       }}
       selectOnFocus
       clearOnBlur
-      handleHomeEndKeys
+      // handleHomeEndKeys
       id="free-solo-with-text-demo"
       options={activity}
       getOptionLabel={(option) => {

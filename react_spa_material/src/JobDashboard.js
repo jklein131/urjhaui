@@ -32,7 +32,7 @@ import FormBuilder from "./FormBuilder";
 import { LinearProgress } from "@material-ui/core";
 //import ReactDOM from "react-dom";
 //import "./styles.css";
-
+import JobEditModal from './JobEditModal'
 var seedrandom = require('seedrandom');
 
 const Icon = ({name, size}) => {
@@ -48,48 +48,33 @@ const Icon = ({name, size}) => {
 
 const styles = theme => ({
   root: {
-    
       margin: theme.spacing(1),
       padding: theme.spacing(2),
     
   },
 });
-class JobDashboard extends Component {
-  
-    state = {
-      jobs: {},
-      form_id: "",
-    }
+function JobDashboard ({classes}) {
+    const [jobs, setJobs] = React.useState(jobs);
 
-    getAndViewJobs(id) {
+    React.useEffect(()=> {
         environment.fetch( 'jobs/')
         .then(res => res.json())
         .then((data) => {
-          this.setState({ jobs: data })
-          this.setState({ form_id: id })
+          setJobs( data)
           console.log("jobs_data", data)
-          
-          $(this.fb.current).formRender({
-            formData: data.template,
-          })
-
         }).catch(console.log)
+      },[])
+    var setJobOuter = (j)=> {
+      if (jobs.some((v)=> v._id === j._id)) {
+          setJobs( jobs.map(el => (el._id === j._id ? j : el)))
+        console.log(jobs)
+        return
       }
-
-    fb = createRef();
-    componentDidMount() {
-        if (this.props.match !== undefined && this.props.match.params["id"] !== undefined) {
-            const jobid = this.props.match.params["id"] 
-            this.getAndViewJobs(jobid);
-        }
+      setJobs(
+       [j, ...jobs]
+      )
     }
-    componentDidUpdate() {
-      if (this.state.form_id !== this.props.match.params["id"]) {
-        this.getAndViewJobs(this.props.match.params["id"])
-      }
-    }
-    render() {
-      const { classes } = this.props;
+  
         return (
           <div>
           <Paper elevation={5} className={classes.root}>
@@ -101,22 +86,18 @@ class JobDashboard extends Component {
             <Typography variant="h3" component="h2">
             {"Job Manager"}
 </Typography>
-<Typography>{this.state.jobs.description}</Typography>
+<Typography>{/* description */}</Typography>
 <br></br>
 
 
-<Link 
-  href={"#form/"+this.state.form_id}>
-<Button
-          
+  <JobEditModal renderbutton={(r)=> (<Button
+          onClick={r}
           variant="contained"
           color="primary"
           className={classes.button}
         >
           Create New Job
-        </Button>
-        </Link>
-  
+        </Button>)} setJob={setJobOuter}></JobEditModal>
         
 <br></br>
 <br></br>
@@ -126,10 +107,9 @@ class JobDashboard extends Component {
 
           </div>
           </Paper>
-          <JobDashboardTable></JobDashboardTable>
+          <JobDashboardTable jobs={jobs} setJob={setJobOuter}></JobDashboardTable>
         </div>
         )
-      }
   }
   
   JobDashboard.propTypes = {

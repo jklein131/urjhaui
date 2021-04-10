@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
   ractitle :{
     fontSize: '4mm',
     textDecoration: 'underline',
-    margin: '1px',
-    padding: '2px',
+    margin: '1 1 1 0',
+    padding: '2 2 2 0',
   },
   hazrdcell1: {
     flex : 10,
@@ -146,6 +146,31 @@ const styles = StyleSheet.create({
     padding: '2px',
     fontSize: '3.5mm',
     backgroundColor: "#ECEFF1",
+  },
+  raccellwrapper: {
+    flex : 10,
+    //flexBasis: 0,
+    textAlign: 'center',
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+    backgroundColor: "#ECEFF1",
+  },
+  raccellspacer: {
+    flex : 1,
+    //flexBasis: 0,
+  
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
+  },
+  raccellspacer1: {
+    flex : 2,
+    //flexBasis: 0,
+  
+    margin: '1px',
+    padding: '2px',
+    fontSize: '3.5mm',
   },
   raccellheader: {
     flex : 1,
@@ -199,12 +224,10 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   bold: {
-    color:"green", 
     textDecoration:'underline',
     fontFamily: 'Roboto-Bold',
   },
   bold1: {
-    color:"green", 
     textDecoration:'underline',
     fontFamily: 'Roboto-Bold',
     fontSize: '3.9mm',
@@ -241,6 +264,12 @@ const styles = StyleSheet.create({
   header : {
     marginBottom: 15,
   },
+  sig: {
+    height: '27',
+    borderWidth: '1',
+    borderStyle: 'solid',
+    padding: '3',
+  }
 });
 
 const JHAHeader = ({rows}) => (
@@ -254,7 +283,38 @@ const JHAHeader = ({rows}) => (
         </View>
   </View>
 );
-const JHAHazardRow = ({task, hazard, control}) => (
+const options = [
+  "Low",
+  "Medium",
+  "High",
+  "Extreme"
+];
+const values = [
+  "L",
+  "M",
+  "H",
+  "E"
+];
+const colors = [
+  "green",
+  "black",
+  "orange",
+  "red"
+];
+const backgroundColors = [
+  "white",
+  "yellow",
+  "white",
+  "white"
+];
+const textcolors = [
+  "white",
+  "black",
+  "black",
+  "black"
+];
+
+const JHAHazardRow = ({task, hazards, control, rac}) => (
   <View>
   <View style={styles.jhatable}>
   <Text style={styles.hazrdcell1} >{task}</Text>
@@ -266,9 +326,9 @@ const JHAHazardRow = ({task, hazard, control}) => (
       src={hazardicon}
     ></Image>
     </Text>
-  <Text style={styles.hazrdcell2} >{hazard.split("\n").filter((val) => val !== "").join(', ')}</Text>
+  <Text style={styles.hazrdcell2} >{hazards.split("\n").filter((val) => val !== "").join(', ')}</Text>
       </View>
-      <Text style={styles.hazrdcell3} >Risk Assessment: <Text style={styles.bold1}>Low</Text></Text>
+      <Text style={styles.hazrdcell3} >Risk Assessment: <Text style={{...styles.bold1, color: colors[values.indexOf(rac)], backgroundColor: backgroundColors[values.indexOf(rac)]}}>{options[values.indexOf(rac)]}</Text></Text>
   <Text style={styles.hazrdcell3}>{control}</Text>
   <View style={styles.section15}></View>
   </View>
@@ -297,7 +357,7 @@ const JHAHazardRow = ({task, hazard, control}) => (
 
 const RACTable = () => (
   <View>
-    <Text style={styles.ractitle}>Overall Risk Assessment: LOW </Text>
+    <Text style={styles.ractitle}>Overall Risk Assessment: </Text>
     <Text style={{fontSize: '3.5mm',}}> “Probability” is the likelihood to cause an incident, near miss, or accident and identified as: Frequent, Likely, Occasional, Seldom or Unlikely. 
 
 “Severity” is the outcome/degree if an incident, near miss, or accident did occur and identified as: Catastrophic, Critical, Marginal, or Negligible</Text>
@@ -427,22 +487,35 @@ const RACTable = () => (
       </View>
 )
 
-  
+const SignOff = () => (
+  <View>
+    <Text style={styles.ractitle}>Required Signatures: </Text>
+    <Text style={styles.sig}>1. Shop Supervisor </Text>
+    <Text style={styles.sig}>2. Contractor </Text>
+    <Text style={styles.sig}>3. COR / PM </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>5. Safety </Text>
+    </View>
+)
 
 // Create Document Component
-export default function MyDocument ({JHA})  {
-
+export default function MyDocument ({JHA, profile})  {
+  console.log("PDF profile", profile)
+    var totalRacIndex = values.indexOf(JHA.selected.reduce( (accumulator, currentValue) => values.indexOf(accumulator.data.rac) > values.indexOf(currentValue.data.rac) ? accumulator: currentValue).data.rac)
+    console.log("total rac", totalRacIndex)
     return ( <Document>
     
     <Page size="A4" style={styles.page} wrap  >
      <View style={styles.jhatable}>
      <View >
-     <Text style={styles.root}>{JHA.activity.name}  (Total Risk: <Text style={styles.bold}>Low</Text>)</Text>
+     <Text style={styles.root}>{JHA.activity.name}  (Total Risk: <Text style={{color: colors[totalRacIndex],backgroundColor:backgroundColors[totalRacIndex],...styles.bold}}>{
+     
+     options[totalRacIndex] }</Text>)</Text>
      <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text>
-     <Text style={styles.textDetails}>Job Address: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
-     <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>
-     <Text style={styles.textDetails}>Created by: <Text style={styles.italilit}>{firebase.auth().currentUser.displayName}</Text></Text>
-     <Text style={styles.textDetails}>Created At: <Text style={styles.italilit}>{m().format('MMMM Do YYYY, h:mm a')}</Text></Text>
+     <Text style={styles.textDetails}>Job Location: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
+     {/* <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>*/}
+     <Text style={styles.textDetails}>Prepared By: <Text style={styles.italilit}>{profile.displayName} ({profile.email})</Text></Text> 
+     <Text style={styles.textDetails}>Prepared At: <Text style={styles.italilit}>{m().format('MMMM Do YYYY, h:mm a')}</Text></Text>
      {/* <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text> */}
      {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>  */}
      <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}></Text></Text>
@@ -471,8 +544,15 @@ export default function MyDocument ({JHA})  {
     <View style={styles.section}>
       </View>
       <View style={styles.section15}></View>
- 
+      <View style={styles.jhatable}>
+      <View style={styles.raccellspacer}>
+        <SignOff></SignOff>
+      </View>
+      <View style={styles.raccellspacer1}>
       <RACTable></RACTable>
+      </View>
+        </View>
+      
     
    
     <View style={styles.section15}></View>
@@ -482,13 +562,15 @@ export default function MyDocument ({JHA})  {
         {text: "Hazards", pos :1},
         {text: "Controls", pos :2},
       ]}></JHAHeader> */}
+      {console.log("PDF JHA data", JHA)}
       {JHA.selected.map( (selected_i, i) => {
+        console.log(selected_i)
       // return <JHARow key={i} rows={[
       //   {text: selected_i.data.Task, pos :1},
       //   {text: selected_i.data.Hazards, pos :1},
       //   {text: selected_i.data.Controls, pos :2},
       // ]}></JHARow>
-      return <JHAHazardRow task={selected_i.data.Task} hazard={selected_i.data.Hazards} control={selected_i.data.Controls}></JHAHazardRow>
+      return <JHAHazardRow rac={selected_i.data.rac} task={selected_i.data.task} hazards={selected_i.data.hazards} control={selected_i.data.controls}></JHAHazardRow>
       
       })
     }
