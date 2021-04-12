@@ -25,6 +25,7 @@ import CustomizedSnackbars from './JhaHelp';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import Sticky from 'react-stickynode';
 import $ from "jquery";
+import { relativeTimeRounding } from "moment";
 window.jQuery = $;
 window.$ = $;
 
@@ -46,7 +47,7 @@ const useStyles = makeStyles({
   });
 
 
-function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA, JHA}) {
+function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA, JHA, sections}) {
 
     
         //this is triggered on "add" to scroll to the next object.
@@ -65,7 +66,7 @@ function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA
             <div key={data.Id} id={data.Id} ref={ref}>
             <JhaRow key={data.Id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
             chip={chip} data={data} scrollToNext={scrollToNext(ref)} myData={myData} 
-            setMyData={setMyData} setJHA={setJHA} JHA={JHA}>
+            setMyData={setMyData} setJHA={setJHA} JHA={JHA} sections={sections}>
             </JhaRow>
             </div>
         )
@@ -78,6 +79,22 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
     const [sections, setSections] = React.useState({})
     const [rows, setRows] = React.useState([])
     const [statuss, setStatuss]= React.useState({})
+
+    const reducer = (accumulator, currentValue) => {
+        if ("section" in accumulator) {
+            // this is the first case, where the key is in the object
+            // so we should return our first array as the acculmator 
+            return {
+                [accumulator.section]: false, 
+            }
+        }
+        return {...accumulator,[currentValue.section]:false  }
+    };
+
+    useEffect(()=> {
+        console.log("rrr",myData.reduce(reducer))
+            setSections(myData.reduce(reducer)); 
+    },[myData])
 
     useEffect(()=> {
         var rp = {}
@@ -108,24 +125,19 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         //end use effect
 
         
-    },[myData ])
+    },[sections ])
+ 
     useEffect(()=> {
-        if (myData  !== false) {
+        console.log("effect1", statuss, myData, sections)
+        if (myData  !== false && statuss !== {}) {
         setRows( myData.map((object, index) => {
-            if (!( object.section in sections)) {
-                
-                setSections(function(sections, props){
-                    return {...sections, [object.section] :false}
-                 }); 
-            }
-            
                 return <RowControl key={object.Id} data={object} chip={object.section} status={statuss[object.Id]} updateStatus={ (stat) => {
                     setStatuss(function(statuss, props){
                                 return  {...statuss, [object.Id] :{status:stat, data:object}}
                             })
                     }
-                } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA}></RowControl>
-            }))}},[statuss,myData]
+                } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA} sections={sections}></RowControl>
+            }))}},[statuss]
     )
     //use effect only when the rows object changes
     useEffect(()=> {

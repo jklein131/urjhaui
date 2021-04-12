@@ -19,6 +19,7 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import Zoom from '@material-ui/core/Zoom';
 import InfoIcon from '@material-ui/icons/Info';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import JhaEditModal from '../JhaEditModal'
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -130,10 +131,9 @@ twoThings : {
       color: 'rgba(0, 0, 0, 0.87)',
       boxShadow: defaultTheme.shadows[1],
     }
-  })(Tooltip);
-
+  })(Tooltip); 
   
-export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA, myData, setMyData}) {
+export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA, myData, setMyData, sections}) {
     const classes = useStyles()
     const open = status
     const opener = setStatus
@@ -152,7 +152,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
 
     return (
       <div>
-      <Card key={data.Id} className={
+      <Card key={data._id} className={
          (open === 0) ? classes.open : (open === 1) ?
              classes.done: (open === 2) ? classes.clear : (open === 3) ? classes.open : {}
           }>
@@ -253,9 +253,14 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
       <CardActions disableSpacing ref={ref2}>
           {/* this is tricky to scroll, we need to report our height so that we can get the height of the next JHA object to scroll to it's button.*/}
         <Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(1);}} color="primary" variant="contained">Add</Button>
+        
+                      &nbsp;
+
+        <JhaEditModal sections={sections} hazard={data} renderbutton={(r)=> (<Button size="small" onClick={r} color="primary" variant="contained">Edit</Button>)} setHazard={()=>{}}></JhaEditModal>
+
         <Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(2);}}>Hide</Button>
-        <InfoOutlinedIcon className={classes.aireason}></InfoOutlinedIcon>
-        <Typography color="textSecondary">Recomended on similar activities</Typography>
+        {/* <InfoOutlinedIcon className={classes.aireason}></InfoOutlinedIcon>
+        <Typography color="textSecondary">Recomended on similar activities</Typography> */}
         
       </CardActions>
       </Collapse>
