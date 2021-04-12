@@ -249,6 +249,8 @@ function HorizontalLinearStepper({jha, profile}) {
           // Do whatever you need with blob here
           console.log("uploading",blob, url, loading, error )
          if ( !loading) {
+           // so here we save all the PDF's in our domain folder based on our emails. Obvi. So if a user leaves, doesn't matter, all
+           // their stuff goes here. 
           firebase.storage().ref("domain/" +profile.email.split('@')[1]).child("PDF-"+JHA.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+JHA.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()).put(blob).then((snapshot) => {
             console.log(snapshot)
             if (JHA.pdfUrl === undefined) {
