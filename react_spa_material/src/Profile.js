@@ -53,6 +53,12 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
 
     React.useEffect(() => {
         environment.fetch('profile').then((res)=>(res.json())).then((data)=> {
+             if ('error' in data ) {
+              if (data["error"] == "auth/id-token-expired") {
+                console.log("SIGNOUT")
+                return 
+              }
+             }
             if ('_id' in data) {
               setProfile(data)
                 setColor(data.customerId.color)
@@ -61,9 +67,11 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 setDisplayName(data.displayName)
             } else {
                 setLocalProfile(data)
-                setIsLoading(false) 
+                setIsLoading(false)
             }
         }).catch((err)=> {
+          setLocalProfile(data)
+                setIsLoading(false)
           console.log(err)
         })
     },[])
@@ -85,7 +93,9 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                       "content-type": "application/json",
                     }
                   }
-                  ).then((res) => res.json()).then((data)=> { setOpen(false); setProfile(data);})
+                  ).then((res) => res.json()).then((data)=> {
+                    setOpen(false); setProfile(data);
+                  })
             } else {
                 var body = {
                     displayName: displayName, 
@@ -99,7 +109,9 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                       "content-type": "application/json",
                     }
                   }
-                  ).then((res) => res.json()).then((data)=> { setOpen(false); setProfile(data);})
+                  ).then((res) => res.json()).then((data)=> {
+                    setOpen(false); setProfile(data);
+                  })
             }
         } else {
             setOpen(false)
@@ -147,6 +159,9 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
             </Button>}
             <Button onClick={handleClose(true)} color="primary">
               Save
+            </Button>
+            <Button onClick={()=>firebase.auth().signOut()} color="primary">
+              SignOut
             </Button>
           </DialogActions>
         </Dialog>

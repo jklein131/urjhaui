@@ -6,6 +6,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
+import IconButton from '@material-ui/core/IconButton';
+import Grid from '@material-ui/core/Grid';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import List from '@material-ui/core/List';
@@ -16,6 +18,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
+import { Edit } from "@material-ui/icons";
 import Badge from '@material-ui/core/Badge';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
@@ -52,6 +55,7 @@ import firebaseApp from './FirebaseConfig';
 import {  PDFViewer, BlobProvider } from '@react-pdf/renderer';
 
 import { Prompt } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
@@ -128,8 +132,8 @@ function HorizontalLinearStepper({jha, profile}) {
   const [sections, setSections] = React.useState(false);
   const [myData, setMyData] = React.useState(false);
   React.useEffect(()=>{
-    environment.fetch("hazards").then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
-  },[jha])
+    environment.fetch('hazards').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
+  },[])
 
   const isStepOptional = step => {
     return false
@@ -278,13 +282,33 @@ function HorizontalLinearStepper({jha, profile}) {
     }
   }
 
+  const history = useHistory()
+  React.useEffect(() => {
+    const unblock = history.block((location, action) => {
+      console.log("location", location, action)
+      if (activeStep === 1) {
+        handleBack();
+        return false
+      }
+      if (activeStep === 2) {
+        handleBack();
+        return false
+      }
+      if (!done && JHA.jobselect !== undefined ) {
+        return window.confirm("You have unsaved changes, are you sure you want to leave?");
+      }
+      return true;
+    });
+  
+    return () => {
+      unblock();
+    };
+  }, [activeStep]);
+
   return (
-    
+    <div>
     <div className={classes.root}>
-      <Prompt
-      when={!done && JHA.jobselect !== undefined }
-      message='You have unsaved changes, are you sure you want to leave?'
-    />
+      
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -367,7 +391,9 @@ function HorizontalLinearStepper({jha, profile}) {
           </div>
         )}
       </div>
+      
     </div>
+  </div>
   );
 }
 
@@ -639,6 +665,9 @@ function Jha({profile}) {
         setJHA({
           selected: res.data.map((v)=> {
               return {status:3, ...v}
+          }),
+          selectedKeys: res.data.map((v)=> {
+            return v.data._id
           }),
           activity: res.activityId,
           jobselect: res.jobId, 

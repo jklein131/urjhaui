@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import { positions, zIndex} from '@material-ui/system';
 import Collapse from '@material-ui/core/Collapse';
+import JhaEditModal from '../JhaEditModal'
 
 import { withStyles, makeStyles,createMuiTheme } from '@material-ui/core/styles';
 
@@ -44,6 +45,10 @@ const useStyles = makeStyles({
       },
       padding: 15,
     },
+    break :{
+        flexBasis: '100%',
+        height: 0,
+      },
   });
 
 
@@ -63,8 +68,8 @@ function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA
         }
         var ref = React.createRef();
         return (
-            <div key={data.Id} id={data.Id} ref={ref}>
-            <JhaRow key={data.Id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
+            <div key={data._id} id={data._id} ref={ref}>
+            <JhaRow key={data._id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
             chip={chip} data={data} scrollToNext={scrollToNext(ref)} myData={myData} 
             setMyData={setMyData} setJHA={setJHA} JHA={JHA} sections={sections}>
             </JhaRow>
@@ -76,23 +81,24 @@ function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA
 function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
    
     const classes = useStyles();
-    const [sections, setSections] = React.useState({})
+    const [sections, setSections] = React.useState(undefined)
     const [rows, setRows] = React.useState([])
-    const [statuss, setStatuss]= React.useState({})
+    const [statuss, setStatuss]= React.useState(undefined)
 
     const reducer = (accumulator, currentValue) => {
         if ("section" in accumulator) {
             // this is the first case, where the key is in the object
             // so we should return our first array as the acculmator 
+            // if the sections object already exsists, we should keep the value from it (someone modified myData)
             return {
-                [accumulator.section]: false, 
+                [accumulator.section]: sections === undefined ? false :sections[currentValue.section] , 
             }
         }
-        return {...accumulator,[currentValue.section]:false  }
+        return {...accumulator,[currentValue.section]: sections === undefined ? false : sections[currentValue.section]  }
     };
 
     useEffect(()=> {
-        console.log("rrr",myData.reduce(reducer))
+        // run reduce the data into the sections headers using the function above
             setSections(myData.reduce(reducer)); 
     },[myData])
 
@@ -101,22 +107,20 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         if (myData === false) {
             return
         }
-        if (JHA.selected !== undefined)
-            {
-                console.log("RP",JHA)
-                JHA.selected.map((v)=> (
-                rp[v.data.Id] = v
-                ));
-            console.log(rp)
-        }
         setStatuss(
-            function(statuss, props){
-                var tmp = statuss
+            function(statuss, props){ 
+                var tmp = statuss === undefined ? {}: statuss
                 myData.map((object, index) => {
-                    if (object.Id in rp) {
-                        tmp[object.Id] = {status:rp[object.Id].status, data: object}
+                    // fix save the map somewhere so this is not O(n^2)
+                    // and is just an index lookup. 
+                    // object 
+                    var r2 = JHA.selected !== undefined ? JHA.selected.filter((v)=> (
+                        v.data._id === object._id
+                    )) : []
+                    if (r2.length > 0) {
+                        tmp[object._id] = {status:r2[0].status, data: object}
                     } else {
-                        tmp[object.Id] = {status:0, data: object}
+                        tmp[object._id] = {status:0, data: object}
                     }
             })
                return tmp
@@ -127,20 +131,12 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         
     },[sections ])
  
-    useEffect(()=> {
-        console.log("effect1", statuss, myData, sections)
-        if (myData  !== false && statuss !== {}) {
-        setRows( myData.map((object, index) => {
-                return <RowControl key={object.Id} data={object} chip={object.section} status={statuss[object.Id]} updateStatus={ (stat) => {
-                    setStatuss(function(statuss, props){
-                                return  {...statuss, [object.Id] :{status:stat, data:object}}
-                            })
-                    }
-                } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA} sections={sections}></RowControl>
-            }))}},[statuss]
-    )
+   
     //use effect only when the rows object changes
     useEffect(()=> {
+        if (statuss === undefined) {
+            return 
+        }
         setJHA(t =>
             {
             const newMessageObj = { ...t, "selected": Object.keys(statuss).filter((ssf,index) => {
@@ -152,7 +148,28 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         })
     }, [statuss])
 
+    useEffect(()=> {
+        console.log("effect1", statuss, myData, sections)
+        if (sections === undefined) {
+            return 
+        }
+        if (statuss === undefined) {
+            return 
+        }
+        if (myData  !== false ) {
 
+            // tried taking this out of an effect, and iterating through the map in the body of the function, but it's slow af. 
+            // I think because it blocks the render thread. But i have no idea. All i know is that the rows have to go in here. Pretty wild. 
+            // we might want to add some sort of sorting on the data here, to be able to move it around. 
+        setRows( myData.map((object, index) => {
+                return <RowControl key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                    setStatuss(function(statuss, props){
+                                return  {...statuss, [object._id] :{status:stat, data:object}}
+                            })
+                    }
+                } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA} sections={sections}></RowControl>
+            }))}},[sections, statuss]
+    )
     var states ={}
     var length_of_rows = 0 
     return (
@@ -164,7 +181,7 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         <Box key={"main3"} zIndex="modal">
              <Paper elevation={5} className={classes.chips}>
                 
-                {
+                { sections !== undefined ? 
                     Object.keys(sections).map((chip) => {
             return <Chip
                         key={chip}
@@ -181,9 +198,23 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
     
             color="primary"
             variant={ sections[chip] ? "default":"outlined"}
-        /> })
+        /> }) : <div> Loading</div> 
                 }
-                
+                <div className={classes.break}></div>
+                <br></br>
+                <br></br>
+                <JhaEditModal sections={sections} hazard={{rac: 'L', section: 'General Safety'}} renderbutton={(r)=> (
+        <Button size="small" onClick={r} color="primary" variant="contained">Add New Hazard</Button>)}
+        
+        setHazard={(newHazard)=>{
+          // on new hazard, if 
+          // Since we know this is a new one, we can cheat and just push it onto the array
+          setStatuss(function(statuss, props){
+            return  {...statuss, [newHazard._id] :{status:1, data:newHazard}}
+        })
+          setMyData([...myData, newHazard])
+        }}></JhaEditModal>
+
          </Paper>
          </Box>
          <br></br>
@@ -193,7 +224,7 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
                 length_of_rows++
                 return row
             }
-            if (row.props.data.Id in statuss && (statuss[row.props.data.Id].status === 1 || statuss[row.props.data.Id].status === 3)) {
+            if (row.props.data._id in statuss && (statuss[row.props.data._id].status === 1 || statuss[row.props.data._id].status === 3)) {
                 length_of_rows++
                 return row 
             }

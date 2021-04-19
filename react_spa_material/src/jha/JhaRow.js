@@ -232,7 +232,6 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
           
            </div>
 
-          
           </Grid>
           </Grid><div ref={ref1}>
           <Collapse in={open === 0 || open ===3}>
@@ -256,16 +255,21 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
         
                       &nbsp;
 
-        <JhaEditModal sections={sections} hazard={data} renderbutton={(r)=> (<Button size="small" onClick={r} color="primary" variant="contained">Edit</Button>)} setHazard={()=>{}}></JhaEditModal>
+        <JhaEditModal sections={sections} hazard={data} renderbutton={(r)=> (
+        <Button size="small" onClick={r} color="primary" variant="contained">Edit</Button>)}
+        
+        setHazard={(newHazard)=>{
+          // on new hazard, if
+          opener(1);
+          setMyData(myData.map((d)=> (d._id === newHazard._id ?newHazard: d )))
+        }}></JhaEditModal>
 
         <Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(2);}}>Hide</Button>
-        {/* <InfoOutlinedIcon className={classes.aireason}></InfoOutlinedIcon>
-        <Typography color="textSecondary">Recomended on similar activities</Typography> */}
+        <InfoOutlinedIcon className={classes.aireason}></InfoOutlinedIcon>
+        <Typography color="textSecondary">{data.section}</Typography> {/* Recomended on similar activities */}
         
       </CardActions>
       </Collapse>
-      
-      
     </Card>
     </div>
 

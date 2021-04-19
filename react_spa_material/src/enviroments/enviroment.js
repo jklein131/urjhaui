@@ -8,7 +8,7 @@ export const environment = {
     apiUrl: baseUrl,
     fetch: (url, settings) => {
       
-        return firebase.auth().currentUser.getIdToken(false)
+        return firebase.auth().currentUser.getIdToken(true)
         .then((idToken) => {
           return  fetch(baseUrl+url, {
             ...settings,
@@ -27,6 +27,6 @@ export const environment = {
     return process.env.REACT_APP_JOBS_ENABLED ?  true: false
   },
   isVa: () => (
-    location.origin.includes("va.") || process.env.REACT_APP_VA_ENABLED
+    location.origin.includes("va.") || (process.env.REACT_APP_VA_ENABLED ?  true: false)
   )
   };

@@ -154,7 +154,7 @@ class Main extends Component {
               <div className="container" >
               
                 <br></br>
-                { user.email.includes('@yourjha.com') ? 
+                { this.state.profile.email.includes('@yourjha.com') ? 
               <React.Fragment>
                   <Route exact path="/" component={Home}/>
                   <Route path="/contact" component={Contact}/>
