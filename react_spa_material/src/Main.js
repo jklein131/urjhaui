@@ -44,11 +44,12 @@ import ResponsiveDialog from './Profile'
 
 import icon from './assets/images/logo-icon.png';
 import iconva from './assets/images/va-256x256.png';
+import iconpp from './assets/images/pan-pin.png';
 import { environment } from "./enviroments/enviroment";
 
 
 const firebaseAppAuth = firebaseApp.auth();
-var providers = environment.isVa() ? {
+var providers = environment.isVa() || environment.isPP() ? {
   // googleProvider: new firebase.auth.GoogleAuthProvider(),
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
   //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
@@ -60,7 +61,7 @@ var providers = environment.isVa() ? {
   microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
 };
 // Configure FirebaseUI.
-var uiConfig = environment.isVa() ?  {
+var uiConfig = environment.isVa() || environment.isPP() ?  {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
@@ -154,7 +155,7 @@ class Main extends Component {
               <div className="container" >
               
                 <br></br>
-                { this.state.profile.email.includes('@yourjha.com') ? 
+                { this.state.profile.email.includes('@yourjha.com') || this.state.profile.email.includes('@ppmechanical.com') ? 
               <React.Fragment>
                   <Route exact path="/" component={Home}/>
                   <Route path="/contact" component={Contact}/>
@@ -192,7 +193,7 @@ setProfile={setProfile}
 click={()=>{}}></ResponsiveDialog></div>  }
             </ThemeProvider>
           : <div className={classes.loginroot}><Card className={classes.logincard}>
-            {environment.isVa() ? <img src={iconva} ></img>: <a href="https://yourjha.com"><img src={icon} ></img></a>}
+            {environment.isVa() ? <img src={iconva} ></img>: environment.isPP() ? <img src={iconpp} ></img> :<a href="https://yourjha.com"><img src={icon} ></img></a>}
             
             {/*  */}
 

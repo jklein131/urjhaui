@@ -8,7 +8,7 @@ export const environment = {
     apiUrl: baseUrl,
     fetch: (url, settings) => {
       
-        return firebase.auth().currentUser.getIdToken(true)
+        return firebase.auth().currentUser.getIdToken(false)
         .then((idToken) => {
           return  fetch(baseUrl+url, {
             ...settings,
@@ -28,5 +28,8 @@ export const environment = {
   },
   isVa: () => (
     location.origin.includes("va.") || (process.env.REACT_APP_VA_ENABLED ?  true: false)
+  ),
+  isPP: () => (
+    location.origin.includes("ppmechanical.") || (process.env.REACT_APP_PP_ENABLED ?  true: false)
   )
   };

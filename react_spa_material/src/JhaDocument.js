@@ -3,6 +3,7 @@ import React , { Component} from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font} from '@react-pdf/renderer';
 
 import icon from './assets/images/va.png';
+import iconpp from './assets/images/pan-pin.png';
 import hazardicon from './assets/images/hazard.PNG';
 
 import { makeStyles} from '@material-ui/core/styles';
@@ -533,7 +534,8 @@ export default function MyDocument ({JHA, profile})  {
      <View >
      <Image 
     style={{width: '3.5cm'}}
-        src={icon}
+        src={profile.email.includes("@ppmechanical.com") ? iconpp: icon }
+
       ></Image>
      </View>
      
