@@ -54,10 +54,13 @@ var providers = environment.isVa() || environment.isPP() ? {
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
   //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
   microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
+  emailProvider : new firebase.auth.EmailAuthProvider(),
 } :{
   googleProvider: new firebase.auth.GoogleAuthProvider(),
   // microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'),
   //facebookProvider: new firebase.auth.FacebookAuthProvider(), 
+  emailProvider : new firebase.auth.EmailAuthProvider(),
+
   microsoftProvider: new firebase.auth.OAuthProvider('microsoft.com'), 
 };
 // Configure FirebaseUI.
@@ -69,7 +72,8 @@ var uiConfig = environment.isVa() || environment.isPP() ?  {
   signInOptions: [
     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    "microsoft.com",
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    // "microsoft.com",
   ]
 }: {
   // Popup signin flow rather than redirect flow.
@@ -77,10 +81,13 @@ var uiConfig = environment.isVa() || environment.isPP() ?  {
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
   // We will display Google and Facebook as auth providers.
   signInOptions: [
+
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     "microsoft.com",
   ]
+  
 };
 
 const styles = {
@@ -201,7 +208,7 @@ click={()=>{}}></ResponsiveDialog></div>  }
             <br></br>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebaseAppAuth}/>
           Powered By: <a href="https://yourjha.com">yourjha.com</a>
-       
+        
         </Card>
         <br></br>
          </div>
