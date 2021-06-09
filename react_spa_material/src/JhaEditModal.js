@@ -156,7 +156,7 @@ export default function JhaEditModal({sections, hazard, setHazard, renderbutton 
     if ("_id" in localJob) {
       environment.fetch('hazards/'+localJob._id, {
         method: 'PATCH',
-        body: JSON.stringify(localJob),
+        body: JSON.stringify({...localJob, category :localJob.section}),
         headers: {
           'Accept': 'application/json',
           "content-type": "application/json",
@@ -165,7 +165,7 @@ export default function JhaEditModal({sections, hazard, setHazard, renderbutton 
     } else {
       environment.fetch('hazards', {
         method: 'POST',
-        body: JSON.stringify(localJob),
+        body: JSON.stringify({...localJob, category :localJob.section}),
         headers: {
           'Accept': 'application/json',
           "content-type": "application/json",
@@ -182,7 +182,7 @@ export default function JhaEditModal({sections, hazard, setHazard, renderbutton 
   const body = (
     <div style={modalStyle} className={classes.modal}>
       <h2 id="simple-modal-title">Edit Hazard</h2>
-      <form >
+      <form onSubmit={(e)=>e.preventDefault()} >
         <div style={{textAlign:"center", width:"auto"}}>
       {/* <Icon  name={localJob.name} size={250}></Icon> */}
       </div>

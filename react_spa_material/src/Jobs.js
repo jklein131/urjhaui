@@ -9,8 +9,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Media from 'react-bootstrap/Media';
 import Initicon from 'react-initicon';
-//import Multhiselect from "@khanacademy/react-multi-select"; //replace this it is outdated
-
 var seedrandom = require('seedrandom');
 
 

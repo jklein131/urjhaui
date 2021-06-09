@@ -61,3 +61,21 @@ db password: Siemercesomnios
 ### make form builder have only the good things ### 
 https://formbuilder.online/docs/formBuilder/options/typeUserAttrs/#example-checkbox
 
+
+
+## next steps from VA meeting 
+
+### notes from VA meeting: 
++// standard format (this may just be RAC on the upper left side. We may have to have multiple formats which can be selected)
++// BIGGER RAC on title 
++// add signature sheet on pdf 
++// Description for each JHA to help describe what the task they are doing it 
++// We likely need also an equipment and permit database, because that is a requirement by my knowledge of what the VA needs for their requirements. 
++// Compile all the documents that I found with the VA requirements for AHA from the US army corp of engineers 
++// We have a meeting when we get back from hawaii with Procore about an integration, see if you can get a demo about procore before moving forward with that meeting. 
+
+## big asks 
++// multi-tenancy with other clients, likely to colaborate on PDF's by sending a link
++// automated workflow with email notifications (this would be nice to add if firebase supports it.)
++// job specific edits in addition to hazard update approval process. 
++// a way to view and comment on a JHA by email. 

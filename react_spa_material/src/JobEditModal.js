@@ -86,7 +86,7 @@ export default function JobEditModal({job, setJob, renderbutton = r => (<IconBut
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Edit Job</h2>
-      <form>
+      <form onSubmit={(e)=>e.preventDefault()}>
         <div style={{textAlign:"center", width:"auto"}}>
       <Icon  name={localJob.name} size={250}></Icon>
       </div>

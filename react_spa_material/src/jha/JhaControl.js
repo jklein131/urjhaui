@@ -129,13 +129,13 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         //end use effect
 
         
-    },[sections ])
+    },[sections])
  
    
     //use effect only when the rows object changes
     useEffect(()=> {
         if (statuss === undefined) {
-            return 
+            return
         }
         setJHA(t =>
             {
@@ -219,16 +219,16 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
          </Box>
          <br></br>
          {
-        states = rows.map((row, index) => {
+        states = rows.filter((row, index) => {
             if (sections[row.props.chip] === true) {
                 length_of_rows++
-                return row
+                return true
             }
             if (row.props.data._id in statuss && (statuss[row.props.data._id].status === 1 || statuss[row.props.data._id].status === 3)) {
                 length_of_rows++
-                return row 
+                return true 
             }
-            return null;
+            return false;
         })
         }
         <div key={"main2"}></div> {/* this is required for the next scroller lol */}

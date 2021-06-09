@@ -450,7 +450,6 @@ function DashboardView () {
   )
 }
 
-
 class Dashboard extends Component {
   render() {
     
@@ -458,7 +457,7 @@ class Dashboard extends Component {
       <div>
         <h2>My Analytics</h2>
         <Typography>
-          View Visual Information about JHA's performance. 
+          View Visual Information about JHAs performance. 
         </Typography>
         <DashboardView></DashboardView>
        
