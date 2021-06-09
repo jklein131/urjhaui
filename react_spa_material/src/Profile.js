@@ -59,6 +59,13 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 return 
               }
              }
+             if ('error' in data ) {
+              if (data["error"] == "auth/email-not-verified") {
+                firebase.auth().currentUser.sendEmailVerification()
+                console.log("Verify Email")
+                return
+              }
+             }
             if ('_id' in data) {
               setProfile(data)
                 setColor(data.customerId.color)
