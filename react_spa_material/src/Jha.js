@@ -340,7 +340,7 @@ function HorizontalLinearStepper({jha, profile}) {
 
             
 
-                    <a href={JHA.pdfDownload} target="_blank" rel="noopener noreferrer" download>
+                    <a href={JHA.pdfDownload} target="_blank" rel="noopener noreferrer" download={"PDF-"+JHA.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+JHA.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()}>
                     <Button variant="contained" color="primary" >
                         {/* <i className="fas fa-download"/> */}
                         Download PDF

@@ -6,7 +6,7 @@ import icon from './assets/images/va.png';
 import iconpp from './assets/images/pan-pin.png';
 import hazardicon from './assets/images/hazard.PNG';
 
-import { makeStyles} from '@material-ui/core/styles';
+import { makeStyles, StylesProvider} from '@material-ui/core/styles';
 
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
@@ -59,6 +59,14 @@ const styles = StyleSheet.create({
     height: 0,
     flexBasis: '100%',
   },
+  flex1: {
+    flex: 1,
+  },
+  br: {
+    flexGrow: 1, 
+    display:"flex", 
+    alignItems:"center",
+  },
   section15 :{
     height: 15,
     flexBasis: '100%',
@@ -102,13 +110,13 @@ const styles = StyleSheet.create({
     margin: '1 1 1 0',
     padding: '2 2 2 0',
   },
-  hazrdcell1: {
+  task_text: {
     flex : 10,
     // flexGrow: 1,
     //flexBasis: 0,
     margin: '1px',
     padding: '2px',
-    fontSize: '5mm',
+    fontSize: '3.6mm',
     // backgroundColor: "#ECEFF1",
   },
   hazrdcellicon: {
@@ -126,13 +134,35 @@ const styles = StyleSheet.create({
     // flexGrow: 1,
     //flexBasis: 0,
     margin: '1px',
-    marginTop: '2mm',
+    marginTop: '0mm',
     marginLeft: '0mm',
     padding: '2px',
     fontSize: '3.5mm',
     // backgroundColor: "#ECEFF1",
   },
+  column : {
+    flexBasis: 0,    
+    
+    display: "flex",
+  },
   hazrdcell3: {
+    
+    display: "flex",
+    paddingLeft: '25px',
+    marginLeft: '5mm',
+    padding: '2px',
+    fontSize: '3.4mm',
+  },
+  center: {
+     textAlign: 'center',
+  },
+  hazrdcell3Center: {
+    width: "18mm",
+    alignItems:"center",
+    justifyContent: "center",
+    // height: '100%', 
+    display: "flex",
+    // textAlign: 'center',
     paddingLeft: '25px',
     marginLeft: '5mm',
     padding: '2px',
@@ -298,13 +328,13 @@ const values = [
 ];
 const colors = [
   "green",
-  "black",
+  "yellow",
   "orange",
   "red"
 ];
 const backgroundColors = [
   "white",
-  "yellow",
+  "black",
   "white",
   "white"
 ];
@@ -318,7 +348,7 @@ const textcolors = [
 const JHAHazardRow = ({task, hazards, control, rac}) => (
   <View>
   <View style={styles.jhatable}>
-  <Text style={styles.hazrdcell1} >{task}</Text>
+  <Text style={styles.task_text} ><Text style={styles.bold1}>Task:</Text> {task}</Text>
   <Text style={styles.hazrdcellicon} > 
  <Image 
   style={{width: '.75cm',
@@ -327,9 +357,19 @@ const JHAHazardRow = ({task, hazards, control, rac}) => (
       src={hazardicon}
     ></Image>
     </Text>
-  <Text style={styles.hazrdcell2} >{hazards.split("\n").filter((val) => val !== "").join(', ')}</Text>
-      </View>
-      <Text style={styles.hazrdcell3} >Risk Assessment: <Text style={{...styles.bold1, color: colors[values.indexOf(rac)], backgroundColor: backgroundColors[values.indexOf(rac)]}}>{options[values.indexOf(rac)]}</Text></Text>
+  <Text style={styles.hazrdcell2} ><Text style={styles.bold1}>Hazards:</Text> {hazards.split("\n").filter((val) => val !== "").join(', ')}
+  
+  </Text>
+  <View style={{alignItems: "center",  justifyContent: "center"}}> 
+<Text style={styles.hazrdcell3} ><Text style={styles.bold1}>Risk Assessment:</Text> </Text>
+ <Text style={{ ...styles.hazrdcell3Center, ...styles.bold1,alignItems: "center",borderRadius: "2mm",border: "1 solid black", textAlign: "center", fontSize: "4mm", paddingTop: "2mm", height: "10mm",  backgroundColor : colors[values.indexOf(rac)], color : backgroundColors[values.indexOf(rac)]}}>
+   {options[values.indexOf(rac)]}
+   </Text>
+</View>
+      </View> 
+
+
+      <Text style={styles.hazrdcell3} ><Text style={styles.bold1}>Controls:</Text> </Text>
   <Text style={styles.hazrdcell3}>{control}</Text>
   <View style={styles.section15}></View>
   </View>
@@ -358,7 +398,7 @@ const JHAHazardRow = ({task, hazards, control, rac}) => (
 
 const RACTable = () => (
   <View>
-    <Text style={styles.ractitle}>Overall Risk Assessment: </Text>
+    <Text style={styles.ractitle}>Risk Assessment Code (RAC): </Text>
     <Text style={{fontSize: '3.5mm',}}> “Probability” is the likelihood to cause an incident, near miss, or accident and identified as: Frequent, Likely, Occasional, Seldom or Unlikely. 
 
 “Severity” is the outcome/degree if an incident, near miss, or accident did occur and identified as: Catastrophic, Critical, Marginal, or Negligible</Text>
@@ -509,9 +549,11 @@ export default function MyDocument ({JHA, profile})  {
     <Page size="A4" style={styles.page} wrap  >
      <View style={styles.jhatable}>
      <View >
-     <Text style={styles.root}>{JHA.activity.name}  (Total Risk: <Text style={{color: colors[totalRacIndex],backgroundColor:backgroundColors[totalRacIndex],...styles.bold}}>{
+     <Text style={styles.root}>{JHA.activity.name}  (Overall Risk Assessment: <Text style={{ ...styles.hazrdcell3Center, ...styles.bold1,alignItems: "center",borderRadius: "2mm",border: "1 solid black", textAlign: "center", fontSize: "6mm", paddingTop: "2mm", height: "10mm",  backgroundColor : colors[totalRacIndex], color : backgroundColors[totalRacIndex]}}>
+   {options[totalRacIndex]}
+   </Text>)
+     </Text>
      
-     options[totalRacIndex] }</Text>)</Text>
      <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text>
      <Text style={styles.textDetails}>Job Location: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
      {/* <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>*/}

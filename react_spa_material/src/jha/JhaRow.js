@@ -220,12 +220,23 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
           
           <Zoom in={open===1 || open===3}>
             {(open === 1) ? 
+             <BlueOnGreenTooltip className={classes.info} 
+             title="Show Control" placement="top-start">
  <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(3)}}><KeyboardArrowDownIcon ></KeyboardArrowDownIcon></IconButton>
+ </BlueOnGreenTooltip>
             : open === 3 ?
-         <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(1)}}><KeyboardArrowUpIcon ></KeyboardArrowUpIcon></IconButton>
+            <BlueOnGreenTooltip className={classes.info} 
+            title="Hide Control" placement="top-start">
+              <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(1)}}><KeyboardArrowUpIcon ></KeyboardArrowUpIcon></IconButton>
+         
+            </BlueOnGreenTooltip>
+
            : <div></div> }</Zoom>
           <Zoom in={open===1 || open === 3 || open === 2}>
+          <BlueOnGreenTooltip className={classes.info} 
+            title="Undo Selection " placement="top-start">
           <IconButton aria-label="delete" onClick={()=> {console.log("hi"); opener(0)}}><ReplayIcon ></ReplayIcon></IconButton>
+          </BlueOnGreenTooltip>
            </Zoom>
            </div>
            </div>
