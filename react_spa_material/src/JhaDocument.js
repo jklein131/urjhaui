@@ -561,7 +561,7 @@ export default function MyDocument ({JHA, profile})  {
      <Text style={styles.textDetails}>Prepared At: <Text style={styles.italilit}>{m().format('MMMM Do YYYY, h:mm a')}</Text></Text>
      {/* <Text style={styles.textDetails}>Job Scope: <Text style={styles.italilit}>PLUMN</Text></Text> */}
      {/* <Text style={styles.textDetails}>Supervisor: <Text style={styles.italilit}>Joshua Klein</Text></Text>  */}
-     <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}></Text></Text>
+     <Text style={styles.textDetails}>Notes: <Text style={styles.italilit}></Text>{JHA.description}</Text>
      </View>
      
      {/* <View style={styles.textDetails}>

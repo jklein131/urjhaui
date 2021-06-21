@@ -166,6 +166,16 @@ function HorizontalLinearStepper({jha, profile}) {
         console.log("lit", JHA)
         return
       }
+      if (JHA.description === "" || JHA.description === undefined || JHA.description === null) {
+        setJHA(t => {
+          const newMessageObj = { ...t, "descriptionerror": "Required" };
+          console.log(newMessageObj)
+          return newMessageObj
+        })
+
+        console.log("lit", JHA)
+        return
+      }
     }
     if (activeStep === 1) {
       console.log("as",JHA)
@@ -179,6 +189,7 @@ function HorizontalLinearStepper({jha, profile}) {
         jobId: JHA.jobselect._id,
         data: JHA.selected,
         activityId: JHA.activity._id, 
+        description: JHA.description
       }
       environment.fetch('jhacomplete',
         {
@@ -670,7 +681,8 @@ function Jha({profile}) {
             return v.data._id
           }),
           activity: res.activityId,
-          jobselect: res.jobId, 
+          jobselect: res.jobId,
+          description: res.description,
         })
       }).err
     }

@@ -30,6 +30,18 @@ const filter = createFilterOptions();
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 
+function DescriptionInput({label, JHA, setJHA}){
+  return <TextField style={{ width: "100%" }} value={JHA.description     } required multiline
+  rows={4} onChange={               
+    (event, newValue) => {
+      setJHA(t => {
+        const newMessageObj = { ...t, "description": event.target.value };
+        return newMessageObj
+      })
+    }
+  }
+ error={false || (JHA !== undefined && (JHA.description == "" || JHA.description === undefined) && JHA.descriptionerror !== undefined)} label={label} variant="outlined" />
+}
 
 function ComboBox({label, JHA, setJHA}) {
   var [options, setOptions] = React.useState([])
@@ -373,6 +385,7 @@ export default function JhaJobSelect({JHA, setJHA}) {
                 >
                   Learn More about the JHA
                   </Button> */}
+                  <DescriptionInput JHA={JHA} setJHA={setJHA} label="Activity Description"></DescriptionInput>
           </Paper>
           <br></br>
         </Grid>
