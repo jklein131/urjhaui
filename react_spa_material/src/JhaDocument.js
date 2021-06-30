@@ -315,10 +315,10 @@ const JHAHeader = ({rows}) => (
   </View>
 );
 const options = [
-  "Low",
-  "Medium",
-  "High",
-  "Extreme"
+  "LOW",
+  "MEDIUM",
+  "HIGH",
+  "EXTREME"
 ];
 const values = [
   "L",
@@ -391,7 +391,7 @@ const JHAHazardRow = ({task, hazards, control, rac}) => (
 //         </View>
 //      })}
 //          <View style={styles.raccellgreen}>
-//               <Text>Low</Text>
+//               <Text>LOW</Text>
 //         </View>
 //         </View>
 // );
@@ -439,17 +439,17 @@ const RACTable = () => (
 <Text>Catastrophic</Text>
 </View>
         <View style={styles.raccellred}>
-              <Text>Extreme</Text>
+              <Text>EXTREME</Text>
         </View>
         <View style={styles.raccellred}>
 
-      <Text>Extreme</Text>
+      <Text>EXTREME</Text>
       </View>
       <View style={styles.raccellorange}>
-      <Text>High</Text>
+      <Text>HIGH</Text>
       </View>
       <View style={styles.raccellorange}>
-      <Text>High</Text>
+      <Text>HIGH</Text>
       </View>
       <View style={styles.raccellyellow}>
       <Text>Medium</Text>
@@ -462,20 +462,20 @@ const RACTable = () => (
 <Text>Critical</Text>
 </View>
         <View style={styles.raccellred}>
-              <Text>Extreme</Text>
+              <Text>EXTREME</Text>
         </View>
         <View style={styles.raccellorange}>
 
-      <Text>High</Text>
+      <Text>HIGH</Text>
       </View>
       <View style={styles.raccellorange}>
-      <Text>High</Text>
+      <Text>HIGH</Text>
       </View>
       <View style={styles.raccellyellow}>
       <Text>Medium</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
 </View>
 
       </View>
@@ -485,7 +485,7 @@ const RACTable = () => (
 <Text>Marginal</Text>
 </View>
         <View style={styles.raccellorange}>
-              <Text>High</Text>
+              <Text>HIGH</Text>
         </View>
         <View style={styles.raccellyellow}>
       <Text>Medium</Text>
@@ -494,10 +494,10 @@ const RACTable = () => (
       <Text>Medium</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
 </View>
 
       </View>
@@ -511,16 +511,16 @@ const RACTable = () => (
         </View>
         <View style={styles.raccellgreen}>
 
-      <Text>Low</Text>
+      <Text>LOW</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
       </View>
       <View style={styles.raccellgreen}>
-      <Text>Low</Text>
+      <Text>LOW</Text>
 </View>
 
       </View>
@@ -567,7 +567,7 @@ export default function MyDocument ({JHA, profile})  {
      {/* <View style={styles.textDetails}>
       
        <Text style={styles.totalractitle}>
-       Highest RAC </Text>
+       HIGHest RAC </Text>
        
        <Text>
        LOW </Text>
