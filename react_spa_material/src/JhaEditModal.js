@@ -135,7 +135,6 @@ export default function JhaEditModal({sections, hazard, setHazard, renderbutton 
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
   const [reqi, setreqi] = React.useState(false);
-  reqi
   const [localJob, setLocalJob] = React.useState(hazard ? hazard : {});
 
   const handleOpen = () => {

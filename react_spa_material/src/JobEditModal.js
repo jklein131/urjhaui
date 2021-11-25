@@ -41,7 +41,6 @@ export default function JobEditModal({job, setJob, renderbutton = r => (<IconBut
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
   const [reqi, setreqi] = React.useState(false);
-  reqi
   const [localJob, setLocalJob] = React.useState(job ? job : {});
 
   const handleOpen = () => {

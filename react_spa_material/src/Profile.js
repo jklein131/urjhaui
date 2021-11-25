@@ -77,7 +77,7 @@ export default function ResponsiveDialog({click, color, setColor, forceOpen, set
                 setIsLoading(false)
             }
         }).catch((err)=> {
-          setLocalProfile(data)
+          setLocalProfile(undefined)
                 setIsLoading(false)
           console.log(err)
         })

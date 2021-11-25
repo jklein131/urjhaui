@@ -214,7 +214,9 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
                        return v
                   })
                 )
-               })
+               }).catch(function(reason) {
+                alert(reason)
+             });
              
           }}></JhaRacSelect>
           

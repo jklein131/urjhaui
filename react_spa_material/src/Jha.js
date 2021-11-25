@@ -684,7 +684,9 @@ function Jha({profile}) {
           jobselect: res.jobId,
           description: res.description,
         })
-      }).err
+      }).catch(function(reason) {
+        alert(reason);
+     })
     }
   },[]) //run and get the JHA start doc on run if available. 
     return (

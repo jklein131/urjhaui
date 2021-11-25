@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 import {  PDFViewer, BlobProvider,Document, PDFDownloadLink } from '@react-pdf/renderer';
 
-const JHA = {"activity":{"name":"Test Activity"}, 
+const JHA = {"activity":{"name":"310.1 - 4742 - Utility System Series"}, 
 "jobselect":{"name": "Test Job", 
             "city": "san Diego",
             "street": "san Diego",

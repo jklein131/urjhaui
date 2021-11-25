@@ -346,7 +346,7 @@ const textcolors = [
 ];
 
 const JHAHazardRow = ({task, hazards, control, rac}) => (
-  <View>
+  <View wrap={false}>
   <View style={styles.jhatable}>
   <Text style={styles.task_text} ><Text style={styles.bold1}>Task:</Text> {task}</Text>
   <Text style={styles.hazrdcellicon} > 
@@ -395,7 +395,9 @@ const JHAHazardRow = ({task, hazards, control, rac}) => (
 //         </View>
 //         </View>
 // );
-
+const SignatureTable = () => (
+  <View></View>
+)
 const RACTable = () => (
   <View>
     <Text style={styles.ractitle}>Risk Assessment Code (RAC): </Text>
@@ -527,7 +529,37 @@ const RACTable = () => (
       {/* end */}
       </View>
 )
-
+const SignOffEnd = () => (
+  <View wrap={false}>
+    <Text style={styles.ractitle}>Employee Signatures: </Text>
+    <Text style={styles.sig}>1. Shop Supervisor </Text>
+    <Text style={styles.sig}>2. Contractor </Text>
+    <Text style={styles.sig}>3. COR / PM </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>4. Foreman </Text>
+    <Text style={styles.sig}>5. Safety </Text>
+    </View>
+)
 const SignOff = () => (
   <View>
     <Text style={styles.ractitle}>Required Signatures: </Text>
@@ -548,7 +580,7 @@ export default function MyDocument ({JHA, profile})  {
     
     <Page size="A4" style={styles.page} wrap  >
      <View style={styles.jhatable}>
-     <View >
+     <View style={{maxWidth: '80%'}}>
      <Text style={styles.root}>{JHA.activity.name}  (Overall Risk Assessment: <Text style={{ ...styles.hazrdcell3Center, ...styles.bold1,alignItems: "center",borderRadius: "2mm",border: "1 solid black", textAlign: "center", fontSize: "6mm", paddingTop: "2mm", height: "10mm",  backgroundColor : colors[totalRacIndex], color : backgroundColors[totalRacIndex]}}>
    {options[totalRacIndex]}
    </Text>)
@@ -619,6 +651,10 @@ export default function MyDocument ({JHA, profile})  {
       })
     }
       </View> 
+      <View style={styles.section}>
+       </View>
+       <SignOffEnd></SignOffEnd>
+    
 
       <View style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
         
