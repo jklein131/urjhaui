@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: '',
     // color: theme.palette.text.secondary,
   },
@@ -31,11 +31,19 @@ const filter = createFilterOptions();
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 
 function DescriptionInput({label, JHA, setJHA}){
-  return <TextField style={{ width: "100%" }} value={JHA.description     } required multiline
-  rows={4} onChange={               
+  const [description, setDescription] = React.useState("")
+  React.useEffect(()=>{
+    setDescription(JHA.description)
+  },[JHA])
+  return <TextField style={{ width: "100%" }} value={description} required multiline
+  rows={4} onChange={
+    (event, newValue) => {
+      setDescription(event.target.value)
+    }
+  } onBlur={
     (event, newValue) => {
       setJHA(t => {
-        const newMessageObj = { ...t, "description": event.target.value };
+        const newMessageObj = { ...t, "description": description };
         return newMessageObj
       })
     }
@@ -358,7 +366,7 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
   );
 }
 
-export default function JhaJobSelect({JHA, setJHA}) {
+export default function JhaJobSelect({JHA, setJHA, positions}) {
   const classes = useStyles();
 
   return (
@@ -367,13 +375,15 @@ export default function JhaJobSelect({JHA, setJHA}) {
         <Grid item xs={12}>
         
           <Paper className={classes.paper}>
-            <Typography variant="h5">Create JHA</Typography> 
-            <Typography variant="body1">Select a Job and Activity to get started! </Typography> 
+          {positions ? <Typography variant="h5">Create PHA</Typography>  : <Typography variant="h5">Create JHA</Typography>  }
+            
+            <Typography variant="body1">Select a Activity and Activity Description to get started! </Typography> 
             <br></br>
             <br></br>
-            <ComboBox JHA={JHA} setJHA={setJHA} label="Select Job"></ComboBox>
-            <br></br>
-            <br></br>
+            {false ? <div></div> : <React.Fragment><ComboBox JHA={JHA} setJHA={setJHA} label="Select Job"></ComboBox><br></br>
+            <br></br></React.Fragment>}
+            
+            
 
             <FreeSoloCreateOption JHA={JHA} setJHA={setJHA} label="Select Activity"></FreeSoloCreateOption>
             <br></br>
@@ -385,7 +395,7 @@ export default function JhaJobSelect({JHA, setJHA}) {
                 >
                   Learn More about the JHA
                   </Button> */}
-                  <DescriptionInput JHA={JHA} setJHA={setJHA} label="Activity Description"></DescriptionInput>
+             <DescriptionInput JHA={JHA} setJHA={setJHA} label="Activity Description"></DescriptionInput>
           </Paper>
           <br></br>
         </Grid>

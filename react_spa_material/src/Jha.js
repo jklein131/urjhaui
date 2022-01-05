@@ -122,18 +122,21 @@ const LightTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 
-function HorizontalLinearStepper({jha, profile}) {
+function HorizontalLinearStepper({jha, setJHA,  profile, positions}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
-  const [JHA, setJHA] = React.useState(jha ? jha : {}); 
   const [done, setDone] = React.useState(false); 
   const [sections, setSections] = React.useState(false);
   const [myData, setMyData] = React.useState(false);
   React.useEffect(()=>{
-    environment.fetch('hazards').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
-  },[])
+    if (positions) {
+      environment.fetch('hazards/positions').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
+    } else { 
+      environment.fetch('hazards').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
+    }
+     },[])
 
   const isStepOptional = step => {
     return false
@@ -146,50 +149,52 @@ function HorizontalLinearStepper({jha, profile}) {
 
   const handleNext = () => {
     if (activeStep === 0) {
-      if (JHA.jobselect === "" || JHA.jobselect === undefined || JHA.jobselect === null) {
+      if ((!positions) &&(jha.jobselect === "" || jha.jobselect === undefined || jha.jobselect === null)) {
         setJHA(t => {
           const newMessageObj = { ...t, "jobselecterror": "Required" };
           console.log(newMessageObj)
           return newMessageObj
         })
 
-        console.log("lit", JHA)
         return
       }
-      if (JHA.activity === "" || JHA.activity === undefined || JHA.activity === null) {
+      if  (jha.activity === "" || jha.activity === undefined || jha.activity === null) {
         setJHA(t => {
           const newMessageObj = { ...t, "activityerror": "Required" };
           console.log(newMessageObj)
           return newMessageObj
         })
 
-        console.log("lit", JHA)
         return
       }
-      if (JHA.description === "" || JHA.description === undefined || JHA.description === null) {
+      if (jha.description === "" || jha.description === undefined || jha.description === null) {
         setJHA(t => {
           const newMessageObj = { ...t, "descriptionerror": "Required" };
           console.log(newMessageObj)
           return newMessageObj
         })
 
-        console.log("lit", JHA)
         return
       }
     }
     if (activeStep === 1) {
-      console.log("as",JHA)
+      console.log("as",jha)
     }
     if (activeStep === 2) {
       //At this step, the JHA has been "finished"
       //We will now maake the payload to upload the 
-      console.log("done", JHA)
+      console.log("done", jha)
+     var type = null; 
+     if (positions) {
+       type = "positions"
+     }
      var uploadPayload = {
-        pdfUrl: JHA.pdfUrl,
-        jobId: JHA.jobselect._id,
-        data: JHA.selected,
-        activityId: JHA.activity._id, 
-        description: JHA.description
+        pdfUrl: jha.pdfUrl,
+        jobId: jha.jobselect ? jha.jobselect._id: null,
+        data: jha.selected,
+        activityId: jha.activity._id, 
+        description: jha.description, 
+        type: type, 
       }
       environment.fetch('jhacomplete',
         {
@@ -243,19 +248,19 @@ function HorizontalLinearStepper({jha, profile}) {
     //JHA and setJHA are all the data collected all the way through the form to get stuff and provide validation 
     switch (step) {
       case 0:
-        return <JhaJobSelect JHA={JHA} setJHA={setJHA}></JhaJobSelect>
+        return <JhaJobSelect positions={positions} JHA={jha} setJHA={setJHA}></JhaJobSelect>
       case 1:
-        console.log("JHA DATA", JHA)
+        console.log("JHA DATA", jha)
         return (
         <div>
           <br></br>
-         <JhaControl profile={profile} JHA={JHA} setJHA={setJHA} myData={myData} setMyData={setMyData}>
+         <JhaControl positions={positions} profile={profile} JHA={jha} setJHA={setJHA} myData={myData} setMyData={setMyData}>
         </JhaControl>
         </div>
         )
       case 2:
-        console.log("JHA DATA", JHA)
-        const doc = <MyDocument JHA={JHA} profile={profile}/>
+        console.log("JHA DATA", jha)
+        const doc = <MyDocument JHA={jha} profile={profile}/>
        
         return (
           <div>
@@ -265,13 +270,17 @@ function HorizontalLinearStepper({jha, profile}) {
           console.log("uploading",blob, url, loading, error )
          if ( !loading) {
            // so here we save all the PDF's in our domain folder based on our emails. Obvi. So if a user leaves, doesn't matter, all
-           // their stuff goes here. 
-          firebase.storage().ref("domain/" +profile.email.split('@')[1]).child("PDF-"+JHA.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+JHA.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()).put(blob).then((snapshot) => {
+           // their stuff goes here.  
+           var getName = "PDF-"+jha.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()
+           if(jha.jobselect) {
+            getName = "PDF-"+jha.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+jha.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()
+           } 
+          firebase.storage().ref("domain/" +profile.email.split('@')[1]).child(getName).put(blob).then((snapshot) => {
             console.log(snapshot)
-            if (JHA.pdfUrl === undefined) {
+            if (jha.pdfUrl === undefined) {
               firebase.storage().ref(snapshot.ref.fullPath).getDownloadURL(). then((url) => {
                 setJHA(t => {
-                  const newMessageObj = { ...t, "pdfUrl": snapshot.metadata.fullPath, "pdfDownload": url };
+                  const newMessageObj = { ...t, "pdfUrl": snapshot.metadata.fullPath, "pdfDownload": url, "pdfName":getName };
                   console.log(newMessageObj)
                   return newMessageObj
                 })
@@ -305,7 +314,7 @@ function HorizontalLinearStepper({jha, profile}) {
         handleBack();
         return false
       }
-      if (!done && JHA.jobselect !== undefined ) {
+      if (!done && jha.jobselect !== undefined ) {
         return window.confirm("You have unsaved changes, are you sure you want to leave?");
       }
       return true;
@@ -351,7 +360,7 @@ function HorizontalLinearStepper({jha, profile}) {
 
             
 
-                    <a href={JHA.pdfDownload} target="_blank" rel="noopener noreferrer" download={"PDF-"+JHA.jobselect.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+JHA.activity.name.replace(/[^a-zA-Z0-9]/g,'_')+"-"+ m().format()}>
+                    <a href={jha.pdfDownload} target="_blank" rel="noopener noreferrer" download={jha.pdfName}>
                     <Button variant="contained" color="primary" >
                         {/* <i className="fas fa-download"/> */}
                         Download PDF
@@ -666,10 +675,9 @@ TabPanel.propTypes = {
 //   );
 // }
 
-function Jha({profile}) {
+function Jha({jha, setJHA, profile, positions}) {
   let params = useParams();
   const classes = useStyles();
-  const [JHA, setJHA] = React.useState(undefined)
   React.useEffect(()=>{
     if (params["id"] !== undefined) {
       environment.fetch('jhacomplete/'+params["id"]).then((res)=> res.json()).then((res)=> {
@@ -697,7 +705,7 @@ function Jha({profile}) {
         TODO: add help information in some sort of drawer or popup so that we can give people more 
         information when filling out the JHA
         */}
-        <HorizontalLinearStepper jha={JHA} profile={profile}></HorizontalLinearStepper>
+        <HorizontalLinearStepper jha={jha} setJHA={setJHA} profile={profile} positions={positions}></HorizontalLinearStepper>
         <br></br>
       </div>
     )

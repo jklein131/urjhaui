@@ -13,7 +13,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { withStyles, makeStyles,createMuiTheme } from '@material-ui/core/styles';
+import { withStyles, makeStyles,createTheme } from '@material-ui/core/styles';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ReplayIcon from '@material-ui/icons/Replay';
 import Zoom from '@material-ui/core/Zoom';
@@ -123,7 +123,7 @@ twoThings : {
 }
 
   }));
-  const defaultTheme = createMuiTheme();
+  const defaultTheme = createTheme();
   const BlueOnGreenTooltip = withStyles({
     tooltip: {
       fontSize: "1em",
@@ -133,7 +133,7 @@ twoThings : {
     }
   })(Tooltip); 
   
-export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA, myData, setMyData, sections}) {
+export default function JhaRow({positions, data, scrollToNext,status,setStatus, JHA, setJHA, myData, setMyData, sections}) {
     const classes = useStyles()
     const open = status
     const opener = setStatus
@@ -194,7 +194,11 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
               */
              console.log("RAC CHANGED", data._id, value)
              var uploadPayload = {rac: value, _id: data._id} 
-             environment.fetch('hazards/'+data._id,
+             var et = ""
+             if (positions) {
+                et="/positions"
+             }
+             environment.fetch('hazards/'+et+data._id,
              {
                method: 'PATCH',
                body: JSON.stringify(uploadPayload),
@@ -268,7 +272,7 @@ export default function JhaRow({data, scrollToNext,status,setStatus, JHA, setJHA
         
                       &nbsp;
 
-        <JhaEditModal sections={sections} hazard={data} renderbutton={(r)=> (
+        <JhaEditModal positions={positions} sections={sections} hazard={data} renderbutton={(r)=> (
         <Button size="small" onClick={r} color="primary" variant="contained">Edit</Button>)}
         
         setHazard={(newHazard)=>{

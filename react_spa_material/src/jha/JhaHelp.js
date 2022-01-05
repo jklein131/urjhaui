@@ -35,7 +35,7 @@ export default function CustomizedSnackbars() {
 
   return (
     <div className={classes.root}>
-      <Alert severity="info">Select from the Categories Below to get started. Hazards will be populated here. </Alert>
+      <Alert severity="info">Select from the Categories above to get started. Hazards will be populated here. </Alert>
     </div>
   );
 }

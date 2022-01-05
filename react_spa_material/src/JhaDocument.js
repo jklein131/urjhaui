@@ -582,9 +582,10 @@ export default function MyDocument ({JHA, profile})  {
    {options[totalRacIndex]}
    </Text>)
      </Text>
+     {/* why would there not be jobselect -- positions */}
+     {JHA.jobselect ? <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text> : <Text></Text>}
+     {JHA.jobselect ? <Text style={styles.textDetails}>Job Location: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text> : <Text></Text>}
      
-     <Text style={styles.textDetails}>Job Name: <Text style={styles.italilit}>{JHA.jobselect.name}</Text></Text>
-     <Text style={styles.textDetails}>Job Location: <Text style={styles.italilit}>{JHA.jobselect.street}</Text></Text>
      {/* <Text style={styles.textDetails}>Job City: <Text style={styles.italilit}>{JHA.jobselect.city}</Text></Text>*/}
      <Text style={styles.textDetails}>Prepared By: <Text style={styles.italilit}>{profile.displayName} ({profile.email})</Text></Text> 
      <Text style={styles.textDetails}>Prepared At: <Text style={styles.italilit}>{m().format('MMMM Do YYYY, h:mm a')}</Text></Text>

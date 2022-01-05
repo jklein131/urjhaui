@@ -47,7 +47,7 @@ export default function  Home() {
             </br>
             <br>
             </br>
-            <Button  color="primary"  variant="contained" href={"#/jha"}>Start my First JHA! </Button>
+            <Button  color="primary"  variant="contained" href={"#/jhashopping"}>Start my First JHA! </Button>
           </Paper>
         </Grid>
 

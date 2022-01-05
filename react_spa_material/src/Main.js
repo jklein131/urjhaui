@@ -12,15 +12,19 @@ import Incidents from "./Incidents";
 import Inspections from "./Inspections";
 import Jobs from "./Jobs";
 import Documents from "./Documents";
+import JhaControl from "./jha/JhaControl";
 import Dashboard from "./Dashboard";
+import Checkout from "./Checkout";
 import FormBuilderJquery from "./FormBuilder";
 import FormViewer from "./FormViewer";
 import FormDashboard from "./FormDashboard";
+import Library from "./Library";
 import JobDashboard from "./JobDashboard";
 
 import Login from "./Login";
 import Timeline from './Timeline';
 import JhaDashboard from './JhaDashboard'
+import PositionsDashboard from './PositionsDashboard'
 import FileViewer from './FileViewer'
 
 import withFirebaseAuth from 'react-with-firebase-auth'
@@ -36,7 +40,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { withStyles,makeStyles, createMuiTheme, ThemeProvider, withTheme} from '@material-ui/core/styles';
+import { withStyles,makeStyles, createTheme, ThemeProvider, withTheme} from '@material-ui/core/styles';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import CardMedia from '@material-ui/core/CardMedia';
@@ -112,30 +116,29 @@ const styles = {
 
 
 
-class Main extends Component {
-  state = {
-    color: '#0F3656',
-    profile: false,
-  }
-  render() {
-    const {
-      user,
-      signOut,
-      signInWithGoogle,
-      classes,
-      ...other
-    } = this.props;
+function Main({
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithGoogle,
+  signInWithFacebook,
+  signInWithGithub,
+  signInWithTwitter,
+  signInAnonymously,
+  signOut,
+  setError,
+  user,
+  error,
+  loading,
+  classes,
+}) {
     console.log("user",user)
-    if (user) {
-      {firebase.auth().currentUser.getIdToken(true).then((idToken) => {console.log(idToken)})
-              }
-    }
+    const [color, setColor] = React.useState('#0F3656')
 
     /* create theme on the fly */
-    const theme = createMuiTheme({
+    const theme = createTheme({
       palette: {
         primary: {
-          main: this.state.color,
+          main: color,
         },
         secondary: {
           main: '#FF7812',
@@ -143,39 +146,61 @@ class Main extends Component {
       },
       
     });
-    const setColor = (c) => {
-      this.setState({color:c})
-    }
-    const setProfile = (c) => {
-      this.setState({profile:c})
-    }
+    const positions = false; //TODO change this to if it's all positions in the cart, 
+                             // don't require jobs etc. 
+    const [profile, setProfile] = React.useState(false)
+    const [jha, setJHAState] = React.useState({"test":"hi"})
 
+    const setJHA = (v)=> {
+      
+      setJHAState(v )
+      const f = ()=>console.log("setJHA", jha)
+      f()
+    }
+    
+   
 
     /*https://github.com/firebase/firebaseui-web#demo 
         this be lit for login and stuff
         */
     return user
           ? <ThemeProvider theme={theme}>
-            {this.state.profile ?  <HashRouter >
+            {profile ?  <HashRouter >
               
-              <Navigation {...other} color={this.state.color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={this.state.profile}  ></Navigation>
+              <Navigation setJHA={setJHA} positions={positions} jha={jha} theme={theme} signOut={signOut} color={color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={profile}  >
               <div className="container" >
               
                 <br></br>
-                { this.state.profile.email.includes('@yourjha.com') ||this.state.profile.email.includes('@va.gov') || this.state.profile.email.includes('@uci.edu')  || this.state.profile.email.includes('@ppmechanical.com') ? 
+                { profile.email.includes('@yourjha.com') ||profile.email.includes('@va.gov') || profile.email.includes('@uci.edu')  || profile.email.includes('@ppmechanical.com') ? 
               <React.Fragment>
                   <Route exact path="/" component={Home}/>
                   <Route path="/contact" component={Contact}/>
                 
                   <Route path="/jha/:id?" render={(props) => (
-    <Jha profile={this.state.profile} />
+    <Jha setJHA={setJHA} jha={jha} profile={profile} positions={false}/>
+  )}/>
+                  <Route path="/jhashopping" render= {
+                    (props) => <JhaControl profile={profile} positions={false} JHA={jha} setJHA={setJHA}>
+                    </JhaControl>
+                  }></Route>
+                  <Route path="/phashopping" render= {
+                    (props) => <JhaControl profile={profile} positions={true} JHA={jha} setJHA={setJHA}>
+                    </JhaControl>
+                  }></Route>
+                  <Route path="/positions/:id?" render={(props) => (
+    <Jha setJHA={setJHA} jha={jha} positions={true} profile={profile} />
   )}/> 
                   <Route path="/jha-dashboard" component={JhaDashboard}/>
+                  <Route path="/positions-dashboard" component={PositionsDashboard}/>
                   
                   <Route path="/incidents" component={Incidents}/>
+                  <Route path="/checkout" render={(props)=><Checkout jha={jha} setJHA={setJHA} profile={profile}></Checkout>}/>
                   <Route path="/inspections" component={Inspections}/>
                   <Route path="/admin/jobs/:id?" component={JobDashboard}/>
                   <Route path="/documents" component={Documents}/>
+                  <Route path="/library" render={(props) => (
+    <Library profile={profile} />
+  )}/>
                   <Route path="/dashboard" component={Dashboard}/>
                   <Route path="/form-builder/:id?" component={FormBuilderJquery}/> 
                   <Route path="/form-dashboard/:id?" component={FormDashboard}/> 
@@ -191,9 +216,10 @@ class Main extends Component {
                   </React.Fragment> : <div>You have successfully logged in</div> }
                   
             </div>
+            </Navigation>
           
 </HashRouter>: <div><ResponsiveDialog 
-color={this.state.color} 
+color={color} 
 forceOpen={true} 
 setColor={setColor}
 setProfile={setProfile}
@@ -212,8 +238,7 @@ click={()=>{}}></ResponsiveDialog></div>  }
         </Card>
         <br></br>
          </div>
-  
-  }
+
 }
  
 export default withFirebaseAuth({

@@ -22,7 +22,7 @@ import Link from '@material-ui/core/Link';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
  
-import JhaDashboardTable from './JhaDashboardTable'
+import PositionsDashboardTable from './PositionsDashboardTable'
 
 import Initicon from 'react-initicon';
 import FormBuilder from "./FormBuilder";
@@ -78,7 +78,7 @@ const styles = theme => ({
 });
 
 
-class JhaDashboard extends Component {
+class PositionsDashboard extends Component {
   
     state = {
     
@@ -95,22 +95,22 @@ class JhaDashboard extends Component {
             <div>
 
               <div style={{textAlign:"center"}}>
-            <Icon name={"Job Hazard Analysis"} size={150}></Icon>
+            <Icon name={"Positions Hazard Analysis"} size={150}></Icon>
             
             <Typography variant="h3" component="h2">
-            {"Job Hazard Analysis"}
+            {"Positions Hazard Analysis"}
 </Typography>
 <br></br>
 
 <Link 
-  href={"#jhashopping"}>
+  href={"#phashopping"}>
 <Button
           
           variant="contained"
           color="primary"
           className={classes.button}
         >
-          Create New JHA
+          Create New PHA
         </Button>
         </Link>
   
@@ -126,7 +126,7 @@ class JhaDashboard extends Component {
           </div>
           </Paper>
           <div > 
-          <JhaDashboardTable  ></JhaDashboardTable>
+          <PositionsDashboardTable  ></PositionsDashboardTable>
           </div>
         </div>
          
@@ -134,8 +134,8 @@ class JhaDashboard extends Component {
       }
   }
   
-  JhaDashboard.propTypes = {
+PositionsDashboard.propTypes = {
     classes: PropTypes.object.isRequired,
   };
    
-  export default withStyles(styles)(JhaDashboard);
+  export default withStyles(styles)(PositionsDashboard);

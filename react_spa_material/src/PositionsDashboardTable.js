@@ -20,7 +20,7 @@ async function inner(data) {
   return data
 }
 
-class JhaDashboardTable extends React.Component {
+class PositionsDashboardTable extends React.Component {
 
   state = {
     page: 0,
@@ -36,7 +36,7 @@ class JhaDashboardTable extends React.Component {
   // get data
   getData = () => {
     this.setState({ isLoading: true });
-    environment.fetch( 'jhacomplete')
+    environment.fetch( 'jhacomplete/positions')
     .then(res => res.json())
     .then((data) => {
       this.setState({ data: data, isLoading: false })
@@ -66,10 +66,10 @@ csvDownload(buildHead,buildBody,columns,data) {
 
   render() {
     const columns = [
-        {
-         name: "jobId.name",
-         label: "Job Name",
-        },
+        // {
+        //  name: "jobId.name",
+        //  label: "Job Name",
+        // },
         {
          name: "activityId.name",
          label: "Activity Name",
@@ -128,7 +128,7 @@ csvDownload(buildHead,buildBody,columns,data) {
                 // console.log("clicked", value, tableMeta, updateValue) 
                 return value !== undefined ? (
                   <React.Fragment>
-                    <IconButton href={"#/jha/"+ value}>
+                    <IconButton href={"#/positions/"+ value}>
                         <LaunchIcon></LaunchIcon>
                     </IconButton>
                     </React.Fragment>
@@ -144,18 +144,6 @@ csvDownload(buildHead,buildBody,columns,data) {
     //     /* padding: 16px; */
 
     const options = {
-      onRowsDelete: (rowsDeleted) => {
-        const idsToDelete = rowsDeleted.data.map(d => data[d.dataIndex]._id); // array of all ids to to be deleted
-        idsToDelete.map((id)=>  environment.fetch('jhacomplete/'+id,
-        {
-          method: 'DELETE',
-          headers: {
-            'Accept': 'application/json',
-            "content-type": "application/json",
-          }
-        }));
-      },
-
       filter: true,
       filterType: 'dropdown',
       responsive: 'standard', //standard | vertical | simple
@@ -181,7 +169,7 @@ csvDownload(buildHead,buildBody,columns,data) {
     return (
       <div>
         <MUIDataTable title={<Typography variant="title">
-          Previous JHA's
+          Previous PHA's
           {isLoading && <CircularProgress size={24} style={{marginLeft: 15, position: 'relative', top: 4}} />}
           </Typography>
           } data={data} columns={columns} options={options} />
@@ -191,4 +179,4 @@ csvDownload(buildHead,buildBody,columns,data) {
   }
 }
 
-export default JhaDashboardTable;
+export default PositionsDashboardTable;

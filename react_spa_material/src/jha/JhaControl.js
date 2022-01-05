@@ -11,8 +11,10 @@ import Box from "@material-ui/core/Box";
 import { positions, zIndex} from '@material-ui/system';
 import Collapse from '@material-ui/core/Collapse';
 import JhaEditModal from '../JhaEditModal'
+import { environment } from "../enviroments/enviroment";
 
-import { withStyles, makeStyles,createMuiTheme } from '@material-ui/core/styles';
+
+import { withStyles, makeStyles,createTheme } from '@material-ui/core/styles';
 
 import JhaRow from './JhaRow'
 import Avatar from '@material-ui/core/Avatar';
@@ -31,7 +33,7 @@ window.jQuery = $;
 window.$ = $;
 
 //this stupid theme thing
-const theme = createMuiTheme({ });
+const theme = createTheme({ });
   
 const useStyles = makeStyles({
     chips: {
@@ -52,7 +54,7 @@ const useStyles = makeStyles({
   });
 
 
-function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA, JHA, sections}) {
+function RowControl({positions, status, chip, data, updateStatus, myData, setMyData, setJHA, JHA, sections}) {
 
     
         //this is triggered on "add" to scroll to the next object.
@@ -69,7 +71,7 @@ function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA
         var ref = React.createRef();
         return (
             <div key={data._id} id={data._id} ref={ref}>
-            <JhaRow key={data._id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
+            <JhaRow positions={positions} key={data._id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
             chip={chip} data={data} scrollToNext={scrollToNext(ref)} myData={myData} 
             setMyData={setMyData} setJHA={setJHA} JHA={JHA} sections={sections}>
             </JhaRow>
@@ -78,12 +80,21 @@ function RowControl({status, chip, data, updateStatus, myData, setMyData, setJHA
     
 }
   
-function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
-   
+function JhaControl({ positions, setJHA, JHA,  profile }) {
+    const [myData, setMyData] = React.useState(false);
+    React.useEffect(()=>{
+      if (positions) {
+        environment.fetch('hazards/positions').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
+      } else { 
+        environment.fetch('hazards').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
+      }
+       },[])
+
     const classes = useStyles();
     const [sections, setSections] = React.useState(undefined)
     const [rows, setRows] = React.useState([])
     const [statuss, setStatuss]= React.useState(undefined)
+    const [selected, setSelected]= React.useState(JHA.selected ? JHA.selected : [])
 
     const reducer = (accumulator, currentValue) => {
         if ("section" in accumulator) {
@@ -98,8 +109,12 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
     };
 
     useEffect(()=> {
-        // run reduce the data into the sections headers using the function above
+        if (myData) {
+ // run reduce the data into the sections headers using the function above
+ setSections(myData.reduce(reducer)); 
             setSections(myData.reduce(reducer)); 
+ setSections(myData.reduce(reducer)); 
+        }
     },[myData])
 
     useEffect(()=> {
@@ -139,12 +154,7 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
         }
         setJHA(t =>
             {
-            const newMessageObj = { ...t, "selected": Object.keys(statuss).filter((ssf,index) => {
-                return statuss[ssf].status === 1 || statuss[ssf].status === 3
-            }).map((i)=> {
-                return statuss[i]
-            }) };
-            return newMessageObj 
+            return { ...t, "selected":selected} 
         })
     }, [statuss])
 
@@ -162,7 +172,17 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
             // I think because it blocks the render thread. But i have no idea. All i know is that the rows have to go in here. Pretty wild. 
             // we might want to add some sort of sorting on the data here, to be able to move it around. 
         setRows( myData.map((object, index) => {
-                return <RowControl key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                return <RowControl positions={positions} key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                    if (stat > 0) {
+                        if(selected.find((v)=>v.data._id === object._id)) {
+                            // we have found it in the list, update it. 
+                            setSelected(selected.map((v) => v.data._id === object._id ? {status:stat, data:object} : v))
+                        } else { 
+                            setSelected([...selected, {status:stat, data:object}])
+                        }
+                    } else {
+                        setSelected(selected.filter((v)=>v.data._id !== object._id))
+                    }
                     setStatuss(function(statuss, props){
                                 return  {...statuss, [object._id] :{status:stat, data:object}}
                             })
@@ -203,15 +223,25 @@ function JhaControl({myData , setJHA, JHA, setMyData, profile }) {
                 <div className={classes.break}></div>
                 <br></br>
                 <br></br>
-                <JhaEditModal sections={sections} hazard={{rac: 'L', section: 'General Safety'}} renderbutton={(r)=> (
+                <JhaEditModal positions={positions} sections={sections} hazard={{rac: 'L', section: '01 - General Safety'}} renderbutton={(r)=> (
         <Button size="small" onClick={r} color="primary" variant="contained">Add New Hazard</Button>)}
         
         setHazard={(newHazard)=>{
           // on new hazard, if 
           // Since we know this is a new one, we can cheat and just push it onto the array
+          
+          // add it to the cart
+            if(selected.find((v)=>v.data._id === newHazard._id)) {
+                // we have found it in the list, update it. 
+                setSelected(selected.map((v) => v.data._id === newHazard._id ? {status:1, data:newHazard} : v))
+            } else {
+                setSelected([...selected, {status:1, data:newHazard}])
+            }
+        // do this
           setStatuss(function(statuss, props){
             return  {...statuss, [newHazard._id] :{status:1, data:newHazard}}
         })
+
           setMyData([...myData, newHazard])
         }}></JhaEditModal>
 
