@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function JhaEditModal({positions, sections, hazard, setHazard, renderbutton = r => (<IconButton onClick={r}><EditIcon ></EditIcon></IconButton>)}) {
+export default function JhaEditModal({jha_type, sections, hazard, setHazard, renderbutton = r => (<IconButton onClick={r}><EditIcon ></EditIcon></IconButton>)}) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -149,16 +149,14 @@ export default function JhaEditModal({positions, sections, hazard, setHazard, re
     if (!localJob.task || ! localJob.hazards || ! localJob.controls) {
       setreqi("required field")
       return
-    }
-    console.log(localJob)
-    var p = null; 
-    if (positions) {
-      p = "positions"
-    }
+    } 
+    var up = localJob
+    up.type = jha_type
+    up.category = localJob.section
     if ("_id" in localJob) {
       environment.fetch('hazards/'+localJob._id, {
         method: 'PATCH',
-        body: JSON.stringify({...localJob, category :localJob.section, type: p}),
+        body: JSON.stringify(up),
         headers: {
           'Accept': 'application/json',
           "content-type": "application/json",
@@ -167,7 +165,7 @@ export default function JhaEditModal({positions, sections, hazard, setHazard, re
     } else {
       environment.fetch('hazards', {
         method: 'POST',
-        body: JSON.stringify({...localJob, category :localJob.section, type: p}),
+        body: JSON.stringify(up),
         headers: {
           'Accept': 'application/json',
           "content-type": "application/json",

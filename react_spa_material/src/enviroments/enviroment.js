@@ -13,7 +13,7 @@ export const environment = {
           return  fetch(baseUrl+url, {
             ...settings,
             'headers': 
-              settings != undefined ? {
+              settings !== undefined ? {
                 ...settings.headers,
                 "Authorization":"bearer "+idToken,
               } :

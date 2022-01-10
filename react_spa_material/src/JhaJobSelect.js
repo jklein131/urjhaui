@@ -51,7 +51,7 @@ function DescriptionInput({label, JHA, setJHA}){
  error={false || (JHA !== undefined && (JHA.description == "" || JHA.description === undefined) && JHA.descriptionerror !== undefined)} label={label} variant="outlined" />
 }
 
-function ComboBox({label, JHA, setJHA}) {
+function ComboBox({label, JHA, setJHA, disabled}) {
   var [options, setOptions] = React.useState([])
   
   React.useEffect(()=> {
@@ -66,6 +66,7 @@ function ComboBox({label, JHA, setJHA}) {
       options={options}
       getOptionLabel={(option) => option === "" ? "" : option.name}
       value={JHA.jobselect === undefined ? "" : JHA.jobselect}
+      disabled={disabled}
       onChange={
         (event, newValue) => {
           setJHA(t => {
@@ -366,21 +367,26 @@ function FreeSoloCreateOptionDialog({label, JHA, setJHA}) {
   );
 }
 
-export default function JhaJobSelect({JHA, setJHA, positions}) {
+export default function JhaJobSelect({JHA, setJHA, disabled}) {
   const classes = useStyles();
-
+  const Jtype = JHA.type
+  var thisType = "JHA"
+  if (JHA.type === "positions") {
+    thisType = "PHA"
+  }
   return (
 
       <Grid container spacing={3}>
         <Grid item xs={12}>
         
           <Paper className={classes.paper}>
-          {positions ? <Typography variant="h5">Create PHA</Typography>  : <Typography variant="h5">Create JHA</Typography>  }
+          {Jtype === "positions" ? <Typography variant="h5">Create {thisType}   </Typography>  : <Typography variant="h5">Create JHA</Typography>  }
             
             <Typography variant="body1">Select a Activity and Activity Description to get started! </Typography> 
             <br></br>
+            <Typography variant="body1">Type: {Jtype}</Typography>
             <br></br>
-            {false ? <div></div> : <React.Fragment><ComboBox JHA={JHA} setJHA={setJHA} label="Select Job"></ComboBox><br></br>
+            {JHA.type === "positions" ? <div></div> : <React.Fragment><ComboBox disabled={disabled} JHA={JHA} setJHA={setJHA} label="Select Job"></ComboBox><br></br>
             <br></br></React.Fragment>}
             
             

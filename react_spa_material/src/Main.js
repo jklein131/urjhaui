@@ -7,8 +7,8 @@ import {
 import Home from "./Home";
 import Contact from "./Contact";
 import Navigation from "./Navigation";
-import Jha from "./Jha";
 import Incidents from "./Incidents";
+import JhaView from "./JhaView";
 import Inspections from "./Inspections";
 import Jobs from "./Jobs";
 import Documents from "./Documents";
@@ -149,10 +149,53 @@ function Main({
     const positions = false; //TODO change this to if it's all positions in the cart, 
                              // don't require jobs etc. 
     const [profile, setProfile] = React.useState(false)
-    const [jha, setJHAState] = React.useState({"test":"hi"})
+    const [jha, setJHAState] = React.useState(false)
+
+    React.useEffect(()=>{
+      if (!profile) {
+        return
+      }
+      if (jha === false) {
+        if (profile.cart.length > 0 ) {
+          setJHAState(profile.cart[0])
+        } else { 
+          setJHAState({})
+        }
+        return
+      }
+     
+      // update the carttype 
+      if (jha.selected !== undefined && jha.selected.length > 0 && jha.type !== jha.selected[0].data.type) {
+        setJHAState({...jha,type: jha.selected[0].data.type})
+        // by putting a return here, it should retrigger this effect to update the remote. 
+        // instead of unnecessarilly updating the remote. 
+        return 
+      }
+      // clear the type if necessary
+      if ((jha.type !== undefined)  && 
+        (jha.selected !== undefined && jha.selected.length === 0)
+       ) {
+        setJHAState({...jha, type: undefined})
+        // return and retrigger this effect
+        return 
+       }
+
+      // this effect will keep these in sync. 
+      const up = JSON.stringify({"cart":[jha]})
+      environment.fetch('profile/cart',
+      {
+        method: 'PUT',
+        body: up,
+        headers: {
+          "Accept": "application/json",
+          "content-type": "application/json",
+        }
+      }).then((res)=>(res.json())).then((data)=> {
+        console.log("JHA", jha)
+      })
+    }, [profile, jha])
 
     const setJHA = (v)=> {
-      
       setJHAState(v )
       const f = ()=>console.log("setJHA", jha)
       f()
@@ -165,9 +208,9 @@ function Main({
         */
     return user
           ? <ThemeProvider theme={theme}>
-            {profile ?  <HashRouter >
+            {profile && jha ?  <HashRouter >
               
-              <Navigation setJHA={setJHA} positions={positions} jha={jha} theme={theme} signOut={signOut} color={color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={profile}  >
+              <Navigation setJHA={setJHA} jha={jha} theme={theme} signOut={signOut} color={color} setProfile={setProfile} setColor={setColor} theme={theme} signOut={signOut} user={profile}  >
               <div className="container" >
               
                 <br></br>
@@ -177,24 +220,28 @@ function Main({
                   <Route path="/contact" component={Contact}/>
                 
                   <Route path="/jha/:id?" render={(props) => (
-    <Jha setJHA={setJHA} jha={jha} profile={profile} positions={false}/>
+    <JhaView />
   )}/>
                   <Route path="/jhashopping" render= {
-                    (props) => <JhaControl profile={profile} positions={false} JHA={jha} setJHA={setJHA}>
+                    (props) => <JhaControl jha_type={"jha"}  JHA={jha} setJHA={setJHA}>
                     </JhaControl>
                   }></Route>
                   <Route path="/phashopping" render= {
-                    (props) => <JhaControl profile={profile} positions={true} JHA={jha} setJHA={setJHA}>
+                    (props) => <JhaControl jha_type={"positions"} JHA={jha} setJHA={setJHA}>
                     </JhaControl>
                   }></Route>
                   <Route path="/positions/:id?" render={(props) => (
-    <Jha setJHA={setJHA} jha={jha} positions={true} profile={profile} />
+    <JhaView />
   )}/> 
                   <Route path="/jha-dashboard" component={JhaDashboard}/>
                   <Route path="/positions-dashboard" component={PositionsDashboard}/>
                   
                   <Route path="/incidents" component={Incidents}/>
-                  <Route path="/checkout" render={(props)=><Checkout jha={jha} setJHA={setJHA} profile={profile}></Checkout>}/>
+                  <Route path="/checkout" render={(props)=>
+                
+                <Checkout jha={jha} setJHA={setJHA} profile={profile}></Checkout>
+                
+                    }/>
                   <Route path="/inspections" component={Inspections}/>
                   <Route path="/admin/jobs/:id?" component={JobDashboard}/>
                   <Route path="/documents" component={Documents}/>
@@ -226,7 +273,7 @@ setProfile={setProfile}
 click={()=>{}}></ResponsiveDialog></div>  }
             </ThemeProvider>
           : <div className={classes.loginroot}><Card className={classes.logincard}>
-            {environment.isVa() ? <img src={iconva} ></img>: environment.isPP() ? <img src={iconpp} ></img> :<a href="https://yourjha.com"><img src={icon} ></img></a>}
+            {environment.isVa() ? <img alt="company icon" src={iconva} ></img>: environment.isPP() ? <img alt="company icon" src={iconpp} ></img> :<a href="https://yourjha.com"><img alt="company icon" src={icon} ></img></a>}
             
             {/*  */}
 

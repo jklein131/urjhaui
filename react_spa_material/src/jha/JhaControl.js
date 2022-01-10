@@ -29,6 +29,7 @@ import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, 
 import Sticky from 'react-stickynode';
 import $ from "jquery";
 import { relativeTimeRounding } from "moment";
+import Jha from "../Jha";
 window.jQuery = $;
 window.$ = $;
 
@@ -54,7 +55,7 @@ const useStyles = makeStyles({
   });
 
 
-function RowControl({positions, status, chip, data, updateStatus, myData, setMyData, setJHA, JHA, sections}) {
+function RowControl({jha_type, status, chip, data, updateStatus, myData, setMyData, setJHA, JHA, sections}) {
 
     
         //this is triggered on "add" to scroll to the next object.
@@ -71,19 +72,29 @@ function RowControl({positions, status, chip, data, updateStatus, myData, setMyD
         var ref = React.createRef();
         return (
             <div key={data._id} id={data._id} ref={ref}>
-            <JhaRow positions={positions} key={data._id} status={status.status} setStatus={(stats)=>{updateStatus(stats)}}
-            chip={chip} data={data} scrollToNext={scrollToNext(ref)} myData={myData} 
-            setMyData={setMyData} setJHA={setJHA} JHA={JHA} sections={sections}>
+            <JhaRow 
+                jha_type={jha_type} 
+                key={data._id}
+                status={status.status}
+                setStatus={(stats)=>{updateStatus(stats)}}
+                chip={chip}
+                data={data}
+                scrollToNext={scrollToNext(ref)}
+                myData={myData} 
+                setMyData={setMyData} 
+                setJHA={setJHA} 
+                JHA={JHA} 
+                sections={sections}>
             </JhaRow>
             </div>
         )
     
 }
   
-function JhaControl({ positions, setJHA, JHA,  profile }) {
+function JhaControl({ jha_type, setJHA, JHA,  profile}) {
     const [myData, setMyData] = React.useState(false);
     React.useEffect(()=>{
-      if (positions) {
+      if (jha_type === "positions") {
         environment.fetch('hazards/positions').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
       } else { 
         environment.fetch('hazards').then((res)=> res.json()).then((res)=> {setMyData(res);console.log("data here",res)})
@@ -94,7 +105,11 @@ function JhaControl({ positions, setJHA, JHA,  profile }) {
     const [sections, setSections] = React.useState(undefined)
     const [rows, setRows] = React.useState([])
     const [statuss, setStatuss]= React.useState(undefined)
-    const [selected, setSelected]= React.useState(JHA.selected ? JHA.selected : [])
+    const [rerederrows, setrerederrows] = React.useState(undefined)
+    // const [selected, setSelected]= React.useState(JHA.selected ? JHA.selected : [])
+
+    const selected = JHA.selected ? JHA.selected : []
+    const setSelected = (sel)=> setJHA({...JHA, selected: sel})
 
     const reducer = (accumulator, currentValue) => {
         if ("section" in accumulator) {
@@ -111,8 +126,6 @@ function JhaControl({ positions, setJHA, JHA,  profile }) {
     useEffect(()=> {
         if (myData) {
  // run reduce the data into the sections headers using the function above
- setSections(myData.reduce(reducer)); 
-            setSections(myData.reduce(reducer)); 
  setSections(myData.reduce(reducer)); 
         }
     },[myData])
@@ -172,8 +185,19 @@ function JhaControl({ positions, setJHA, JHA,  profile }) {
             // I think because it blocks the render thread. But i have no idea. All i know is that the rows have to go in here. Pretty wild. 
             // we might want to add some sort of sorting on the data here, to be able to move it around. 
         setRows( myData.map((object, index) => {
-                return <RowControl positions={positions} key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                return <RowControl jha_type={jha_type} key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                    // if the types don't match, we don't want all the previous selected stuff.
+                    
                     if (stat > 0) {
+                        if (JHA.type !== undefined && object.type !== JHA.type) {
+                            setStatuss(function(s, props){
+                                s[object._id].data = object
+                                s[object._id].status = stat
+                                return s
+                            })
+                            setSelected([ {status:stat, data:object}])
+                            return 
+                        }
                         if(selected.find((v)=>v.data._id === object._id)) {
                             // we have found it in the list, update it. 
                             setSelected(selected.map((v) => v.data._id === object._id ? {status:stat, data:object} : v))
@@ -188,7 +212,7 @@ function JhaControl({ positions, setJHA, JHA,  profile }) {
                             })
                     }
                 } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA} sections={sections}></RowControl>
-            }))}},[sections, statuss]
+            }))}},[sections, statuss, JHA]
     )
     var states ={}
     var length_of_rows = 0 
@@ -223,25 +247,26 @@ function JhaControl({ positions, setJHA, JHA,  profile }) {
                 <div className={classes.break}></div>
                 <br></br>
                 <br></br>
-                <JhaEditModal positions={positions} sections={sections} hazard={{rac: 'L', section: '01 - General Safety'}} renderbutton={(r)=> (
+                <JhaEditModal jha_type={JHA.type} sections={sections} hazard={{rac: 'L', section: '01 - General Safety'}} renderbutton={(r)=> (
         <Button size="small" onClick={r} color="primary" variant="contained">Add New Hazard</Button>)}
         
         setHazard={(newHazard)=>{
-          // on new hazard, if 
-          // Since we know this is a new one, we can cheat and just push it onto the array
-          
-          // add it to the cart
-            if(selected.find((v)=>v.data._id === newHazard._id)) {
-                // we have found it in the list, update it. 
-                setSelected(selected.map((v) => v.data._id === newHazard._id ? {status:1, data:newHazard} : v))
-            } else {
-                setSelected([...selected, {status:1, data:newHazard}])
-            }
+         
+         
         // do this
           setStatuss(function(statuss, props){
             return  {...statuss, [newHazard._id] :{status:1, data:newHazard}}
         })
-
+         // add it to the cart
+         if(selected.find((v)=>v.data._id === newHazard._id)) {
+            // we have found it in the list, update it. 
+            setSelected(selected.map((v) => v.data._id === newHazard._id ? {status:1, data:newHazard} : v))
+        } else {
+            setSelected([...selected, {status:1, data:newHazard}])
+        }
+ // on new hazard, if 
+          // Since we know this is a new one, we can cheat and just push it onto the array
+          
           setMyData([...myData, newHazard])
         }}></JhaEditModal>
 

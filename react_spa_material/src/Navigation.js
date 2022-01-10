@@ -13,6 +13,7 @@ import Link from '@material-ui/core/Link';
 import { withStyles,makeStyles, createMuiTheme} from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Dialog from '@material-ui/core/Dialog';
+
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
@@ -39,6 +40,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { red } from '@material-ui/core/colors';
 
@@ -143,13 +145,39 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
   const handleDrawerOpen = () => {
     setOpenCart(true);
   };
+ const clearJHA = () => {
+   setJHA({})
+ }
+ const [resetOpen, setResetOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setResetOpen(true);
+  };
+
+  const handleClose = () => {
+    setResetOpen(false);
+  };
+
+  var shoppingLocation = "#/jhashopping"
+  if (jha.type === "positions") {
+    shoppingLocation = "#/phashopping"
+  }
+  var thisType = "JHA"
+    if (jha.type !== undefined) {
+      if (jha.type === "jha") {
+        thisType = "JHA"
+      } else { 
+        thisType = "PHA"
+      }
+    }
+
 
   const handleDrawerClose = () => {
     setOpenCart(false);
   };
   const checkoutJHA = (event) => {
     console.log("JHA", jha)
-    if ((jha.jobselect === "" || jha.jobselect === undefined || jha.jobselect === null)) {
+    if ((jha.type !== "positions") && (jha.jobselect === "" || jha.jobselect === undefined || jha.jobselect === null)) {
       setJHA(t => {
         const newMessageObj = { ...t, "jobselecterror": "Required" };
         console.log(newMessageObj)
@@ -211,6 +239,9 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
           <Link style={{color:"white"}} className={classes.link} href="#/positions-dashboard" >
             PHA
           </Link>
+          <Link style={{color:"white"}} className={classes.link} href="#/library" >
+            LIBRARY
+          </Link>
           <Link style={{color:"white"}} className={classes.link} href="#/admin/jobs/" >
             JOBS
           </Link>
@@ -232,7 +263,17 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
         <ShoppingCartIcon color={"secondary"} />
       </Badge>
         
-      </IconButton >
+          </IconButton >
+          {/* <IconButton
+            color="inherit"
+            aria-label="open drawer"
+   
+            edge="start"
+            className={classes.menuButton}
+          >
+            <NotificationsIcon color={"secondary"} />
+          </IconButton> */}
+          
       
         </Toolbar>
       </AppBar>
@@ -253,17 +294,47 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
         <Divider />
         
         <Divider />
-        <Button variant={"contained"} href="#/checkout" className={classes.checkoutbutton} onClick={checkoutJHA} color="primary">Checkout JHA</Button>
+        <Button variant={"contained"} href="#/checkout" className={classes.checkoutbutton} onClick={checkoutJHA} color="primary">Checkout {thisType}</Button>
+        <Button variant={"outlined"} className={classes.checkoutbutton} onClick={handleClickOpen} color="primary">Empty Cart</Button>
+       
+          <div>
+        <Dialog
+          open={resetOpen}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Would you like to clear your cart?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Clearing your cart will remove all current tasks from the {thisType} and start a new one. 
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Do Nothing
+            </Button>
+            <Button onClick={()=>{ clearJHA();  handleClose()} } variant={"contained"} color="primary" autoFocus>
+              Empty Cart
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+
         <br></br>
-        <JhaJobSelect positions={true} JHA={jha} setJHA={setJHA}></JhaJobSelect>
+        <JhaJobSelect JHA={jha} setJHA={setJHA}></JhaJobSelect>
         <br></br>
-        {(jha.selected && jha.selected.length > 0) ? jha.selected.map((data, index) => {
+        {(jha.selected && jha.selected.length > 0) ? <React.Fragment>
+           {jha.selected.map((data, index) => {
           console.log(data)
-            return <ListItem button key={data.data._id}>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            return <ListItem button key={"cart"+data.data._id}>
+              <ListItemIcon key={"icon"+data.data._id}><InboxIcon /></ListItemIcon>
               <ListItemText primary={data.data.task} secondary={data.data.hazard}/>
             </ListItem>
-        }): 
+        })}<br></br>
+        <Button variant={"outlined"} href={shoppingLocation} onClick={handleDrawerClose} color="primary">Continue Shopping!</Button>
+         
+        </React.Fragment>: 
         <div style={{textAlign:"center"}}>
         <Typography  type="h6">You have no items in your cart. </Typography>
         <br></br>
@@ -275,7 +346,9 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
             </ListItem>
           ))}
         </List> */}
-<Button variant={"outlined"} href="#/jhashopping" color="primary">Start Shopping!</Button>
+<Button variant={"outlined"} href={shoppingLocation} color="primary">Start Shopping!</Button>
+<br></br>
+<br></br>
 </div>}
         <Divider />
   

@@ -300,6 +300,12 @@ const styles = StyleSheet.create({
     borderWidth: '1',
     borderStyle: 'solid',
     padding: '3',
+  },
+  notes: {
+    height: '100',
+    // borderWidth: '1',
+    // borderStyle: 'solid',
+    padding: '3',
   }
 });
 
@@ -555,6 +561,7 @@ const SignOffEnd = () => (
     <Text style={styles.sig}>Print Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature </Text>
     <Text style={styles.sig}>Print Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature  </Text>
     <Text style={styles.ractitle}>Additional Notes: </Text>
+    <Text style={styles.notes}> </Text>
     </View>
 )
 const SignOff = () => (
@@ -578,7 +585,7 @@ export default function MyDocument ({JHA, profile})  {
     <Page size="A4" style={styles.page} wrap  >
      <View style={styles.jhatable}>
      <View style={{maxWidth: '80%'}}>
-     <Text style={styles.root}>{JHA.activity.name}  (Overall Risk Assessment: <Text style={{ ...styles.hazrdcell3Center, ...styles.bold1,alignItems: "center",borderRadius: "2mm",border: "1 solid black", textAlign: "center", fontSize: "6mm", paddingTop: "2mm", height: "10mm",  backgroundColor : colors[totalRacIndex], color : backgroundColors[totalRacIndex]}}>
+     <Text style={styles.root}>{JHA.activity.name}  (Risk Assessment: <Text style={{ ...styles.hazrdcell3Center, ...styles.bold1,alignItems: "center",borderRadius: "2mm",border: "1 solid black", textAlign: "center", fontSize: "6mm", paddingTop: "2mm", height: "10mm",  backgroundColor : colors[totalRacIndex], color : backgroundColors[totalRacIndex]}}>
    {options[totalRacIndex]}
    </Text>)
      </Text>
