@@ -61,7 +61,7 @@ export default function Checkout({jha,setJHA, profile}) {
    
     const [myData, setMyData] = React.useState(false);
     const [uploading, setUploading] = React.useState(false);
-    const [renderState, setRenderState] = React.useState({rendering: false, state: {}, index: ""});
+    // const [renderState, setRenderState] = React.useState({rendering: false, state: {}, index: ""});
 
     const [submitting, setsubmitting] = React.useState(false);
     const [cartType, setCartType] = React.useState(undefined);
@@ -75,14 +75,19 @@ export default function Checkout({jha,setJHA, profile}) {
 
    const submitJHA = () => {
     setsubmitting(true);
-      var uploadPayload = {
-        pdfUrl: jha.pdfUrl,
-        jobId: jha.jobselect ? jha.jobselect._id: null,
-        data: jha.selected,
-        activityId: jha.activity._id, 
-        description: jha.description, 
-        type: jha.type, 
-      }
+    var uploadPayload = {
+      pdfUrl: jha.pdfUrl,
+      data: jha.selected,
+      activityId: jha.activity._id, 
+      description: jha.description, 
+      type: jha.type, 
+    }
+
+    // calculate the job ID 
+    if (cartType !== "positions") {
+      uploadPayload.jobId = jha.jobselect ? jha.jobselect._id: null
+    }
+      
       environment.fetch('jhacomplete',
         {
           method: 'POST',

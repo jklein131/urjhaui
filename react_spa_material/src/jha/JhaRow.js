@@ -371,8 +371,8 @@ export default function JhaRow({goUp, setJHA, isView = false, JHA, showDown, sho
      
      setHazard={(newHazard)=>{
        // on new hazard, if
-       opener(1);
        setMyData(myData.map((d)=> (d._id === newHazard._id ?newHazard: d )))
+       opener(1);
      }}></JhaEditModal>}
 
      {isView ? <React.Fragment></React.Fragment> :<Button size="small" onClick={()=> {console.log("hi");  scrollToNext(ref1, ref2);opener(2);}}>{isCart ? "Delete": "Hide"}</Button>}

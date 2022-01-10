@@ -346,7 +346,7 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
             </ListItem>
           ))}
         </List> */}
-<Button variant={"outlined"} href={shoppingLocation} color="primary">Start Shopping!</Button>
+<Button variant={"outlined"} href={shoppingLocation} onClick={handleDrawerClose} color="primary">Start Shopping!</Button>
 <br></br>
 <br></br>
 </div>}

@@ -33,7 +33,11 @@ const filter = createFilterOptions();
 function DescriptionInput({label, JHA, setJHA}){
   const [description, setDescription] = React.useState("")
   React.useEffect(()=>{
-    setDescription(JHA.description)
+    if (JHA.description === undefined) {
+      setDescription("")
+    } else { 
+      setDescription(JHA.description)
+    }
   },[JHA])
   return <TextField style={{ width: "100%" }} value={description} required multiline
   rows={4} onChange={
@@ -384,7 +388,7 @@ export default function JhaJobSelect({JHA, setJHA, disabled}) {
             
             <Typography variant="body1">Select a Activity and Activity Description to get started! </Typography> 
             <br></br>
-            <Typography variant="body1">Type: {Jtype}</Typography>
+            {/* <Typography variant="body1">Type: {Jtype}</Typography> */}
             <br></br>
             {JHA.type === "positions" ? <div></div> : <React.Fragment><ComboBox disabled={disabled} JHA={JHA} setJHA={setJHA} label="Select Job"></ComboBox><br></br>
             <br></br></React.Fragment>}

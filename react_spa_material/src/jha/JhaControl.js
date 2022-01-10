@@ -104,9 +104,6 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
     const classes = useStyles();
     const [sections, setSections] = React.useState(undefined)
     const [rows, setRows] = React.useState([])
-    const [statuss, setStatuss]= React.useState(undefined)
-    const [rerederrows, setrerederrows] = React.useState(undefined)
-    // const [selected, setSelected]= React.useState(JHA.selected ? JHA.selected : [])
 
     const selected = JHA.selected ? JHA.selected : []
     const setSelected = (sel)=> setJHA({...JHA, selected: sel})
@@ -131,70 +128,30 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
     },[myData])
 
     useEffect(()=> {
-        var rp = {}
-        if (myData === false) {
-            return
-        }
-        setStatuss(
-            function(statuss, props){ 
-                var tmp = statuss === undefined ? {}: statuss
-                myData.map((object, index) => {
-                    // fix save the map somewhere so this is not O(n^2)
-                    // and is just an index lookup. 
-                    // object 
-                    var r2 = JHA.selected !== undefined ? JHA.selected.filter((v)=> (
-                        v.data._id === object._id
-                    )) : []
-                    if (r2.length > 0) {
-                        tmp[object._id] = {status:r2[0].status, data: object}
-                    } else {
-                        tmp[object._id] = {status:0, data: object}
-                    }
-            })
-               return tmp
-             })
-        //if this is first load, check for the selected data and select it
-        //end use effect
-
-        
-    },[sections])
- 
-   
-    //use effect only when the rows object changes
-    useEffect(()=> {
-        if (statuss === undefined) {
-            return
-        }
-        setJHA(t =>
-            {
-            return { ...t, "selected":selected} 
-        })
-    }, [statuss])
-
-    useEffect(()=> {
-        console.log("effect1", statuss, myData, sections)
+        console.log("effect1", myData, sections)
         if (sections === undefined) {
             return 
         }
-        if (statuss === undefined) {
-            return 
-        }
+        var statusLookup = JHA.selected !== undefined ? JHA.selected.reduce((prev, cur) => {
+            prev[cur.data._id] = cur
+            return prev 
+        },{}) : {}
+
         if (myData  !== false ) {
 
             // tried taking this out of an effect, and iterating through the map in the body of the function, but it's slow af. 
             // I think because it blocks the render thread. But i have no idea. All i know is that the rows have to go in here. Pretty wild. 
             // we might want to add some sort of sorting on the data here, to be able to move it around. 
         setRows( myData.map((object, index) => {
-                return <RowControl jha_type={jha_type} key={object._id} data={object} chip={object.section} status={statuss[object._id]} updateStatus={ (stat) => {
+                var statust = {status:0} 
+                if (object._id in statusLookup) {
+                    statust = statusLookup[object._id]
+                }
+                return <RowControl jha_type={jha_type} key={object._id} data={object} chip={object.section} status={statust} updateStatus={ (stat) => {
                     // if the types don't match, we don't want all the previous selected stuff.
                     
                     if (stat > 0) {
                         if (JHA.type !== undefined && object.type !== JHA.type) {
-                            setStatuss(function(s, props){
-                                s[object._id].data = object
-                                s[object._id].status = stat
-                                return s
-                            })
                             setSelected([ {status:stat, data:object}])
                             return 
                         }
@@ -207,12 +164,12 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
                     } else {
                         setSelected(selected.filter((v)=>v.data._id !== object._id))
                     }
-                    setStatuss(function(statuss, props){
-                                return  {...statuss, [object._id] :{status:stat, data:object}}
-                            })
                     }
+                    // PERFORMANCE GAIN = sections here is only passed so that we know the available sections 
+                    // instead of passing the sections status map, 
+                    // we can pass a list of unique sections. 
                 } setMyData={setMyData } myData={myData } setJHA={setJHA} JHA={JHA} sections={sections}></RowControl>
-            }))}},[sections, statuss, JHA]
+            }))}},[sections, myData, JHA]
     )
     var states ={}
     var length_of_rows = 0 
@@ -247,16 +204,12 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
                 <div className={classes.break}></div>
                 <br></br>
                 <br></br>
-                <JhaEditModal jha_type={JHA.type} sections={sections} hazard={{rac: 'L', section: '01 - General Safety'}} renderbutton={(r)=> (
+                <JhaEditModal jha_type={jha_type} sections={sections} hazard={{rac: 'L', section: '01 - General Safety'}} renderbutton={(r)=> (
         <Button size="small" onClick={r} color="primary" variant="contained">Add New Hazard</Button>)}
         
         setHazard={(newHazard)=>{
-         
-         
         // do this
-          setStatuss(function(statuss, props){
-            return  {...statuss, [newHazard._id] :{status:1, data:newHazard}}
-        })
+        setMyData([...myData, newHazard])
          // add it to the cart
          if(selected.find((v)=>v.data._id === newHazard._id)) {
             // we have found it in the list, update it. 
@@ -267,7 +220,6 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
  // on new hazard, if 
           // Since we know this is a new one, we can cheat and just push it onto the array
           
-          setMyData([...myData, newHazard])
         }}></JhaEditModal>
 
          </Paper>
@@ -279,7 +231,7 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
                 length_of_rows++
                 return true
             }
-            if (row.props.data._id in statuss && (statuss[row.props.data._id].status === 1 || statuss[row.props.data._id].status === 3)) {
+            if (row.props.status.status === 1 || row.props.status.status === 3) {
                 length_of_rows++
                 return true 
             }
