@@ -79,3 +79,42 @@ https://formbuilder.online/docs/formBuilder/options/typeUserAttrs/#example-check
 +// automated workflow with email notifications (this would be nice to add if firebase supports it.)
 +// job specific edits in addition to hazard update approval process. 
 +// a way to view and comment on a JHA by email. 
+
+TODO: 
+
+JHA form landing page 
+- JHA RowControl needs to list the things so that we can add them to a new cart. 
+- Need to have all the information about the JHA be there and pretty. 
+- Show the PDF on a different page. 
+
+Someway to filter by jobs 
+- Clicking on a job adds a job search icon or something 
+- need to show archived jobs in a different tab. 
+
+Cart
+- Need ability to specify cart type so that a JHA and PHA can be created at the same time. Maybe we have the ability to have multiple carts.  
+    - I think having multiple carts should come later, first we need the identification logic to find if the cart matches the type or something and then we can add that logic. 
+- Cart submit needs to redirect to JHA landing page. 
+- REACH: need a "add user" JHA element for adding people to the JHA. 
+
+JHA RowControl 
+- Need to prompt if adding a non-typed task to a typed cart. 
+
+Navigation: 
+- Need a way to empty cart with a prompt so that people aren't just clearing the JHA. 
+
+Hazard suggestions: 
+- REACH: need a way to suggest jobsite specific only changes, and suggestions to master. 
+
+Shopping page: 
+- Find a way to update statuss so that they are cleared when the cart is cleared. 
+- looks like activity description is also having some trouble clearing that as well since it's storing it's own state. 
+
+- REACH: I think using mongo we should just add all the variants and stuff right on the hazard object. 
+    - jhacomplete objects will have a link to variants or suggestions. 
+    - in that object. 
+
+
+API Changes: 
+- Forms and other objects should be stored in a customer specific object so that they can be shared between things. 
+- Stop uploading so many damn PDF's. 
