@@ -326,7 +326,6 @@ function Navigation ({children, jha, setJHA, user, signOut, color, setColor, set
         <br></br>
         {(jha.selected && jha.selected.length > 0) ? <React.Fragment>
            {jha.selected.map((data, index) => {
-          console.log(data)
             return <ListItem button key={"cart"+data.data._id}>
               <ListItemIcon key={"icon"+data.data._id}><InboxIcon /></ListItemIcon>
               <ListItemText primary={data.data.task} secondary={data.data.hazard}/>

@@ -110,14 +110,35 @@ function FreeSoloCreateOption({label, JHA, setJHA}) {
     </div>
     <Autocomplete
       value={JHA.activity == undefined ? "" : JHA.activity}
+      onBlur={(v)=>console.log("WTF",v)}
       onChange={(event, newValue) => {
         if (typeof newValue === 'string') {
           console.log("option 1")
-          updateV(newValue);
+          
+          var uploadPayload = {
+            name: newValue,
+            description: "",
+          }
+            environment.fetch('activity',
+          {
+            method: 'POST',
+            body: JSON.stringify(uploadPayload),
+            headers: {
+              'Accept': 'application/json',
+              "content-type": "application/json",
+            }
+          }).then(res => 
+            res.json()).then((activitiesC) => {
+              setActivity([...activity, activitiesC])
+              updateV( activitiesC);
+            })
+            // this one is triggered when "add activity is clicked"
+            /// eg { name: 'Add "ttt"'}
         } else if (newValue && newValue.inputValue) {
           // Create a new value from the user input
           // we also need to create this new value on the server. 
-          console.log("option 2")
+          console.log("option 2", newValue)
+        
           var uploadPayload = {
             name: newValue.inputValue,
             description: "",
@@ -137,8 +158,8 @@ function FreeSoloCreateOption({label, JHA, setJHA}) {
         updateV( activitiesC);
       })
         } else {
-          console.log("option 3")
-          updateV(newValue);
+          console.log("option 3", newValue)
+          updateV( newValue);
         }
       }}
       filterOptions={(options, params) => {
