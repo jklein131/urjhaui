@@ -256,16 +256,26 @@ export default function JhaRow({goUp, setJHA, isView = false, JHA, showDown, sho
             }
           }).then(res => 
             res.json()).then((activitiesC) => {
-             setMyData(
-               myData.map((v, index)=> {
-                    if (v._id === data._id) {
-                        var k = v 
-                        k.rac = value
-                      return k
-                    }
-                    return v
-               })
-             )
+              if (myData) {
+                setMyData(
+                  myData.map((v, index)=> {
+                       if (v._id === data._id) {
+                           var k = v 
+                           k.rac = value
+                         return k
+                       }
+                       return v
+                  })
+                )
+                
+              } else { 
+                setJHA({...JHA, selected: JHA.selected.map((v)=>{
+                  if (v.data._id === data._id) {
+                    v.data.rac = value
+                  }
+                  return v
+                }) })
+              }
             }).catch(function(reason) {
              alert(reason)
           });

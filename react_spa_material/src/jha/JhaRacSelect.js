@@ -69,7 +69,7 @@ const textcolors = [
   "black"
 ];
 
-export default function JhaRacSelect({RAC, setRAC, disabled}) {
+export default function JhaRacSelect({RAC, setRAC, disabled= false}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClickListItem = (event) => {
@@ -94,9 +94,8 @@ export default function JhaRacSelect({RAC, setRAC, disabled}) {
           aria-controls="lock-menu"
           aria-label="RAC select"
           variant="contained"
-          onClick={() => { if(disabled) {
-            return} 
-            handleClickListItem()}}
+          disabled={disabled}
+          onClick={handleClickListItem}
         >
           {}
           {options[values.indexOf(RAC)]}

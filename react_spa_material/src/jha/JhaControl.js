@@ -243,6 +243,11 @@ function JhaControl({ jha_type, setJHA, JHA,  profile}) {
             length_of_rows > 0 ? "": <CustomizedSnackbars key={1241241241555}></CustomizedSnackbars>
             
               }
+              {
+            length_of_rows > 0 ? <React.Fragment> <Button variant={"contained"} href={"/#checkout"} color="primary">Review {jha_type}!</Button></React.Fragment> :""
+         
+            
+              }
               {length_of_rows = 0 ? "" : ""}
               <br></br>
          <br key={12477}></br>
